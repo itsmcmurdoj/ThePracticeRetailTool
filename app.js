@@ -110,7 +110,9 @@
   const modalSku = document.getElementById('modal-sku');
   const modalPitch = document.getElementById('modal-pitch');
   const btnCopyPitch = document.getElementById('btn-copy-pitch');
-  const modalMomenceLink = document.getElementById('modal-momence-link');
+  const btnMomenceApp = document.getElementById('modal-momence-app-btn');
+  const modalMomenceWebLink = document.getElementById('modal-momence-web-link');
+  const btnHeaderPos = document.getElementById('btn-header-pos');
   const btnCopySku = document.getElementById('btn-copy-sku');
   const btnScanAgain = document.getElementById('btn-scan-again');
   const modalAlternativesSection = document.getElementById('modal-alternatives-section');
@@ -168,6 +170,36 @@
     setTimeout(() => {
       toast.classList.remove('show');
     }, 2200);
+  }
+
+  // --- NATIVE MOMENCE APP DEEP LINK ENGINE ---
+  // Directly prompts iPadOS / iOS to launch the native Momence app
+  // where retail staff are already logged in, bypassing web re-logins.
+  function launchMomenceApp(path, webFallbackUrl) {
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    const momenceSchemeUrl = `momence://${cleanPath}`;
+
+    showToast('Prompting Momence App...');
+
+    // On iPadOS / iOS:
+    // Navigating to momence:// triggers the native system dialog:
+    // "Open in 'Momence'?" -> [Open] switches straight to the logged-in app.
+    window.location.href = momenceSchemeUrl;
+
+    // Detection for desktop / non-iOS:
+    const isTouch = navigator.maxTouchPoints > 0;
+    const isAppleMobile = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && isTouch);
+
+    // Only auto-open web on non-iOS/non-mobile devices (like laptop desktop)
+    // On iPad, we don't want to force-open browser if staff tapped [Cancel] on iOS prompt
+    if (!isAppleMobile && webFallbackUrl) {
+      const start = Date.now();
+      setTimeout(() => {
+        if (Date.now() - start < 2200 && !document.hidden) {
+          window.open(webFallbackUrl, '_blank', 'noopener');
+        }
+      }, 1400);
+    }
   }
 
   // --- LOAD TENSORFLOW.JS MOBILENET NEURAL VISION MODEL ---
@@ -362,7 +394,20 @@
     modalSku.textContent = product.sku || 'N/A';
     modalDeptBadge.textContent = product.department;
     modalPitch.textContent = product.pitch;
-    modalMomenceLink.href = product.momenceUrl;
+    
+    // Configure Momence App button (direct iOS app deep link)
+    const momencePath = `dashboard/200431/products/${product.id}/edit`;
+    if (btnMomenceApp) {
+      btnMomenceApp.href = `momence://${momencePath}`;
+      btnMomenceApp.onclick = (e) => {
+        e.preventDefault();
+        launchMomenceApp(momencePath, product.momenceUrl);
+      };
+    }
+    // Configure Web fallback link
+    if (modalMomenceWebLink) {
+      modalMomenceWebLink.href = product.momenceUrl;
+    }
 
     if (product.img) {
       modalImg.src = product.img;
@@ -812,6 +857,39 @@
       }).catch(() => {
         showToast('Unable to copy SKU');
       });
+    }
+  });
+
+  // Header Momence POS shortcut
+  if (btnHeaderPos) {
+    btnHeaderPos.addEventListener('click', (e) => {
+      e.preventDefault();
+      launchMomenceApp('dashboard/200431/point-of-sale', 'https://momence.com/dashboard/200431/point-of-sale');
+    });
+  }
+
+  // Universal Momence click interceptor: ensures EVERY Momence link prompts native app
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    // Allow explicit web fallback button to open browser
+    if (anchor.classList.contains('link-web-fallback') || anchor.id === 'modal-momence-web-link') {
+      return;
+    }
+    const href = anchor.getAttribute('href') || '';
+    if (href.startsWith('momence://')) {
+      e.preventDefault();
+      const path = href.replace('momence://', '');
+      launchMomenceApp(path, `https://momence.com/${path}`);
+    } else if (href.includes('momence.com/')) {
+      e.preventDefault();
+      try {
+        const url = new URL(href, window.location.href);
+        const path = (url.pathname + url.search).replace(/^\//, '');
+        launchMomenceApp(path, href);
+      } catch (err) {
+        launchMomenceApp('dashboard/200431/point-of-sale', href);
+      }
     }
   });
 

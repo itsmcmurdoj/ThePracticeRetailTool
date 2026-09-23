@@ -36,12 +36,12 @@
       </div>
       
       <div class="header-right">
-        <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="header-pos-btn" title="Open Momence Register POS">
+        <a id="btn-header-pos" href="momence://dashboard/200431/point-of-sale" class="header-pos-btn" title="Open Momence Register POS App">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="2" y="4" width="20" height="16" rx="2"></rect>
             <line x1="2" y1="10" x2="22" y2="10"></line>
           </svg>
-          <span>Momence POS</span>
+          <span>Momence POS App</span>
         </a>
 
         <div id="connection-status" class="status-pill status-online">
@@ -269,8 +269,8 @@
               <div class="tier-pitch-tip">
                 <strong>Pitch to Guest:</strong> <em>"Ideal if you take 1 class a week and want weekly infrared vibration recovery."</em>
               </div>
-              <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="tier-buy-btn">
-                <span>Sell in Momence POS</span>
+              <a href="momence://dashboard/200431/point-of-sale" class="tier-buy-btn">
+                <span>Sell in Momence App</span>
               </a>
             </div>
 
@@ -294,8 +294,8 @@
               <div class="tier-pitch-tip">
                 <strong>Pitch to Guest:</strong> <em>"Combines weekly movement with monthly registered clinical care under one roof."</em>
               </div>
-              <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="tier-buy-btn">
-                <span>Sell in Momence POS</span>
+              <a href="momence://dashboard/200431/point-of-sale" class="tier-buy-btn">
+                <span>Sell in Momence App</span>
               </a>
             </div>
 
@@ -318,8 +318,8 @@
               <div class="tier-pitch-tip">
                 <strong>Pitch to Guest:</strong> <em>"Designed for nervous system recovery with weekly 1-on-1 practitioner support."</em>
               </div>
-              <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="tier-buy-btn">
-                <span>Sell in Momence POS</span>
+              <a href="momence://dashboard/200431/point-of-sale" class="tier-buy-btn">
+                <span>Sell in Momence App</span>
               </a>
             </div>
 
@@ -342,8 +342,8 @@
               <div class="tier-pitch-tip">
                 <strong>Pitch to Guest:</strong> <em>"Unlimited daily access to our entire 4-storey sanctuary, classes, and practitioners."</em>
               </div>
-              <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="tier-buy-btn">
-                <span>Sell in Momence POS</span>
+              <a href="momence://dashboard/200431/point-of-sale" class="tier-buy-btn">
+                <span>Sell in Momence App</span>
               </a>
             </div>
 
@@ -366,8 +366,8 @@
               <div class="tier-pitch-tip">
                 <strong>Pitch to Guest:</strong> <em>"Our most comprehensive tier for holistic wellness, clinical care, and reflection."</em>
               </div>
-              <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="tier-buy-btn">
-                <span>Sell in Momence POS</span>
+              <a href="momence://dashboard/200431/point-of-sale" class="tier-buy-btn">
+                <span>Sell in Momence App</span>
               </a>
             </div>
 
@@ -385,7 +385,7 @@
                   <div class="pack-unit">$44.66 / class</div>
                 </div>
                 <p class="pack-validity">Valid for 1 month from purchase</p>
-                <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="pack-buy-btn">Sell in POS</a>
+                <a href="momence://dashboard/200431/point-of-sale" class="pack-buy-btn">Sell in App</a>
               </div>
 
               <div class="pack-card">
@@ -395,7 +395,7 @@
                   <div class="pack-unit">$44.00 / class</div>
                 </div>
                 <p class="pack-validity">Valid for 3 months from purchase</p>
-                <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="pack-buy-btn">Sell in POS</a>
+                <a href="momence://dashboard/200431/point-of-sale" class="pack-buy-btn">Sell in App</a>
               </div>
 
               <div class="pack-card highlight-pack">
@@ -406,7 +406,7 @@
                   <div class="pack-unit">$42.00 / class</div>
                 </div>
                 <p class="pack-validity">Valid for 6 months from purchase</p>
-                <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="pack-buy-btn">Sell in POS</a>
+                <a href="momence://dashboard/200431/point-of-sale" class="pack-buy-btn">Sell in App</a>
               </div>
 
               <div class="pack-card">
@@ -416,7 +416,7 @@
                   <div class="pack-unit">$39.50 / class (Best Value)</div>
                 </div>
                 <p class="pack-validity">Valid for 12 months from purchase</p>
-                <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="pack-buy-btn">Sell in POS</a>
+                <a href="momence://dashboard/200431/point-of-sale" class="pack-buy-btn">Sell in App</a>
               </div>
 
             </div>
@@ -515,17 +515,21 @@
 
               <!-- Action Links -->
               <div class="modal-actions">
-                <a id="modal-momence-link" href="#" target="_blank" rel="noopener" class="btn-primary btn-momence">
+                <a id="modal-momence-app-btn" href="#" class="btn-primary btn-momence-app">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                    <rect x="5" y="2" width="14" height="20" rx="3"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
                   </svg>
-                  <span>Open in Momence</span>
+                  <span>Open in Momence App</span>
                 </a>
                 <button id="btn-scan-again" class="btn-secondary">
                   <span>Snap Another Item</span>
                 </button>
+              </div>
+              <div class="modal-web-fallback-row">
+                <a id="modal-momence-web-link" href="#" target="_blank" rel="noopener" class="link-web-fallback">
+                  Or open in web browser &rarr;
+                </a>
               </div>
 
             </div>
@@ -564,7 +568,7 @@
               <span class="step-num">3</span>
               <div>
                 <strong>Pitch & Ring Up:</strong>
-                <p>Read craftsmanship notes to the guest and tap "Open in Momence" to ring up the correct item.</p>
+                <p>Read craftsmanship notes to the guest and tap "Open in Momence App" to ring up the correct item on the iPad register.</p>
               </div>
             </div>
           </div>
