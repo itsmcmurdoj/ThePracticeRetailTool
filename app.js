@@ -112,6 +112,7 @@
   const btnCopyPitch = document.getElementById('btn-copy-pitch');
   const btnMomenceApp = document.getElementById('modal-momence-app-btn');
   const modalMomenceWebLink = document.getElementById('modal-momence-web-link');
+  const modalMomenceEditLink = document.getElementById('modal-momence-edit-link');
   const btnHeaderPos = document.getElementById('btn-header-pos');
   const btnCopySku = document.getElementById('btn-copy-sku');
   const btnScanAgain = document.getElementById('btn-scan-again');
@@ -395,18 +396,33 @@
     modalDeptBadge.textContent = product.department;
     modalPitch.textContent = product.pitch;
     
-    // Configure Momence App button (direct iOS app deep link)
-    const momencePath = `dashboard/200431/products/${product.id}/edit`;
+    // Configure Momence Point of Sale App button (direct iOS POS deep link)
+    // Routes straight to the POS register with product parameters so staff can immediately ring up
+    const posPath = `dashboard/200431/point-of-sale?productId=${product.id}&product_id=${product.id}&product=${product.id}&sku=${encodeURIComponent(product.sku || '')}&search=${encodeURIComponent(product.sku || product.name)}`;
+    const posWebUrl = `https://momence.com/${posPath}`;
+    const editWebUrl = `https://momence.com/dashboard/200431/products/${product.id}/edit`;
+
     if (btnMomenceApp) {
-      btnMomenceApp.href = `momence://${momencePath}`;
-      btnMomenceApp.onclick = (e) => {
+      btnMomenceApp.href = `momence://${posPath}`;
+      btnMomenceApp.onclick = async (e) => {
         e.preventDefault();
-        launchMomenceApp(momencePath, product.momenceUrl);
+        // Auto-copy SKU to iPad clipboard so retail staff can quickly paste into POS if needed
+        if (product.sku) {
+          try {
+            await navigator.clipboard.writeText(product.sku);
+          } catch (_) {}
+        }
+        showToast(`Opening POS register... SKU ${product.sku || product.id} copied!`);
+        launchMomenceApp(posPath, posWebUrl);
       };
     }
-    // Configure Web fallback link
+    // Configure Web fallback link (Point of Sale)
     if (modalMomenceWebLink) {
-      modalMomenceWebLink.href = product.momenceUrl;
+      modalMomenceWebLink.href = posWebUrl;
+    }
+    // Configure Admin Edit link
+    if (modalMomenceEditLink) {
+      modalMomenceEditLink.href = editWebUrl;
     }
 
     if (product.img) {
@@ -872,8 +888,8 @@
   document.addEventListener('click', (e) => {
     const anchor = e.target.closest('a');
     if (!anchor) return;
-    // Allow explicit web fallback button to open browser
-    if (anchor.classList.contains('link-web-fallback') || anchor.id === 'modal-momence-web-link') {
+    // Allow explicit web fallback buttons to open browser
+    if (anchor.classList.contains('link-web-fallback') || anchor.id === 'modal-momence-web-link' || anchor.classList.contains('link-admin-edit') || anchor.id === 'modal-momence-edit-link') {
       return;
     }
     const href = anchor.getAttribute('href') || '';

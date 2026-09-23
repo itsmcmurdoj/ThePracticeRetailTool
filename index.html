@@ -518,12 +518,16 @@
 
               <!-- Action Links -->
               <div class="modal-actions">
-                <a id="modal-momence-app-btn" href="#" class="btn-primary btn-momence-app">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="5" y="2" width="14" height="20" rx="3"></rect>
-                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                <a id="modal-momence-app-btn" href="#" class="btn-primary btn-momence-app" title="Ring up this product in Momence Point of Sale">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                   </svg>
-                  <span>Open in Momence App</span>
+                  <div class="btn-pos-label-group">
+                    <span class="btn-pos-main">Sell in Momence POS</span>
+                    <span class="btn-pos-hint">Opens register • select guest to finish</span>
+                  </div>
                 </a>
                 <button id="btn-scan-again" class="btn-secondary">
                   <span>Snap Another Item</span>
@@ -531,7 +535,11 @@
               </div>
               <div class="modal-web-fallback-row">
                 <a id="modal-momence-web-link" href="#" target="_blank" rel="noopener" class="link-web-fallback">
-                  Or open in web browser &rarr;
+                  Open Point of Sale in web browser &rarr;
+                </a>
+                <span class="pos-divider">•</span>
+                <a id="modal-momence-edit-link" href="#" target="_blank" rel="noopener" class="link-admin-edit">
+                  Edit product (Admin) &nearr;
                 </a>
               </div>
 
@@ -571,7 +579,7 @@
               <span class="step-num">3</span>
               <div>
                 <strong>Pitch & Ring Up:</strong>
-                <p>Read craftsmanship notes to the guest and tap "Open in Momence App" to ring up the correct item on the iPad register.</p>
+                <p>Read craftsmanship notes to the guest and tap "Sell in Momence POS" to open the register and ring up the item immediately.</p>
               </div>
             </div>
           </div>

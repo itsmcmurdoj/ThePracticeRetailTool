@@ -3,7 +3,7 @@
  * Provides 100% offline capability for the 731-product catalog
  */
 
-const CACHE_NAME = 'the-practice-retail-v6';
+const CACHE_NAME = 'the-practice-retail-v7';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

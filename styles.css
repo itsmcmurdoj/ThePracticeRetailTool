@@ -1449,18 +1449,18 @@ body {
 }
 
 .btn-primary.btn-momence-app {
-  flex: 1.4;
+  flex: 1.5;
   background: var(--color-button-indigo);
   color: #FFFFFF;
   border: none;
   border-radius: var(--radius-pill);
-  padding: 14px 22px;
+  padding: 12px 20px;
   font-size: 13px;
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   text-decoration: none;
   cursor: pointer;
   box-shadow: var(--shadow-button);
@@ -1468,8 +1468,30 @@ body {
 }
 
 .btn-primary.btn-momence-app svg {
-  width: 17px;
-  height: 17px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.btn-pos-label-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  line-height: 1.25;
+}
+
+.btn-pos-main {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.btn-pos-hint {
+  font-size: 10px;
+  opacity: 0.8;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .btn-primary.btn-momence-app:hover {
@@ -1495,11 +1517,21 @@ body {
 }
 
 .modal-web-fallback-row {
-  text-align: center;
-  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
 }
 
-.link-web-fallback {
+.pos-divider {
+  color: var(--color-border);
+  font-size: 10px;
+}
+
+.link-web-fallback,
+.link-admin-edit {
   color: var(--color-text-muted);
   font-size: 11px;
   text-decoration: underline;
@@ -1507,7 +1539,8 @@ body {
   transition: color 0.2s ease;
 }
 
-.link-web-fallback:hover {
+.link-web-fallback:hover,
+.link-admin-edit:hover {
   color: var(--color-button-indigo);
 }
 
