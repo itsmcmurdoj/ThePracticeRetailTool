@@ -56,6 +56,7 @@
   const viewPanels = {
     scanner: document.getElementById('view-scanner'),
     catalog: document.getElementById('view-catalog'),
+    favorites: document.getElementById('view-favorites'),
     memberships: document.getElementById('view-memberships'),
     history: document.getElementById('view-history'),
   };
@@ -109,7 +110,9 @@
   const modalPrice = document.getElementById('modal-price');
   const modalSku = document.getElementById('modal-sku');
   const modalPitch = document.getElementById('modal-pitch');
+  const modalPitchBullets = document.getElementById('modal-pitch-bullets');
   const btnCopyPitch = document.getElementById('btn-copy-pitch');
+  const btnModalFavorite = document.getElementById('btn-modal-favorite');
   const btnMomenceApp = document.getElementById('modal-momence-app-btn');
   const modalMomenceWebLink = document.getElementById('modal-momence-web-link');
   const modalMomenceEditLink = document.getElementById('modal-momence-edit-link');
@@ -118,6 +121,9 @@
   const btnScanAgain = document.getElementById('btn-scan-again');
   const modalAlternativesSection = document.getElementById('modal-alternatives-section');
   const alternativesGrid = document.getElementById('alternatives-grid');
+  const favoritesCountSpan = document.getElementById('favorites-count');
+  const favoritesGrid = document.getElementById('favorites-grid');
+  const btnClearFavorites = document.getElementById('btn-clear-favorites');
 
   // Help Modal elements
   const helpModal = document.getElementById('help-modal');
@@ -173,34 +179,33 @@
     }, 2200);
   }
 
-  // --- NATIVE MOMENCE APP DEEP LINK ENGINE ---
-  // Directly prompts iPadOS / iOS to launch the native Momence app
-  // where retail staff are already logged in, bypassing web re-logins.
-  function launchMomenceApp(path, webFallbackUrl) {
-    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-    const momenceSchemeUrl = `momence://${cleanPath}`;
-
-    showToast('Prompting Momence App...');
-
-    // On iPadOS / iOS:
-    // Navigating to momence:// triggers the native system dialog:
-    // "Open in 'Momence'?" -> [Open] switches straight to the logged-in app.
-    window.location.href = momenceSchemeUrl;
-
-    // Detection for desktop / non-iOS:
-    const isTouch = navigator.maxTouchPoints > 0;
-    const isAppleMobile = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && isTouch);
-
-    // Only auto-open web on non-iOS/non-mobile devices (like laptop desktop)
-    // On iPad, we don't want to force-open browser if staff tapped [Cancel] on iOS prompt
-    if (!isAppleMobile && webFallbackUrl) {
-      const start = Date.now();
-      setTimeout(() => {
-        if (Date.now() - start < 2200 && !document.hidden) {
-          window.open(webFallbackUrl, '_blank', 'noopener');
-        }
-      }, 1400);
+  // --- MOMENTS WEB APP LAUNCH ENGINE ---
+  // On studio iPads, Moments runs as an HTML web app (saved to Home Screen as 'Moments').
+  // All Moments links inside the app open the web app register directly in Safari / web browser.
+  function openMomentsWebApp(urlOrPath) {
+    let targetUrl;
+    const defaultPosUrl = 'https://momence.com/dashboard/200431/point-of-sale?customer=cafe%40thepractice.ca&email=cafe%40thepractice.ca&name=Cafe+Cafe';
+    if (!urlOrPath) {
+      targetUrl = defaultPosUrl;
+    } else if (urlOrPath.startsWith('http://') || urlOrPath.startsWith('https://')) {
+      targetUrl = urlOrPath;
+    } else if (urlOrPath.startsWith('momence://')) {
+      targetUrl = `https://momence.com/${urlOrPath.replace('momence://', '')}`;
+    } else {
+      const cleanPath = urlOrPath.startsWith('/') ? urlOrPath.slice(1) : urlOrPath;
+      targetUrl = `https://momence.com/${cleanPath}`;
     }
+
+    showToast('Opening Moments POS Web App (Cafe Cafe)...');
+
+    const win = window.open(targetUrl, '_blank', 'noopener');
+    if (!win) {
+      window.location.href = targetUrl;
+    }
+  }
+
+  function launchMomenceApp(path, webFallbackUrl) {
+    openMomentsWebApp(webFallbackUrl || path);
   }
 
   // --- LOAD TENSORFLOW.JS MOBILENET NEURAL VISION MODEL ---
@@ -386,6 +391,203 @@
     fileUploadInput.value = '';
   });
 
+  // --- FAVORITES STORE & CONTROLLER ---
+  let favorites = JSON.parse(localStorage.getItem('the_practice_favorites') || '[]');
+
+  function isFavorite(productId) {
+    const num = Number(productId);
+    return favorites.some(id => Number(id) === num);
+  }
+
+  function toggleFavorite(productId) {
+    const num = Number(productId);
+    const idx = favorites.findIndex(id => Number(id) === num);
+    if (idx > -1) {
+      favorites.splice(idx, 1);
+      showToast('Removed from Favorites');
+    } else {
+      favorites.push(num);
+      showToast('Added to Favorites ⭐');
+    }
+    localStorage.setItem('the_practice_favorites', JSON.stringify(favorites));
+    updateFavoritesUI();
+  }
+
+  function updateFavoritesUI() {
+    if (favoritesCountSpan) {
+      favoritesCountSpan.textContent = favorites.length;
+    }
+    if (activeProduct) {
+      updateModalFavButton(activeProduct.id);
+    }
+    // Update active state of visible card stars
+    document.querySelectorAll('.card-fav-btn').forEach(btn => {
+      const pid = Number(btn.getAttribute('data-fav-id'));
+      const active = isFavorite(pid);
+      btn.classList.toggle('active', active);
+      const svg = btn.querySelector('svg');
+      if (svg) {
+        svg.setAttribute('fill', active ? '#F5A258' : 'none');
+        svg.setAttribute('stroke', active ? '#F5A258' : '#777');
+      }
+    });
+
+    if (activeTab === 'favorites') {
+      renderFavoritesView();
+    }
+  }
+
+  function updateModalFavButton(productId) {
+    if (!btnModalFavorite) return;
+    const isFav = isFavorite(productId);
+    btnModalFavorite.classList.toggle('active', isFav);
+    btnModalFavorite.setAttribute('aria-pressed', isFav ? 'true' : 'false');
+  }
+
+  // --- SPEECH-BUBBLE TALKING POINTS RENDERER ---
+  function renderPitchBullets(pitchText) {
+    if (!modalPitchBullets) return;
+    modalPitchBullets.innerHTML = '';
+    if (!pitchText) {
+      modalPitchBullets.innerHTML = `
+        <div class="pitch-bubble">
+          <div class="bubble-header">
+            <span class="bubble-bullet-num">1</span>
+            <span class="bubble-tag">TALKING POINT</span>
+          </div>
+          <div class="bubble-body">
+            <span class="bubble-quote">“</span>
+            <p class="bubble-text">Craftsmanship notes and scent profiles available from studio team lead.</p>
+            <span class="bubble-quote">”</span>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    // Split sentences or bullet points
+    const rawParts = pitchText.split(/(?<=[.!?])\s+|\s*[;•]\s*/);
+    const bullets = rawParts
+      .map(p => p.trim())
+      .filter(p => p.length > 5);
+
+    if (bullets.length === 0) {
+      bullets.push(pitchText.trim());
+    }
+
+    bullets.forEach((bullet, idx) => {
+      const cleanBullet = bullet.endsWith('.') ? bullet.slice(0, -1) : bullet;
+      const bubble = document.createElement('div');
+      bubble.className = 'pitch-bubble';
+      bubble.setAttribute('role', 'button');
+      bubble.tabIndex = 0;
+      bubble.title = 'Tap to copy talking point';
+      bubble.innerHTML = `
+        <div class="bubble-header">
+          <span class="bubble-bullet-num">${idx + 1}</span>
+          <span class="bubble-tag">TALKING POINT</span>
+          <span class="bubble-copy-hint">Tap to copy</span>
+        </div>
+        <div class="bubble-body">
+          <span class="bubble-quote">“</span>
+          <p class="bubble-text">${cleanBullet}.</p>
+          <span class="bubble-quote">”</span>
+        </div>
+      `;
+      bubble.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        try {
+          await navigator.clipboard.writeText(cleanBullet);
+          showToast('Copied talking point!');
+          bubble.classList.add('copied');
+          const hint = bubble.querySelector('.bubble-copy-hint');
+          if (hint) hint.textContent = 'Copied!';
+          setTimeout(() => {
+            bubble.classList.remove('copied');
+            if (hint) hint.textContent = 'Tap to copy';
+          }, 1500);
+        } catch (_) {}
+      });
+      modalPitchBullets.appendChild(bubble);
+    });
+  }
+
+  // Helper for generating reusable product card HTML
+  function generateProductCardHtml(p) {
+    const isFav = isFavorite(p.id);
+    return `
+      <div class="catalog-card" data-pid="${p.id}">
+        <div class="card-img-wrap">
+          <button class="card-fav-btn ${isFav ? 'active' : ''}" data-fav-id="${p.id}" title="${isFav ? 'Remove Favorite' : 'Save Favorite'}" aria-label="Favorite">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="${isFav ? '#F5A258' : 'none'}" stroke="${isFav ? '#F5A258' : '#777'}" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </button>
+          <img class="card-img" src="${p.img || './icon.png'}" alt="${p.name}" loading="lazy" onerror="this.src='./icon.png'">
+        </div>
+        <div class="card-body">
+          <div>
+            <div class="card-brand">${p.brand}</div>
+            <div class="card-title">${p.name}</div>
+          </div>
+          <div class="card-footer">
+            <span class="card-price">${p.price}</span>
+            <span class="card-sku">${p.sku || ''}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function attachCardListeners(container) {
+    container.querySelectorAll('.catalog-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const pid = parseInt(card.getAttribute('data-pid'), 10);
+        const prod = PRODUCTS.find(p => p.id === pid);
+        if (prod) {
+          addToHistory(prod);
+          openProductModal(prod);
+        }
+      });
+      const favBtn = card.querySelector('.card-fav-btn');
+      if (favBtn) {
+        favBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const pid = parseInt(favBtn.getAttribute('data-fav-id'), 10);
+          toggleFavorite(pid);
+        });
+      }
+    });
+  }
+
+  // --- FAVORITES VIEW RENDERER ---
+  function renderFavoritesView() {
+    if (!favoritesGrid) return;
+    const favProducts = PRODUCTS.filter(p => isFavorite(p.id));
+    if (favProducts.length === 0) {
+      favoritesGrid.innerHTML = `
+        <div class="empty-state" style="grid-column: 1 / -1; padding: 48px 20px; text-align: center;">
+          <div style="font-size: 32px; margin-bottom: 8px;">⭐</div>
+          <h3 style="font-family: var(--font-heading); font-size: 20px; color: var(--color-primary); margin-bottom: 6px;">No Favorites Saved Yet</h3>
+          <p style="color: var(--color-text-muted); font-size: 13px; max-width: 400px; margin: 0 auto 16px auto;">
+            Tap the small star on any retail item or product popup to save fast-access items for your shift.
+          </p>
+          <button id="btn-fav-browse" class="btn-primary" style="background: var(--color-button-indigo); color: #fff; border-radius: 50px; padding: 10px 24px; border: none; font-size: 12px; cursor: pointer;">
+            Browse 731 Products
+          </button>
+        </div>
+      `;
+      const btnBrowse = document.getElementById('btn-fav-browse');
+      if (btnBrowse) {
+        btnBrowse.addEventListener('click', () => switchTab('catalog'));
+      }
+      return;
+    }
+
+    favoritesGrid.innerHTML = favProducts.map(p => generateProductCardHtml(p)).join('');
+    attachCardListeners(favoritesGrid);
+  }
+
   // --- MODAL / PRODUCT HUD DISPLAY ---
   function openProductModal(product, matchScore = null, alternatives = [], userPhotoDataUrl = null) {
     activeProduct = product;
@@ -396,41 +598,115 @@
     modalDeptBadge.textContent = product.department;
     modalPitch.textContent = product.pitch;
     
-    // Configure Momence Point of Sale App button (direct iOS POS deep link)
-    // Routes straight to the POS register with product parameters so staff can immediately ring up
-    const posPath = `dashboard/200431/point-of-sale?productId=${product.id}&product_id=${product.id}&product=${product.id}&sku=${encodeURIComponent(product.sku || '')}&search=${encodeURIComponent(product.sku || product.name)}`;
-    const posWebUrl = `https://momence.com/${posPath}`;
+    // Holding customer profile requested by studio operations:
+    // "Cafe Cafe" with email "cafe@thepractice.ca"
+    // Point of Sale requires selecting a customer profile first before items can drop into cart.
+    const HOLDING_CUSTOMER_EMAIL = 'cafe@thepractice.ca';
+    const HOLDING_CUSTOMER_NAME = 'Cafe Cafe';
+
+    const posParams = new URLSearchParams({
+      customer: HOLDING_CUSTOMER_EMAIL,
+      email: HOLDING_CUSTOMER_EMAIL,
+      customer_email: HOLDING_CUSTOMER_EMAIL,
+      customerEmail: HOLDING_CUSTOMER_EMAIL,
+      name: HOLDING_CUSTOMER_NAME,
+      customer_name: HOLDING_CUSTOMER_NAME,
+      customerName: HOLDING_CUSTOMER_NAME,
+      searchCustomer: HOLDING_CUSTOMER_EMAIL,
+      productId: product.id,
+      product_id: product.id,
+      product: product.id,
+      item: product.id,
+      sku: product.sku || '',
+      search: product.sku || product.name || '',
+      autoAdd: 'true',
+      cart: product.id
+    });
+
+    const posWebUrl = `https://momence.com/dashboard/200431/point-of-sale?${posParams.toString()}`;
     const editWebUrl = `https://momence.com/dashboard/200431/products/${product.id}/edit`;
 
+    // Configure Moments Point of Sale Web App button
     if (btnMomenceApp) {
-      btnMomenceApp.href = `momence://${posPath}`;
-      btnMomenceApp.onclick = async (e) => {
-        e.preventDefault();
-        // Auto-copy SKU to iPad clipboard so retail staff can quickly paste into POS if needed
+      btnMomenceApp.href = posWebUrl;
+      btnMomenceApp.target = '_blank';
+      btnMomenceApp.rel = 'noopener';
+      btnMomenceApp.onclick = () => {
+        // Auto-copy SKU to iPad clipboard so retail staff can quickly paste if needed
         if (product.sku) {
-          try {
-            await navigator.clipboard.writeText(product.sku);
-          } catch (_) {}
+          navigator.clipboard?.writeText(product.sku).catch(() => {});
         }
-        showToast(`Opening POS register... SKU ${product.sku || product.id} copied!`);
-        launchMomenceApp(posPath, posWebUrl);
+        showToast(`Opening Moments POS (Cafe Cafe)... SKU ${product.sku || product.id} copied!`);
+        // Native navigation: do not preventDefault so Safari opens in new tab cleanly without pop-up blocking
       };
     }
+
+    // Configure Fast-Fill Assistant buttons
+    const btnCopyPosEmail = document.getElementById('btn-copy-pos-email');
+    if (btnCopyPosEmail) {
+      btnCopyPosEmail.onclick = async (e) => {
+        e.stopPropagation();
+        try {
+          await navigator.clipboard.writeText(HOLDING_CUSTOMER_EMAIL);
+          showToast(`Copied ${HOLDING_CUSTOMER_EMAIL}!`);
+          btnCopyPosEmail.classList.add('copied');
+          const act = btnCopyPosEmail.querySelector('.chip-action');
+          if (act) act.textContent = 'Copied!';
+          setTimeout(() => {
+            btnCopyPosEmail.classList.remove('copied');
+            if (act) act.textContent = 'Copy';
+          }, 1500);
+        } catch (_) {}
+      };
+    }
+
+    const btnCopyPosSku = document.getElementById('btn-copy-pos-sku');
+    const posChipSkuVal = document.getElementById('pos-chip-sku-val');
+    if (posChipSkuVal) {
+      posChipSkuVal.textContent = product.sku || String(product.id);
+    }
+    if (btnCopyPosSku) {
+      btnCopyPosSku.onclick = async (e) => {
+        e.stopPropagation();
+        const skuToCopy = product.sku || String(product.id);
+        try {
+          await navigator.clipboard.writeText(skuToCopy);
+          showToast(`Copied SKU ${skuToCopy}!`);
+          btnCopyPosSku.classList.add('copied');
+          const act = btnCopyPosSku.querySelector('.chip-action');
+          if (act) act.textContent = 'Copied!';
+          setTimeout(() => {
+            btnCopyPosSku.classList.remove('copied');
+            if (act) act.textContent = 'Copy';
+          }, 1500);
+        } catch (_) {}
+      };
+    }
+
     // Configure Web fallback link (Point of Sale)
     if (modalMomenceWebLink) {
       modalMomenceWebLink.href = posWebUrl;
+      modalMomenceWebLink.target = '_blank';
+      modalMomenceWebLink.rel = 'noopener';
     }
     // Configure Admin Edit link
     if (modalMomenceEditLink) {
       modalMomenceEditLink.href = editWebUrl;
+      modalMomenceEditLink.target = '_blank';
+      modalMomenceEditLink.rel = 'noopener';
     }
 
     if (product.img) {
       modalImg.src = product.img;
       modalImg.style.display = 'block';
     } else {
-      modalImg.src = './icon.svg';
+      modalImg.src = './icon.png';
     }
+
+    // Render speech-bubble talking points
+    renderPitchBullets(product.pitch);
+    // Update modal favorite button state
+    updateModalFavButton(product.id);
 
     // Match score badge
     if (matchScore) {
@@ -600,34 +876,8 @@
     }
 
     const displayList = filtered.slice(0, 100);
-    catalogGrid.innerHTML = displayList.map(p => `
-      <div class="catalog-card" data-pid="${p.id}">
-        <div class="card-img-wrap">
-          <img class="card-img" src="${p.img || './icon.svg'}" alt="${p.name}" loading="lazy" onerror="this.src='./icon.svg'">
-        </div>
-        <div class="card-body">
-          <div>
-            <div class="card-brand">${p.brand}</div>
-            <div class="card-title">${p.name}</div>
-          </div>
-          <div class="card-footer">
-            <span class="card-price">${p.price}</span>
-            <span class="card-sku">${p.sku || ''}</span>
-          </div>
-        </div>
-      </div>
-    `).join('');
-
-    catalogGrid.querySelectorAll('.catalog-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const pid = parseInt(card.getAttribute('data-pid'), 10);
-        const prod = PRODUCTS.find(p => p.id === pid);
-        if (prod) {
-          addToHistory(prod);
-          openProductModal(prod);
-        }
-      });
-    });
+    catalogGrid.innerHTML = displayList.map(p => generateProductCardHtml(p)).join('');
+    attachCardListeners(catalogGrid);
   }
 
   // --- MEMBERSHIP RATES CONTROLLER ---
@@ -733,6 +983,8 @@
 
     if (tabId === 'catalog') {
       renderCatalog();
+    } else if (tabId === 'favorites') {
+      renderFavoritesView();
     }
   }
 
@@ -844,6 +1096,29 @@
 
   // Modal close handlers
   btnCloseModal.addEventListener('click', closeProductModal);
+
+  // Modal Favorite button handler
+  if (btnModalFavorite) {
+    btnModalFavorite.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activeProduct) {
+        toggleFavorite(activeProduct.id);
+      }
+    });
+  }
+
+  // Clear Favorites handler
+  if (btnClearFavorites) {
+    btnClearFavorites.addEventListener('click', () => {
+      if (favorites.length === 0) return;
+      if (confirm('Clear all saved favorites for this shift?')) {
+        favorites = [];
+        localStorage.setItem('the_practice_favorites', JSON.stringify(favorites));
+        updateFavoritesUI();
+        showToast('Favorites cleared');
+      }
+    });
+  }
   btnScanAgain.addEventListener('click', () => {
     closeProductModal();
     if (activeTab !== 'scanner') {
@@ -876,36 +1151,26 @@
     }
   });
 
-  // Header Momence POS shortcut
+  // Header Moments POS shortcut
   if (btnHeaderPos) {
     btnHeaderPos.addEventListener('click', (e) => {
       e.preventDefault();
-      launchMomenceApp('dashboard/200431/point-of-sale', 'https://momence.com/dashboard/200431/point-of-sale');
+      openMomentsWebApp('https://momence.com/dashboard/200431/point-of-sale');
     });
   }
 
-  // Universal Momence click interceptor: ensures EVERY Momence link prompts native app
+  // Universal Moments click interceptor: ensures all Moments links open the web app
   document.addEventListener('click', (e) => {
     const anchor = e.target.closest('a');
     if (!anchor) return;
-    // Allow explicit web fallback buttons to open browser
-    if (anchor.classList.contains('link-web-fallback') || anchor.id === 'modal-momence-web-link' || anchor.classList.contains('link-admin-edit') || anchor.id === 'modal-momence-edit-link') {
-      return;
-    }
     const href = anchor.getAttribute('href') || '';
     if (href.startsWith('momence://')) {
       e.preventDefault();
       const path = href.replace('momence://', '');
-      launchMomenceApp(path, `https://momence.com/${path}`);
-    } else if (href.includes('momence.com/')) {
+      openMomentsWebApp(`https://momence.com/${path}`);
+    } else if (href.includes('momence.com/') && anchor.getAttribute('target') !== '_blank') {
       e.preventDefault();
-      try {
-        const url = new URL(href, window.location.href);
-        const path = (url.pathname + url.search).replace(/^\//, '');
-        launchMomenceApp(path, href);
-      } catch (err) {
-        launchMomenceApp('dashboard/200431/point-of-sale', href);
-      }
+      openMomentsWebApp(href);
     }
   });
 
@@ -924,6 +1189,7 @@
   async function init() {
     populateBrandFilter();
     loadHistory();
+    updateFavoritesUI();
     renderCatalog();
     updateMembershipPrices('6');
     if (activeTab === 'scanner') {
