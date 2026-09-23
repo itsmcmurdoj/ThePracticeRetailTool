@@ -1,6 +1,6 @@
 /**
- * THE PRACTICE • RETAIL SCANNER CONTROLLER (app.js)
- * High-performance barcode detection, instant catalog search & Momence HUD
+ * THE PRACTICE • VISUAL RETAIL IDENTIFIER CONTROLLER (app.js)
+ * Reverse Visual Product Search powered by MobileNet v2 & Vector Embeddings
  */
 
 (function () {
@@ -10,14 +10,13 @@
   let activeTab = 'scanner';
   let activeDepartment = 'all';
   let activeSearchQuery = '';
-  let currentCameraFacing = 'environment'; // 'environment' (back) or 'user' (front)
+  let currentCameraFacing = 'environment';
   let videoStream = null;
-  let barcodeDetector = null;
-  let scanAnimationId = null;
-  let html5QrScanner = null;
-  let isScanningActive = false;
-  let isScanThrottled = false;
+  let mobilenetModel = null;
+  let isModelReady = false;
+  let isAnalyzing = false;
   let scanHistory = [];
+  let lastSnappedDataUrl = null;
 
   // --- DOM ELEMENTS ---
   const tabs = document.querySelectorAll('.nav-tab');
@@ -28,9 +27,14 @@
   };
 
   const videoElement = document.getElementById('camera-video');
+  const snapshotCanvas = document.getElementById('snapshot-canvas');
+  const scanAnalyzingOverlay = document.getElementById('scan-analyzing');
   const cameraMessage = document.getElementById('camera-message');
+  const btnSnapPhoto = document.getElementById('btn-snap-photo');
+  const fileUploadInput = document.getElementById('file-upload');
   const btnSwitchCamera = document.getElementById('btn-switch-camera');
   const btnTorch = document.getElementById('btn-torch');
+  const statusLabel = document.getElementById('status-label');
 
   const quickSkuForm = document.getElementById('quick-sku-form');
   const quickSkuInput = document.getElementById('quick-sku-input');
@@ -48,8 +52,11 @@
   // Modal elements
   const productModal = document.getElementById('product-modal');
   const btnCloseModal = document.getElementById('btn-close-modal');
+  const userPhotoCard = document.getElementById('user-photo-card');
+  const modalUserSnappedImg = document.getElementById('modal-user-snapped-img');
   const modalImg = document.getElementById('modal-img');
   const modalDeptBadge = document.getElementById('modal-dept-badge');
+  const modalMatchBadge = document.getElementById('modal-match-badge');
   const modalBrand = document.getElementById('modal-brand');
   const modalTitle = document.getElementById('modal-title');
   const modalPrice = document.getElementById('modal-price');
@@ -58,9 +65,11 @@
   const modalMomenceLink = document.getElementById('modal-momence-link');
   const btnCopySku = document.getElementById('btn-copy-sku');
   const btnScanAgain = document.getElementById('btn-scan-again');
+  const modalAlternativesSection = document.getElementById('modal-alternatives-section');
+  const alternativesGrid = document.getElementById('alternatives-grid');
   const toast = document.getElementById('toast');
 
-  // --- AUDIO SYNTHESIS FOR SCAN CHIME (Zero external dependencies) ---
+  // --- AUDIO SYNTHESIS FOR SCAN CHIME ---
   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   function playSuccessChime() {
     try {
@@ -69,29 +78,27 @@
       }
       const now = audioCtx.currentTime;
       
-      // Note 1 (E5 - 659.25Hz)
       const osc1 = audioCtx.createOscillator();
       const gain1 = audioCtx.createGain();
       osc1.type = 'sine';
-      osc1.frequency.setValueAtTime(659.25, now);
-      gain1.gain.setValueAtTime(0.15, now);
-      gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+      osc1.frequency.setValueAtTime(659.25, now); // E5
+      gain1.gain.setValueAtTime(0.18, now);
+      gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
       osc1.connect(gain1);
       gain1.connect(audioCtx.destination);
       osc1.start(now);
-      osc1.stop(now + 0.12);
+      osc1.stop(now + 0.14);
 
-      // Note 2 (B5 - 987.77Hz)
       const osc2 = audioCtx.createOscillator();
       const gain2 = audioCtx.createGain();
       osc2.type = 'sine';
-      osc2.frequency.setValueAtTime(987.77, now + 0.08);
-      gain2.gain.setValueAtTime(0.2, now + 0.08);
-      gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+      osc2.frequency.setValueAtTime(987.77, now + 0.08); // B5
+      gain2.gain.setValueAtTime(0.22, now + 0.08);
+      gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.32);
       osc2.connect(gain2);
       gain2.connect(audioCtx.destination);
       osc2.start(now + 0.08);
-      osc2.stop(now + 0.28);
+      osc2.stop(now + 0.32);
 
       if (navigator.vibrate) {
         navigator.vibrate([40, 30, 40]);
@@ -110,28 +117,28 @@
     }, 2200);
   }
 
-  // --- BARCODE DETECTION INITIALIZATION ---
-  async function initBarcodeDetector() {
-    if ('BarcodeDetector' in window) {
-      try {
-        const supported = await BarcodeDetector.getSupportedFormats();
-        console.log('Native BarcodeDetector supported formats:', supported);
-        barcodeDetector = new BarcodeDetector({
-          formats: ['qr_code', 'code_128', 'code_39', 'ean_13', 'ean_8', 'upc_a', 'upc_e', 'itf']
-        });
-        return true;
-      } catch (e) {
-        console.warn('BarcodeDetector error, using fallback:', e);
+  // --- LOAD TENSORFLOW.JS MOBILENET NEURAL VISION MODEL ---
+  async function initNeuralVision() {
+    try {
+      statusLabel.textContent = "Loading AI Vision...";
+      if (typeof mobilenet !== 'undefined') {
+        mobilenetModel = await mobilenet.load({ version: 2, alpha: 1.0 });
+        isModelReady = true;
+        statusLabel.textContent = "AI Vision Active";
+        console.log("MobileNet v2 loaded successfully!");
+      } else {
+        console.warn("MobileNet library not loaded from CDN");
       }
+    } catch (err) {
+      console.error("Error loading MobileNet:", err);
+      statusLabel.textContent = "Catalog Mode";
     }
-    return false;
   }
 
   // --- CAMERA MANAGEMENT ---
   async function startCamera() {
     stopCamera();
-    isScanningActive = true;
-    cameraMessage.innerHTML = '<p>Starting camera...</p>';
+    cameraMessage.innerHTML = '<p>Initializing camera...</p>';
 
     try {
       const constraints = {
@@ -147,30 +154,15 @@
       videoElement.srcObject = videoStream;
       await videoElement.play();
 
-      cameraMessage.innerHTML = '<p>Align barcode, QR code, or SKU inside frame</p>';
+      cameraMessage.innerHTML = '<p>Aim camera at product and tap Snap Product</p>';
       checkTorchSupport();
-
-      if (barcodeDetector) {
-        startNativeBarcodeLoop();
-      } else if (window.Html5Qrcode) {
-        startHtml5QrCodeFallback();
-      }
     } catch (err) {
       console.error('Camera access error:', err);
-      cameraMessage.innerHTML = `<p style="color:#ef4444;">Camera blocked or unavailable: ${err.message}. Use manual lookup below.</p>`;
+      cameraMessage.innerHTML = `<p style="color:#ef4444;">Camera blocked: ${err.message}. Tap "Choose Photo" or lookup below.</p>`;
     }
   }
 
   function stopCamera() {
-    isScanningActive = false;
-    if (scanAnimationId) {
-      cancelAnimationFrame(scanAnimationId);
-      scanAnimationId = null;
-    }
-    if (html5QrScanner) {
-      try { html5QrScanner.stop(); } catch (e) {}
-      html5QrScanner = null;
-    }
     if (videoStream) {
       videoStream.getTracks().forEach(track => track.stop());
       videoStream = null;
@@ -191,108 +183,128 @@
     }
   }
 
-  // Native Barcode Scanning Loop (60 FPS on iOS Apple Neural Engine)
-  async function startNativeBarcodeLoop() {
-    if (!isScanningActive || !videoElement || videoElement.readyState < 2) {
-      scanAnimationId = requestAnimationFrame(startNativeBarcodeLoop);
-      return;
-    }
+  // --- VISUAL REVERSE SEARCH CORE ENGINE ---
+  async function performVisualSearch(sourceImageOrCanvas) {
+    if (isAnalyzing) return;
+    isAnalyzing = true;
+    scanAnalyzingOverlay.style.display = 'flex';
 
-    if (!isScanThrottled) {
-      try {
-        const barcodes = await barcodeDetector.detect(videoElement);
-        if (barcodes && barcodes.length > 0) {
-          const rawVal = barcodes[0].rawValue.trim();
-          handleScannedCode(rawVal);
-        }
-      } catch (err) {
-        // Ignored frame drop
-      }
-    }
-
-    if (isScanningActive) {
-      scanAnimationId = requestAnimationFrame(startNativeBarcodeLoop);
-    }
-  }
-
-  // Fallback html5-qrcode implementation
-  function startHtml5QrCodeFallback() {
     try {
-      html5QrScanner = new Html5Qrcode("camera-viewport");
-      html5QrScanner.start(
-        { facingMode: currentCameraFacing },
-        { fps: 15, qrbox: { width: 260, height: 260 } },
-        (decodedText) => {
-          handleScannedCode(decodedText);
-        },
-        (errorMessage) => {
-          // Frame scan error, ignore
+      // 1. Prepare 224x224 input canvas for MobileNet
+      const offCanvas = document.createElement('canvas');
+      offCanvas.width = 224;
+      offCanvas.height = 224;
+      const ctx = offCanvas.getContext('2d');
+      ctx.drawImage(sourceImageOrCanvas, 0, 0, 224, 224);
+
+      // 2. Ensure neural model is ready
+      if (!mobilenetModel) {
+        mobilenetModel = await mobilenet.load({ version: 2, alpha: 1.0 });
+        isModelReady = true;
+      }
+
+      // 3. Extract 1280-dim embedding vector
+      const emb = mobilenetModel.infer(offCanvas, true);
+      const rawVector = await emb.data();
+      emb.dispose();
+
+      // 4. L2-Normalize query vector
+      let sumSq = 0;
+      for (let i = 0; i < rawVector.length; i++) sumSq += rawVector[i] * rawVector[i];
+      const norm = Math.sqrt(sumSq) || 1;
+      const queryVec = new Float32Array(rawVector.length);
+      for (let i = 0; i < rawVector.length; i++) queryVec[i] = rawVector[i] / norm;
+
+      // 5. Compare against all precomputed product embeddings
+      const matches = [];
+      const embeddingsDb = (typeof PRODUCT_EMBEDDINGS !== 'undefined' ? PRODUCT_EMBEDDINGS : (window.PRODUCT_EMBEDDINGS || {}));
+
+      for (const prod of PRODUCTS) {
+        const prodVec = embeddingsDb[String(prod.id)];
+        if (!prodVec) continue;
+
+        // Cosine similarity (dot product of two unit vectors)
+        let dot = 0;
+        const len = Math.min(queryVec.length, prodVec.length);
+        for (let i = 0; i < len; i++) {
+          dot += queryVec[i] * prodVec[i];
         }
-      );
-    } catch (e) {
-      console.warn('Fallback scanner initialization failed:', e);
+
+        // Apply slight bonus if department matches active filter
+        let score = dot;
+        if (activeDepartment !== 'all' && prod.department === activeDepartment) {
+          score += 0.05;
+        }
+
+        matches.push({
+          product: prod,
+          similarity: score,
+          percentage: Math.min(99, Math.max(10, Math.round(score * 100)))
+        });
+      }
+
+      // 6. Sort by highest visual similarity
+      matches.sort((a, b) => b.similarity - a.similarity);
+
+      scanAnalyzingOverlay.style.display = 'none';
+      isAnalyzing = false;
+
+      if (matches.length > 0) {
+        const topMatch = matches[0];
+        const alternatives = matches.slice(1, 5); // next 4 candidates
+        playSuccessChime();
+        addToHistory(topMatch.product);
+        openProductModal(topMatch.product, topMatch.percentage, alternatives, lastSnappedDataUrl);
+      } else {
+        showToast("No visual match found. Try adjusting angle or lighting.");
+      }
+
+    } catch (err) {
+      console.error("Visual search error:", err);
+      scanAnalyzingOverlay.style.display = 'none';
+      isAnalyzing = false;
+      showToast("Error processing visual search: " + err.message);
     }
   }
 
-  // --- PRODUCT MATCHING ENGINE ---
-  function findProductByCode(rawCode) {
-    if (!rawCode) return null;
-    const clean = rawCode.trim();
-    const cleanLower = clean.toLowerCase();
-    const alphanumeric = clean.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  // Snap photo button handler
+  btnSnapPhoto.addEventListener('click', () => {
+    if (!videoStream || isAnalyzing) return;
 
-    // 1. Exact SKU match
-    let match = PRODUCTS.find(p => p.sku && p.sku.toLowerCase() === cleanLower);
-    if (match) return match;
+    // Capture frame from live video
+    snapshotCanvas.width = videoElement.videoWidth || 640;
+    snapshotCanvas.height = videoElement.videoHeight || 480;
+    const ctx = snapshotCanvas.getContext('2d');
+    ctx.drawImage(videoElement, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
 
-    // 2. Alphanumeric SKU match
-    match = PRODUCTS.find(p => {
-      const pClean = (p.sku || '').replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-      return pClean && pClean === alphanumeric;
-    });
-    if (match) return match;
+    // Save thumbnail for side-by-side comparison
+    lastSnappedDataUrl = snapshotCanvas.toDataURL('image/jpeg', 0.85);
 
-    // 3. Momence ID match
-    match = PRODUCTS.find(p => String(p.id) === clean);
-    if (match) return match;
+    // Run reverse search
+    performVisualSearch(snapshotCanvas);
+  });
 
-    // 4. Barcodes list match
-    match = PRODUCTS.find(p => (p.barcodes || []).some(b => b.toLowerCase() === cleanLower || b.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === alphanumeric));
-    if (match) return match;
+  // Choose photo file upload handler
+  fileUploadInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
 
-    // 5. Full title or name exact match
-    match = PRODUCTS.find(p => p.fullTitle.toLowerCase() === cleanLower || p.name.toLowerCase() === cleanLower);
-    if (match) return match;
-
-    // 6. Fuzzy substring match in SKU or title
-    match = PRODUCTS.find(p => p.sku && p.sku.toLowerCase().includes(cleanLower));
-    if (match) return match;
-
-    return null;
-  }
-
-  function handleScannedCode(code) {
-    if (isScanThrottled) return;
-    isScanThrottled = true;
-
-    console.log('Scanned code:', code);
-    const product = findProductByCode(code);
-
-    if (product) {
-      playSuccessChime();
-      addToHistory(product);
-      openProductModal(product);
-    } else {
-      showToast(`No product found matching "${code}"`);
-      // Re-enable scanning after 2 seconds
-      setTimeout(() => {
-        isScanThrottled = false;
-      }, 2000);
-    }
-  }
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = () => {
+        lastSnappedDataUrl = event.target.result;
+        performVisualSearch(img);
+      };
+      img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+    // Reset file input
+    fileUploadInput.value = '';
+  });
 
   // --- MODAL / PRODUCT HUD DISPLAY ---
-  function openProductModal(product) {
+  function openProductModal(product, matchScore = null, alternatives = [], userPhotoDataUrl = null) {
     modalBrand.textContent = product.brand.toUpperCase();
     modalTitle.textContent = product.name;
     modalPrice.textContent = product.price;
@@ -308,15 +320,59 @@
       modalImg.src = './icon.svg';
     }
 
+    // Match score badge
+    if (matchScore) {
+      modalMatchBadge.textContent = `${matchScore}% MATCH`;
+      modalMatchBadge.style.display = 'block';
+      if (matchScore >= 85) {
+        modalMatchBadge.style.background = 'rgba(16, 185, 129, 0.95)'; // emerald
+      } else if (matchScore >= 70) {
+        modalMatchBadge.style.background = 'rgba(245, 158, 11, 0.95)'; // amber
+      } else {
+        modalMatchBadge.style.background = 'rgba(100, 116, 139, 0.95)'; // slate
+      }
+    } else {
+      modalMatchBadge.style.display = 'none';
+    }
+
+    // Side-by-side user photo comparison
+    if (userPhotoDataUrl) {
+      modalUserSnappedImg.src = userPhotoDataUrl;
+      userPhotoCard.style.display = 'flex';
+    } else {
+      userPhotoCard.style.display = 'none';
+    }
+
+    // Alternative candidates
+    if (alternatives && alternatives.length > 0) {
+      modalAlternativesSection.style.display = 'block';
+      alternativesGrid.innerHTML = alternatives.map(alt => `
+        <div class="alt-card" data-pid="${alt.product.id}">
+          <img class="alt-card-img" src="${alt.product.img || './icon.svg'}" alt="${alt.product.name}" onerror="this.src='./icon.svg'">
+          <div class="alt-card-title">${alt.product.name}</div>
+          <div class="alt-card-score">${alt.percentage}% Match</div>
+        </div>
+      `).join('');
+
+      alternativesGrid.querySelectorAll('.alt-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const pid = parseInt(card.getAttribute('data-pid'), 10);
+          const selected = PRODUCTS.find(p => p.id === pid);
+          if (selected) {
+            // Switch to selected candidate
+            openProductModal(selected, null, [], userPhotoDataUrl);
+          }
+        });
+      });
+    } else {
+      modalAlternativesSection.style.display = 'none';
+    }
+
     productModal.classList.add('open');
   }
 
   function closeProductModal() {
     productModal.classList.remove('open');
-    // Allow scanning again after closing modal
-    setTimeout(() => {
-      isScanThrottled = false;
-    }, 800);
   }
 
   // --- CATALOG FILTERING & RENDERING ---
@@ -324,11 +380,9 @@
     const query = activeSearchQuery.toLowerCase().trim();
     
     const filtered = PRODUCTS.filter(p => {
-      // Department filter
       if (activeDepartment !== 'all' && p.department !== activeDepartment) {
         return false;
       }
-      // Query search
       if (!query) return true;
       const haystack = `${p.fullTitle} ${p.brand} ${p.name} ${p.sku} ${p.department} ${p.pitch}`.toLowerCase();
       return haystack.includes(query);
@@ -345,7 +399,6 @@
       return;
     }
 
-    // Limit initial render to 100 for high FPS on iPad
     const displayList = filtered.slice(0, 100);
     catalogGrid.innerHTML = displayList.map(p => `
       <div class="catalog-card" data-pid="${p.id}">
@@ -365,7 +418,6 @@
       </div>
     `).join('');
 
-    // Attach card click handlers
     catalogGrid.querySelectorAll('.catalog-card').forEach(card => {
       card.addEventListener('click', () => {
         const pid = parseInt(card.getAttribute('data-pid'), 10);
@@ -381,7 +433,7 @@
   // --- RECENT SCAN HISTORY ---
   function loadHistory() {
     try {
-      const stored = localStorage.getItem('practice_scan_history');
+      const stored = localStorage.getItem('practice_visual_scan_history');
       if (stored) {
         scanHistory = JSON.parse(stored);
       }
@@ -394,7 +446,7 @@
   function addToHistory(product) {
     scanHistory = [product, ...scanHistory.filter(p => p.id !== product.id)].slice(0, 30);
     try {
-      localStorage.setItem('practice_scan_history', JSON.stringify(scanHistory));
+      localStorage.setItem('practice_visual_scan_history', JSON.stringify(scanHistory));
     } catch (e) {}
     renderHistory();
   }
@@ -402,7 +454,7 @@
   function renderHistory() {
     historyCount.textContent = scanHistory.length;
     if (scanHistory.length === 0) {
-      historyList.innerHTML = `<p class="empty-state">No products scanned yet this shift. Point camera at any barcode or search the catalog.</p>`;
+      historyList.innerHTML = `<p class="empty-state">No products identified yet this shift. Point camera at any item and tap Snap Product.</p>`;
       return;
     }
 
@@ -478,19 +530,28 @@
     }
   });
 
-  // Quick manual SKU form
+  // Help tip button
+  document.getElementById('btn-help-tip').addEventListener('click', () => {
+    showToast("Tip: Center the item in the box and hold still for best visual match!");
+  });
+
+  // Quick manual lookup form
   quickSkuForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const val = quickSkuInput.value.trim();
+    const val = quickSkuInput.value.trim().toLowerCase();
     if (!val) return;
-    const prod = findProductByCode(val);
+    const prod = PRODUCTS.find(p => 
+      (p.sku && p.sku.toLowerCase() === val) ||
+      String(p.id) === val ||
+      p.fullTitle.toLowerCase().includes(val) ||
+      p.name.toLowerCase().includes(val)
+    );
     if (prod) {
       playSuccessChime();
       addToHistory(prod);
       openProductModal(prod);
       quickSkuInput.value = '';
     } else {
-      // Switch to catalog tab and search
       catalogSearchInput.value = val;
       activeSearchQuery = val;
       switchTab('catalog');
@@ -525,7 +586,7 @@
   // Clear History
   btnClearHistory.addEventListener('click', () => {
     scanHistory = [];
-    localStorage.removeItem('practice_scan_history');
+    localStorage.removeItem('practice_visual_scan_history');
     renderHistory();
     showToast('Scan history cleared');
   });
@@ -563,22 +624,13 @@
     }
   });
 
-  // Online / Offline Indicator
-  window.addEventListener('online', () => {
-    document.getElementById('connection-status').className = 'status-pill status-online';
-  });
-  window.addEventListener('offline', () => {
-    document.getElementById('connection-status').className = 'status-pill';
-    document.getElementById('connection-status').innerHTML = '<span class="status-dot" style="background:#eab308;"></span><span class="status-label">Offline Mode (Cached)</span>';
-  });
-
   // Service Worker Registration for PWA
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./sw.js').then((reg) => {
-        console.log('PWA ServiceWorker registered successfully:', reg.scope);
+        console.log('PWA ServiceWorker registered:', reg.scope);
       }).catch((err) => {
-        console.warn('PWA ServiceWorker registration failed:', err);
+        console.warn('PWA ServiceWorker failed:', err);
       });
     });
   }
@@ -587,10 +639,10 @@
   async function init() {
     loadHistory();
     renderCatalog();
-    await initBarcodeDetector();
     if (activeTab === 'scanner') {
       startCamera();
     }
+    await initNeuralVision();
   }
 
   init();

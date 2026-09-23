@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>The Practice • Retail Scanner</title>
+  <title>The Practice • Visual Retail Identifier</title>
   
   <!-- PWA & Apple Web App Meta Tags -->
   <link rel="manifest" href="./manifest.json">
@@ -19,9 +19,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   
-  <!-- HTML5-QRCode Scanner Fallback -->
-  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
-
   <!-- App Styles -->
   <link rel="stylesheet" href="./styles.css">
 </head>
@@ -34,14 +31,14 @@
         <div class="brand-monogram">TP</div>
         <div class="brand-text">
           <h1 class="brand-title">THE PRACTICE</h1>
-          <p class="brand-subtitle">Retail Scanner & Staff Guide</p>
+          <p class="brand-subtitle">Visual Product Identifier & Staff Guide</p>
         </div>
       </div>
       
       <div class="header-right">
         <div id="connection-status" class="status-pill status-online">
           <span class="status-dot"></span>
-          <span class="status-label">731 Items Cached</span>
+          <span id="status-label" class="status-label">AI Vision Ready</span>
         </div>
       </div>
     </header>
@@ -50,10 +47,10 @@
     <nav class="nav-tabs">
       <button class="nav-tab active" data-tab="scanner">
         <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"></path>
-          <line x1="7" y1="12" x2="17" y2="12"></line>
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+          <circle cx="12" cy="13" r="4"></circle>
         </svg>
-        <span>Camera Scanner</span>
+        <span>Photo Search</span>
       </button>
 
       <button class="nav-tab" data-tab="catalog">
@@ -61,7 +58,7 @@
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <span>Catalog & Search</span>
+        <span>Catalog & Lookup</span>
       </button>
 
       <button class="nav-tab" data-tab="history">
@@ -76,24 +73,25 @@
     <!-- MAIN CONTENT VIEWS -->
     <main class="views-wrapper">
       
-      <!-- VIEW 1: LIVE CAMERA SCANNER -->
+      <!-- VIEW 1: REVERSE VISUAL PRODUCT SCANNER -->
       <section id="view-scanner" class="view-panel active">
         <div class="scanner-container">
           <div class="camera-viewport" id="camera-viewport">
             <video id="camera-video" playsinline autoplay muted></video>
+            <canvas id="snapshot-canvas" style="display:none;"></canvas>
             
-            <!-- Animated Reticle Overlays -->
+            <!-- Visual Targeting Reticle -->
             <div class="scanner-overlay">
-              <div class="scanner-target">
+              <div class="visual-target-box">
                 <div class="corner top-left"></div>
                 <div class="corner top-right"></div>
                 <div class="corner bottom-left"></div>
                 <div class="corner bottom-right"></div>
-                <div class="laser-beam"></div>
+                <div class="target-crosshair"></div>
               </div>
             </div>
 
-            <!-- Viewport Overlay Controls -->
+            <!-- Viewport Top Controls -->
             <div class="camera-controls">
               <button id="btn-torch" class="ctrl-btn" title="Toggle Torch" style="display:none;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
@@ -103,18 +101,55 @@
               </button>
             </div>
 
-            <div id="camera-message" class="camera-message">
-              <p>Align barcode, QR code, or SKU label inside box</p>
+            <!-- Analyzing Animation Overlay -->
+            <div id="scan-analyzing" class="scan-analyzing" style="display:none;">
+              <div class="ai-pulse-circle"></div>
+              <p class="analyzing-text">Matching against 731 products with Neural Vision...</p>
             </div>
+
+            <div id="camera-message" class="camera-message">
+              <p>Aim camera at any crystal, jewelry, candle, or item and tap Snap</p>
+            </div>
+
+            <!-- Bottom Floating Shutter Controls -->
+            <div class="shutter-bar">
+              <label for="file-upload" class="ctrl-btn-round" title="Choose Photo from iPad">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <input type="file" id="file-upload" accept="image/*" style="display:none;">
+              </label>
+
+              <button id="btn-snap-photo" class="shutter-button" aria-label="Snap Product Photo">
+                <div class="shutter-inner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+                  </svg>
+                  <span>SNAP PRODUCT</span>
+                </div>
+              </button>
+
+              <button id="btn-help-tip" class="ctrl-btn-round" title="How to scan">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </button>
+            </div>
+
           </div>
 
-          <!-- Quick Manual Search Fallback Bar -->
+          <!-- Quick Text Search Bar -->
           <div class="quick-sku-bar">
             <form id="quick-sku-form" class="quick-sku-form">
               <svg class="search-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
-              <input type="text" id="quick-sku-input" placeholder="Or type SKU, barcode, or product name..." autocomplete="off">
+              <input type="text" id="quick-sku-input" placeholder="Or search by SKU, brand, or name..." autocomplete="off">
               <button type="submit" class="quick-sku-btn">Lookup</button>
             </form>
           </div>
@@ -166,7 +201,7 @@
             <button id="btn-clear-history" class="btn-secondary">Clear History</button>
           </div>
           <div class="history-list" id="history-list">
-            <p class="empty-state">No products scanned yet this shift. Point camera at any barcode or search the catalog.</p>
+            <p class="empty-state">No products identified yet this shift. Point camera at any item and tap Snap Product.</p>
           </div>
         </div>
       </section>
@@ -181,9 +216,18 @@
         <div class="modal-scrollable">
           <div class="modal-product-layout">
             
-            <div class="modal-img-wrap">
-              <img id="modal-img" src="" alt="Product Photo" onerror="this.src='./icon.svg'">
-              <span id="modal-dept-badge" class="dept-badge">Department</span>
+            <!-- Side-by-Side Visual Verification -->
+            <div class="visual-photos-container">
+              <div class="photo-card" id="user-photo-card" style="display:none;">
+                <img id="modal-user-snapped-img" src="" alt="Snapped Product">
+                <span class="photo-tag user-tag">Your Photo</span>
+              </div>
+
+              <div class="photo-card catalog-photo-card">
+                <img id="modal-img" src="" alt="Catalog Photo" onerror="this.src='./icon.svg'">
+                <span id="modal-dept-badge" class="dept-badge">Department</span>
+                <span id="modal-match-badge" class="match-badge" style="display:none;">98% MATCH</span>
+              </div>
             </div>
 
             <div class="modal-info">
@@ -220,6 +264,14 @@
                 </p>
               </div>
 
+              <!-- Alternative Candidate Matches (If Visual Search) -->
+              <div id="modal-alternatives-section" class="modal-alternatives-section" style="display:none;">
+                <span class="alternatives-title">OTHER LIKELY MATCHES (TAP TO SELECT):</span>
+                <div id="alternatives-grid" class="alternatives-grid">
+                  <!-- Populated dynamically -->
+                </div>
+              </div>
+
               <!-- Action Links -->
               <div class="modal-actions">
                 <a id="modal-momence-link" href="#" target="_blank" rel="noopener" class="btn-primary btn-momence">
@@ -231,7 +283,7 @@
                   <span>Open in Momence</span>
                 </a>
                 <button id="btn-scan-again" class="btn-secondary">
-                  <span>Scan Next Product</span>
+                  <span>Snap Another Item</span>
                 </button>
               </div>
 
@@ -244,12 +296,19 @@
     </div>
 
     <!-- TOAST NOTIFICATION -->
-    <div id="toast" class="toast">SKU copied to clipboard</div>
+    <div id="toast" class="toast">Notification message</div>
 
   </div>
 
-  <!-- Load Products Dataset & App Controller -->
+  <!-- TensorFlow.js & MobileNet Neural Vision Engine -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.1/dist/mobilenet.min.js"></script>
+  
+  <!-- Products Catalog & Precomputed Visual Vector Embeddings -->
   <script src="./products.js"></script>
+  <script src="./product_embeddings.js"></script>
+
+  <!-- App Controller -->
   <script src="./app.js"></script>
 </body>
 </html>
