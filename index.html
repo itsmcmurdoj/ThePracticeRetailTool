@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>The Practice • Visual Retail Identifier</title>
+  <title>The Practice • Visual Retail & Studio Operations Tool</title>
   
   <!-- PWA & Apple Web App Meta Tags -->
   <link rel="manifest" href="./manifest.json">
@@ -31,11 +31,19 @@
         <div class="brand-monogram">TP</div>
         <div class="brand-text">
           <h1 class="brand-title">THE PRACTICE</h1>
-          <p class="brand-subtitle">Visual Product Identifier & Staff Guide</p>
+          <p class="brand-subtitle">Retail Identifier & Operations Guide</p>
         </div>
       </div>
       
       <div class="header-right">
+        <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="header-pos-btn" title="Open Momence Register POS">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <line x1="2" y1="10" x2="22" y2="10"></line>
+          </svg>
+          <span>Momence POS</span>
+        </a>
+
         <div id="connection-status" class="status-pill status-online">
           <span class="status-dot"></span>
           <span id="status-label" class="status-label">AI Vision Ready</span>
@@ -43,7 +51,7 @@
       </div>
     </header>
 
-    <!-- TAB NAVIGATION BAR -->
+    <!-- TAB NAVIGATION BAR (4 TABS) -->
     <nav class="nav-tabs">
       <button class="nav-tab active" data-tab="scanner">
         <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -58,7 +66,14 @@
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <span>Catalog & Lookup</span>
+        <span>Catalog (731)</span>
+      </button>
+
+      <button class="nav-tab" data-tab="memberships">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        <span>Memberships & Rates</span>
       </button>
 
       <button class="nav-tab" data-tab="history">
@@ -104,11 +119,11 @@
             <!-- Analyzing Animation Overlay -->
             <div id="scan-analyzing" class="scan-analyzing" style="display:none;">
               <div class="ai-pulse-circle"></div>
-              <p class="analyzing-text">Matching against 731 products with Neural Vision...</p>
+              <p class="analyzing-text">Comparing visual vectors across 731 products...</p>
             </div>
 
             <div id="camera-message" class="camera-message">
-              <p>Aim camera at any crystal, jewelry, candle, or item and tap Snap</p>
+              <p>Aim camera at product and tap Snap Product</p>
             </div>
 
             <!-- Bottom Floating Shutter Controls -->
@@ -132,7 +147,7 @@
                 </div>
               </button>
 
-              <button id="btn-help-tip" class="ctrl-btn-round" title="How to scan">
+              <button id="btn-help-tip" class="ctrl-btn-round" title="Scan Guide">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <circle cx="12" cy="12" r="10"></circle>
                   <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
@@ -180,20 +195,237 @@
               <button class="dept-pill" data-dept="Home Decor, Barware & Artisan Textiles">Home Decor</button>
               <button class="dept-pill" data-dept="Cafe & Nourishment">Cafe</button>
             </div>
+
+            <!-- Brand Filter & Sort Row -->
+            <div class="catalog-filters-bar">
+              <div class="filter-group">
+                <label for="filter-brand">Brand:</label>
+                <select id="filter-brand" class="filter-select">
+                  <option value="all">All Brands (43)</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="filter-sort">Sort:</label>
+                <select id="filter-sort" class="filter-select">
+                  <option value="default">Default Catalog Order</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="name-asc">Product Name: A to Z</option>
+                  <option value="brand-asc">Brand Name: A to Z</option>
+                </select>
+              </div>
+            </div>
           </div>
 
-          <!-- Product Grid -->
+          <!-- Product Results Count -->
           <div class="product-results-info">
             <span id="results-count">Showing 731 products</span>
           </div>
 
+          <!-- Product Grid -->
           <div class="catalog-grid" id="catalog-grid">
             <!-- Dynamically populated -->
           </div>
         </div>
       </section>
 
-      <!-- VIEW 3: RECENT SCAN HISTORY -->
+      <!-- VIEW 3: MEMBERSHIPS & RATES GUIDE (NEW) -->
+      <section id="view-memberships" class="view-panel">
+        <div class="memberships-container">
+          
+          <div class="memberships-header">
+            <div class="memberships-badge">STUDIO SALES REFERENCE</div>
+            <h2 class="memberships-title">Memberships & Class Rates Guide</h2>
+            <p class="memberships-desc">Use this reference when answering guest questions or recommending the best commitment plan.</p>
+            
+            <!-- Commitment Term Switcher -->
+            <div class="term-switcher">
+              <button class="term-btn" data-term="1">1-Month Flex</button>
+              <button class="term-btn active" data-term="6">6-Month Commitment <span class="term-tag">Save</span></button>
+              <button class="term-btn" data-term="12">12-Month <span class="term-tag gold">Best Value</span></button>
+            </div>
+          </div>
+
+          <!-- Membership Tiers Grid -->
+          <div class="tiers-grid" id="tiers-grid">
+            
+            <!-- Tier 1: Grounded -->
+            <div class="tier-card" data-tier="grounded">
+              <div class="tier-header">
+                <div class="tier-name">Grounded Membership</div>
+                <div class="tier-tagline">Restorative rituals & foundation</div>
+                <div class="tier-price-wrap">
+                  <span class="tier-price" id="price-grounded">$249</span>
+                  <span class="tier-period">/ month</span>
+                </div>
+              </div>
+              <ul class="tier-perks">
+                <li><strong>4 Group Classes</strong> per month</li>
+                <li><strong>4 Self-Guided Wellness</strong> sessions (30 min)</li>
+                <li>5% off Clinical Therapy & Massage</li>
+                <li>1-Month Freeze Option (12-Mo term)</li>
+              </ul>
+              <div class="tier-pitch-tip">
+                <strong>Pitch to Guest:</strong> <em>"Ideal if you take 1 class a week and want weekly infrared vibration recovery."</em>
+              </div>
+              <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="tier-buy-btn">
+                <span>Sell in Momence POS</span>
+              </a>
+            </div>
+
+            <!-- Tier 2: Attuned -->
+            <div class="tier-card featured-tier" data-tier="attuned">
+              <div class="tier-popular-badge">MOST POPULAR</div>
+              <div class="tier-header">
+                <div class="tier-name">Attuned Membership</div>
+                <div class="tier-tagline">Movement, restoration & clinical support</div>
+                <div class="tier-price-wrap">
+                  <span class="tier-price" id="price-attuned">$499</span>
+                  <span class="tier-period">/ month</span>
+                </div>
+              </div>
+              <ul class="tier-perks">
+                <li><strong>6 Group Classes</strong> per month</li>
+                <li><strong>2 Self-Guided Wellness</strong> sessions (30 min)</li>
+                <li><strong>1 Practitioner-Led Session</strong> (Psychotherapy, Lymphatic Drainage RMT, or Coaching)</li>
+                <li>1 Guest Pass per month + Member Lounge access</li>
+              </ul>
+              <div class="tier-pitch-tip">
+                <strong>Pitch to Guest:</strong> <em>"Combines weekly movement with monthly registered clinical care under one roof."</em>
+              </div>
+              <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="tier-buy-btn">
+                <span>Sell in Momence POS</span>
+              </a>
+            </div>
+
+            <!-- Tier 3: Activated -->
+            <div class="tier-card" data-tier="activated">
+              <div class="tier-header">
+                <div class="tier-name">Activated Membership</div>
+                <div class="tier-tagline">Ongoing healing & clinical care</div>
+                <div class="tier-price-wrap">
+                  <span class="tier-price" id="price-activated">$899</span>
+                  <span class="tier-period">/ month</span>
+                </div>
+              </div>
+              <ul class="tier-perks">
+                <li><strong>4 Group Classes</strong> per month</li>
+                <li><strong>2 Self-Guided Wellness</strong> sessions</li>
+                <li><strong>4 Practitioner-Led Sessions</strong> monthly</li>
+                <li>1 Guest Pass + Private Member Lounge</li>
+              </ul>
+              <div class="tier-pitch-tip">
+                <strong>Pitch to Guest:</strong> <em>"Designed for nervous system recovery with weekly 1-on-1 practitioner support."</em>
+              </div>
+              <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="tier-buy-btn">
+                <span>Sell in Momence POS</span>
+              </a>
+            </div>
+
+            <!-- Tier 4: Founders -->
+            <div class="tier-card gold-border" data-tier="founders">
+              <div class="tier-header">
+                <div class="tier-name">Founders Membership</div>
+                <div class="tier-tagline">The complete sanctuary experience</div>
+                <div class="tier-price-wrap">
+                  <span class="tier-price" id="price-founders">$1,299</span>
+                  <span class="tier-period">/ month</span>
+                </div>
+              </div>
+              <ul class="tier-perks">
+                <li><strong>UNLIMITED Group Classes</strong></li>
+                <li><strong>UNLIMITED Wellness Experiences</strong> (up to 1/day)</li>
+                <li><strong>4 Practitioner-Led Sessions</strong> monthly</li>
+                <li>2 Guest Passes + 2 Free Event Experiences</li>
+              </ul>
+              <div class="tier-pitch-tip">
+                <strong>Pitch to Guest:</strong> <em>"Unlimited daily access to our entire 4-storey sanctuary, classes, and practitioners."</em>
+              </div>
+              <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="tier-buy-btn">
+                <span>Sell in Momence POS</span>
+              </a>
+            </div>
+
+            <!-- Tier 5: Transcendent -->
+            <div class="tier-card" data-tier="transcendent">
+              <div class="tier-header">
+                <div class="tier-name">Transcendent Membership</div>
+                <div class="tier-tagline">Deep transformation & ultimate luxury</div>
+                <div class="tier-price-wrap">
+                  <span class="tier-price" id="price-transcendent">$1,599</span>
+                  <span class="tier-period">/ month</span>
+                </div>
+              </div>
+              <ul class="tier-perks">
+                <li><strong>UNLIMITED Group Classes & Wellness</strong></li>
+                <li><strong>4 Practitioner-Led Sessions</strong></li>
+                <li>VIP Member Lounge, Tea, Journaling access</li>
+                <li>2 Guest Passes per month</li>
+              </ul>
+              <div class="tier-pitch-tip">
+                <strong>Pitch to Guest:</strong> <em>"Our most comprehensive tier for holistic wellness, clinical care, and reflection."</em>
+              </div>
+              <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="tier-buy-btn">
+                <span>Sell in Momence POS</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Class Packs Section -->
+          <div class="class-packs-section">
+            <h3 class="packs-title">Yoga & Movement Class Packs</h3>
+            <div class="packs-grid">
+              
+              <div class="pack-card">
+                <div class="pack-header">
+                  <div class="pack-name">3 Class Pack</div>
+                  <div class="pack-price">$134.00</div>
+                  <div class="pack-unit">$44.66 / class</div>
+                </div>
+                <p class="pack-validity">Valid for 1 month from purchase</p>
+                <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="pack-buy-btn">Sell in POS</a>
+              </div>
+
+              <div class="pack-card">
+                <div class="pack-header">
+                  <div class="pack-name">5 Class Pack</div>
+                  <div class="pack-price">$220.00</div>
+                  <div class="pack-unit">$44.00 / class</div>
+                </div>
+                <p class="pack-validity">Valid for 3 months from purchase</p>
+                <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="pack-buy-btn">Sell in POS</a>
+              </div>
+
+              <div class="pack-card highlight-pack">
+                <div class="pack-badge">POPULAR</div>
+                <div class="pack-header">
+                  <div class="pack-name">10 Class Pack</div>
+                  <div class="pack-price">$420.00</div>
+                  <div class="pack-unit">$42.00 / class</div>
+                </div>
+                <p class="pack-validity">Valid for 6 months from purchase</p>
+                <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="pack-buy-btn">Sell in POS</a>
+              </div>
+
+              <div class="pack-card">
+                <div class="pack-header">
+                  <div class="pack-name">20 Class Pack</div>
+                  <div class="pack-price">$790.00</div>
+                  <div class="pack-unit">$39.50 / class (Best Value)</div>
+                </div>
+                <p class="pack-validity">Valid for 12 months from purchase</p>
+                <a href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="pack-buy-btn">Sell in POS</a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- VIEW 4: RECENT SCAN HISTORY -->
       <section id="view-history" class="view-panel">
         <div class="history-container">
           <div class="history-header">
@@ -232,7 +464,10 @@
 
             <div class="modal-info">
               <div class="modal-header-info">
-                <span id="modal-brand" class="modal-brand">BRAND</span>
+                <div class="brand-row">
+                  <span id="modal-brand" class="modal-brand">BRAND</span>
+                  <button id="btn-brand-more" class="btn-brand-more" title="View all items from this brand">More from Brand &rarr;</button>
+                </div>
                 <h2 id="modal-title" class="modal-title">Product Title</h2>
               </div>
 
@@ -247,17 +482,23 @@
                   <div class="sku-copy-row">
                     <span id="modal-sku" class="meta-value sku-code">SKU-000</span>
                     <button id="btn-copy-sku" class="btn-copy-icon" title="Copy SKU">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></line><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                     </button>
                   </div>
                 </div>
               </div>
 
-              <!-- The Staff Pitch -->
+              <!-- The Staff Pitch Box -->
               <div class="modal-pitch-box">
-                <div class="pitch-badge">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                  <span>THE STAFF SELLING PITCH</span>
+                <div class="pitch-badge-row">
+                  <div class="pitch-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <span>STAFF TALKING POINTS</span>
+                  </div>
+                  <button id="btn-copy-pitch" class="btn-copy-pitch" title="Copy talking points">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span>Copy Pitch</span>
+                  </button>
                 </div>
                 <p id="modal-pitch" class="pitch-text">
                   Craftsmanship details, materials, and selling points will appear here.
@@ -292,6 +533,43 @@
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <!-- SCAN GUIDE / HELP MODAL -->
+    <div id="help-modal" class="modal-backdrop">
+      <div class="modal-sheet help-sheet">
+        <button id="btn-close-help" class="modal-close-btn" aria-label="Close">✕</button>
+        <div class="help-content">
+          <div class="help-header">
+            <div class="brand-monogram">TP</div>
+            <h3>How to Use Visual Search</h3>
+          </div>
+          <div class="help-steps">
+            <div class="help-step">
+              <span class="step-num">1</span>
+              <div>
+                <strong>Frame the Product:</strong>
+                <p>Hold the iPad so the item is centered inside the gold corner reticle.</p>
+              </div>
+            </div>
+            <div class="help-step">
+              <span class="step-num">2</span>
+              <div>
+                <strong>Tap Snap Product:</strong>
+                <p>Tap the gold shutter button. The on-device neural network compares visual vectors in &lt; 5ms.</p>
+              </div>
+            </div>
+            <div class="help-step">
+              <span class="step-num">3</span>
+              <div>
+                <strong>Pitch & Ring Up:</strong>
+                <p>Read craftsmanship notes to the guest and tap "Open in Momence" to ring up the correct item.</p>
+              </div>
+            </div>
+          </div>
+          <button id="btn-help-got-it" class="btn-primary" style="margin-top:20px; width:100%;">Got It</button>
+        </div>
       </div>
     </div>
 

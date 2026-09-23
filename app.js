@@ -1,6 +1,7 @@
 /**
- * THE PRACTICE • VISUAL RETAIL IDENTIFIER CONTROLLER (app.js)
+ * THE PRACTICE • VISUAL RETAIL & STUDIO OPERATIONS CONTROLLER (app.js)
  * Reverse Visual Product Search powered by MobileNet v2 & Vector Embeddings
+ * Studio Catalog, Brand Filtering, and Memberships & Rates Guide
  */
 
 (function () {
@@ -9,7 +10,10 @@
   // --- STATE ---
   let activeTab = 'scanner';
   let activeDepartment = 'all';
+  let activeBrand = 'all';
+  let activeSort = 'default';
   let activeSearchQuery = '';
+  let activeCommitmentTerm = '6'; // default 6-Month
   let currentCameraFacing = 'environment';
   let videoStream = null;
   let mobilenetModel = null;
@@ -17,12 +21,42 @@
   let isAnalyzing = false;
   let scanHistory = [];
   let lastSnappedDataUrl = null;
+  let activeProduct = null;
+
+  // Membership Pricing by Commitment Term (CAD)
+  const MEMBERSHIP_PRICING = {
+    '1': {
+      grounded: '$349',
+      attuned: '$599',
+      activated: '$999',
+      founders: '$1,299',
+      transcendent: '$1,899',
+      foundersPeriod: '/ month (6-mo min)'
+    },
+    '6': {
+      grounded: '$249',
+      attuned: '$499',
+      activated: '$899',
+      founders: '$1,299',
+      transcendent: '$1,599',
+      foundersPeriod: '/ month'
+    },
+    '12': {
+      grounded: '$199',
+      attuned: '$399',
+      activated: '$849',
+      founders: '$1,199',
+      transcendent: '$1,499',
+      foundersPeriod: '/ month'
+    }
+  };
 
   // --- DOM ELEMENTS ---
   const tabs = document.querySelectorAll('.nav-tab');
   const viewPanels = {
     scanner: document.getElementById('view-scanner'),
     catalog: document.getElementById('view-catalog'),
+    memberships: document.getElementById('view-memberships'),
     history: document.getElementById('view-history'),
   };
 
@@ -34,6 +68,7 @@
   const fileUploadInput = document.getElementById('file-upload');
   const btnSwitchCamera = document.getElementById('btn-switch-camera');
   const btnTorch = document.getElementById('btn-torch');
+  const btnHelpTip = document.getElementById('btn-help-tip');
   const statusLabel = document.getElementById('status-label');
 
   const quickSkuForm = document.getElementById('quick-sku-form');
@@ -42,14 +77,25 @@
   const catalogSearchInput = document.getElementById('catalog-search-input');
   const btnClearSearch = document.getElementById('btn-clear-search');
   const deptPillsContainer = document.getElementById('dept-pills');
+  const filterBrandSelect = document.getElementById('filter-brand');
+  const filterSortSelect = document.getElementById('filter-sort');
   const catalogGrid = document.getElementById('catalog-grid');
   const resultsCount = document.getElementById('results-count');
 
+  // Memberships DOM
+  const termButtons = document.querySelectorAll('.term-btn');
+  const priceGrounded = document.getElementById('price-grounded');
+  const priceAttuned = document.getElementById('price-attuned');
+  const priceActivated = document.getElementById('price-activated');
+  const priceFounders = document.getElementById('price-founders');
+  const priceTranscendent = document.getElementById('price-transcendent');
+
+  // History DOM
   const historyList = document.getElementById('history-list');
   const historyCount = document.getElementById('history-count');
   const btnClearHistory = document.getElementById('btn-clear-history');
 
-  // Modal elements
+  // Product Modal elements
   const productModal = document.getElementById('product-modal');
   const btnCloseModal = document.getElementById('btn-close-modal');
   const userPhotoCard = document.getElementById('user-photo-card');
@@ -58,15 +104,22 @@
   const modalDeptBadge = document.getElementById('modal-dept-badge');
   const modalMatchBadge = document.getElementById('modal-match-badge');
   const modalBrand = document.getElementById('modal-brand');
+  const btnBrandMore = document.getElementById('btn-brand-more');
   const modalTitle = document.getElementById('modal-title');
   const modalPrice = document.getElementById('modal-price');
   const modalSku = document.getElementById('modal-sku');
   const modalPitch = document.getElementById('modal-pitch');
+  const btnCopyPitch = document.getElementById('btn-copy-pitch');
   const modalMomenceLink = document.getElementById('modal-momence-link');
   const btnCopySku = document.getElementById('btn-copy-sku');
   const btnScanAgain = document.getElementById('btn-scan-again');
   const modalAlternativesSection = document.getElementById('modal-alternatives-section');
   const alternativesGrid = document.getElementById('alternatives-grid');
+
+  // Help Modal elements
+  const helpModal = document.getElementById('help-modal');
+  const btnCloseHelp = document.getElementById('btn-close-help');
+  const btnHelpGotIt = document.getElementById('btn-help-got-it');
   const toast = document.getElementById('toast');
 
   // --- AUDIO SYNTHESIS FOR SCAN CHIME ---
@@ -153,12 +206,23 @@
       videoStream = await navigator.mediaDevices.getUserMedia(constraints);
       videoElement.srcObject = videoStream;
       await videoElement.play();
+      cameraMessage.style.display = 'none';
 
-      cameraMessage.innerHTML = '<p>Aim camera at product and tap Snap Product</p>';
-      checkTorchSupport();
+      // Check if torch/flashlight is supported
+      const track = videoStream.getVideoTracks()[0];
+      if (track && track.getCapabilities && track.getCapabilities().torch) {
+        btnTorch.style.display = 'flex';
+      } else {
+        btnTorch.style.display = 'none';
+      }
+
     } catch (err) {
-      console.error('Camera access error:', err);
-      cameraMessage.innerHTML = `<p style="color:#ef4444;">Camera blocked: ${err.message}. Tap "Choose Photo" or lookup below.</p>`;
+      console.error("Camera access error:", err);
+      cameraMessage.style.display = 'block';
+      cameraMessage.innerHTML = `
+        <p style="color:#f87171;">Camera Access Required</p>
+        <p style="font-size:12px; margin-top:4px;">Please allow camera permissions or upload an image to use Visual Search.</p>
+      `;
     }
   }
 
@@ -167,35 +231,22 @@
       videoStream.getTracks().forEach(track => track.stop());
       videoStream = null;
     }
-    if (videoElement) {
-      videoElement.srcObject = null;
-    }
+    videoElement.srcObject = null;
   }
 
-  function checkTorchSupport() {
-    if (!videoStream) return;
-    const track = videoStream.getVideoTracks()[0];
-    const capabilities = track.getCapabilities ? track.getCapabilities() : {};
-    if (capabilities.torch) {
-      btnTorch.style.display = 'flex';
-    } else {
-      btnTorch.style.display = 'none';
-    }
-  }
-
-  // --- VISUAL REVERSE SEARCH CORE ENGINE ---
-  async function performVisualSearch(sourceImageOrCanvas) {
+  // --- VISUAL REVERSE SEARCH CORE ---
+  async function performVisualSearch(sourceElement) {
     if (isAnalyzing) return;
     isAnalyzing = true;
     scanAnalyzingOverlay.style.display = 'flex';
 
     try {
-      // 1. Prepare 224x224 input canvas for MobileNet
+      // 1. Draw source frame into a 224x224 offscreen canvas
       const offCanvas = document.createElement('canvas');
       offCanvas.width = 224;
       offCanvas.height = 224;
       const ctx = offCanvas.getContext('2d');
-      ctx.drawImage(sourceImageOrCanvas, 0, 0, 224, 224);
+      ctx.drawImage(sourceElement, 0, 0, 224, 224);
 
       // 2. Ensure neural model is ready
       if (!mobilenetModel) {
@@ -299,12 +350,12 @@
       img.src = event.target.result;
     };
     reader.readAsDataURL(file);
-    // Reset file input
     fileUploadInput.value = '';
   });
 
   // --- MODAL / PRODUCT HUD DISPLAY ---
   function openProductModal(product, matchScore = null, alternatives = [], userPhotoDataUrl = null) {
+    activeProduct = product;
     modalBrand.textContent = product.brand.toUpperCase();
     modalTitle.textContent = product.name;
     modalPrice.textContent = product.price;
@@ -359,7 +410,6 @@
           const pid = parseInt(card.getAttribute('data-pid'), 10);
           const selected = PRODUCTS.find(p => p.id === pid);
           if (selected) {
-            // Switch to selected candidate
             openProductModal(selected, null, [], userPhotoDataUrl);
           }
         });
@@ -373,29 +423,118 @@
 
   function closeProductModal() {
     productModal.classList.remove('open');
+    activeProduct = null;
   }
 
+  // View more from brand button in modal
+  btnBrandMore.addEventListener('click', () => {
+    if (!activeProduct) return;
+    const targetBrand = activeProduct.brand;
+    closeProductModal();
+    
+    // Switch to catalog, reset department, set brand filter
+    activeDepartment = 'all';
+    activeBrand = targetBrand;
+    activeSearchQuery = '';
+    catalogSearchInput.value = '';
+    btnClearSearch.style.display = 'none';
+
+    // Update UI elements
+    deptPillsContainer.querySelectorAll('.dept-pill').forEach(p => {
+      p.classList.toggle('active', p.getAttribute('data-dept') === 'all');
+    });
+    filterBrandSelect.value = targetBrand;
+
+    switchTab('catalog');
+    renderCatalog();
+    showToast(`Showing all products from ${targetBrand}`);
+  });
+
+  // Copy Pitch button in modal
+  btnCopyPitch.addEventListener('click', () => {
+    const text = modalPitch.textContent.trim();
+    if (text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Staff pitch copied to clipboard!');
+      }).catch(() => {
+        showToast('Unable to copy pitch');
+      });
+    }
+  });
+
   // --- CATALOG FILTERING & RENDERING ---
+  function populateBrandFilter() {
+    const brandsSet = new Set();
+    PRODUCTS.forEach(p => {
+      if (p.brand) brandsSet.add(p.brand);
+    });
+
+    const sortedBrands = Array.from(brandsSet).sort();
+    filterBrandSelect.innerHTML = `<option value="all">All Brands (${sortedBrands.length})</option>`;
+    sortedBrands.forEach(b => {
+      const count = PRODUCTS.filter(p => p.brand === b).length;
+      const opt = document.createElement('option');
+      opt.value = b;
+      opt.textContent = `${b} (${count})`;
+      filterBrandSelect.appendChild(opt);
+    });
+  }
+
   function renderCatalog() {
     const query = activeSearchQuery.toLowerCase().trim();
     
-    const filtered = PRODUCTS.filter(p => {
+    let filtered = PRODUCTS.filter(p => {
+      // Department filter
       if (activeDepartment !== 'all' && p.department !== activeDepartment) {
         return false;
       }
+      // Brand filter
+      if (activeBrand !== 'all' && p.brand !== activeBrand) {
+        return false;
+      }
+      // Search query
       if (!query) return true;
       const haystack = `${p.fullTitle} ${p.brand} ${p.name} ${p.sku} ${p.department} ${p.pitch}`.toLowerCase();
       return haystack.includes(query);
     });
 
+    // Sorting
+    if (activeSort === 'price-asc') {
+      filtered.sort((a, b) => (a.priceNum || 0) - (b.priceNum || 0));
+    } else if (activeSort === 'price-desc') {
+      filtered.sort((a, b) => (b.priceNum || 0) - (a.priceNum || 0));
+    } else if (activeSort === 'name-asc') {
+      filtered.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (activeSort === 'brand-asc') {
+      filtered.sort((a, b) => a.brand.localeCompare(b.brand));
+    }
+
     resultsCount.textContent = `Showing ${filtered.length} of ${PRODUCTS.length} products`;
 
     if (filtered.length === 0) {
       catalogGrid.innerHTML = `
-        <div class="empty-state" style="grid-column: 1 / -1;">
-          <p>No products found matching "${activeSearchQuery}".</p>
+        <div class="empty-state" style="grid-column: 1 / -1; padding: 40px; text-align: center;">
+          <p>No products found matching your active filters.</p>
+          <button id="btn-reset-filters" class="btn-secondary" style="margin-top: 12px;">Reset All Filters</button>
         </div>
       `;
+      const btnReset = document.getElementById('btn-reset-filters');
+      if (btnReset) {
+        btnReset.addEventListener('click', () => {
+          activeDepartment = 'all';
+          activeBrand = 'all';
+          activeSort = 'default';
+          activeSearchQuery = '';
+          catalogSearchInput.value = '';
+          btnClearSearch.style.display = 'none';
+          filterBrandSelect.value = 'all';
+          filterSortSelect.value = 'default';
+          deptPillsContainer.querySelectorAll('.dept-pill').forEach(p => {
+            p.classList.toggle('active', p.getAttribute('data-dept') === 'all');
+          });
+          renderCatalog();
+        });
+      }
       return;
     }
 
@@ -429,6 +568,29 @@
       });
     });
   }
+
+  // --- MEMBERSHIP RATES CONTROLLER ---
+  function updateMembershipPrices(termKey) {
+    activeCommitmentTerm = termKey;
+    const rates = MEMBERSHIP_PRICING[termKey] || MEMBERSHIP_PRICING['6'];
+
+    priceGrounded.textContent = rates.grounded;
+    priceAttuned.textContent = rates.attuned;
+    priceActivated.textContent = rates.activated;
+    priceFounders.textContent = rates.founders;
+    priceTranscendent.textContent = rates.transcendent;
+
+    termButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-term') === termKey);
+    });
+  }
+
+  termButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const term = btn.getAttribute('data-term');
+      updateMembershipPrices(term);
+    });
+  });
 
   // --- RECENT SCAN HISTORY ---
   function loadHistory() {
@@ -485,7 +647,7 @@
     });
   }
 
-  // --- EVENT LISTENERS ---
+  // --- NAVIGATION TAB SWITCHER ---
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const targetTab = tab.getAttribute('data-tab');
@@ -497,7 +659,9 @@
     activeTab = tabId;
     tabs.forEach(t => t.classList.toggle('active', t.getAttribute('data-tab') === tabId));
     Object.keys(viewPanels).forEach(key => {
-      viewPanels[key].classList.toggle('active', key === tabId);
+      if (viewPanels[key]) {
+        viewPanels[key].classList.toggle('active', key === tabId);
+      }
     });
 
     if (tabId === 'scanner') {
@@ -530,9 +694,23 @@
     }
   });
 
-  // Help tip button
-  document.getElementById('btn-help-tip').addEventListener('click', () => {
-    showToast("Tip: Center the item in the box and hold still for best visual match!");
+  // Help Guide Modal
+  btnHelpTip.addEventListener('click', () => {
+    helpModal.classList.add('open');
+  });
+
+  btnCloseHelp.addEventListener('click', () => {
+    helpModal.classList.remove('open');
+  });
+
+  btnHelpGotIt.addEventListener('click', () => {
+    helpModal.classList.remove('open');
+  });
+
+  helpModal.addEventListener('click', (e) => {
+    if (e.target === helpModal) {
+      helpModal.classList.remove('open');
+    }
   });
 
   // Quick manual lookup form
@@ -583,6 +761,18 @@
     });
   });
 
+  // Brand dropdown filter
+  filterBrandSelect.addEventListener('change', (e) => {
+    activeBrand = e.target.value;
+    renderCatalog();
+  });
+
+  // Sort dropdown selector
+  filterSortSelect.addEventListener('change', (e) => {
+    activeSort = e.target.value;
+    renderCatalog();
+  });
+
   // Clear History
   btnClearHistory.addEventListener('click', () => {
     scanHistory = [];
@@ -607,8 +797,9 @@
   });
 
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && productModal.classList.contains('open')) {
-      closeProductModal();
+    if (e.key === 'Escape') {
+      if (productModal.classList.contains('open')) closeProductModal();
+      if (helpModal.classList.contains('open')) helpModal.classList.remove('open');
     }
   });
 
@@ -637,8 +828,10 @@
 
   // --- APP INITIALIZATION ---
   async function init() {
+    populateBrandFilter();
     loadHistory();
     renderCatalog();
+    updateMembershipPrices('6');
     if (activeTab === 'scanner') {
       startCamera();
     }
