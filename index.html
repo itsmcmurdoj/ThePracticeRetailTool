@@ -7,20 +7,20 @@
   
   <!-- PWA & Apple Web App Meta Tags -->
   <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#0a0f1d">
+  <meta name="theme-color" content="#EBEDEA">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="The Practice">
-  <link rel="apple-touch-icon" href="./icon.png">
-  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="./assets/the_practice_symbol.png">
 
-  <!-- Google Fonts: Playfair Display + Inter -->
+  <!-- Official The Practice Fonts: Abhaya Libre + Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- App Styles -->
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=6.0">
 </head>
 <body>
   <div class="app-container">
@@ -28,10 +28,13 @@
     <!-- TOP NAVIGATION HEADER -->
     <header class="app-header">
       <div class="header-left">
-        <div class="brand-monogram">TP</div>
-        <div class="brand-text">
-          <h1 class="brand-title">THE PRACTICE</h1>
-          <p class="brand-subtitle">Retail Identifier & Operations Guide</p>
+        <a href="https://thepracticetoronto.com" target="_blank" rel="noopener" class="brand-logo-link" title="The Practice Toronto">
+          <img src="./assets/the_practice_logo.png" alt="The Practice" class="brand-logo-img">
+        </a>
+        <div class="brand-divider"></div>
+        <div class="brand-meta">
+          <span class="brand-location">YORKVILLE • 360 DAVENPORT RD</span>
+          <span class="brand-subtitle">Retail Identifier & Operations Guide</span>
         </div>
       </div>
       
@@ -546,7 +549,7 @@
         <button id="btn-close-help" class="modal-close-btn" aria-label="Close">✕</button>
         <div class="help-content">
           <div class="help-header">
-            <div class="brand-monogram">TP</div>
+            <img src="./assets/the_practice_symbol.png" alt="The Practice" class="help-brand-symbol">
             <h3>How to Use Visual Search</h3>
           </div>
           <div class="help-steps">

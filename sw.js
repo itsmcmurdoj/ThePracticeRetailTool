@@ -3,7 +3,7 @@
  * Provides 100% offline capability for the 731-product catalog
  */
 
-const CACHE_NAME = 'the-practice-retail-v4';
+const CACHE_NAME = 'the-practice-retail-v6';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -12,8 +12,14 @@ const ASSETS_TO_CACHE = [
   './products.js',
   './product_embeddings.js',
   './manifest.json',
-  './icon.svg',
-  './icon.png'
+  './icon.png',
+  './icon-192.png',
+  './apple-touch-icon.png',
+  './assets/the_practice_logo.png',
+  './assets/the_practice_symbol.png',
+  './assets/apple-touch-icon.png',
+  './assets/optima-regular.woff2',
+  './assets/optima-regular.woff'
 ];
 
 self.addEventListener('install', (event) => {
