@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>The Practice • Retail Scanner</title>
+  
+  <!-- PWA & Apple Web App Meta Tags -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#0a0f1d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="The Practice">
+  <link rel="apple-touch-icon" href="./icon.png">
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+
+  <!-- Google Fonts: Playfair Display + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- HTML5-QRCode Scanner Fallback -->
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+
+  <!-- App Styles -->
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- TOP NAVIGATION HEADER -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="brand-monogram">TP</div>
+        <div class="brand-text">
+          <h1 class="brand-title">THE PRACTICE</h1>
+          <p class="brand-subtitle">Retail Scanner & Staff Guide</p>
+        </div>
+      </div>
+      
+      <div class="header-right">
+        <div id="connection-status" class="status-pill status-online">
+          <span class="status-dot"></span>
+          <span class="status-label">731 Items Cached</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- TAB NAVIGATION BAR -->
+    <nav class="nav-tabs">
+      <button class="nav-tab active" data-tab="scanner">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"></path>
+          <line x1="7" y1="12" x2="17" y2="12"></line>
+        </svg>
+        <span>Camera Scanner</span>
+      </button>
+
+      <button class="nav-tab" data-tab="catalog">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Catalog & Search</span>
+      </button>
+
+      <button class="nav-tab" data-tab="history">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span>Recent (<span id="history-count">0</span>)</span>
+      </button>
+    </nav>
+
+    <!-- MAIN CONTENT VIEWS -->
+    <main class="views-wrapper">
+      
+      <!-- VIEW 1: LIVE CAMERA SCANNER -->
+      <section id="view-scanner" class="view-panel active">
+        <div class="scanner-container">
+          <div class="camera-viewport" id="camera-viewport">
+            <video id="camera-video" playsinline autoplay muted></video>
+            
+            <!-- Animated Reticle Overlays -->
+            <div class="scanner-overlay">
+              <div class="scanner-target">
+                <div class="corner top-left"></div>
+                <div class="corner top-right"></div>
+                <div class="corner bottom-left"></div>
+                <div class="corner bottom-right"></div>
+                <div class="laser-beam"></div>
+              </div>
+            </div>
+
+            <!-- Viewport Overlay Controls -->
+            <div class="camera-controls">
+              <button id="btn-torch" class="ctrl-btn" title="Toggle Torch" style="display:none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+              </button>
+              <button id="btn-switch-camera" class="ctrl-btn" title="Switch Camera">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+              </button>
+            </div>
+
+            <div id="camera-message" class="camera-message">
+              <p>Align barcode, QR code, or SKU label inside box</p>
+            </div>
+          </div>
+
+          <!-- Quick Manual Search Fallback Bar -->
+          <div class="quick-sku-bar">
+            <form id="quick-sku-form" class="quick-sku-form">
+              <svg class="search-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="quick-sku-input" placeholder="Or type SKU, barcode, or product name..." autocomplete="off">
+              <button type="submit" class="quick-sku-btn">Lookup</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: SEARCHABLE CATALOG BROWSER -->
+      <section id="view-catalog" class="view-panel">
+        <div class="catalog-container">
+          <div class="search-header">
+            <div class="search-box">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="search" id="catalog-search-input" placeholder="Search 731 products by name, brand, SKU..." autocomplete="off">
+              <button id="btn-clear-search" class="clear-btn" style="display:none;">✕</button>
+            </div>
+
+            <!-- Department Filter Pills -->
+            <div class="dept-pills" id="dept-pills">
+              <button class="dept-pill active" data-dept="all">All Departments (731)</button>
+              <button class="dept-pill" data-dept="Fine Jewelry & Modern Adornments">Fine Jewelry</button>
+              <button class="dept-pill" data-dept="Sacred Minerals, Crystals & Fossils">Sacred Minerals</button>
+              <button class="dept-pill" data-dept="Aromatherapy, Incense & Sacred Smudging">Aromatherapy</button>
+              <button class="dept-pill" data-dept="Luxury Candles & Home Fragrance">Luxury Candles</button>
+              <button class="dept-pill" data-dept="Mindful Living, Journals & Games">Mindful Living</button>
+              <button class="dept-pill" data-dept="Clean Apothecary, Bath & Grooming">Clean Apothecary</button>
+              <button class="dept-pill" data-dept="Home Decor, Barware & Artisan Textiles">Home Decor</button>
+              <button class="dept-pill" data-dept="Cafe & Nourishment">Cafe</button>
+            </div>
+          </div>
+
+          <!-- Product Grid -->
+          <div class="product-results-info">
+            <span id="results-count">Showing 731 products</span>
+          </div>
+
+          <div class="catalog-grid" id="catalog-grid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 3: RECENT SCAN HISTORY -->
+      <section id="view-history" class="view-panel">
+        <div class="history-container">
+          <div class="history-header">
+            <h2>Shift Scan History</h2>
+            <button id="btn-clear-history" class="btn-secondary">Clear History</button>
+          </div>
+          <div class="history-list" id="history-list">
+            <p class="empty-state">No products scanned yet this shift. Point camera at any barcode or search the catalog.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- PRODUCT DETAIL MODAL / HUD (SLIDE-UP CARD) -->
+    <div id="product-modal" class="modal-backdrop">
+      <div class="modal-sheet">
+        <button id="btn-close-modal" class="modal-close-btn" aria-label="Close">✕</button>
+        
+        <div class="modal-scrollable">
+          <div class="modal-product-layout">
+            
+            <div class="modal-img-wrap">
+              <img id="modal-img" src="" alt="Product Photo" onerror="this.src='./icon.svg'">
+              <span id="modal-dept-badge" class="dept-badge">Department</span>
+            </div>
+
+            <div class="modal-info">
+              <div class="modal-header-info">
+                <span id="modal-brand" class="modal-brand">BRAND</span>
+                <h2 id="modal-title" class="modal-title">Product Title</h2>
+              </div>
+
+              <!-- Price & SKU Callout -->
+              <div class="modal-meta-box">
+                <div class="meta-item">
+                  <span class="meta-label">RETAIL PRICE</span>
+                  <span id="modal-price" class="meta-value price-highlight">$0.00</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">SKU / ITEM CODE</span>
+                  <div class="sku-copy-row">
+                    <span id="modal-sku" class="meta-value sku-code">SKU-000</span>
+                    <button id="btn-copy-sku" class="btn-copy-icon" title="Copy SKU">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></line><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- The Staff Pitch -->
+              <div class="modal-pitch-box">
+                <div class="pitch-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <span>THE STAFF SELLING PITCH</span>
+                </div>
+                <p id="modal-pitch" class="pitch-text">
+                  Craftsmanship details, materials, and selling points will appear here.
+                </p>
+              </div>
+
+              <!-- Action Links -->
+              <div class="modal-actions">
+                <a id="modal-momence-link" href="#" target="_blank" rel="noopener" class="btn-primary btn-momence">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                  <span>Open in Momence</span>
+                </a>
+                <button id="btn-scan-again" class="btn-secondary">
+                  <span>Scan Next Product</span>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast">SKU copied to clipboard</div>
+
+  </div>
+
+  <!-- Load Products Dataset & App Controller -->
+  <script src="./products.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
