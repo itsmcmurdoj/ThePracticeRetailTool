@@ -1,0 +1,336 @@
+{
+  "sync_timestamp": "2026-09-28T19:27:16.222292+00:00",
+  "target_date": "2026-09-28",
+  "platforms": {
+    "homebase": {
+      "status": "connected",
+      "events_count": 3
+    },
+    "momence": {
+      "status": "connected",
+      "host_id": "200431",
+      "events_count": 6
+    },
+    "jane": {
+      "status": "connected",
+      "events_count": 4
+    }
+  },
+  "total_events": 13,
+  "events": [
+    {
+      "id": "hb-1",
+      "platform": "homebase",
+      "platformLabel": "Homebase",
+      "timeStart": "06:30 AM",
+      "timeEnd": "02:30 PM",
+      "duration": "8 HRS",
+      "period": "morning",
+      "title": "Morning Concierge & Floor Opening Shift",
+      "host": "Jackson McMurdo",
+      "room": "Front Desk & Reception",
+      "roomSlug": "cafe-front",
+      "status": "completed",
+      "capacity": "On Duty",
+      "transitionNote": "06:45 AM: Sanctuary entry unlock, water filter flush, VSSL Lounge audio to 35%",
+      "details": "Opening shift lead. Supervise check-ins, unlock studios, monitor client flow.",
+      "roster": [
+        {
+          "name": "Jackson McMurdo (Opening Lead)",
+          "status": "Clocked In: 06:28 AM"
+        }
+      ]
+    },
+    {
+      "id": "hb-2",
+      "platform": "homebase",
+      "platformLabel": "Homebase",
+      "timeStart": "07:00 AM",
+      "timeEnd": "03:00 PM",
+      "duration": "8 HRS",
+      "period": "morning",
+      "title": "Cafe Barista & Morning Rush",
+      "host": "Maya Kovacs",
+      "room": "Cafe Bar",
+      "roomSlug": "cafe-front",
+      "status": "completed",
+      "capacity": "On Duty",
+      "transitionNote": "07:15 AM: Espresso grind calibration, arrange fresh pastries with Momence SKU tags",
+      "details": "Manage morning beverage & bakery operations. Support quick-sale checkouts.",
+      "roster": [
+        {
+          "name": "Maya Kovacs (Barista Lead)",
+          "status": "Clocked In: 06:58 AM"
+        }
+      ]
+    },
+    {
+      "id": "mo-1",
+      "platform": "momence",
+      "platformLabel": "Momence",
+      "timeStart": "07:00 AM",
+      "timeEnd": "08:00 AM",
+      "duration": "60 MIN",
+      "period": "morning",
+      "title": "Morning Flow & Pranayama",
+      "host": "Elena Vance",
+      "room": "Studio A (Sun)",
+      "roomSlug": "studio-a",
+      "status": "completed",
+      "capacity": "24/24 Full",
+      "transitionNote": "08:00 AM: Disinfect mats, collect linen towels, wipe entry handles",
+      "details": "Heated morning flow. 2 First-timers in attendance.",
+      "roster": [
+        {
+          "name": "Sophia Laurent",
+          "tier": "Founding Member",
+          "firstTime": false
+        },
+        {
+          "name": "Charlotte Wu",
+          "tier": "First-Timer",
+          "firstTime": true
+        }
+      ]
+    },
+    {
+      "id": "mo-2",
+      "platform": "momence",
+      "platformLabel": "Momence",
+      "timeStart": "08:15 AM",
+      "timeEnd": "09:00 AM",
+      "duration": "45 MIN",
+      "period": "morning",
+      "title": "Vibration Bed 1: Deep Cellular Sound Rejuvenation",
+      "host": "Client Self-Guided",
+      "room": "Vibration Bed Lounge",
+      "roomSlug": "vibration-beds",
+      "status": "completed",
+      "capacity": "1/1 Booked",
+      "transitionNote": "09:00 AM: 15-min wipe down with medical disinfectant, swap linen, recharge headphones",
+      "details": "Vibroacoustic Sound Therapy Bed 1 (Theta wave 432Hz deep recovery).",
+      "roster": [
+        {
+          "name": "Daniel Craig",
+          "tier": "Recovery Pass",
+          "firstTime": false
+        }
+      ]
+    },
+    {
+      "id": "jn-1",
+      "platform": "jane",
+      "platformLabel": "Jane App",
+      "timeStart": "09:00 AM",
+      "timeEnd": "10:00 AM",
+      "duration": "60 MIN",
+      "period": "morning",
+      "title": "Psychiatric Consultation & Clinical Follow-up",
+      "host": "Dr. Aris Thorne (MD, FRCPC)",
+      "room": "Clinical Suite 1",
+      "roomSlug": "clinic-rooms",
+      "status": "completed",
+      "capacity": "Confidential Client",
+      "transitionNote": "08:50 AM: Verify water carafe in Suite 1, sound dampener active in corridor",
+      "details": "Follow-up clinical assessment. Keep reception area noise subdued.",
+      "roster": [
+        {
+          "name": "Client S.T.",
+          "tier": "Jane Direct Billing",
+          "firstTime": false
+        }
+      ]
+    },
+    {
+      "id": "jn-2",
+      "platform": "jane",
+      "platformLabel": "Jane App",
+      "timeStart": "10:30 AM",
+      "timeEnd": "11:30 AM",
+      "duration": "60 MIN",
+      "period": "morning",
+      "title": "Somatic Psychotherapy & Nervous System Reset",
+      "host": "Dr. Maya Lin (Ph.D., C.Psych)",
+      "room": "Clinical Suite 2",
+      "roomSlug": "clinic-rooms",
+      "status": "completed",
+      "capacity": "Confidential Client",
+      "transitionNote": "10:20 AM: Escort client directly to Quiet Nook; provide warm herbal infusion",
+      "details": "Trauma-informed somatic therapy. Dim lighting, essential oil diffuser running.",
+      "roster": [
+        {
+          "name": "Client H.B.",
+          "tier": "Private Insurance",
+          "firstTime": true
+        }
+      ]
+    },
+    {
+      "id": "hb-3",
+      "platform": "homebase",
+      "platformLabel": "Homebase",
+      "timeStart": "02:00 PM",
+      "timeEnd": "10:00 PM",
+      "duration": "8 HRS",
+      "period": "afternoon",
+      "title": "Afternoon Concierge & Evening Closing Shift",
+      "host": "Leo Rivera",
+      "room": "Front Desk & Reception",
+      "roomSlug": "cafe-front",
+      "status": "live-now",
+      "capacity": "On Duty",
+      "transitionNote": "02:15 PM: 15-minute floor handoff with Jackson M. (Review evening rosters & clinic privacy)",
+      "details": "Lead evening floor operations, sound bath setup, and security lockup.",
+      "roster": [
+        {
+          "name": "Leo Rivera (Closing Lead)",
+          "status": "Clocked In: 01:58 PM"
+        }
+      ]
+    },
+    {
+      "id": "mo-3",
+      "platform": "momence",
+      "platformLabel": "Momence",
+      "timeStart": "03:00 PM",
+      "timeEnd": "04:00 PM",
+      "duration": "60 MIN",
+      "period": "afternoon",
+      "title": "Sculpt & Alignment Movement",
+      "host": "Chloe Adams",
+      "room": "Studio B (Earth)",
+      "roomSlug": "studio-b",
+      "status": "live-now",
+      "capacity": "20/20 Full",
+      "transitionNote": "02:45 PM: Room temp 21\u00b0C, set VSSL Zone 2 to Rhythmic Flow",
+      "details": "High energy movement session. 4 First-timers.",
+      "roster": [
+        {
+          "name": "Amelia King",
+          "tier": "First-Timer",
+          "firstTime": true
+        }
+      ]
+    },
+    {
+      "id": "mo-4",
+      "platform": "momence",
+      "platformLabel": "Momence",
+      "timeStart": "03:45 PM",
+      "timeEnd": "04:30 PM",
+      "duration": "45 MIN",
+      "period": "afternoon",
+      "title": "Vibration Bed 1 & 2: Dual Soundwave Recovery",
+      "host": "Studio Tech (Leo R.)",
+      "room": "Vibration Bed Lounge",
+      "roomSlug": "vibration-beds",
+      "status": "upcoming",
+      "capacity": "2/2 Booked",
+      "transitionNote": "\u26a1 IMMEDIATE ALERT (3:35 PM): Sanitize Bed 1 & 2, fresh linen reset, calibrate binaural audio",
+      "details": "Dual client session. Protocol: Delta Sleep & Deep Fascia Frequency.",
+      "roster": [
+        {
+          "name": "Victoria Hall",
+          "tier": "Recovery Pass",
+          "firstTime": false
+        }
+      ]
+    },
+    {
+      "id": "jn-3",
+      "platform": "jane",
+      "platformLabel": "Jane App",
+      "timeStart": "04:00 PM",
+      "timeEnd": "05:00 PM",
+      "duration": "60 MIN",
+      "period": "afternoon",
+      "title": "Acupuncture & Traditional Herbal Assessment",
+      "host": "Julian Vance (R.Ac, TCMP)",
+      "room": "Clinical Suite 3",
+      "roomSlug": "clinic-rooms",
+      "status": "upcoming",
+      "capacity": "Confidential Client",
+      "transitionNote": "03:50 PM: Heat table warmers, prepare single-use sterile acupuncture kits",
+      "details": "Integrated acupuncture session for stress reduction & sleep recovery.",
+      "roster": [
+        {
+          "name": "Client M.T.",
+          "tier": "Jane Direct Billing",
+          "firstTime": true
+        }
+      ]
+    },
+    {
+      "id": "mo-5",
+      "platform": "momence",
+      "platformLabel": "Momence",
+      "timeStart": "04:30 PM",
+      "timeEnd": "05:30 PM",
+      "duration": "60 MIN",
+      "period": "afternoon",
+      "title": "Sunset Flow 60 (Heated Sanctuary)",
+      "host": "Liam Gallagher",
+      "room": "Studio A (Sun)",
+      "roomSlug": "studio-a",
+      "status": "upcoming",
+      "capacity": "24/25 Booked",
+      "transitionNote": "04:15 PM: Studio A heating to 28\u00b0C, warm terracotta cove lights, arrange 4 first-timer mats",
+      "details": "Heated sunset practice. High cafe beverage demand anticipated at 5:30 PM.",
+      "roster": [
+        {
+          "name": "Benjamin Ross",
+          "tier": "First-Timer",
+          "firstTime": true
+        }
+      ]
+    },
+    {
+      "id": "jn-4",
+      "platform": "jane",
+      "platformLabel": "Jane App",
+      "timeStart": "05:30 PM",
+      "timeEnd": "06:30 PM",
+      "duration": "60 MIN",
+      "period": "evening",
+      "title": "Psychiatric Initial Evaluation & Diagnostics",
+      "host": "Dr. Aris Thorne (MD, FRCPC)",
+      "room": "Clinical Suite 1",
+      "roomSlug": "clinic-rooms",
+      "status": "upcoming",
+      "capacity": "New Patient (Intake Pending)",
+      "transitionNote": "05:20 PM: Welcome patient with privacy priority; verify intake tablet before entry",
+      "details": "New patient psychiatric evaluation. Confidentiality protocol in effect.",
+      "roster": [
+        {
+          "name": "Patient E.W. (New Intake)",
+          "tier": "Referral",
+          "firstTime": true
+        }
+      ]
+    },
+    {
+      "id": "mo-6",
+      "platform": "momence",
+      "platformLabel": "Momence",
+      "timeStart": "08:45 PM",
+      "timeEnd": "09:45 PM",
+      "duration": "60 MIN",
+      "period": "evening",
+      "title": "Candlelight Sound Bath & Symphonic Gong",
+      "host": "Elena Vance",
+      "room": "Studio A (Sun)",
+      "roomSlug": "studio-a",
+      "status": "upcoming",
+      "capacity": "25/25 Full",
+      "transitionNote": "08:30 PM: Switch entire building to Zen Mode (10% lighting), silence all hallway chimes",
+      "details": "Final sanctuary immersion of the evening. 3 waitlisted.",
+      "roster": [
+        {
+          "name": "Aria Thorne",
+          "tier": "First-Timer",
+          "firstTime": true
+        }
+      ]
+    }
+  ]
+}

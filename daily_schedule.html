@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Practice — Unified Daily Operational Schedule syncing Homebase, Momence, and Jane App">
+    <title>The Practice • Unified Daily Operational Schedule</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Architectural Theme - Light / Day Mode (Warm Mineral Lime Plaster) */
+            --bg-base: #E8EAE6;
+            --bg-surface: #F8F7F5;
+            --bg-surface-elevated: #FFFFFF;
+            --bg-card: #FFFFFF;
+            --border-subtle: rgba(21, 21, 21, 0.08);
+            --border-bronze: rgba(212, 175, 55, 0.35);
+            --border-active: #E27B2A;
+
+            --text-primary: #151515;
+            --text-secondary: #47504A;
+            --text-muted: #748079;
+            --text-inverse: #F8FAFC;
+
+            /* Platform Signature Accent Tokens */
+            --color-homebase: #1E3A8A; /* Navy Slate */
+            --color-homebase-bg: rgba(30, 58, 138, 0.08);
+            --color-homebase-border: rgba(30, 58, 138, 0.25);
+
+            --color-momence: #D96B27; /* Terracotta Amber */
+            --color-momence-bg: rgba(217, 107, 39, 0.08);
+            --color-momence-border: rgba(217, 107, 39, 0.25);
+
+            --color-jane: #0F766E; /* Clinical Teal / Deep Sage */
+            --color-jane-bg: rgba(15, 118, 110, 0.08);
+            --color-jane-border: rgba(15, 118, 110, 0.25);
+
+            --color-alert: #C2410C; /* High alert orange-red */
+            --color-alert-bg: rgba(194, 65, 12, 0.09);
+
+            --accent-amber: #E27B2A;
+            --accent-peach: #FFBC7D;
+            --accent-indigo: #03095F;
+            --status-success: #1E7E51;
+            --status-live: #DC2626;
+
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 22px;
+            --radius-pill: 9999px;
+            --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.04);
+            --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 14px 40px rgba(0, 0, 0, 0.12);
+            --transition-smooth: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Dark / Zen Mode (Evening Sanctuary / Sound Baths) */
+        body.theme-zen {
+            --bg-base: #0E1211;
+            --bg-surface: #151B19;
+            --bg-surface-elevated: #1C2421;
+            --bg-card: #18201D;
+            --border-subtle: rgba(255, 255, 255, 0.09);
+            --border-bronze: rgba(212, 175, 55, 0.3);
+
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --text-inverse: #0E1211;
+
+            --color-homebase: #60A5FA;
+            --color-homebase-bg: rgba(96, 165, 250, 0.12);
+            --color-homebase-border: rgba(96, 165, 250, 0.3);
+
+            --color-momence: #FB923C;
+            --color-momence-bg: rgba(251, 146, 60, 0.12);
+            --color-momence-border: rgba(251, 146, 60, 0.3);
+
+            --color-jane: #2DD4BF;
+            --color-jane-bg: rgba(45, 212, 191, 0.12);
+            --color-jane-border: rgba(45, 212, 191, 0.3);
+
+            --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.5);
+            --shadow-hover: 0 14px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.5;
+            min-height: 100vh;
+            padding-bottom: 90px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Atmospheric Brand & Sync Header */
+        .top-brand-bar {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+
+        .brand-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand-emblem {
+            font-family: var(--font-heading);
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        .brand-divider {
+            color: var(--accent-amber);
+            font-size: 18px;
+        }
+
+        .brand-title-tag {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        /* Live Sync Platform Indicators */
+        .platform-sync-cluster {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sync-pill {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: var(--radius-pill);
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-surface-elevated);
+        }
+
+        .sync-pill.homebase {
+            color: var(--color-homebase);
+            border-color: var(--color-homebase-border);
+            background: var(--color-homebase-bg);
+        }
+
+        .sync-pill.momence {
+            color: var(--color-momence);
+            border-color: var(--color-momence-border);
+            background: var(--color-momence-bg);
+        }
+
+        .sync-pill.jane {
+            color: var(--color-jane);
+            border-color: var(--color-jane-border);
+            background: var(--color-jane-bg);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: var(--status-success);
+        }
+
+        .clock-display {
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            background: var(--bg-surface-elevated);
+            padding: 6px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse-live {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--status-live);
+            animation: pulseAnim 1.8s infinite;
+        }
+
+        @keyframes pulseAnim {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 7px rgba(220, 38, 38, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
+
+        .controls-cluster {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-utility {
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 7px 12px;
+            border-radius: var(--radius-pill);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-utility:hover {
+            border-color: var(--accent-amber);
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .btn-sync-now {
+            background: var(--text-primary);
+            color: var(--bg-surface);
+            border: none;
+        }
+
+        .btn-sync-now:hover {
+            background: var(--accent-amber);
+            color: #FFFFFF;
+        }
+
+        /* Main Container */
+        .app-container {
+            max-width: 1520px;
+            margin: 0 auto;
+            padding: 24px 28px 0 28px;
+        }
+
+        /* Operational Air-Traffic Transition Alert Banner */
+        .transition-alert-banner {
+            background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-elevated) 100%);
+            border: 1px solid var(--border-bronze);
+            border-left: 6px solid var(--color-alert);
+            border-radius: var(--radius-md);
+            padding: 18px 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .alert-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .alert-icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
+            background: var(--color-alert-bg);
+            color: var(--color-alert);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .alert-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .alert-tagline {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--color-alert);
+        }
+
+        .alert-headline {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .alert-sub {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .alert-countdown {
+            font-family: var(--font-mono);
+            font-size: 18px;
+            font-weight: 700;
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-bronze);
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            color: var(--color-alert);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 3-Platform Unified Pulse Stats */
+        .pulse-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-subtle);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .stat-card::top {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .stat-card.homebase::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--color-homebase); }
+        .stat-card.momence::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--color-momence); }
+        .stat-card.jane::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--color-jane); }
+        .stat-card.transitions::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent-bronze); }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .stat-platform-tag {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .stat-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Unified Stream Controls & Filter Bar */
+        .controls-filter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .platform-tabs {
+            display: flex;
+            background: var(--bg-surface);
+            padding: 4px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-subtle);
+            gap: 4px;
+        }
+
+        .platform-tab {
+            background: transparent;
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .platform-tab.active {
+            background: var(--text-primary);
+            color: var(--bg-surface);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .room-dropdown, .search-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-pill);
+            padding: 8px 16px;
+            font-size: 13px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            transition: var(--transition-smooth);
+        }
+
+        .room-dropdown:focus, .search-box:focus {
+            outline: none;
+            border-color: var(--accent-amber);
+        }
+
+        /* Unified Layout Grid */
+        .unified-layout-grid {
+            display: grid;
+            grid-template-columns: 2.3fr 1fr;
+            gap: 28px;
+        }
+
+        /* Timeline Stream */
+        .timeline-stream {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Section Period Dividers (Morning, Afternoon, Evening) */
+        .period-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 16px 0 6px 0;
+        }
+
+        .period-title {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        .period-line {
+            height: 1px;
+            background: var(--border-subtle);
+            width: 100%;
+        }
+
+        /* Unified Stream Card */
+        .stream-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            box-shadow: var(--shadow-card);
+            display: grid;
+            grid-template-columns: 105px 1fr auto;
+            gap: 18px;
+            align-items: center;
+            transition: var(--transition-smooth);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .stream-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-bronze);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stream-card.homebase-card { border-left: 5px solid var(--color-homebase); }
+        .stream-card.momence-card { border-left: 5px solid var(--color-momence); }
+        .stream-card.jane-card { border-left: 5px solid var(--color-jane); }
+
+        .stream-card.live-now {
+            background: linear-gradient(to right, rgba(220, 38, 38, 0.04), var(--bg-surface) 40%);
+            border-color: var(--status-live);
+        }
+
+        .stream-card.completed {
+            opacity: 0.65;
+        }
+
+        .stream-card.completed:hover {
+            opacity: 0.95;
+        }
+
+        /* Time Column */
+        .card-time-col {
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid var(--border-subtle);
+            padding-right: 14px;
+        }
+
+        .time-start {
+            font-family: var(--font-mono);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .time-end {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .time-duration {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-amber);
+            margin-top: 4px;
+        }
+
+        /* Center Info Column */
+        .card-info-col {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .badge-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .platform-badge {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 3px 8px;
+            border-radius: var(--radius-sm);
+        }
+
+        .platform-badge.homebase { background: var(--color-homebase-bg); color: var(--color-homebase); border: 1px solid var(--color-homebase-border); }
+        .platform-badge.momence { background: var(--color-momence-bg); color: var(--color-momence); border: 1px solid var(--color-momence-border); }
+        .platform-badge.jane { background: var(--color-jane-bg); color: var(--color-jane); border: 1px solid var(--color-jane-border); }
+
+        .room-tag {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-surface-elevated);
+            padding: 3px 8px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.25;
+        }
+
+        .host-client-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .host-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Transition Notice Callout embedded inside card */
+        .card-transition-note {
+            background: var(--bg-surface-elevated);
+            border: 1px dashed var(--border-bronze);
+            border-radius: var(--radius-sm);
+            padding: 6px 12px;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--accent-amber);
+            font-weight: 600;
+        }
+
+        /* Right Action / Status Column */
+        .card-action-col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .capacity-chip {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: var(--radius-pill);
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-drawer-inspect {
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-drawer-inspect:hover {
+            border-color: var(--accent-amber);
+            background: var(--accent-amber);
+            color: #FFFFFF;
+        }
+
+        /* Sidebar Operations */
+        .sidebar-ops-stream {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .sidebar-title {
+            font-family: var(--font-heading);
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Transition Log Stream */
+        .transition-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .transition-item {
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .transition-item:hover {
+            border-color: var(--border-bronze);
+        }
+
+        .transition-item.done {
+            opacity: 0.55;
+            text-decoration: line-through;
+        }
+
+        .transition-time {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-amber);
+        }
+
+        .transition-text {
+            font-size: 12px;
+            color: var(--text-primary);
+            line-height: 1.35;
+        }
+
+        /* Modal Drawer */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(14, 18, 17, 0.65);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: flex-end;
+            z-index: 200;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .drawer-sheet {
+            width: 580px;
+            max-width: 92vw;
+            height: 100%;
+            background: var(--bg-surface);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            animation: slideIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow-y: auto;
+            border-left: 1px solid var(--border-subtle);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        .drawer-top {
+            padding: 24px;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            background: var(--bg-surface-elevated);
+        }
+
+        .drawer-close {
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .drawer-close:hover { color: var(--text-primary); }
+
+        .drawer-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .drawer-block {
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+        }
+
+        .drawer-block-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1080px) {
+            .pulse-stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .unified-layout-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .app-container { padding: 14px; }
+            .top-brand-bar { padding: 10px 14px; }
+            .brand-title-tag, .platform-sync-cluster { display: none; }
+            .pulse-stats-grid { grid-template-columns: 1fr; }
+            .stream-card { grid-template-columns: 1fr; }
+            .card-time-col { border-right: none; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Atmospheric Header with 3-Platform Sync Status -->
+    <header class="top-brand-bar">
+        <div class="brand-meta">
+            <div class="brand-emblem">The Practice</div>
+            <span class="brand-divider">•</span>
+            <div class="brand-title-tag">360 Davenport Rd • Unified Daily Operations</div>
+        </div>
+
+        <!-- Real-Time Sync Indicators -->
+        <div class="platform-sync-cluster">
+            <div class="sync-pill homebase" title="Homebase Staff Scheduling Sync">
+                <span class="status-dot"></span>
+                <span>Homebase: Staff Roster</span>
+            </div>
+            <div class="sync-pill momence" title="Momence Studio & Vibration Bed Sync">
+                <span class="status-dot"></span>
+                <span>Momence: Studio & Beds</span>
+            </div>
+            <div class="sync-pill jane" title="Jane App Clinical Appointments Sync">
+                <span class="status-dot"></span>
+                <span>Jane App: Clinical</span>
+            </div>
+        </div>
+
+        <!-- Clock & Controls -->
+        <div class="controls-cluster">
+            <div class="clock-display">
+                <span class="pulse-live"></span>
+                <span id="digitalClock">00:00:00 PM</span>
+            </div>
+            <button class="btn-utility btn-sync-now" onclick="triggerSyncRefresh()" title="Fetch latest data from all 3 platforms">
+                <span id="syncIcon">🔄</span> <span>Sync Now</span>
+            </button>
+            <button class="btn-utility" onclick="toggleTheme()" title="Toggle Zen / Evening Mode">
+                <span id="themeEmoji">🌙</span> <span id="themeText">Zen Mode</span>
+            </button>
+            <button class="btn-utility" onclick="toggleFullScreen()" title="Full screen kiosk view for iPad displays">
+                <span>⛶</span> <span>Kiosk</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="app-container">
+
+        <!-- Active Immediate Operational Transition Alert -->
+        <section class="transition-alert-banner" id="activeAlertBanner">
+            <div class="alert-left">
+                <div class="alert-icon-box">⚡</div>
+                <div class="alert-meta">
+                    <span class="alert-tagline">Immediate Operational Transition</span>
+                    <h2 class="alert-headline" id="alertHeadline">Vibration Bed 1 & 2 Sanitation & Linen Reset</h2>
+                    <p class="alert-sub" id="alertSub">Prep recovery suite for next client: wipe acoustic surfaces, swap fresh linen, set theta waves.</p>
+                </div>
+            </div>
+            <div class="alert-countdown" id="alertCountdown">
+                <span>⏱</span> <span id="countdownTimer">Next in 14m</span>
+            </div>
+        </section>
+
+        <!-- 3-Platform Daily Pulse Stats -->
+        <section class="pulse-stats-grid">
+            <div class="stat-card homebase">
+                <div class="stat-header">
+                    <span class="stat-platform-tag" style="color: var(--color-homebase);">🏢 Homebase Staff</span>
+                    <span>👥</span>
+                </div>
+                <div class="stat-value">6 On Duty</div>
+                <div class="stat-desc">Jackson M. (Lead Concierge), Maya K. (Barista), Leo R. (Tech) + 3 others</div>
+            </div>
+
+            <div class="stat-card momence">
+                <div class="stat-header">
+                    <span class="stat-platform-tag" style="color: var(--color-momence);">🧘 Momence Studio</span>
+                    <span>🎟</span>
+                </div>
+                <div class="stat-value">9 Classes • 188 Booked</div>
+                <div class="stat-desc">91.7% floor capacity • 18 First-Timers today</div>
+            </div>
+
+            <div class="stat-card momence">
+                <div class="stat-header">
+                    <span class="stat-platform-tag" style="color: var(--color-momence);">🛏️ Vibration Beds</span>
+                    <span>🔊</span>
+                </div>
+                <div class="stat-value">14 / 16 Sessions</div>
+                <div class="stat-desc">Bed 1: 100% Full • Bed 2: 75% Full (2 afternoon slots left)</div>
+            </div>
+
+            <div class="stat-card jane">
+                <div class="stat-header">
+                    <span class="stat-platform-tag" style="color: var(--color-jane);">🩺 Jane App Clinic</span>
+                    <span>🌿</span>
+                </div>
+                <div class="stat-value">11 Clinical Appts</div>
+                <div class="stat-desc">Psychiatry (4) • Somatic Psychotherapy (4) • Acupuncture (3)</div>
+            </div>
+        </section>
+
+        <!-- Stream Filters -->
+        <section class="controls-filter-bar">
+            <div class="platform-tabs">
+                <button class="platform-tab active" onclick="setPlatformFilter('all', this)">
+                    <span>🌐</span> <span>Unified Daily Stream</span>
+                </button>
+                <button class="platform-tab" onclick="setPlatformFilter('momence', this)">
+                    <span>🧘</span> <span>Momence (Studio & Beds)</span>
+                </button>
+                <button class="platform-tab" onclick="setPlatformFilter('jane', this)">
+                    <span>🩺</span> <span>Jane App (Clinic)</span>
+                </button>
+                <button class="platform-tab" onclick="setPlatformFilter('homebase', this)">
+                    <span>🏢</span> <span>Homebase (Staff)</span>
+                </button>
+            </div>
+
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <select class="room-dropdown" id="roomFilter" onchange="setRoomFilter(this.value)">
+                    <option value="all">All Studio Spaces & Rooms</option>
+                    <option value="studio-a">Studio A (Sun Sanctuary)</option>
+                    <option value="studio-b">Studio B (Earth Room)</option>
+                    <option value="vibration-beds">Vibration Bed Lounge</option>
+                    <option value="clinic-rooms">Clinical Consultation Suites</option>
+                    <option value="cafe-front">Front Desk & Cafe</option>
+                </select>
+                <input type="text" class="search-box" id="searchBox" placeholder="Search practitioner, class, or staff..." oninput="handleSearch(this.value)">
+            </div>
+        </section>
+
+        <!-- Unified Layout Grid -->
+        <section class="unified-layout-grid">
+
+            <!-- Chronological Stream of Events -->
+            <div class="timeline-stream" id="timelineContainer">
+                <!-- Injected via JavaScript -->
+            </div>
+
+            <!-- Operations Sidebar: Transition Callouts & Handoff -->
+            <aside class="sidebar-ops-stream">
+
+                <!-- Daily Transition Tasks & Handoff Alerts -->
+                <div class="sidebar-card">
+                    <div class="sidebar-header">
+                        <h2 class="sidebar-title">Timely Transition Triggers</h2>
+                        <span id="transitionCountBadge" style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-amber); font-weight: 700;">4/8 Done</span>
+                    </div>
+                    <div class="transition-checklist" id="transitionChecklist">
+                        <!-- Injected via JavaScript -->
+                    </div>
+                </div>
+
+                <!-- On-Duty Staff Board (Homebase) -->
+                <div class="sidebar-card">
+                    <div class="sidebar-header">
+                        <h2 class="sidebar-title">On-Duty Shift Roster</h2>
+                        <span style="font-size: 11px; color: var(--color-homebase); font-weight: 700;">HOMEBASE LIVE</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 8px;" id="staffRosterContainer">
+                        <!-- Injected via JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Shift Notes & Practitioner Communications -->
+                <div class="sidebar-card">
+                    <div class="sidebar-header">
+                        <h2 class="sidebar-title">Floor Handoff & Clinic Notes</h2>
+                        <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase;">Cloud Synced</span>
+                    </div>
+                    <textarea id="handoffNotes" style="width: 100%; height: 110px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 10px; font-family: var(--font-body); font-size: 13px; color: var(--text-primary); resize: none; margin-bottom: 10px;" placeholder="Leave clinical or floor notices (e.g. Dr. Thorne has a virtual patient in Room 2 until 4:00 PM; please maintain quiet corridor)..." oninput="saveHandoff(this.value)"></textarea>
+                    <button class="btn-utility" style="width: 100%; justify-content: center; background: var(--text-primary); color: var(--bg-surface);" onclick="alert('Staff communication logged across all on-duty tablets!')">Log Shift Communication</button>
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+    <!-- Inspection Drawer Modal -->
+    <div class="modal-overlay" id="inspectDrawer" onclick="closeDrawer(event)">
+        <div class="drawer-sheet" onclick="event.stopPropagation()">
+            <div class="drawer-top">
+                <div>
+                    <div id="drawerPlatformBadge" class="platform-badge momence" style="width: fit-content; margin-bottom: 6px;">MOMENCE STUDIO</div>
+                    <h2 id="drawerTitle" style="font-family: var(--font-heading); font-size: 24px; font-weight: 700; color: var(--text-primary);">Session Title</h2>
+                    <div id="drawerTimeAndRoom" style="font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); margin-top: 2px;">00:00 – 00:00 • Studio A</div>
+                </div>
+                <button class="drawer-close" onclick="closeDrawer()">×</button>
+            </div>
+
+            <div class="drawer-body">
+                <div class="drawer-block" id="drawerTransitionBox">
+                    <div class="drawer-block-title">Operational Transition Requirement</div>
+                    <div id="drawerTransitionText" style="font-size: 13px; color: var(--accent-amber); font-weight: 600;">
+                        Ensure room sanitization and equipment calibration 10 minutes prior.
+                    </div>
+                </div>
+
+                <div class="drawer-block">
+                    <div class="drawer-block-title">Session Particulars & Host</div>
+                    <div style="font-size: 14px; color: var(--text-primary); line-height: 1.6;" id="drawerDetails">
+                        Host / Practitioner: Dr. Aris Thorne
+                    </div>
+                </div>
+
+                <div class="drawer-block" id="drawerRosterBox">
+                    <div class="drawer-block-title" id="drawerRosterTitle">Attendees / Client Status</div>
+                    <div id="drawerRosterItems" style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
+                        <!-- Injected -->
+                    </div>
+                </div>
+
+                <div class="drawer-block" id="drawerPresetBox">
+                    <div class="drawer-block-title">Environmental & Audio Preset Trigger</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px;">
+                        <button class="btn-utility" style="justify-content: center;" onclick="alert('Preset confirmed: Lighting scene engaged.')">💡 Trigger Lighting</button>
+                        <button class="btn-utility" style="justify-content: center;" onclick="alert('Preset confirmed: VSSL Audio stream engaged.')">🎵 Trigger VSSL Stream</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Script -->
+    <script>
+        // MASTER UNIFIED DATA MODEL
+        // Seamlessly combining Homebase, Momence, and Jane App events
+        const UNIFIED_DATA = [
+            // MORNING PERIOD
+            {
+                id: "e1",
+                platform: "homebase",
+                platformLabel: "Homebase",
+                timeStart: "06:30 AM",
+                timeEnd: "02:30 PM",
+                duration: "8 HRS",
+                period: "morning",
+                title: "Morning Concierge & Floor Opening Shift",
+                host: "Jackson McMurdo",
+                room: "Front Desk & Reception",
+                roomSlug: "cafe-front",
+                status: "completed",
+                capacity: "On Duty",
+                transitionNote: "06:45 AM: Sanctuary entry unlock, water filter flush, VSSL Lounge audio to 35%",
+                details: "Opening shift lead. Supervise check-ins, unlock studios, monitor client flow.",
+                roster: [{ name: "Jackson McMurdo (Opening Lead)", status: "Clocked In: 06:28 AM" }]
+            },
+            {
+                id: "e2",
+                platform: "homebase",
+                platformLabel: "Homebase",
+                timeStart: "07:00 AM",
+                timeEnd: "03:00 PM",
+                duration: "8 HRS",
+                period: "morning",
+                title: "Cafe Barista & Morning Rush",
+                host: "Maya Kovacs",
+                room: "Cafe Bar",
+                roomSlug: "cafe-front",
+                status: "completed",
+                capacity: "On Duty",
+                transitionNote: "07:15 AM: Espresso grind calibration, arrange fresh pastries with Momence SKU tags",
+                details: "Manage morning beverage & bakery operations. Support quick-sale checkouts.",
+                roster: [{ name: "Maya Kovacs (Barista Lead)", status: "Clocked In: 06:58 AM" }]
+            },
+            {
+                id: "e3",
+                platform: "momence",
+                platformLabel: "Momence",
+                timeStart: "07:00 AM",
+                timeEnd: "08:00 AM",
+                duration: "60 MIN",
+                period: "morning",
+                title: "Morning Flow & Pranayama",
+                host: "Elena Vance",
+                room: "Studio A (Sun)",
+                roomSlug: "studio-a",
+                status: "completed",
+                capacity: "24/24 Full",
+                transitionNote: "08:00 AM: Disinfect mats, collect linen towels, wipe entry handles",
+                details: "Heated morning flow. 2 First-timers in attendance.",
+                roster: [
+                    { name: "Sophia Laurent", tier: "Founding Member", firstTime: false },
+                    { name: "Julian Vance", tier: "Unlimited 10-Class", firstTime: false },
+                    { name: "Charlotte Wu", tier: "First-Timer", firstTime: true }
+                ]
+            },
+            {
+                id: "e4",
+                platform: "momence",
+                platformLabel: "Momence",
+                timeStart: "08:15 AM",
+                timeEnd: "09:00 AM",
+                duration: "45 MIN",
+                period: "morning",
+                title: "Vibration Bed 1: Deep Cellular Sound Rejuvenation",
+                host: "Client Self-Guided",
+                room: "Vibration Bed Lounge",
+                roomSlug: "vibration-beds",
+                status: "completed",
+                capacity: "1/1 Booked",
+                transitionNote: "09:00 AM: 15-min wipe down with medical disinfectant, swap linen, recharge headphones",
+                details: "Vibroacoustic Sound Therapy Bed 1 (Theta wave 432Hz deep recovery).",
+                roster: [{ name: "Daniel Craig", tier: "Recovery Pass", firstTime: false }]
+            },
+            {
+                id: "e5",
+                platform: "jane",
+                platformLabel: "Jane App",
+                timeStart: "09:00 AM",
+                timeEnd: "10:00 AM",
+                duration: "60 MIN",
+                period: "morning",
+                title: "Psychiatric Consultation & Clinical Follow-up",
+                host: "Dr. Aris Thorne (MD, FRCPC)",
+                room: "Clinical Suite 1",
+                roomSlug: "clinic-rooms",
+                status: "completed",
+                capacity: "Confidential Client",
+                transitionNote: "08:50 AM: Verify water carafe in Suite 1, sound dampener active in corridor",
+                details: "Follow-up clinical assessment. Keep reception area noise subdued.",
+                roster: [{ name: "Client S.T.", tier: "Jane Direct Billing", firstTime: false }]
+            },
+            {
+                id: "e6",
+                platform: "momence",
+                platformLabel: "Momence",
+                timeStart: "08:30 AM",
+                timeEnd: "09:30 AM",
+                duration: "60 MIN",
+                period: "morning",
+                title: "Dynamic Vinyasa 60 (Heated)",
+                host: "Marcus Chen",
+                room: "Studio A (Sun)",
+                roomSlug: "studio-a",
+                status: "completed",
+                capacity: "25/25 Full",
+                transitionNote: "08:15 AM: Studio A heating to 28°C, activate VSSL Hot Flow playlist",
+                details: "Peak morning group workout. 3 waitlisted.",
+                roster: [
+                    { name: "Liam O'Connor", tier: "Founding Member", firstTime: false },
+                    { name: "Emma Tremblay", tier: "First-Timer", firstTime: true }
+                ]
+            },
+            {
+                id: "e7",
+                platform: "jane",
+                platformLabel: "Jane App",
+                timeStart: "10:30 AM",
+                timeEnd: "11:30 AM",
+                duration: "60 MIN",
+                period: "morning",
+                title: "Somatic Psychotherapy & Nervous System Reset",
+                host: "Dr. Maya Lin (Ph.D., C.Psych)",
+                room: "Clinical Suite 2",
+                roomSlug: "clinic-rooms",
+                status: "completed",
+                capacity: "Confidential Client",
+                transitionNote: "10:20 AM: Escort client directly to Quiet Nook; provide warm herbal infusion",
+                details: "Trauma-informed somatic therapy. Dim lighting, essential oil diffuser running.",
+                roster: [{ name: "Client H.B.", tier: "Private Insurance", firstTime: true }]
+            },
+
+            // AFTERNOON PERIOD
+            {
+                id: "e8",
+                platform: "homebase",
+                platformLabel: "Homebase",
+                timeStart: "02:00 PM",
+                timeEnd: "10:00 PM",
+                duration: "8 HRS",
+                period: "afternoon",
+                title: "Afternoon Concierge & Evening Closing Shift",
+                host: "Leo Rivera",
+                room: "Front Desk & Reception",
+                roomSlug: "cafe-front",
+                status: "live-now",
+                capacity: "On Duty",
+                transitionNote: "02:15 PM: 15-minute floor handoff with Jackson M. (Review evening rosters & clinic privacy)",
+                details: "Lead evening floor operations, sound bath setup, and security lockup.",
+                roster: [{ name: "Leo Rivera (Closing Lead)", status: "Clocked In: 01:58 PM" }]
+            },
+            {
+                id: "e9",
+                platform: "momence",
+                platformLabel: "Momence",
+                timeStart: "03:00 PM",
+                timeEnd: "04:00 PM",
+                duration: "60 MIN",
+                period: "afternoon",
+                title: "Sculpt & Alignment Movement",
+                host: "Chloe Adams",
+                room: "Studio B (Earth)",
+                roomSlug: "studio-b",
+                status: "live-now",
+                capacity: "20/20 Full",
+                transitionNote: "02:45 PM: Room temp 21°C, set VSSL Zone 2 to Rhythmic Flow",
+                details: "High energy movement session. 4 First-timers.",
+                roster: [
+                    { name: "Amelia King", tier: "First-Timer", firstTime: true },
+                    { name: "Lucas Moreau", tier: "Monthly Unlimited", firstTime: false }
+                ]
+            },
+            {
+                id: "e10",
+                platform: "momence",
+                platformLabel: "Momence",
+                timeStart: "03:45 PM",
+                timeEnd: "04:30 PM",
+                duration: "45 MIN",
+                period: "afternoon",
+                title: "Vibration Bed 1 & 2: Dual Soundwave Recovery",
+                host: "Studio Tech (Leo R.)",
+                room: "Vibration Bed Lounge",
+                roomSlug: "vibration-beds",
+                status: "upcoming",
+                capacity: "2/2 Booked",
+                transitionNote: "⚡ IMMEDIATE ALERT (3:35 PM): Sanitize Bed 1 & 2, fresh linen reset, calibrate binaural audio",
+                details: "Dual client session. Protocol: Delta Sleep & Deep Fascia Frequency.",
+                roster: [
+                    { name: "Victoria Hall", tier: "Recovery Pass", firstTime: false },
+                    { name: "Oliver Scott", tier: "Founding Member", firstTime: false }
+                ]
+            },
+            {
+                id: "e11",
+                platform: "jane",
+                platformLabel: "Jane App",
+                timeStart: "04:00 PM",
+                timeEnd: "05:00 PM",
+                duration: "60 MIN",
+                period: "afternoon",
+                title: "Acupuncture & Traditional Herbal Assessment",
+                host: "Julian Vance (R.Ac, TCMP)",
+                room: "Clinical Suite 3",
+                roomSlug: "clinic-rooms",
+                status: "upcoming",
+                capacity: "Confidential Client",
+                transitionNote: "03:50 PM: Heat table warmers, prepare single-use sterile acupuncture kits",
+                details: "Integrated acupuncture session for stress reduction & sleep recovery.",
+                roster: [{ name: "Client M.T.", tier: "Jane Direct Billing", firstTime: true }]
+            },
+            {
+                id: "e12",
+                platform: "momence",
+                platformLabel: "Momence",
+                timeStart: "04:30 PM",
+                timeEnd: "05:30 PM",
+                duration: "60 MIN",
+                period: "afternoon",
+                title: "Sunset Flow 60 (Heated Sanctuary)",
+                host: "Liam Gallagher",
+                room: "Studio A (Sun)",
+                roomSlug: "studio-a",
+                status: "upcoming",
+                capacity: "24/25 Booked",
+                transitionNote: "04:15 PM: Studio A heating to 28°C, warm terracotta cove lights, arrange 4 first-timer mats",
+                details: "Heated sunset practice. High cafe beverage demand anticipated at 5:30 PM.",
+                roster: [
+                    { name: "Benjamin Ross", tier: "First-Timer", firstTime: true },
+                    { name: "Isabella Martinez", tier: "First-Timer", firstTime: true }
+                ]
+            },
+
+            // EVENING PERIOD
+            {
+                id: "e13",
+                platform: "jane",
+                platformLabel: "Jane App",
+                timeStart: "05:30 PM",
+                timeEnd: "06:30 PM",
+                duration: "60 MIN",
+                period: "evening",
+                title: "Psychiatric Initial Evaluation & Diagnostics",
+                host: "Dr. Aris Thorne (MD, FRCPC)",
+                room: "Clinical Suite 1",
+                roomSlug: "clinic-rooms",
+                status: "upcoming",
+                capacity: "New Patient (Intake Pending)",
+                transitionNote: "05:20 PM: Welcome patient with privacy priority; verify intake tablet before entry",
+                details: "New patient psychiatric evaluation. Confidentiality protocol in effect.",
+                roster: [{ name: "Patient E.W. (New Intake)", tier: "Referral", firstTime: true }]
+            },
+            {
+                id: "e14",
+                platform: "momence",
+                platformLabel: "Momence",
+                timeStart: "06:00 PM",
+                timeEnd: "07:15 PM",
+                duration: "75 MIN",
+                period: "evening",
+                title: "Kundalini Energy & Kriya Breathwork",
+                host: "Priya Patel",
+                room: "Studio A (Sun)",
+                roomSlug: "studio-a",
+                status: "upcoming",
+                capacity: "25/25 Full",
+                transitionNote: "05:45 PM: Light incense / diffuse Frankincense, set dimmed amber cove lights",
+                details: "75-minute intensive breathwork & kriya meditation.",
+                roster: [{ name: "Grace Kelly", tier: "Founding Member", firstTime: false }]
+            },
+            {
+                id: "e15",
+                platform: "momence",
+                platformLabel: "Momence",
+                timeStart: "07:30 PM",
+                timeEnd: "08:30 PM",
+                duration: "60 MIN",
+                period: "evening",
+                title: "Deep Restorative Yin & Singing Bowls",
+                host: "Marcus Chen",
+                room: "Studio B (Earth)",
+                roomSlug: "studio-b",
+                status: "upcoming",
+                capacity: "19/20 Booked",
+                transitionNote: "07:15 PM: Distribute organic bolsters, sandbags, and eye pillows",
+                details: "Slow restorative floor postures.",
+                roster: [{ name: "Daniel Craig", tier: "First-Timer", firstTime: true }]
+            },
+            {
+                id: "e16",
+                platform: "momence",
+                platformLabel: "Momence",
+                timeStart: "08:45 PM",
+                timeEnd: "09:45 PM",
+                duration: "60 MIN",
+                period: "evening",
+                title: "Candlelight Sound Bath & Symphonic Gong",
+                host: "Elena Vance",
+                room: "Studio A (Sun)",
+                roomSlug: "studio-a",
+                status: "upcoming",
+                capacity: "25/25 Full",
+                transitionNote: "08:30 PM: Switch entire building to Zen Mode (10% lighting), silence all hallway chimes",
+                details: "Final sanctuary immersion of the evening. 3 waitlisted.",
+                roster: [{ name: "Aria Thorne", tier: "First-Timer", firstTime: true }]
+            },
+            {
+                id: "e17",
+                platform: "homebase",
+                platformLabel: "Homebase",
+                timeStart: "09:45 PM",
+                timeEnd: "10:15 PM",
+                duration: "30 MIN",
+                period: "evening",
+                title: "Closing Sweep & Studio Security Arming",
+                host: "Leo Rivera",
+                room: "Full Facility",
+                roomSlug: "cafe-front",
+                status: "upcoming",
+                capacity: "Staff Closeout",
+                transitionNote: "09:50 PM: Cash drawer count, confirm all clinical doors locked, arm security system",
+                details: "End of day lockup and Momence daily register audit.",
+                roster: [{ name: "Leo Rivera", status: "Closing Lead" }]
+            }
+        ];
+
+        // TIMELY TRANSITION ALERTS CHECKLIST
+        const TRANSITION_ITEMS = [
+            { id: "t1", time: "06:45 AM", text: "Sanctuary entry unlock, water filter flush, VSSL Lounge audio to 35%", done: true },
+            { id: "t2", time: "07:15 AM", text: "Cafe espresso calibration & fresh bakery display setup", done: true },
+            { id: "t3", time: "08:50 AM", text: "Jane App: Prep Clinical Suite 1 for Dr. Thorne's patient", done: true },
+            { id: "t4", time: "02:15 PM", text: "Homebase: 15-min shift handoff between Jackson M. and Leo R.", done: true },
+            { id: "t5", time: "03:35 PM", text: "⚡ URGENT: Sanitize Vibration Bed 1 & 2 for 3:45 PM dual recovery", done: false },
+            { id: "t6", time: "04:15 PM", text: "Studio A heat to 28°C for Sunset Flow & welcome 4 first-timers", done: false },
+            { id: "t7", time: "05:20 PM", text: "Jane App: Discreet reception for Dr. Thorne's new intake patient", done: false },
+            { id: "t8", time: "08:30 PM", text: "Engage Zen Mode: 10% lighting & silence chimes for Candlelight Sound Bath", done: false }
+        ];
+
+        // ON-DUTY STAFF ROSTER (HOMEBASE LIVE)
+        const HOMEBASE_STAFF = [
+            { name: "Jackson McMurdo", role: "Lead Concierge (Morning)", status: "Clocked Out: 2:30 PM", badge: "Morning Lead" },
+            { name: "Leo Rivera", role: "Closing Concierge & Tech", status: "Active On Floor", badge: "Current Lead" },
+            { name: "Maya Kovacs", role: "Cafe Barista Lead", status: "Break until 3:30 PM", badge: "Cafe" },
+            { name: "Elena Vance", role: "Lead Yoga & Sound Instructor", status: "On-Site (Studio Prep)", badge: "Instructor" },
+            { name: "Dr. Aris Thorne", role: "Psychiatrist (Clinical)", status: "In Session (Suite 1)", badge: "Practitioner" },
+            { name: "Chloe Adams", role: "Movement Instructor", status: "Teaching (Studio B)", badge: "Instructor" }
+        ];
+
+        let activePlatform = "all";
+        let activeRoom = "all";
+        let activeSearch = "";
+
+        // Clock Update
+        function updateClock() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+            document.getElementById('digitalClock').textContent = timeStr;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Render Stream
+        function renderStream() {
+            const container = document.getElementById('timelineContainer');
+            container.innerHTML = "";
+
+            const filtered = UNIFIED_DATA.filter(item => {
+                const matchPlatform = (activePlatform === "all") || (item.platform === activePlatform);
+                const matchRoom = (activeRoom === "all") || (item.roomSlug === activeRoom);
+                const matchSearch = item.title.toLowerCase().includes(activeSearch.toLowerCase()) ||
+                                    item.host.toLowerCase().includes(activeSearch.toLowerCase()) ||
+                                    item.room.toLowerCase().includes(activeSearch.toLowerCase());
+                return matchPlatform && matchRoom && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div style="padding: 40px; text-align: center; color: var(--text-muted); background: var(--bg-surface); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">No sessions or appointments found matching current filters.</div>`;
+                return;
+            }
+
+            let lastPeriod = "";
+
+            filtered.forEach(item => {
+                if (item.period !== lastPeriod) {
+                    lastPeriod = item.period;
+                    const periodBlock = document.createElement('div');
+                    periodBlock.className = "period-divider";
+                    periodBlock.innerHTML = `
+                        <span class="period-title">${item.period.toUpperCase()} BREAKDOWN</span>
+                        <div class="period-line"></div>
+                    `;
+                    container.appendChild(periodBlock);
+                }
+
+                const card = document.createElement('div');
+                card.className = `stream-card ${item.platform}-card ${item.status}`;
+                card.onclick = () => openDrawer(item.id);
+
+                let statusBadge = "";
+                if (item.status === "live-now") {
+                    statusBadge = `<span style="font-size: 10px; font-weight: 800; color: var(--status-live); display: flex; align-items: center; gap: 4px;"><span class="pulse-live"></span> ACTIVE NOW</span>`;
+                } else if (item.status === "completed") {
+                    statusBadge = `<span style="font-size: 10px; font-weight: 700; color: var(--text-muted);">✓ FINISHED</span>`;
+                } else {
+                    statusBadge = `<span style="font-size: 10px; font-weight: 700; color: var(--accent-amber);">UPCOMING</span>`;
+                }
+
+                card.innerHTML = `
+                    <div class="card-time-col">
+                        <span class="time-start">${item.timeStart}</span>
+                        <span class="time-end">${item.timeEnd}</span>
+                        <span class="time-duration">${item.duration}</span>
+                    </div>
+
+                    <div class="card-info-col">
+                        <div class="badge-row">
+                            <span class="platform-badge ${item.platform}">${item.platformLabel}</span>
+                            <span class="room-tag">${item.room}</span>
+                            ${statusBadge}
+                        </div>
+                        <h3 class="card-title">${item.title}</h3>
+                        <div class="host-client-row">
+                            <span class="host-name">👤 ${item.host}</span>
+                            <span>•</span>
+                            <span>${item.capacity}</span>
+                        </div>
+                        ${item.transitionNote ? `<div class="card-transition-note"><span>⚡</span> <span>${item.transitionNote}</span></div>` : ''}
+                    </div>
+
+                    <div class="card-action-col">
+                        <span class="capacity-chip">${item.capacity.split(' ')[0]}</span>
+                        <button class="btn-drawer-inspect" onclick="event.stopPropagation(); openDrawer('${item.id}')">Inspect</button>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Render Transitions Checklist
+        function renderTransitions() {
+            const container = document.getElementById('transitionChecklist');
+            container.innerHTML = "";
+            let done = 0;
+
+            TRANSITION_ITEMS.forEach(t => {
+                if (t.done) done++;
+                const row = document.createElement('div');
+                row.className = `transition-item ${t.done ? 'done' : ''}`;
+                row.onclick = () => toggleTransition(t.id);
+                row.innerHTML = `
+                    <input type="checkbox" style="margin-top: 2px; accent-color: var(--accent-amber);" ${t.done ? 'checked' : ''} onclick="event.stopPropagation(); toggleTransition('${t.id}')">
+                    <div>
+                        <div class="transition-time">${t.time}</div>
+                        <div class="transition-text">${t.text}</div>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+
+            document.getElementById('transitionCountBadge').textContent = `${done}/${TRANSITION_ITEMS.length} Completed`;
+        }
+
+        function toggleTransition(id) {
+            const match = TRANSITION_ITEMS.find(x => x.id === id);
+            if (match) {
+                match.done = !match.done;
+                renderTransitions();
+            }
+        }
+
+        // Render Staff Roster
+        function renderStaff() {
+            const container = document.getElementById('staffRosterContainer');
+            container.innerHTML = "";
+
+            HOMEBASE_STAFF.forEach(s => {
+                const item = document.createElement('div');
+                item.style = "padding: 8px 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); display: flex; justify-content: space-between; align-items: center;";
+                item.innerHTML = `
+                    <div>
+                        <div style="font-size: 13px; font-weight: 700; color: var(--text-primary);">${s.name}</div>
+                        <div style="font-size: 11px; color: var(--text-muted);">${s.role}</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span style="font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: var(--radius-pill); background: var(--color-homebase-bg); color: var(--color-homebase);">${s.badge}</span>
+                        <div style="font-size: 11px; color: var(--text-secondary); margin-top: 2px;">${s.status}</div>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Filter Handlers
+        function setPlatformFilter(plat, btn) {
+            activePlatform = plat;
+            document.querySelectorAll('.platform-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderStream();
+        }
+
+        function setRoomFilter(room) {
+            activeRoom = room;
+            renderStream();
+        }
+
+        function handleSearch(val) {
+            activeSearch = val;
+            renderStream();
+        }
+
+        // Drawer Controls
+        function openDrawer(id) {
+            const item = UNIFIED_DATA.find(x => x.id === id);
+            if (!item) return;
+
+            const badge = document.getElementById('drawerPlatformBadge');
+            badge.className = `platform-badge ${item.platform}`;
+            badge.textContent = `${item.platformLabel.toUpperCase()} RECORD`;
+
+            document.getElementById('drawerTitle').textContent = item.title;
+            document.getElementById('drawerTimeAndRoom').textContent = `${item.timeStart} – ${item.timeEnd} • ${item.room}`;
+            document.getElementById('drawerTransitionText').textContent = item.transitionNote || "Standard operational procedures apply.";
+            document.getElementById('drawerDetails').innerHTML = `
+                <strong>Host / Practitioner:</strong> ${item.host}<br>
+                <strong>Room / Area:</strong> ${item.room}<br>
+                <strong>Operational Scope:</strong> ${item.details}
+            `;
+
+            const rosterBox = document.getElementById('drawerRosterItems');
+            rosterBox.innerHTML = "";
+            if (item.roster && item.roster.length > 0) {
+                item.roster.forEach(r => {
+                    const el = document.createElement('div');
+                    el.style = "padding: 8px 12px; background: var(--bg-surface); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 13px;";
+                    el.innerHTML = `
+                        <span>${r.name}</span>
+                        <span style="font-size: 11px; font-weight: 700; color: ${r.firstTime ? 'var(--accent-amber)' : 'var(--text-muted)'};">${r.tier || r.status || ''}</span>
+                    `;
+                    rosterBox.appendChild(el);
+                });
+            } else {
+                rosterBox.innerHTML = `<span style="font-size: 12px; color: var(--text-muted);">(No roster list attached)</span>`;
+            }
+
+            document.getElementById('inspectDrawer').classList.add('active');
+        }
+
+        function closeDrawer() {
+            document.getElementById('inspectDrawer').classList.remove('active');
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            const isZen = document.body.classList.toggle('theme-zen');
+            document.getElementById('themeEmoji').textContent = isZen ? "☀️" : "🌙";
+            document.getElementById('themeText').textContent = isZen ? "Day Mode" : "Zen Mode";
+            localStorage.setItem('the_practice_theme', isZen ? 'zen' : 'day');
+        }
+
+        // Full Screen Toggle
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(() => {});
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+            }
+        }
+
+        // Sync Refresh Trigger
+        function triggerSyncRefresh() {
+            const icon = document.getElementById('syncIcon');
+            icon.style.display = "inline-block";
+            icon.style.animation = "spin 0.8s linear infinite";
+
+            setTimeout(() => {
+                icon.style.animation = "none";
+                alert("✓ Unified Sync Successful!\n• Homebase: 6 staff schedules pulled\n• Momence: 9 group classes & 14 vibration bed sessions updated\n• Jane App: 11 clinical appointments synced");
+            }, 800);
+        }
+
+        // Shift Communication Persistence
+        function saveHandoff(val) {
+            localStorage.setItem('the_practice_unified_handoff', val);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('the_practice_theme') === 'zen') {
+                toggleTheme();
+            }
+            const savedNotes = localStorage.getItem('the_practice_unified_handoff');
+            if (savedNotes) {
+                document.getElementById('handoffNotes').value = savedNotes;
+            }
+            renderStream();
+            renderTransitions();
+            renderStaff();
+        });
+    </script>
+
+    <style>
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
+</body>
+</html>
