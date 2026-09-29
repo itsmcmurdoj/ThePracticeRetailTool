@@ -2955,8 +2955,8 @@ const PRODUCTS = [
     "id": 562450,
     "department": "Cafe & Nourishment",
     "brand": "The Practice Cafe",
-    "name": "Kevin Cookie (Dark)",
-    "fullTitle": "The Practice Cafe - Kevin Cookie (Dark)",
+    "name": "Quinoa Breakfast Cookie",
+    "fullTitle": "The Practice Cafe - Quinoa Breakfast Cookie",
     "price": "$5.50",
     "priceNum": 5.5,
     "sku": "",
@@ -2964,9 +2964,26 @@ const PRODUCTS = [
       "",
       "562450"
     ],
-    "pitch": "House-baked artisan cookie made daily with organic brown butter and premium Belgian chocolate.",
+    "pitch": "A wholesome, nutrient-dense artisan breakfast cookie made with quinoa flakes, almond flour, mixed seeds, oats, dark chocolate chips, date paste, and tahini.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/562450/edit",
     "img": "https://images.momence.com/h/200431/product-image/93783599-f3ba-4ffc-bdf3-f4d83f39ffbe.png"
+  },
+  {
+    "id": 567988,
+    "department": "Cafe & Nourishment",
+    "brand": "The Practice Cafe",
+    "name": "Oat Breakfast Cookie",
+    "fullTitle": "The Practice Cafe - Oat Breakfast Cookie",
+    "price": "$5.50",
+    "priceNum": 5.5,
+    "sku": "",
+    "barcodes": [
+      "",
+      "567988"
+    ],
+    "pitch": "Artisan oat breakfast cookie packed with gluten-free oats, almonds, hemp, chia, pumpkin, and sunflower seeds, dark chocolate, date paste, and tahini.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/567988/edit",
+    "img": "https://images.momence.com/h/200431/host-profile-image/978ed2b5-b521-42af-bc3f-86b2a232896a.png"
   },
   {
     "id": 555495,
