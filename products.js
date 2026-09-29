@@ -2524,7 +2524,7 @@ const PRODUCTS = [
     ],
     "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513574/edit",
-    "img": ""
+    "img": "https://images.momence.com/h/200431/product-image/d26eed09-a564-4dc6-8443-ed1fdfed62ac.jpg"
   },
   {
     "id": 557039,
@@ -2881,7 +2881,7 @@ const PRODUCTS = [
     ],
     "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/545876/edit",
-    "img": ""
+    "img": "https://images.momence.com/h/200431/product-image/4be2ab2e-7417-4b69-b705-8c3632bab7d0.jpg"
   },
   {
     "id": 556999,
@@ -3239,7 +3239,7 @@ const PRODUCTS = [
     ],
     "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513541/edit",
-    "img": ""
+    "img": "https://images.momence.com/h/200431/product-image/71543dfa-93de-46b3-b650-7cb9a9d59d1c.jpg"
   },
   {
     "id": 513582,
@@ -9434,7 +9434,7 @@ const PRODUCTS = [
     ],
     "pitch": "Hand-poured all-natural soy wax candle crafted in San Diego, CA. Features a clean lead-free cotton wick and rich, woody aroma notes inspired by wilderness adventures.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492524/edit",
-    "img": ""
+    "img": "https://images.momence.com/h/200431/product-image/2d7dbe8d-7aa3-4ac7-8f7b-bce0472578fc.jpg"
   },
   {
     "id": 492327,
