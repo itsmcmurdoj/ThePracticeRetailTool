@@ -117,6 +117,28 @@
   const modalMomenceWebLink = document.getElementById('modal-momence-web-link');
   const modalMomenceEditLink = document.getElementById('modal-momence-edit-link');
   const btnHeaderPos = document.getElementById('btn-header-pos');
+  const btnHeaderCart = document.getElementById('btn-header-cart');
+  const cartBadgeCount = document.getElementById('cart-badge-count');
+  const btnModalAddCart = document.getElementById('btn-modal-add-cart');
+
+  // Floating Cart Bar & Modal Elements
+  const floatingCartBar = document.getElementById('floating-cart-bar');
+  const floatingCartCount = document.getElementById('floating-cart-count');
+  const floatingCartSummary = document.getElementById('floating-cart-summary');
+  const floatingCartTotal = document.getElementById('floating-cart-total');
+  const cartBarTrigger = document.getElementById('cart-bar-trigger');
+  const btnViewCartDrawer = document.getElementById('btn-view-cart-drawer');
+  const btnCheckoutMomence = document.getElementById('btn-checkout-momence');
+  const cartDrawerModal = document.getElementById('cart-drawer-modal');
+  const btnCloseCart = document.getElementById('btn-close-cart');
+  const cartModalItemCount = document.getElementById('cart-modal-item-count');
+  const cartItemsContainer = document.getElementById('cart-items-container');
+  const cartSubtotal = document.getElementById('cart-subtotal');
+  const cartTax = document.getElementById('cart-tax');
+  const cartGrandTotal = document.getElementById('cart-grand-total');
+  const btnClearCart = document.getElementById('btn-clear-cart');
+  const btnCopyCartSkus = document.getElementById('btn-copy-cart-skus');
+  const btnOpenMomenceCart = document.getElementById('btn-open-momence-cart');
   const btnCopySku = document.getElementById('btn-copy-sku');
   const btnScanAgain = document.getElementById('btn-scan-again');
   const modalAlternativesSection = document.getElementById('modal-alternatives-section');
@@ -182,7 +204,7 @@
   // --- MOMENTS WEB APP LAUNCH ENGINE ---
   // On studio iPads, Moments runs as an HTML web app (saved to Home Screen as 'Moments').
   // All Moments links inside the app open the web app register directly in Safari / web browser.
-  function openMomentsWebApp(urlOrPath) {
+  function openMomenceWebApp(urlOrPath) {
     let targetUrl;
     const defaultPosUrl = 'https://momence.com/dashboard/200431/point-of-sale?customer=cafe%40thepractice.ca&email=cafe%40thepractice.ca&name=Cafe+Cafe';
     if (!urlOrPath) {
@@ -196,7 +218,7 @@
       targetUrl = `https://momence.com/${cleanPath}`;
     }
 
-    showToast('Opening Moments POS Web App (Cafe Cafe)...');
+    showToast('Opening Momence POS Web App (Cafe Cafe)...');
 
     const win = window.open(targetUrl, '_blank', 'noopener');
     if (!win) {
@@ -205,7 +227,7 @@
   }
 
   function launchMomenceApp(path, webFallbackUrl) {
-    openMomentsWebApp(webFallbackUrl || path);
+    openMomenceWebApp(webFallbackUrl || path);
   }
 
   // --- LOAD TENSORFLOW.JS MOBILENET NEURAL VISION MODEL ---
@@ -518,9 +540,15 @@
     return `
       <div class="catalog-card" data-pid="${p.id}">
         <div class="card-img-wrap">
-          <button class="card-fav-btn ${isFav ? 'active' : ''}" data-fav-id="${p.id}" title="${isFav ? 'Remove Favorite' : 'Save Favorite'}" aria-label="Favorite">
+          <button class="card-fav-btn ${isFav ? 'active' : ''}" data-fav-id="${p.id}" title="${isFav ? 'Remove Favorite' : 'Save Favorite'}" aria-label="Favorite" type="button">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="${isFav ? '#F5A258' : 'none'}" stroke="${isFav ? '#F5A258' : '#777'}" stroke-width="2">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </button>
+          <button class="card-quick-add-btn" data-cart-id="${p.id}" title="Add to Register Cart" aria-label="Add to Cart" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
             </svg>
           </button>
           <img class="card-img" src="${p.img || './icon.png'}" alt="${p.name}" loading="lazy" onerror="this.src='./icon.png'">
@@ -555,6 +583,17 @@
           e.stopPropagation();
           const pid = parseInt(favBtn.getAttribute('data-fav-id'), 10);
           toggleFavorite(pid);
+        });
+      }
+      const cartBtn = card.querySelector('.card-quick-add-btn');
+      if (cartBtn) {
+        cartBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const pid = parseInt(cartBtn.getAttribute('data-cart-id'), 10);
+          const prod = PRODUCTS.find(p => p.id === pid);
+          if (prod) {
+            addToCart(prod, 1);
+          }
         });
       }
     });
@@ -636,7 +675,7 @@
         if (product.sku) {
           navigator.clipboard?.writeText(product.sku).catch(() => {});
         }
-        showToast(`Opening Moments POS (Cafe Cafe)... SKU ${product.sku || product.id} copied!`);
+        showToast(`Opening Momence POS (Cafe Cafe)... SKU ${product.sku || product.id} copied!`);
         // Native navigation: do not preventDefault so Safari opens in new tab cleanly without pop-up blocking
       };
     }
@@ -707,6 +746,14 @@
     renderPitchBullets(product.pitch);
     // Update modal favorite button state
     updateModalFavButton(product.id);
+
+    // Configure Add to Register Cart button in modal
+    if (btnModalAddCart) {
+      btnModalAddCart.onclick = (e) => {
+        e.stopPropagation();
+        addToCart(product, 1);
+      };
+    }
 
     // Match score badge
     if (matchScore) {
@@ -1151,11 +1198,75 @@
     }
   });
 
-  // Header Moments POS shortcut
+  // Header Cart & Momence POS shortcuts
+  if (btnHeaderCart) {
+    btnHeaderCart.addEventListener('click', () => {
+      if (cartDrawerModal) cartDrawerModal.style.display = 'flex';
+      renderCartUI();
+    });
+  }
+
+  if (cartBarTrigger) {
+    cartBarTrigger.addEventListener('click', () => {
+      if (cartDrawerModal) cartDrawerModal.style.display = 'flex';
+      renderCartUI();
+    });
+  }
+
+  if (btnViewCartDrawer) {
+    btnViewCartDrawer.addEventListener('click', () => {
+      if (cartDrawerModal) cartDrawerModal.style.display = 'flex';
+      renderCartUI();
+    });
+  }
+
+  if (btnCheckoutMomence) {
+    btnCheckoutMomence.addEventListener('click', () => {
+      openMomenceCart();
+    });
+  }
+
+  if (btnCloseCart) {
+    btnCloseCart.addEventListener('click', () => {
+      if (cartDrawerModal) cartDrawerModal.style.display = 'none';
+    });
+  }
+
+  if (cartDrawerModal) {
+    cartDrawerModal.addEventListener('click', (e) => {
+      if (e.target === cartDrawerModal) {
+        cartDrawerModal.style.display = 'none';
+      }
+    });
+  }
+
+  if (btnClearCart) {
+    btnClearCart.addEventListener('click', () => {
+      clearCart();
+    });
+  }
+
+  if (btnCopyCartSkus) {
+    btnCopyCartSkus.addEventListener('click', () => {
+      const skus = registerCart.map(i => i.sku || i.id).join(', ');
+      if (skus) {
+        navigator.clipboard?.writeText(skus).then(() => {
+          showToast(`Copied SKUs: ${skus}`);
+        });
+      }
+    });
+  }
+
+  if (btnOpenMomenceCart) {
+    btnOpenMomenceCart.addEventListener('click', () => {
+      openMomenceCart();
+    });
+  }
+
   if (btnHeaderPos) {
     btnHeaderPos.addEventListener('click', (e) => {
       e.preventDefault();
-      openMomentsWebApp('https://momence.com/dashboard/200431/point-of-sale');
+      openMomenceWebApp('https://momence.com/dashboard/200431/point-of-sale?customer=cafe%40thepractice.ca');
     });
   }
 
@@ -1167,10 +1278,10 @@
     if (href.startsWith('momence://')) {
       e.preventDefault();
       const path = href.replace('momence://', '');
-      openMomentsWebApp(`https://momence.com/${path}`);
+      openMomenceWebApp(`https://momence.com/${path}`);
     } else if (href.includes('momence.com/') && anchor.getAttribute('target') !== '_blank') {
       e.preventDefault();
-      openMomentsWebApp(href);
+      openMomenceWebApp(href);
     }
   });
 
@@ -1191,6 +1302,7 @@
     loadHistory();
     updateFavoritesUI();
     renderCatalog();
+    renderCartUI();
     updateMembershipPrices('6');
     if (activeTab === 'scanner') {
       startCamera();
