@@ -138,6 +138,7 @@
   const cartGrandTotal = document.getElementById('cart-grand-total');
   const btnClearCart = document.getElementById('btn-clear-cart');
   const btnCopyCartSkus = document.getElementById('btn-copy-cart-skus');
+  const btnCopyCartCustomerEmail = document.getElementById('btn-copy-cart-customer-email');
   const btnOpenMomenceCart = document.getElementById('btn-open-momence-cart');
   const btnCopySku = document.getElementById('btn-copy-sku');
   const btnScanAgain = document.getElementById('btn-scan-again');
@@ -201,12 +202,136 @@
     }, 2200);
   }
 
-  // --- MOMENTS WEB APP LAUNCH ENGINE ---
-  // On studio iPads, Moments runs as an HTML web app (saved to Home Screen as 'Moments').
-  // All Moments links inside the app open the web app register directly in Safari / web browser.
+  // ==========================================================================
+  // MOMENCE POS & CUSTOMER INTEGRATION ENGINE (JACKSON MCMURDO DEFAULT)
+  // ==========================================================================
+  const DEFAULT_CUSTOMER = {
+    name: 'Jackson McMurdo',
+    email: 'Jackson@ThePracticetoronto.com',
+    memberId: localStorage.getItem('the_practice_momence_member_id') || null
+  };
+
+  let activePosCustomer = { ...DEFAULT_CUSTOMER };
+
+  function getPriceNumber(priceStr) {
+    if (typeof priceStr === 'number') return priceStr;
+    if (!priceStr) return 0;
+    const clean = String(priceStr).replace(/[^0-9.]/g, '');
+    return parseFloat(clean) || 0;
+  }
+
+  // Base64 JSON encoder matching Momence React SPA router decodePosUrlData
+  function encodeMomencePosData(obj) {
+    try {
+      const jsonStr = JSON.stringify(obj);
+      if (typeof TextEncoder !== 'undefined') {
+        const u8 = new TextEncoder().encode(jsonStr);
+        let binary = '';
+        for (let i = 0; i < u8.length; i++) {
+          binary += String.fromCharCode(u8[i]);
+        }
+        return btoa(binary);
+      }
+      return btoa(jsonStr);
+    } catch (e) {
+      console.warn('Momence POS data encoding error:', e);
+      return btoa(JSON.stringify(obj));
+    }
+  }
+
+  function generateMomencePosUrl(productsOrCart, customer = activePosCustomer) {
+    const params = new URLSearchParams();
+    const custEmail = (customer && customer.email) || DEFAULT_CUSTOMER.email;
+    const custName = (customer && customer.name) || DEFAULT_CUSTOMER.name;
+    const rawMemberId = (customer && customer.memberId) || DEFAULT_CUSTOMER.memberId;
+    const custMemberId = rawMemberId ? Number(rawMemberId) : undefined;
+
+    let items = [];
+    if (productsOrCart) {
+      items = Array.isArray(productsOrCart) ? productsOrCart : [productsOrCart];
+    }
+
+    // 1. Momence Native SPA Pre-population Payload (Parsed by Momence POS Zfe component via ?data=)
+    const cartItemsPayload = [];
+    items.forEach(item => {
+      const pid = Number(item.id);
+      const qty = item.quantity || 1;
+      const priceNum = getPriceNumber(item.price);
+      for (let q = 0; q < qty; q++) {
+        cartItemsPayload.push({
+          type: 'product',
+          productId: pid,
+          price: priceNum
+        });
+      }
+    });
+
+    const posDataPayload = {
+      customerInfo: {
+        payingMemberId: custMemberId,
+        targetMemberId: custMemberId,
+        payForSomeoneElse: false,
+        customerEmail: custEmail,
+        customerName: custName
+      },
+      payingMemberId: custMemberId,
+      targetMemberId: custMemberId,
+      cartItems: cartItemsPayload
+    };
+
+    if (items.length === 1 && items[0]) {
+      posDataPayload.productId = Number(items[0].id);
+      posDataPayload.price = getPriceNumber(items[0].price);
+    }
+
+    // Embed base64-encoded payload for Momence React SPA router (?data=...)
+    params.set('data', encodeMomencePosData(posDataPayload));
+
+    // 2. Direct Query Parameters Matrix for backwards compatibility and fallback search
+    params.set('customer', custEmail);
+    params.set('email', custEmail);
+    params.set('customer_email', custEmail);
+    params.set('customerEmail', custEmail);
+    params.set('name', custName);
+    params.set('customer_name', custName);
+    params.set('customerName', custName);
+    params.set('searchCustomer', custEmail);
+    params.set('search', custEmail);
+    params.set('customerSearch', custEmail);
+    params.set('q', custEmail);
+    params.set('query', custEmail);
+    params.set('member', custEmail);
+    params.set('autoAdd', 'true');
+
+    if (custMemberId) {
+      params.set('memberId', String(custMemberId));
+      params.set('payingMemberId', String(custMemberId));
+      params.set('customerId', String(custMemberId));
+      params.set('customer_id', String(custMemberId));
+    }
+
+    if (items.length === 1 && items[0]) {
+      const item = items[0];
+      const pid = item.id;
+      params.set('productId', pid);
+      params.set('product_id', pid);
+      params.set('product', pid);
+      params.set('item', pid);
+      params.set('cart', pid);
+      if (item.sku) params.set('sku', item.sku);
+    } else if (items.length > 1) {
+      const pids = items.map(i => i.id).filter(Boolean);
+      params.set('products', pids.join(','));
+      params.set('cart', pids.join(','));
+      params.set('items', items.map(i => `${i.id}:${i.quantity || 1}`).join(','));
+    }
+
+    return `https://momence.com/dashboard/200431/point-of-sale?${params.toString()}`;
+  }
+
   function openMomenceWebApp(urlOrPath) {
     let targetUrl;
-    const defaultPosUrl = 'https://momence.com/dashboard/200431/point-of-sale?customer=cafe%40thepractice.ca&email=cafe%40thepractice.ca&name=Cafe+Cafe';
+    const defaultPosUrl = generateMomencePosUrl(null, activePosCustomer);
     if (!urlOrPath) {
       targetUrl = defaultPosUrl;
     } else if (urlOrPath.startsWith('http://') || urlOrPath.startsWith('https://')) {
@@ -218,7 +343,9 @@
       targetUrl = `https://momence.com/${cleanPath}`;
     }
 
-    showToast('Opening Momence POS Web App (Cafe Cafe)...');
+    // Auto-copy Jackson's email so if Momence customer search dialog is open, staff can tap Paste instantly
+    navigator.clipboard?.writeText(activePosCustomer.email).catch(() => {});
+    showToast(`Attached: ${activePosCustomer.name} (${activePosCustomer.email}) • Opening POS...`);
 
     const win = window.open(targetUrl, '_blank', 'noopener');
     if (!win) {
@@ -228,6 +355,198 @@
 
   function launchMomenceApp(path, webFallbackUrl) {
     openMomenceWebApp(webFallbackUrl || path);
+  }
+
+  // ==========================================================================
+  // MULTI-ITEM REGISTER CART STATE & CONTROLS
+  // ==========================================================================
+  let registerCart = [];
+  try {
+    const saved = localStorage.getItem('the_practice_register_cart');
+    if (saved) registerCart = JSON.parse(saved);
+  } catch (e) {
+    registerCart = [];
+  }
+
+  function saveCart() {
+    try {
+      localStorage.setItem('the_practice_register_cart', JSON.stringify(registerCart));
+    } catch (_) {}
+  }
+
+  function addToCart(product, quantity = 1) {
+    if (!product || !product.id) return;
+    const existing = registerCart.find(i => i.id === product.id);
+    if (existing) {
+      existing.quantity = (existing.quantity || 1) + quantity;
+    } else {
+      registerCart.push({
+        id: product.id,
+        name: product.name,
+        brand: product.brand,
+        price: product.price,
+        priceNum: getPriceNumber(product.price),
+        sku: product.sku || '',
+        img: product.img || './icon.png',
+        quantity: quantity
+      });
+    }
+    saveCart();
+    playSuccessChime();
+    const count = getCartTotals().totalCount;
+    showToast(`Added ${product.name} to Cart (${count} item${count > 1 ? 's' : ''})`);
+    renderCartUI();
+  }
+
+  function removeFromCart(productId) {
+    registerCart = registerCart.filter(i => i.id !== productId);
+    saveCart();
+    renderCartUI();
+  }
+
+  function updateCartQuantity(productId, delta) {
+    const item = registerCart.find(i => i.id === productId);
+    if (!item) return;
+    item.quantity = (item.quantity || 1) + delta;
+    if (item.quantity <= 0) {
+      removeFromCart(productId);
+    } else {
+      saveCart();
+      renderCartUI();
+    }
+  }
+
+  function clearCart() {
+    registerCart = [];
+    saveCart();
+    showToast('Register cart cleared');
+    renderCartUI();
+  }
+
+  function getCartTotals() {
+    let totalCount = 0;
+    let subtotal = 0;
+    for (const item of registerCart) {
+      const q = item.quantity || 1;
+      totalCount += q;
+      subtotal += (item.priceNum || 0) * q;
+    }
+    const tax = subtotal * 0.13;
+    const grandTotal = subtotal + tax;
+    return {
+      totalCount,
+      subtotal: subtotal.toFixed(2),
+      tax: tax.toFixed(2),
+      grandTotal: grandTotal.toFixed(2)
+    };
+  }
+
+  function openMomenceCart() {
+    if (registerCart.length === 0) {
+      showToast('Register cart is empty. Add products to begin!');
+      return;
+    }
+
+    const totals = getCartTotals();
+    const posUrl = generateMomencePosUrl(registerCart, activePosCustomer);
+
+    // Format item manifest and copy customer email as primary
+    const manifestLines = registerCart.map(i => `${i.quantity || 1}x ${i.name} (SKU: ${i.sku || i.id})`);
+    const clipboardPayload = `${activePosCustomer.email}`;
+
+    navigator.clipboard?.writeText(clipboardPayload).catch(() => {});
+    showToast(`Attached ${activePosCustomer.name} (${activePosCustomer.email}) • Opening Momence POS...`);
+
+    const win = window.open(posUrl, '_blank', 'noopener');
+    if (!win) {
+      window.location.href = posUrl;
+    }
+  }
+
+  function renderCartUI() {
+    const totals = getCartTotals();
+
+    // 1. Header Cart Badge
+    if (cartBadgeCount) {
+      cartBadgeCount.textContent = totals.totalCount;
+      cartBadgeCount.style.display = totals.totalCount > 0 ? 'inline-flex' : 'none';
+    }
+
+    // 2. Floating Cart Bar
+    if (floatingCartBar) {
+      if (totals.totalCount > 0) {
+        floatingCartBar.style.display = 'flex';
+        if (floatingCartCount) floatingCartCount.textContent = totals.totalCount;
+        if (floatingCartSummary) floatingCartSummary.textContent = `${totals.totalCount} item${totals.totalCount > 1 ? 's' : ''} in cart (${activePosCustomer.name})`;
+        if (floatingCartTotal) floatingCartTotal.textContent = `$${totals.grandTotal} CAD`;
+      } else {
+        floatingCartBar.style.display = 'none';
+      }
+    }
+
+    // 3. Modal / Drawer Content
+    if (cartModalItemCount) cartModalItemCount.textContent = totals.totalCount;
+    if (cartSubtotal) cartSubtotal.textContent = `$${totals.subtotal}`;
+    if (cartTax) cartTax.textContent = `$${totals.tax}`;
+    if (cartGrandTotal) cartGrandTotal.textContent = `$${totals.grandTotal} CAD`;
+
+    if (cartItemsContainer) {
+      if (registerCart.length === 0) {
+        cartItemsContainer.innerHTML = `
+          <div class="cart-empty-state">
+            <div class="cart-empty-icon">🛒</div>
+            <h4>Your Register Cart is Empty</h4>
+            <p>Scan a product or tap (+) on any item to build a multi-item checkout for <strong>${activePosCustomer.name}</strong>.</p>
+          </div>
+        `;
+      } else {
+        cartItemsContainer.innerHTML = registerCart.map(item => `
+          <div class="cart-item-row" data-cart-item-id="${item.id}">
+            <img class="cart-item-img" src="${item.img || './icon.png'}" alt="${item.name}" onerror="this.src='./icon.png'">
+            <div class="cart-item-info">
+              <span class="cart-item-brand">${item.brand}</span>
+              <h4 class="cart-item-title">${item.name}</h4>
+              <div class="cart-item-meta">
+                <span class="cart-item-unit-price">${item.price}</span>
+                ${item.sku ? `<span class="cart-item-sku">${item.sku}</span>` : ''}
+              </div>
+            </div>
+            <div class="cart-item-controls">
+              <div class="cart-qty-stepper">
+                <button type="button" class="btn-qty btn-qty-minus" data-action="minus" data-id="${item.id}">−</button>
+                <span class="cart-qty-val">${item.quantity || 1}</span>
+                <button type="button" class="btn-qty btn-qty-plus" data-action="plus" data-id="${item.id}">+</button>
+              </div>
+              <div class="cart-item-line-total">$${((item.priceNum || 0) * (item.quantity || 1)).toFixed(2)}</div>
+              <button type="button" class="btn-cart-remove" data-id="${item.id}" title="Remove item">✕</button>
+            </div>
+          </div>
+        `).join('');
+
+        // Attach stepper listeners
+        cartItemsContainer.querySelectorAll('.btn-qty-minus').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const pid = parseInt(btn.getAttribute('data-id'), 10);
+            updateCartQuantity(pid, -1);
+          });
+        });
+        cartItemsContainer.querySelectorAll('.btn-qty-plus').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const pid = parseInt(btn.getAttribute('data-id'), 10);
+            updateCartQuantity(pid, 1);
+          });
+        });
+        cartItemsContainer.querySelectorAll('.btn-cart-remove').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const pid = parseInt(btn.getAttribute('data-id'), 10);
+            removeFromCart(pid);
+          });
+        });
+      }
+    }
   }
 
   // --- LOAD TENSORFLOW.JS MOBILENET NEURAL VISION MODEL ---
@@ -638,46 +957,26 @@
     modalPitch.textContent = product.pitch;
     
     // Holding customer profile requested by studio operations:
-    // "Cafe Cafe" with email "cafe@thepractice.ca"
-    // Point of Sale requires selecting a customer profile first before items can drop into cart.
-    const HOLDING_CUSTOMER_EMAIL = 'cafe@thepractice.ca';
-    const HOLDING_CUSTOMER_NAME = 'Cafe Cafe';
-
-    const posParams = new URLSearchParams({
-      customer: HOLDING_CUSTOMER_EMAIL,
-      email: HOLDING_CUSTOMER_EMAIL,
-      customer_email: HOLDING_CUSTOMER_EMAIL,
-      customerEmail: HOLDING_CUSTOMER_EMAIL,
-      name: HOLDING_CUSTOMER_NAME,
-      customer_name: HOLDING_CUSTOMER_NAME,
-      customerName: HOLDING_CUSTOMER_NAME,
-      searchCustomer: HOLDING_CUSTOMER_EMAIL,
-      productId: product.id,
-      product_id: product.id,
-      product: product.id,
-      item: product.id,
-      sku: product.sku || '',
-      search: product.sku || product.name || '',
-      autoAdd: 'true',
-      cart: product.id
-    });
-
-    const posWebUrl = `https://momence.com/dashboard/200431/point-of-sale?${posParams.toString()}`;
+    // "Jackson McMurdo" with email "Jackson@ThePracticetoronto.com"
+    const posWebUrl = generateMomencePosUrl(product, activePosCustomer);
+    const posGeneralUrl = generateMomencePosUrl(null, activePosCustomer);
     const editWebUrl = `https://momence.com/dashboard/200431/products/${product.id}/edit`;
 
-    // Configure Moments Point of Sale Web App button
+    // Configure Momence Point of Sale Web App button
     if (btnMomenceApp) {
       btnMomenceApp.href = posWebUrl;
       btnMomenceApp.target = '_blank';
       btnMomenceApp.rel = 'noopener';
       btnMomenceApp.onclick = () => {
-        // Auto-copy SKU to iPad clipboard so retail staff can quickly paste if needed
-        if (product.sku) {
-          navigator.clipboard?.writeText(product.sku).catch(() => {});
-        }
-        showToast(`Opening Momence POS (Cafe Cafe)... SKU ${product.sku || product.id} copied!`);
+        // Auto-copy Jackson's email so retail staff can immediately paste if customer selection prompt is active
+        navigator.clipboard?.writeText(activePosCustomer.email).catch(() => {});
+        showToast(`Attached ${activePosCustomer.name} (${activePosCustomer.email}) • Opening Momence POS...`);
         // Native navigation: do not preventDefault so Safari opens in new tab cleanly without pop-up blocking
       };
+    }
+
+    if (modalMomenceWebLink) {
+      modalMomenceWebLink.href = posGeneralUrl;
     }
 
     // Configure Fast-Fill Assistant buttons
@@ -686,8 +985,8 @@
       btnCopyPosEmail.onclick = async (e) => {
         e.stopPropagation();
         try {
-          await navigator.clipboard.writeText(HOLDING_CUSTOMER_EMAIL);
-          showToast(`Copied ${HOLDING_CUSTOMER_EMAIL}!`);
+          await navigator.clipboard.writeText(activePosCustomer.email);
+          showToast(`Copied ${activePosCustomer.email}!`);
           btnCopyPosEmail.classList.add('copied');
           const act = btnCopyPosEmail.querySelector('.chip-action');
           if (act) act.textContent = 'Copied!';
@@ -1257,6 +1556,14 @@
     });
   }
 
+  if (btnCopyCartCustomerEmail) {
+    btnCopyCartCustomerEmail.addEventListener('click', () => {
+      navigator.clipboard?.writeText(activePosCustomer.email).then(() => {
+        showToast(`Copied ${activePosCustomer.email}!`);
+      });
+    });
+  }
+
   if (btnOpenMomenceCart) {
     btnOpenMomenceCart.addEventListener('click', () => {
       openMomenceCart();
@@ -1266,7 +1573,7 @@
   if (btnHeaderPos) {
     btnHeaderPos.addEventListener('click', (e) => {
       e.preventDefault();
-      openMomenceWebApp('https://momence.com/dashboard/200431/point-of-sale?customer=cafe%40thepractice.ca');
+      openMomenceWebApp(generateMomencePosUrl(null, activePosCustomer));
     });
   }
 

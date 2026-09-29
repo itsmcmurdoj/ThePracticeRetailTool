@@ -2396,6 +2396,33 @@ body {
   color: #B88A2E;
 }
 
+.holding-email {
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--color-primary);
+  opacity: 0.85;
+}
+
+.pos-mini-chip {
+  background: rgba(184, 138, 46, 0.15);
+  border: 1px solid rgba(184, 138, 46, 0.35);
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pos-mini-chip:hover {
+  background: rgba(184, 138, 46, 0.25);
+  border-color: #B88A2E;
+}
+
 .holding-hint {
   color: var(--color-text-muted);
 }
