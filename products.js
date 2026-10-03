@@ -1,8 +1,9 @@
-// The Practice • Retail Products Dataset (722 Items)
+// The Practice • Retail Products Dataset (719 Items)
 const PRODUCTS = [
   {
     "id": 492455,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Handker Bandanas",
     "name": "34\" Dandy Wild Rag Bandana",
     "fullTitle": "Handker Bandanas - 34\" Dandy Wild Rag Bandana",
@@ -10,7 +11,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HB-BAN-DAN-0011",
     "barcodes": [
-      "",
+      "HB-BAN-DAN-0011",
       "492455"
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
@@ -20,6 +21,7 @@ const PRODUCTS = [
   {
     "id": 513576,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
     "name": "Almond Milk Used - (C)",
     "fullTitle": "The Practice Cafe - Almond Milk Used - (C)",
@@ -32,11 +34,12 @@ const PRODUCTS = [
     ],
     "pitch": "Small additional fee for almond milk.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513576/edit",
-    "img": "https://images.momence.com/h/200431/product-image/02945766-3537-46a4-a977-c1af2b4ec4b9.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/599df0a5-3fff-4d43-bcb9-f7e0a7ec59dc.jpg"
   },
   {
     "id": 513549,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
     "brand": "The Practice Cafe",
     "name": "Americano - Large (C)",
     "fullTitle": "The Practice Cafe - Americano - Large (C)",
@@ -49,11 +52,12 @@ const PRODUCTS = [
     ],
     "pitch": "Your choice of Nespresso coffee, topped with hot water for a smooth, full-bodied cup.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513549/edit",
-    "img": "https://images.momence.com/h/200431/product-image/d1dd719a-52ec-476f-b11d-1324dfdbdfa3.png"
+    "img": "https://images.momence.com/h/200431/product-image/a835e9d3-5e6c-46ea-96df-53b42a583d9d.jpg"
   },
   {
     "id": 545872,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
     "brand": "The Practice Cafe",
     "name": "Americano - Regular (C)",
     "fullTitle": "The Practice Cafe - Americano - Regular (C)",
@@ -66,11 +70,12 @@ const PRODUCTS = [
     ],
     "pitch": "Your choice of Nespresso coffee, topped with hot water for a smooth, full-bodied cup.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/545872/edit",
-    "img": "https://images.momence.com/h/200431/product-image/15b37fd6-50b6-4955-ba91-ec38aef79351.png"
+    "img": "https://images.momence.com/h/200431/product-image/5952020f-d8b2-44fc-bcb8-a8edf1e17cc2.jpg"
   },
   {
     "id": 492354,
-    "department": "Fine Jewelry & Modern Adornments",
+    "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Sacred Divination Pendulums & Ritual Tools",
     "brand": "Cedar and Myrrh",
     "name": "Amethyst Crystal Divination Pendulum",
     "fullTitle": "Cedar and Myrrh - Amethyst Crystal Divination Pendulum",
@@ -78,7 +83,7 @@ const PRODUCTS = [
     "priceNum": 60,
     "sku": "CM-HLD-FBR-0023",
     "barcodes": [
-      "",
+      "CM-HLD-FBR-0023",
       "492354"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -88,6 +93,7 @@ const PRODUCTS = [
   {
     "id": 567145,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice",
     "name": "AMP Electrolyte (C)",
     "fullTitle": "The Practice - AMP Electrolyte (C)",
@@ -105,6 +111,7 @@ const PRODUCTS = [
   {
     "id": 492556,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Ariana Ost • Sacred Crystal Grids & Sound Healing Sets",
     "brand": "Ariana Ost",
     "name": "Ariana Ost - Aura Quartz Sunburst Crystal Grid",
     "fullTitle": "Ariana Ost - Ariana Ost - Aura Quartz Sunburst Crystal Grid",
@@ -112,16 +119,17 @@ const PRODUCTS = [
     "priceNum": 270,
     "sku": "AO-KIT-GRD-AUR-0007",
     "barcodes": [
-      "",
+      "AO-KIT-GRD-AUR-0007",
       "492556"
     ],
     "pitch": "Artisan sacred home and wellness piece handcrafted in New York featuring genuine raw healing crystals and hammered brass metalwork to elevate spatial harmony.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492556/edit",
-    "img": "https://images.momence.com/h/200431/product-image/dfa20f73-c009-4de6-9073-c2129f5ee6a5.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/1482/1014/files/aura-quartz-point-sunburst-healing-crystal-grid-472337.webp?v=1720718846"
   },
   {
     "id": 492553,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Ariana Ost • Sacred Crystal Grids & Sound Healing Sets",
     "brand": "Ariana Ost",
     "name": "Ariana Ost - Balancing Chakra Game",
     "fullTitle": "Ariana Ost - Ariana Ost - Balancing Chakra Game",
@@ -129,16 +137,17 @@ const PRODUCTS = [
     "priceNum": 79.99,
     "sku": "AO-KIT-GAM-CHA-0004",
     "barcodes": [
-      "",
+      "AO-KIT-GAM-CHA-0004",
       "492553"
     ],
     "pitch": "Artisan sacred home and wellness piece handcrafted in New York featuring genuine raw healing crystals and hammered brass metalwork to elevate spatial harmony.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492553/edit",
-    "img": "https://images.momence.com/h/200431/product-image/5176914a-4960-497a-9aa5-db477474e8d9.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/1482/1014/products/ariana-ost-balancing-chakra-game-set-316229.jpg?v=1724687554"
   },
   {
     "id": 492557,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Ariana Ost • Sacred Crystal Grids & Sound Healing Sets",
     "brand": "Ariana Ost",
     "name": "Ariana Ost - Beach Vibes Healing Crystal Grid- Sunburst Wall Decor",
     "fullTitle": "Ariana Ost - Ariana Ost - Beach Vibes Healing Crystal Grid- Sunburst Wall Decor",
@@ -146,16 +155,17 @@ const PRODUCTS = [
     "priceNum": 270,
     "sku": "AO-KIT-GRD-BCH-0008",
     "barcodes": [
-      "",
+      "AO-KIT-GRD-BCH-0008",
       "492557"
     ],
     "pitch": "Artisan sacred home and wellness piece handcrafted in New York featuring genuine raw healing crystals and hammered brass metalwork to elevate spatial harmony.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492557/edit",
-    "img": "https://images.momence.com/h/200431/product-image/1edd4683-08e4-463a-94de-6f6b5dd247cd.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/1482/1014/files/beach-vibes-sunburst-healing-crystal-grid-303568.webp?v=1721323580"
   },
   {
     "id": 492558,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Ariana Ost • Sacred Crystal Grids & Sound Healing Sets",
     "brand": "Ariana Ost",
     "name": "Ariana Ost - Carnelian Sound Healing Kit- Tuning Fork & Crystal Dish",
     "fullTitle": "Ariana Ost - Ariana Ost - Carnelian Sound Healing Kit- Tuning Fork & Crystal Dish",
@@ -163,16 +173,17 @@ const PRODUCTS = [
     "priceNum": 225.99,
     "sku": "AO-KIT-SND-CAR-0009",
     "barcodes": [
-      "",
+      "AO-KIT-SND-CAR-0009",
       "492558"
     ],
     "pitch": "Artisan sacred home and wellness piece handcrafted in New York featuring genuine raw healing crystals and hammered brass metalwork to elevate spatial harmony.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492558/edit",
-    "img": "https://images.momence.com/h/200431/product-image/b3a74267-6e29-4bf1-9efd-098ec6de30b8.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/1482/1014/files/carnelian-sound-healing-crystal-kit-tuning-fork-and-flower-of-life-crystal-dish-107261.jpg?v=1724134055"
   },
   {
     "id": 492552,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Ariana Ost • Sacred Crystal Grids & Sound Healing Sets",
     "brand": "Ariana Ost",
     "name": "Ariana Ost - Mega Sunburst Crystal Grid- Selenite for Peace",
     "fullTitle": "Ariana Ost - Ariana Ost - Mega Sunburst Crystal Grid- Selenite for Peace",
@@ -180,16 +191,17 @@ const PRODUCTS = [
     "priceNum": 450,
     "sku": "AO-KIT-GRD-SEL-0003",
     "barcodes": [
-      "",
+      "AO-KIT-GRD-SEL-0003",
       "492552"
     ],
     "pitch": "Artisan sacred home and wellness piece handcrafted in New York featuring genuine raw healing crystals and hammered brass metalwork to elevate spatial harmony.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492552/edit",
-    "img": "https://images.momence.com/h/200431/product-image/e3db174c-8177-4180-9351-0d91e6ca2e61.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/1482/1014/files/Mega_Selenite_Sunburst_Healing_Crystal_Grid.jpg?v=1790003117"
   },
   {
     "id": 492554,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Ariana Ost • Sacred Crystal Grids & Sound Healing Sets",
     "brand": "Ariana Ost",
     "name": "Ariana Ost - Om Tuning Fork with Cap and Herkimer Diamond Sound Healing",
     "fullTitle": "Ariana Ost - Ariana Ost - Om Tuning Fork with Cap and Herkimer Diamond Sound Healing",
@@ -197,16 +209,17 @@ const PRODUCTS = [
     "priceNum": 199,
     "sku": "AO-KIT-TUN-OM-0005",
     "barcodes": [
-      "",
+      "AO-KIT-TUN-OM-0005",
       "492554"
     ],
     "pitch": "Artisan sacred home and wellness piece handcrafted in New York featuring genuine raw healing crystals and hammered brass metalwork to elevate spatial harmony.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492554/edit",
-    "img": "https://images.momence.com/h/200431/product-image/925fcfa9-8ff1-4262-be49-657a2f1157bd.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/1482/1014/products/om-tuning-fork-with-cap-and-herkimer-diamond-for-sound-healing-969572.jpg?v=1710360989"
   },
   {
     "id": 492550,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Ariana Ost • Sacred Crystal Grids & Sound Healing Sets",
     "brand": "Ariana Ost",
     "name": "Ariana Ost - Sound Healing Crystal Kit - Tuning Fork & Third Eye Crystal",
     "fullTitle": "Ariana Ost - Ariana Ost - Sound Healing Crystal Kit - Tuning Fork & Third Eye Crystal",
@@ -214,16 +227,17 @@ const PRODUCTS = [
     "priceNum": 225,
     "sku": "AO-GRD-BEA-0001",
     "barcodes": [
-      "",
+      "AO-GRD-BEA-0001",
       "492550"
     ],
     "pitch": "Artisan sacred home and wellness piece handcrafted in New York featuring genuine raw healing crystals and hammered brass metalwork to elevate spatial harmony.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492550/edit",
-    "img": "https://images.momence.com/h/200431/product-image/26d634ba-3a8a-4631-a8ec-cd09cf55bf13.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/1482/1014/products/sound-healing-crystal-kit-tuning-fork-and-star-crystal-dish-set-sodalite-616412.jpg?v=1710361037"
   },
   {
     "id": 492555,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Ariana Ost • Sacred Crystal Grids & Sound Healing Sets",
     "brand": "Ariana Ost",
     "name": "Ariana Ost - Sound Healing Set- Earth Tuning Fork & Clear Quartz Grid",
     "fullTitle": "Ariana Ost - Ariana Ost - Sound Healing Set- Earth Tuning Fork & Clear Quartz Grid",
@@ -231,16 +245,17 @@ const PRODUCTS = [
     "priceNum": 225,
     "sku": "AO-KIT-SND-EAR-0006",
     "barcodes": [
-      "",
+      "AO-KIT-SND-EAR-0006",
       "492555"
     ],
     "pitch": "Artisan sacred home and wellness piece handcrafted in New York featuring genuine raw healing crystals and hammered brass metalwork to elevate spatial harmony.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492555/edit",
-    "img": "https://images.momence.com/h/200431/product-image/9912c023-a87d-46a5-a0b0-3b80f270d1bf.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/1482/1014/products/sound-healing-crystal-kit-earth-tuning-fork-and-super-mini-flower-of-life-clear-quartz-crystal-grid-set-263247.jpg?v=1710361067"
   },
   {
     "id": 492551,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Ariana Ost • Sacred Crystal Grids & Sound Healing Sets",
     "brand": "Ariana Ost",
     "name": "Ariana Ost - Triple Quartz Sunburst Grid- Clear, Rose & Smoky Quartz",
     "fullTitle": "Ariana Ost - Ariana Ost - Triple Quartz Sunburst Grid- Clear, Rose & Smoky Quartz",
@@ -248,16 +263,17 @@ const PRODUCTS = [
     "priceNum": 299,
     "sku": "AO-KIT-CAR-0002",
     "barcodes": [
-      "",
+      "AO-KIT-CAR-0002",
       "492551"
     ],
     "pitch": "Artisan sacred home and wellness piece handcrafted in New York featuring genuine raw healing crystals and hammered brass metalwork to elevate spatial harmony.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492551/edit",
-    "img": "https://images.momence.com/h/200431/product-image/73a96f00-74be-4625-a3d8-32396d247098.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/1482/1014/files/triple-quartz-sunburst-healing-crystal-grid-clear-smoky-rose-391103.webp?v=1782849342"
   },
   {
     "id": 492515,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Avadir and Co",
     "name": "Avadir and Co - Brown / 5-Slot Watch Box",
     "fullTitle": "Avadir and Co - Avadir and Co - Brown / 5-Slot Watch Box",
@@ -265,7 +281,7 @@ const PRODUCTS = [
     "priceNum": 89.99,
     "sku": "AC-BOX-WAT-0005",
     "barcodes": [
-      "",
+      "AC-BOX-WAT-0005",
       "492515"
     ],
     "pitch": "Handcrafted luxury vegan leather lifestyle accessory designed with durable water-resistant lining, brass hardware, and timeless minimalist silhouette.",
@@ -275,6 +291,7 @@ const PRODUCTS = [
   {
     "id": 492512,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Avadir and Co",
     "name": "Avadir and Co - Chocolate / M-Vegan Leather Dopp Kit | Toiletry Bag for Men",
     "fullTitle": "Avadir and Co - Avadir and Co - Chocolate / M-Vegan Leather Dopp Kit | Toiletry Bag for Men",
@@ -282,7 +299,7 @@ const PRODUCTS = [
     "priceNum": 49.99,
     "sku": "AC-DOP-CHO-0002",
     "barcodes": [
-      "",
+      "AC-DOP-CHO-0002",
       "492512"
     ],
     "pitch": "Handcrafted luxury vegan leather lifestyle accessory designed with durable water-resistant lining, brass hardware, and timeless minimalist silhouette.",
@@ -292,6 +309,7 @@ const PRODUCTS = [
   {
     "id": 492511,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Avadir and Co",
     "name": "Avadir and Co - Chocolate / S- Vegan Leather Dopp Kit | Toiletry Bag for Men",
     "fullTitle": "Avadir and Co - Avadir and Co - Chocolate / S- Vegan Leather Dopp Kit | Toiletry Bag for Men",
@@ -299,7 +317,7 @@ const PRODUCTS = [
     "priceNum": 44.99,
     "sku": "AC-DOP-CHO-0001",
     "barcodes": [
-      "",
+      "AC-DOP-CHO-0001",
       "492511"
     ],
     "pitch": "Handcrafted luxury vegan leather lifestyle accessory designed with durable water-resistant lining, brass hardware, and timeless minimalist silhouette.",
@@ -309,6 +327,7 @@ const PRODUCTS = [
   {
     "id": 492513,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Avadir and Co",
     "name": "Avadir and Co - Laserable Leatherette Journal",
     "fullTitle": "Avadir and Co - Avadir and Co - Laserable Leatherette Journal",
@@ -316,7 +335,7 @@ const PRODUCTS = [
     "priceNum": 24.99,
     "sku": "AC-JOU-LEA-0003",
     "barcodes": [
-      "",
+      "AC-JOU-LEA-0003",
       "492513"
     ],
     "pitch": "Handcrafted luxury vegan leather lifestyle accessory designed with durable water-resistant lining, brass hardware, and timeless minimalist silhouette.",
@@ -326,6 +345,7 @@ const PRODUCTS = [
   {
     "id": 492514,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Avadir and Co",
     "name": "Avadir and Co - Silver Referee Whistle",
     "fullTitle": "Avadir and Co - Avadir and Co - Silver Referee Whistle",
@@ -333,16 +353,17 @@ const PRODUCTS = [
     "priceNum": 11.99,
     "sku": "AC-ACC-WHI-0004",
     "barcodes": [
-      "",
+      "AC-ACC-WHI-0004",
       "492514"
     ],
     "pitch": "Handcrafted luxury vegan leather lifestyle accessory designed with durable water-resistant lining, brass hardware, and timeless minimalist silhouette.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492514/edit",
-    "img": "https://images.momence.com/h/200431/product-image/1b86ef4a-41ed-4fd3-91f8-b8695787223e.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/f4085046-d5f2-48d5-9fa2-12c67d40efb9.jpg"
   },
   {
     "id": 492338,
-    "department": "Fine Jewelry & Modern Adornments",
+    "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Sacred Divination Pendulums & Ritual Tools",
     "brand": "Cedar and Myrrh",
     "name": "Aventurine Crystal Divination Pendulum",
     "fullTitle": "Cedar and Myrrh - Aventurine Crystal Divination Pendulum",
@@ -350,7 +371,7 @@ const PRODUCTS = [
     "priceNum": 58.89,
     "sku": "CM-PEN-AVE-0007",
     "barcodes": [
-      "",
+      "CM-PEN-AVE-0007",
       "492338"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -360,6 +381,7 @@ const PRODUCTS = [
   {
     "id": 492714,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "BeautyInUs • Botanical Body & Facial Oils",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - Allure Body Oil",
     "fullTitle": "BeautyInUs - BeautyInUs - Allure Body Oil",
@@ -367,16 +389,17 @@ const PRODUCTS = [
     "priceNum": 99.99,
     "sku": "BI-BOD-ALL-0003",
     "barcodes": [
-      "",
+      "BI-BOD-ALL-0003",
       "492714"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492714/edit",
-    "img": "https://images.momence.com/h/200431/product-image/cf8981a2-9b83-4b79-889e-da11c6c14227.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/13480df5-cbcc-43e5-8ea5-03dc1992f994.jpg"
   },
   {
     "id": 492713,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "BeautyInUs • Botanical Body & Facial Oils",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - Blossom Body Oil",
     "fullTitle": "BeautyInUs - BeautyInUs - Blossom Body Oil",
@@ -384,7 +407,7 @@ const PRODUCTS = [
     "priceNum": 99.99,
     "sku": "BI-BOD-BLO-0002",
     "barcodes": [
-      "",
+      "BI-BOD-BLO-0002",
       "492713"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
@@ -394,6 +417,7 @@ const PRODUCTS = [
   {
     "id": 492718,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - By The Woods Aromatherapy Roll-On",
     "fullTitle": "BeautyInUs - BeautyInUs - By The Woods Aromatherapy Roll-On",
@@ -401,16 +425,17 @@ const PRODUCTS = [
     "priceNum": 49.99,
     "sku": "BI-ROL-BYT-0007",
     "barcodes": [
-      "",
+      "BI-ROL-BYT-0007",
       "492718"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492718/edit",
-    "img": "https://images.momence.com/h/200431/product-image/d33b3622-5b91-4333-83cd-80a86fad9715.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/ee28b743-ee7c-4a51-848a-d32ae4293809.jpg"
   },
   {
     "id": 492716,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "BeautyInUs • Botanical Body & Facial Oils",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - Chrysalis Body Oil",
     "fullTitle": "BeautyInUs - BeautyInUs - Chrysalis Body Oil",
@@ -418,16 +443,17 @@ const PRODUCTS = [
     "priceNum": 99.99,
     "sku": "BI-BOD-CHR-0005",
     "barcodes": [
-      "",
+      "BI-BOD-CHR-0005",
       "492716"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492716/edit",
-    "img": "https://images.momence.com/h/200431/product-image/11cef9e9-3130-4f67-b1cc-fb22458910fd.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/a24d1bb5-a05c-44d3-b0cc-c44a7f0f16d9.jpg"
   },
   {
     "id": 492712,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "BeautyInUs • Botanical Body & Facial Oils",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - Cocoon Body Oil",
     "fullTitle": "BeautyInUs - BeautyInUs - Cocoon Body Oil",
@@ -435,16 +461,17 @@ const PRODUCTS = [
     "priceNum": 99.99,
     "sku": "BI-BOD-COC-0001",
     "barcodes": [
-      "",
+      "BI-BOD-COC-0001",
       "492712"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492712/edit",
-    "img": "https://images.momence.com/h/200431/product-image/793b7f02-36b1-41dd-aaa0-d441bea1badd.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/69f5a192-b29f-474c-8479-9b9763c61563.jpg"
   },
   {
     "id": 492717,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - Elysian Body Oil",
     "fullTitle": "BeautyInUs - BeautyInUs - Elysian Body Oil",
@@ -452,16 +479,17 @@ const PRODUCTS = [
     "priceNum": 99.99,
     "sku": "BI-BOD-ELY-0006",
     "barcodes": [
-      "",
+      "BI-BOD-ELY-0006",
       "492717"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492717/edit",
-    "img": "https://images.momence.com/h/200431/product-image/9180e488-a75a-401d-a7e2-68d8caf31342.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/15530765-a60b-49d6-81b3-abdeadb83ea4.jpg"
   },
   {
     "id": 492721,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "BeautyInUs • Botanical Body & Facial Oils",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - Lunar Blossom Perfume Oil",
     "fullTitle": "BeautyInUs - BeautyInUs - Lunar Blossom Perfume Oil",
@@ -469,16 +497,17 @@ const PRODUCTS = [
     "priceNum": 49.99,
     "sku": "BI-ROL-LUN-0010",
     "barcodes": [
-      "",
+      "BI-ROL-LUN-0010",
       "492721"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492721/edit",
-    "img": "https://images.momence.com/h/200431/product-image/4471bcd2-74ee-4b4f-9c77-02605b10b474.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/14c57817-19f8-4f97-b58e-40346f8d2852.jpg"
   },
   {
     "id": 492719,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - Morning Glory Aromatherapy Roll-On",
     "fullTitle": "BeautyInUs - BeautyInUs - Morning Glory Aromatherapy Roll-On",
@@ -486,16 +515,17 @@ const PRODUCTS = [
     "priceNum": 49.99,
     "sku": "BI-ROL-MOR-0008",
     "barcodes": [
-      "",
+      "BI-ROL-MOR-0008",
       "492719"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492719/edit",
-    "img": "https://images.momence.com/h/200431/product-image/00f13bd3-f526-4d97-b536-2aa0224c4078.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/ab5eb124-53b8-461c-b440-27dc58de48c1.jpg"
   },
   {
     "id": 492722,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "BeautyInUs • Botanical Body & Facial Oils",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - RELEASE Dualphase Resurfacing Cleanser",
     "fullTitle": "BeautyInUs - BeautyInUs - RELEASE Dualphase Resurfacing Cleanser",
@@ -503,7 +533,7 @@ const PRODUCTS = [
     "priceNum": 89.99,
     "sku": "BI-SKN-REL-0011",
     "barcodes": [
-      "",
+      "BI-SKN-REL-0011",
       "492722"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
@@ -513,6 +543,7 @@ const PRODUCTS = [
   {
     "id": 492723,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "BeautyInUs • Botanical Body & Facial Oils",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - REPLENISH Plumping and Radiance Serum",
     "fullTitle": "BeautyInUs - BeautyInUs - REPLENISH Plumping and Radiance Serum",
@@ -520,7 +551,7 @@ const PRODUCTS = [
     "priceNum": 149.99,
     "sku": "BI-SKN-REP-0012",
     "barcodes": [
-      "",
+      "BI-SKN-REP-0012",
       "492723"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
@@ -530,6 +561,7 @@ const PRODUCTS = [
   {
     "id": 492725,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "BeautyInUs • Botanical Body & Facial Oils",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - RETREAT Intensive Care and Recovery Face Oil",
     "fullTitle": "BeautyInUs - BeautyInUs - RETREAT Intensive Care and Recovery Face Oil",
@@ -537,16 +569,17 @@ const PRODUCTS = [
     "priceNum": 155,
     "sku": "BI-SKN-RET-0014",
     "barcodes": [
-      "",
+      "BI-SKN-RET-0014",
       "492725"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492725/edit",
-    "img": "https://images.momence.com/h/200431/product-image/fcb115c9-f85f-4472-870a-e5a596d32a89.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/da3c88a3-465f-44ab-8b84-5429fd04a0a8.jpg"
   },
   {
     "id": 492720,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "BeautyInUs • Botanical Body & Facial Oils",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - Sacred Feminine Perfume Oil",
     "fullTitle": "BeautyInUs - BeautyInUs - Sacred Feminine Perfume Oil",
@@ -554,7 +587,7 @@ const PRODUCTS = [
     "priceNum": 49.99,
     "sku": "BI-ROL-SAC-0009",
     "barcodes": [
-      "",
+      "BI-ROL-SAC-0009",
       "492720"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
@@ -564,6 +597,7 @@ const PRODUCTS = [
   {
     "id": 492724,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "BeautyInUs • Botanical Body & Facial Oils",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - SHIELD Broad-Action Antioxidant Face Oil",
     "fullTitle": "BeautyInUs - BeautyInUs - SHIELD Broad-Action Antioxidant Face Oil",
@@ -571,16 +605,17 @@ const PRODUCTS = [
     "priceNum": 155,
     "sku": "BI-SKN-SHD-0013",
     "barcodes": [
-      "",
+      "BI-SKN-SHD-0013",
       "492724"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492724/edit",
-    "img": "https://images.momence.com/h/200431/product-image/cad0f392-834c-41bd-a23b-9aaf563c10d3.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/97bf16cc-953c-4032-b42f-1207535ffe09.jpg"
   },
   {
     "id": 492726,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "BeautyInUs • Botanical Body & Facial Oils",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - The Circadian Cycle Collection",
     "fullTitle": "BeautyInUs - BeautyInUs - The Circadian Cycle Collection",
@@ -588,7 +623,7 @@ const PRODUCTS = [
     "priceNum": 499,
     "sku": "BI-SET-CIR-0015",
     "barcodes": [
-      "",
+      "BI-SET-CIR-0015",
       "492726"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
@@ -598,6 +633,7 @@ const PRODUCTS = [
   {
     "id": 492715,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "BeautyInUs • Botanical Body & Facial Oils",
     "brand": "BeautyInUs",
     "name": "BeautyInUs - Unwind Body Oil",
     "fullTitle": "BeautyInUs - BeautyInUs - Unwind Body Oil",
@@ -605,16 +641,17 @@ const PRODUCTS = [
     "priceNum": 99.99,
     "sku": "BI-BOD-UNW-0004",
     "barcodes": [
-      "",
+      "BI-BOD-UNW-0004",
       "492715"
     ],
     "pitch": "Decadent organic body oil infused with cold-pressed botanical botanicals, sweet almond, and nourishing vitamins. Leaves skin silky, radiant, and deeply hydrated.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492715/edit",
-    "img": "https://images.momence.com/h/200431/product-image/9a844067-62d4-4517-9c50-6a89881f3df0.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/78060ae5-2576-408a-8fc4-eb7c57b17dda.jpg"
   },
   {
     "id": 492374,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Black Copal Handrolled Incense Stick - 12 Box Bundle ->10%",
     "fullTitle": "Cedar and Myrrh - Black Copal Handrolled Incense Stick - 12 Box Bundle ->10%",
@@ -622,7 +659,7 @@ const PRODUCTS = [
     "priceNum": 30.99,
     "sku": "CM-INC-PALB-0043",
     "barcodes": [
-      "",
+      "CM-INC-PALB-0043",
       "492374"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -632,6 +669,7 @@ const PRODUCTS = [
   {
     "id": 563935,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "The Practice",
     "name": "Black Floral Wall Art - Blue between baby and lighter turquoise box ",
     "fullTitle": "The Practice - Black Floral Wall Art - Blue between baby and lighter turquoise box ",
@@ -649,6 +687,7 @@ const PRODUCTS = [
   {
     "id": 556966,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Teas & Craft Chocolates",
     "brand": "The Practice Cafe",
     "name": "Black Tea Reg or Lg (C)",
     "fullTitle": "The Practice Cafe - Black Tea Reg or Lg (C)",
@@ -661,11 +700,12 @@ const PRODUCTS = [
     ],
     "pitch": "A robust, full-bodied brew of premium black tea leaves, delivering a deeply satisfying, bold flavour",
     "momenceUrl": "https://momence.com/dashboard/200431/products/556966/edit",
-    "img": "https://images.momence.com/h/200431/product-image/8b6733ea-8a24-468e-9849-949664b42ac8.png"
+    "img": "https://images.momence.com/h/200431/product-image/16f43b7b-8206-49f0-8b3c-f076d2d5c73b.jpg"
   },
   {
     "id": 563947,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "The Practice",
     "name": "Blue Grey Floral Wall Art - Brown Box",
     "fullTitle": "The Practice - Blue Grey Floral Wall Art - Brown Box",
@@ -683,6 +723,7 @@ const PRODUCTS = [
   {
     "id": 492532,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Bradley Mountain",
     "name": "Bradley Mountain - Cannabis & Amber Resin Candle",
     "fullTitle": "Bradley Mountain - Bradley Mountain - Cannabis & Amber Resin Candle",
@@ -690,7 +731,7 @@ const PRODUCTS = [
     "priceNum": 42,
     "sku": "BM-CAN-CAN-0009",
     "barcodes": [
-      "",
+      "BM-CAN-CAN-0009",
       "492532"
     ],
     "pitch": "Hand-poured all-natural soy wax candle crafted in San Diego, CA. Features a clean lead-free cotton wick and rich, woody aroma notes inspired by wilderness adventures.",
@@ -700,6 +741,7 @@ const PRODUCTS = [
   {
     "id": 492525,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Bradley Mountain",
     "name": "Bradley Mountain - Driftwood & Tobacco Candle",
     "fullTitle": "Bradley Mountain - Bradley Mountain - Driftwood & Tobacco Candle",
@@ -707,7 +749,7 @@ const PRODUCTS = [
     "priceNum": 42,
     "sku": "BM-CAN-DRI-0002",
     "barcodes": [
-      "",
+      "BM-CAN-DRI-0002",
       "492525"
     ],
     "pitch": "Hand-poured all-natural soy wax candle crafted in San Diego, CA. Features a clean lead-free cotton wick and rich, woody aroma notes inspired by wilderness adventures.",
@@ -717,6 +759,7 @@ const PRODUCTS = [
   {
     "id": 492526,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Bradley Mountain",
     "name": "Bradley Mountain - Fraser Fir & Redwood- Mustache & Beard Oil",
     "fullTitle": "Bradley Mountain - Bradley Mountain - Fraser Fir & Redwood- Mustache & Beard Oil",
@@ -724,7 +767,7 @@ const PRODUCTS = [
     "priceNum": 28.99,
     "sku": "BM-OIL-FRA-0003",
     "barcodes": [
-      "",
+      "BM-OIL-FRA-0003",
       "492526"
     ],
     "pitch": "Handcrafted rugged grooming oil formulated with organic argan and jojoba oils to soften facial hair, soothe skin, and impart a rich outdoors aroma.",
@@ -734,6 +777,7 @@ const PRODUCTS = [
   {
     "id": 492533,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Bradley Mountain",
     "name": "Bradley Mountain - Leather & Smoke Candle",
     "fullTitle": "Bradley Mountain - Bradley Mountain - Leather & Smoke Candle",
@@ -741,7 +785,7 @@ const PRODUCTS = [
     "priceNum": 42,
     "sku": "BM-CAN-LEA-0010",
     "barcodes": [
-      "",
+      "BM-CAN-LEA-0010",
       "492533"
     ],
     "pitch": "Hand-poured all-natural soy wax candle crafted in San Diego, CA. Features a clean lead-free cotton wick and rich, woody aroma notes inspired by wilderness adventures.",
@@ -751,6 +795,7 @@ const PRODUCTS = [
   {
     "id": 492529,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Bradley Mountain",
     "name": "Bradley Mountain - Leather & Smoke Room Spray",
     "fullTitle": "Bradley Mountain - Bradley Mountain - Leather & Smoke Room Spray",
@@ -758,7 +803,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "BM-SPR-LEA-0006",
     "barcodes": [
-      "",
+      "BM-SPR-LEA-0006",
       "492529"
     ],
     "pitch": "Hand-poured all-natural soy wax candle crafted in San Diego, CA. Features a clean lead-free cotton wick and rich, woody aroma notes inspired by wilderness adventures.",
@@ -768,6 +813,7 @@ const PRODUCTS = [
   {
     "id": 492535,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Bradley Mountain",
     "name": "Bradley Mountain - Neroli & Juniper Candle",
     "fullTitle": "Bradley Mountain - Bradley Mountain - Neroli & Juniper Candle",
@@ -775,7 +821,7 @@ const PRODUCTS = [
     "priceNum": 42,
     "sku": "BM-CAN-NER-0012",
     "barcodes": [
-      "",
+      "BM-CAN-NER-0012",
       "492535"
     ],
     "pitch": "Hand-poured all-natural soy wax candle crafted in San Diego, CA. Features a clean lead-free cotton wick and rich, woody aroma notes inspired by wilderness adventures.",
@@ -785,6 +831,7 @@ const PRODUCTS = [
   {
     "id": 492531,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Bradley Mountain",
     "name": "Bradley Mountain - Oakmoss & Amber Room Spray",
     "fullTitle": "Bradley Mountain - Bradley Mountain - Oakmoss & Amber Room Spray",
@@ -792,7 +839,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "BM-SPR-OAK-0008",
     "barcodes": [
-      "",
+      "BM-SPR-OAK-0008",
       "492531"
     ],
     "pitch": "Hand-poured all-natural soy wax candle crafted in San Diego, CA. Features a clean lead-free cotton wick and rich, woody aroma notes inspired by wilderness adventures.",
@@ -802,6 +849,7 @@ const PRODUCTS = [
   {
     "id": 492528,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Bradley Mountain",
     "name": "Bradley Mountain - Palo Santo & Cedarwood- Mustache & Beard Oil",
     "fullTitle": "Bradley Mountain - Bradley Mountain - Palo Santo & Cedarwood- Mustache & Beard Oil",
@@ -809,7 +857,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "BM-OIL-PAL-0005",
     "barcodes": [
-      "",
+      "BM-OIL-PAL-0005",
       "492528"
     ],
     "pitch": "Handcrafted rugged grooming oil formulated with organic argan and jojoba oils to soften facial hair, soothe skin, and impart a rich outdoors aroma.",
@@ -819,6 +867,7 @@ const PRODUCTS = [
   {
     "id": 492534,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Bradley Mountain",
     "name": "Bradley Mountain - Palo Santo & Ginger Candle",
     "fullTitle": "Bradley Mountain - Bradley Mountain - Palo Santo & Ginger Candle",
@@ -826,7 +875,7 @@ const PRODUCTS = [
     "priceNum": 42,
     "sku": "BM-CAN-PAL-0011",
     "barcodes": [
-      "",
+      "BM-CAN-PAL-0011",
       "492534"
     ],
     "pitch": "Hand-poured all-natural soy wax candle crafted in San Diego, CA. Features a clean lead-free cotton wick and rich, woody aroma notes inspired by wilderness adventures.",
@@ -836,6 +885,7 @@ const PRODUCTS = [
   {
     "id": 492530,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Bradley Mountain",
     "name": "Bradley Mountain - Palo Santo & Ginger Room Spray",
     "fullTitle": "Bradley Mountain - Bradley Mountain - Palo Santo & Ginger Room Spray",
@@ -843,7 +893,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "BM-SPR-PAL-0007",
     "barcodes": [
-      "",
+      "BM-SPR-PAL-0007",
       "492530"
     ],
     "pitch": "Hand-poured all-natural soy wax candle crafted in San Diego, CA. Features a clean lead-free cotton wick and rich, woody aroma notes inspired by wilderness adventures.",
@@ -853,6 +903,7 @@ const PRODUCTS = [
   {
     "id": 492527,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Bradley Mountain",
     "name": "Bradley Mountain - Rosemary & Sage- Mustache & Beard Oil",
     "fullTitle": "Bradley Mountain - Bradley Mountain - Rosemary & Sage- Mustache & Beard Oil",
@@ -860,7 +911,7 @@ const PRODUCTS = [
     "priceNum": 28.99,
     "sku": "BM-OIL-ROS-0004",
     "barcodes": [
-      "",
+      "BM-OIL-ROS-0004",
       "492527"
     ],
     "pitch": "Handcrafted rugged grooming oil formulated with organic argan and jojoba oils to soften facial hair, soothe skin, and impart a rich outdoors aroma.",
@@ -870,6 +921,7 @@ const PRODUCTS = [
   {
     "id": 492443,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Mio Queena",
     "name": "Brass Buddha statue Crafts Desktop Ornaments Decoration",
     "fullTitle": "Mio Queena - Brass Buddha statue Crafts Desktop Ornaments Decoration",
@@ -877,7 +929,7 @@ const PRODUCTS = [
     "priceNum": 19.8,
     "sku": "MQ-DEC-BUD-0006",
     "barcodes": [
-      "",
+      "MQ-DEC-BUD-0006",
       "492443"
     ],
     "pitch": "Heavyweight solid brass miniature tabletop ornament hand-cast with vintage character, heirloom durability, and grounding tactile charm.",
@@ -887,6 +939,7 @@ const PRODUCTS = [
   {
     "id": 492424,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Brass Lizard",
     "fullTitle": "Kiyo Home | No Tariffs - Brass Lizard",
@@ -894,7 +947,7 @@ const PRODUCTS = [
     "priceNum": 70,
     "sku": "KH-DEC-LIZ-0005",
     "barcodes": [
-      "",
+      "KH-DEC-LIZ-0005",
       "492424"
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
@@ -904,6 +957,7 @@ const PRODUCTS = [
   {
     "id": 492423,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Brass Octopus Sculpture",
     "fullTitle": "Kiyo Home | No Tariffs - Brass Octopus Sculpture",
@@ -911,7 +965,7 @@ const PRODUCTS = [
     "priceNum": 33.99,
     "sku": "KH-DEC-OCT-0004",
     "barcodes": [
-      "",
+      "KH-DEC-OCT-0004",
       "492423"
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
@@ -921,6 +975,7 @@ const PRODUCTS = [
   {
     "id": 492235,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Curated Basics • Modern Minimalist Men’s & Unisex Jewelry",
     "brand": "Curated Basics",
     "name": "Brass Square Striped Ring-8",
     "fullTitle": "Curated Basics - Brass Square Striped Ring-8",
@@ -928,7 +983,7 @@ const PRODUCTS = [
     "priceNum": 75,
     "sku": "CB-RNG-BSS08-0002",
     "barcodes": [
-      "",
+      "CB-RNG-BSS08-0002",
       "492235"
     ],
     "pitch": "Size 8",
@@ -938,6 +993,7 @@ const PRODUCTS = [
   {
     "id": 563945,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "The Practice",
     "name": "Burgundy Floral Wall Art - Sand Box ",
     "fullTitle": "The Practice - Burgundy Floral Wall Art - Sand Box ",
@@ -953,25 +1009,9 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/98cb63e9-116c-4664-bef7-3620a8bd5a20.jpeg"
   },
   {
-    "id": 562444,
-    "department": "Cafe & Nourishment",
-    "brand": "The Practice Cafe",
-    "name": "Cafe - Fudgy Chocolate Brownie",
-    "fullTitle": "The Practice Cafe - Cafe - Fudgy Chocolate Brownie",
-    "price": "$4.00",
-    "priceNum": 4,
-    "sku": "",
-    "barcodes": [
-      "",
-      "562444"
-    ],
-    "pitch": "A rich and fudgy classic chocolate brownie made with premium cocoa and butter. Perfectly dense with a crackly top and touch of flaky sea salt.\n\nIngredients: Flour, eggs, chocolate, butter, cocoa powder.",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/562444/edit",
-    "img": "https://images.momence.com/h/200431/product-image/0f475c46-af8c-45ca-9175-e0987b948b58.png"
-  },
-  {
     "id": 555495,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
     "brand": "The Practice Cafe",
     "name": "Cafe Latte - Large 16oz (C)",
     "fullTitle": "The Practice Cafe - Cafe Latte - Large 16oz (C)",
@@ -984,11 +1024,12 @@ const PRODUCTS = [
     ],
     "pitch": "Your choice of Nespresso coffee, blended with steamed milk for a smooth, creamy finish.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/555495/edit",
-    "img": "https://images.momence.com/h/200431/product-image/840013d8-1a56-46dd-8c90-73422b2d0505.png"
+    "img": "https://images.momence.com/h/200431/product-image/e87fe3ab-a8a3-446d-ad97-04d735cd656e.jpg"
   },
   {
     "id": 545871,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
     "brand": "The Practice Cafe",
     "name": "Cafe Latte - Regular 12oz (C)",
     "fullTitle": "The Practice Cafe - Cafe Latte - Regular 12oz (C)",
@@ -1001,45 +1042,12 @@ const PRODUCTS = [
     ],
     "pitch": "Your choice of Nespresso coffee, blended with steamed milk for a smooth, creamy finish.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/545871/edit",
-    "img": "https://images.momence.com/h/200431/product-image/41b46d72-bdf5-4b47-89d2-e8481823f338.png"
-  },
-  {
-    "id": 562449,
-    "department": "Cafe & Nourishment",
-    "brand": "The Practice Cafe",
-    "name": "Cafe - Lemon Poppyseed Biscotti",
-    "fullTitle": "The Practice Cafe - Cafe - Lemon Poppyseed Biscotti",
-    "price": "$3.50",
-    "priceNum": 3.5,
-    "sku": "",
-    "barcodes": [
-      "",
-      "562449"
-    ],
-    "pitch": "Bright and citrusy biscotti beautifully speckled with poppyseeds. Finished with a sweet, tangy lemon juice and icing sugar glaze.\n\nIngredients: Flour, eggs, poppyseeds. Topping: Icing sugar and lemon juice glaze.",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/562449/edit",
-    "img": "https://images.momence.com/h/200431/product-image/317f81c5-0f16-4571-ba3c-e305968d59ca.png"
-  },
-  {
-    "id": 562448,
-    "department": "Cafe & Nourishment",
-    "brand": "The Practice Cafe",
-    "name": "Cafe - Pistachio & Cranberry Biscotti",
-    "fullTitle": "The Practice Cafe - Cafe - Pistachio & Cranberry Biscotti",
-    "price": "$3.50",
-    "priceNum": 3.5,
-    "sku": "",
-    "barcodes": [
-      "",
-      "562448"
-    ],
-    "pitch": "A crisp, buttery traditional biscotti packed with roasted pistachios and sweet cranberries. Elegantly topped with white chocolate drizzle and crushed pistachios.\n\nIngredients: Flour, eggs, butter, pistachios, cranberries. Topping: White chocolate, crushed pistachios.",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/562448/edit",
-    "img": "https://images.momence.com/h/200431/product-image/b18e44d7-1470-428e-9331-ebed33f8a860.png"
+    "img": "https://images.momence.com/h/200431/product-image/346d4f53-a491-444e-8b56-54c2092a46d7.jpg"
   },
   {
     "id": 480110,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "TEST SUPPLIER",
     "name": "Candle",
     "fullTitle": "TEST SUPPLIER - Candle",
@@ -1047,16 +1055,17 @@ const PRODUCTS = [
     "priceNum": 5,
     "sku": "456",
     "barcodes": [
-      "9919403082944",
+      "456",
       "480110"
     ],
     "pitch": "Candle - Scented",
     "momenceUrl": "https://momence.com/dashboard/200431/products/480110/edit",
-    "img": "https://images.momence.com/h/200431/product-image/cortado.png"
+    "img": "https://images.momence.com/h/200431/product-image/13e3132f-8bbc-44be-962b-5bda61de0a62.jpg"
   },
   {
     "id": 495984,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "The Practice",
     "name": "Candle Holders",
     "fullTitle": "The Practice - Candle Holders",
@@ -1074,6 +1083,7 @@ const PRODUCTS = [
   {
     "id": 513586,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
     "name": "Cane Syrup",
     "fullTitle": "The Practice Cafe - Cane Syrup",
@@ -1086,11 +1096,12 @@ const PRODUCTS = [
     ],
     "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513586/edit",
-    "img": "https://images.momence.com/h/200431/product-image/6a5c0a33-5e19-4f00-ae9b-d98dff5e240e.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/2678fac8-1dc1-49bf-af63-0d5793680c6e.jpg"
   },
   {
     "id": 492266,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Men's Black Labradorite Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Men's Black Labradorite Beaded Bracelet",
@@ -1098,7 +1109,7 @@ const PRODUCTS = [
     "priceNum": 70,
     "sku": "CD-BRC-LAB-0015",
     "barcodes": [
-      "",
+      "CD-BRC-LAB-0015",
       "492266"
     ],
     "pitch": "Handcrafted with rare, mystical Black Labradorite beads featuring iridescent flashes of inner spectral light, symbolizing transformation and psychic shielding. Accented with an intricate antique silver Tibetan filigree focal bead. Strung on high-tensile elastic stretch cord (fits wrists 7.5–8 inches).",
@@ -1108,6 +1119,7 @@ const PRODUCTS = [
   {
     "id": 492262,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Men's Black Lava Stone Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Men's Black Lava Stone Beaded Bracelet",
@@ -1115,7 +1127,7 @@ const PRODUCTS = [
     "priceNum": 63,
     "sku": "CD-BRC-LAV-0011",
     "barcodes": [
-      "",
+      "CD-BRC-LAV-0011",
       "492262"
     ],
     "pitch": "Crafted from raw, porous natural Black Lava Stone formed from volcanic molten rock, symbolizing rebirth and unwavering strength. Accented with an intricate antique silver Tibetan filigree focal bead. Can also be used as a natural essential oil diffuser bracelet. Strung on high-tensile elastic stretch cord (fits wrists 7.5–8 inches).",
@@ -1125,6 +1137,7 @@ const PRODUCTS = [
   {
     "id": 492267,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Men's Bronzite Tibetan Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Men's Bronzite Tibetan Beaded Bracelet",
@@ -1132,7 +1145,7 @@ const PRODUCTS = [
     "priceNum": 63,
     "sku": "CD-BRC-BRO-0016",
     "barcodes": [
-      "",
+      "CD-BRC-BRO-0016",
       "492267"
     ],
     "pitch": "Bold, grounded, and meticulously handcrafted with genuine Bronzite and Tibetan stone beads celebrated for protective grounding and decisiveness. Accented with an intricately carved antique silver filigree focal bead symbolizing strength and harmony. Strung on high-tensile elastic stretch cord for durable everyday wear (fits wrists 7.5–8 inches).",
@@ -1142,6 +1155,7 @@ const PRODUCTS = [
   {
     "id": 492268,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Men's Hematite Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Men's Hematite Beaded Bracelet",
@@ -1149,7 +1163,7 @@ const PRODUCTS = [
     "priceNum": 63,
     "sku": "CD-BRC-HEM-0017",
     "barcodes": [
-      "",
+      "CD-BRC-HEM-0017",
       "492268"
     ],
     "pitch": "Meticulously handcrafted with metallic-lustre natural Hematite beads known for powerful grounding, mental clarity, and shielding negative energy. Accented with an intricate antique silver Tibetan filigree focal bead. Strung on high-tensile elastic stretch cord for durable, comfortable everyday wear (fits wrists 7.5–8 inches).",
@@ -1159,6 +1173,7 @@ const PRODUCTS = [
   {
     "id": 492263,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Men's Jasper & Tiger Eye Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Men's Jasper & Tiger Eye Beaded Bracelet",
@@ -1166,7 +1181,7 @@ const PRODUCTS = [
     "priceNum": 63,
     "sku": "CD-BRC-JTE-0012",
     "barcodes": [
-      "",
+      "CD-BRC-JTE-0012",
       "492263"
     ],
     "pitch": "Handcrafted with rich earthy Jasper and chatoyant golden-brown Tiger Eye beads, uniting physical endurance with mental focus and courage. Accented with an intricate antique silver Tibetan filigree focal bead. Strung on high-tensile elastic stretch cord for durable, comfortable everyday wear (fits wrists 7.5–8 inches).",
@@ -1176,6 +1191,7 @@ const PRODUCTS = [
   {
     "id": 492264,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Men's Tiger Eye Tibetan Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Men's Tiger Eye Tibetan Beaded Bracelet",
@@ -1183,7 +1199,7 @@ const PRODUCTS = [
     "priceNum": 63,
     "sku": "CD-BRC-TET-0013",
     "barcodes": [
-      "",
+      "CD-BRC-TET-0013",
       "492264"
     ],
     "pitch": "Handcrafted with golden chatoyant Tiger Eye beads renowned as ancient stones of confidence, protection, and focused willpower. Accented with an intricately carved antique silver Tibetan filigree focal bead. Strung on high-tensile elastic stretch cord for durable everyday wear (fits wrists 7.5–8 inches).",
@@ -1193,6 +1209,7 @@ const PRODUCTS = [
   {
     "id": 492257,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Mini Amazonite Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Mini Amazonite Beaded Bracelet",
@@ -1200,7 +1217,7 @@ const PRODUCTS = [
     "priceNum": 35,
     "sku": "CD-BRC-AMZ-0006",
     "barcodes": [
-      "",
+      "CD-BRC-AMZ-0006",
       "492257"
     ],
     "pitch": "Handcrafted with genuine semi-precious faceted Amazonite beads known for soothing emotional balance, truth, and harmony. Accented with 14k gold-plated brass spacer details and finished with an engraved signature Cape Diablo metal bar. Features a durable elastic stretch cord for an effortless, comfortable fit (approx. 6.5–7 inches). Perfect for mindful daily layering.",
@@ -1210,6 +1227,7 @@ const PRODUCTS = [
   {
     "id": 492260,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Mini Black Jade Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Mini Black Jade Beaded Bracelet",
@@ -1217,7 +1235,7 @@ const PRODUCTS = [
     "priceNum": 35,
     "sku": "CD-BRC-BLK-0009",
     "barcodes": [
-      "",
+      "CD-BRC-BLK-0009",
       "492260"
     ],
     "pitch": "Handcrafted with genuine semi-precious faceted Black Jade beads radiating grounding energy, inner strength, and protection. Accented with 14k gold-plated brass spacer details and finished with an engraved signature Cape Diablo metal bar. Features a durable elastic stretch cord for an effortless, comfortable fit (approx. 6.5–7 inches). A sleek, timeless everyday staple.",
@@ -1227,6 +1245,7 @@ const PRODUCTS = [
   {
     "id": 492261,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Mini Blue Jade Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Mini Blue Jade Beaded Bracelet",
@@ -1234,7 +1253,7 @@ const PRODUCTS = [
     "priceNum": 35,
     "sku": "CD-BRC-BLU-0010",
     "barcodes": [
-      "",
+      "CD-BRC-BLU-0010",
       "492261"
     ],
     "pitch": "Handcrafted with genuine semi-precious faceted Blue Jade beads inspiring tranquility, serenity, and peaceful self-expression. Accented with 14k gold-plated brass spacer details and finished with an engraved signature Cape Diablo metal bar. Features a durable elastic stretch cord for an effortless, comfortable fit (approx. 6.5–7 inches). Ideal for stacking.",
@@ -1244,6 +1263,7 @@ const PRODUCTS = [
   {
     "id": 523772,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Mini Coral Jade Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Mini Coral Jade Beaded Bracelet",
@@ -1251,7 +1271,7 @@ const PRODUCTS = [
     "priceNum": 35,
     "sku": "BMiniCoral",
     "barcodes": [
-      "",
+      "BMiniCoral",
       "523772"
     ],
     "pitch": "Handcrafted with genuine semi-precious faceted Coral Jade beads bringing vibrant joy, creativity, and passionate life energy. Accented with 14k gold-plated brass spacer details and finished with an engraved signature Cape Diablo metal bar. Features a durable elastic stretch cord for an effortless, comfortable fit (approx. 6.5–7 inches).",
@@ -1261,6 +1281,7 @@ const PRODUCTS = [
   {
     "id": 523777,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Mini Green Jade Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Mini Green Jade Beaded Bracelet",
@@ -1268,7 +1289,7 @@ const PRODUCTS = [
     "priceNum": 35,
     "sku": "BMiniGreen",
     "barcodes": [
-      "",
+      "BMiniGreen",
       "523777"
     ],
     "pitch": "Handcrafted with genuine semi-precious faceted Green Jade beads celebrated for abundance, good fortune, and heart-centered calm. Accented with 14k gold-plated brass spacer details and finished with an engraved signature Cape Diablo metal bar. Features a durable elastic stretch cord for an effortless, comfortable fit (approx. 6.5–7 inches).",
@@ -1278,6 +1299,7 @@ const PRODUCTS = [
   {
     "id": 492258,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Mini Grey Jade Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Mini Grey Jade Beaded Bracelet",
@@ -1285,7 +1307,7 @@ const PRODUCTS = [
     "priceNum": 35,
     "sku": "CD-BRC-GRY-0007",
     "barcodes": [
-      "",
+      "CD-BRC-GRY-0007",
       "492258"
     ],
     "pitch": "Handcrafted with genuine semi-precious faceted Grey Jade beads providing stabilizing grounding, neutrality, and clear focus. Accented with 14k gold-plated brass spacer details and finished with an engraved signature Cape Diablo metal bar. Features a durable elastic stretch cord for an effortless, comfortable fit (approx. 6.5–7 inches).",
@@ -1295,6 +1317,7 @@ const PRODUCTS = [
   {
     "id": 523788,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Mini Pastel Gemstone Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Mini Pastel Gemstone Beaded Bracelet",
@@ -1302,7 +1325,7 @@ const PRODUCTS = [
     "priceNum": 35,
     "sku": "",
     "barcodes": [
-      "BMiniPastel",
+      "",
       "523788"
     ],
     "pitch": "Handcrafted with a curated medley of genuine soft pastel semi-precious gemstones celebrating gentle optimism, balance, and mindful gratitude. Accented with 14k gold-plated brass spacer details and finished with an engraved signature Cape Diablo metal bar. Features a durable elastic stretch cord for an effortless, comfortable fit (approx. 6.5–7 inches).",
@@ -1312,6 +1335,7 @@ const PRODUCTS = [
   {
     "id": 492253,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Mini Pink Jade Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Mini Pink Jade Beaded Bracelet",
@@ -1319,7 +1343,7 @@ const PRODUCTS = [
     "priceNum": 35,
     "sku": "CD-BRC-PNK-0002",
     "barcodes": [
-      "",
+      "CD-BRC-PNK-0002",
       "492253"
     ],
     "pitch": "Handcrafted with genuine semi-precious faceted Pink Jade beads embodying unconditional love, gentle healing, and heart chakra alignment. Accented with 14k gold-plated brass spacer details and finished with an engraved signature Cape Diablo metal bar. Features a durable elastic stretch cord for an effortless, comfortable fit (approx. 6.5–7 inches).",
@@ -1329,6 +1353,7 @@ const PRODUCTS = [
   {
     "id": 492255,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Mini Purple Jade Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Mini Purple Jade Beaded Bracelet",
@@ -1336,7 +1361,7 @@ const PRODUCTS = [
     "priceNum": 35,
     "sku": "CD-BRC-PUR-0004",
     "barcodes": [
-      "",
+      "CD-BRC-PUR-0004",
       "492255"
     ],
     "pitch": "Handcrafted with genuine semi-precious faceted Purple Jade beads encouraging spiritual insight, intuition, and serene inner peace. Accented with 14k gold-plated brass spacer details and finished with an engraved signature Cape Diablo metal bar. Features a durable elastic stretch cord for an effortless, comfortable fit (approx. 6.5–7 inches).",
@@ -1346,6 +1371,7 @@ const PRODUCTS = [
   {
     "id": 492256,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Mini Rainbow Gemstone Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Mini Rainbow Gemstone Beaded Bracelet",
@@ -1353,7 +1379,7 @@ const PRODUCTS = [
     "priceNum": 35,
     "sku": "CD-BRC-RBW-0005",
     "barcodes": [
-      "",
+      "CD-BRC-RBW-0005",
       "492256"
     ],
     "pitch": "Handcrafted with a spectrum of multi-colored genuine semi-precious gemstone beads representing full chakra alignment and radiant vitality. Accented with 14k gold-plated brass spacer details and finished with an engraved signature Cape Diablo metal bar. Features a durable elastic stretch cord for an effortless, comfortable fit (approx. 6.5–7 inches).",
@@ -1363,6 +1389,7 @@ const PRODUCTS = [
   {
     "id": 492254,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Mini Sunset Jade Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Mini Sunset Jade Beaded Bracelet",
@@ -1370,7 +1397,7 @@ const PRODUCTS = [
     "priceNum": 35,
     "sku": "CD-BRC-SUN-0003",
     "barcodes": [
-      "",
+      "CD-BRC-SUN-0003",
       "492254"
     ],
     "pitch": "Handcrafted with genuine semi-precious warm sunset-toned faceted Jade beads evoking confidence, warmth, and solar plexus motivation. Accented with 14k gold-plated brass spacer details and finished with an engraved signature Cape Diablo metal bar. Features a durable elastic stretch cord for an effortless, comfortable fit (approx. 6.5–7 inches).",
@@ -1380,6 +1407,7 @@ const PRODUCTS = [
   {
     "id": 492252,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Mini Turquoise Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Mini Turquoise Beaded Bracelet",
@@ -1387,7 +1415,7 @@ const PRODUCTS = [
     "priceNum": 35,
     "sku": "CD-BRC-TUR-0001",
     "barcodes": [
-      "",
+      "CD-BRC-TUR-0001",
       "492252"
     ],
     "pitch": "Handcrafted with genuine natural Turquoise gemstone beads known worldwide as ancient amulets of wisdom, protection, and positive flow. Accented with 14k gold-plated brass spacer details and finished with an engraved signature Cape Diablo metal bar. Features a durable elastic stretch cord for an effortless, comfortable fit (approx. 6.5–7 inches).",
@@ -1397,6 +1425,7 @@ const PRODUCTS = [
   {
     "id": 492259,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Cape Diablo - Mini White Jade Beaded Bracelet",
     "fullTitle": "Cape Diablo - Cape Diablo - Mini White Jade Beaded Bracelet",
@@ -1404,7 +1433,7 @@ const PRODUCTS = [
     "priceNum": 35,
     "sku": "CD-BRC-WHT-0008",
     "barcodes": [
-      "",
+      "CD-BRC-WHT-0008",
       "492259"
     ],
     "pitch": "Handcrafted with pure, glowing semi-precious White Jade beads channeling clarity, peaceful stillness, and purification. Accented with 14k gold-plated brass spacer details and finished with an engraved signature Cape Diablo metal bar. Features a durable elastic stretch cord for an effortless, comfortable fit (approx. 6.5–7 inches).",
@@ -1414,6 +1443,7 @@ const PRODUCTS = [
   {
     "id": 548481,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
     "brand": "The Practice Cafe",
     "name": "Cappuccino - Large (C)",
     "fullTitle": "The Practice Cafe - Cappuccino - Large (C)",
@@ -1426,11 +1456,12 @@ const PRODUCTS = [
     ],
     "pitch": "Your choice of Nespresso coffee, topped with steamed milk and a layer of velvety foam.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/548481/edit",
-    "img": "https://images.momence.com/h/200431/product-image/b604ed55-a4ad-4df1-abfc-d1c535a43d88.png"
+    "img": "https://images.momence.com/h/200431/product-image/2596c137-7fed-4530-901a-61cb73925595.jpg"
   },
   {
     "id": 555494,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
     "brand": "The Practice Cafe",
     "name": "Cappuccino - Regular (C)",
     "fullTitle": "The Practice Cafe - Cappuccino - Regular (C)",
@@ -1443,11 +1474,12 @@ const PRODUCTS = [
     ],
     "pitch": "Your choice of Nespresso coffee, topped with steamed milk and a layer of velvety foam.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/555494/edit",
-    "img": "https://images.momence.com/h/200431/product-image/d45eec00-7e3c-4a37-9b2c-c1a80db804b0.png"
+    "img": "https://images.momence.com/h/200431/product-image/ef9a5582-c23c-42b3-97cf-14ba976dcf56.jpg"
   },
   {
     "id": 513583,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
     "name": "Caramel Syrup",
     "fullTitle": "The Practice Cafe - Caramel Syrup",
@@ -1460,11 +1492,12 @@ const PRODUCTS = [
     ],
     "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513583/edit",
-    "img": "https://images.momence.com/h/200431/product-image/f4d8a6eb-fd5e-4520-be82-5193107f9e77.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/2678fac8-1dc1-49bf-af63-0d5793680c6e.jpg"
   },
   {
     "id": 492523,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Cedar and Myrrh - Deep Breath Reed Diffuser",
     "fullTitle": "Cedar and Myrrh - Cedar and Myrrh - Deep Breath Reed Diffuser",
@@ -1472,7 +1505,7 @@ const PRODUCTS = [
     "priceNum": 79.99,
     "sku": "CM-RDS-DEE-0004",
     "barcodes": [
-      "",
+      "CM-RDS-DEE-0004",
       "492523"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -1482,6 +1515,7 @@ const PRODUCTS = [
   {
     "id": 492521,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Cedar and Myrrh - Mantra Reed Diffuser",
     "fullTitle": "Cedar and Myrrh - Cedar and Myrrh - Mantra Reed Diffuser",
@@ -1489,7 +1523,7 @@ const PRODUCTS = [
     "priceNum": 69.99,
     "sku": "CM-RDS-MAN-0002",
     "barcodes": [
-      "",
+      "CM-RDS-MAN-0002",
       "492521"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -1499,6 +1533,7 @@ const PRODUCTS = [
   {
     "id": 492522,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cedar and Myrrh - Palo Santo Reed Diffuser",
     "fullTitle": "Cedar and Myrrh - Cedar and Myrrh - Palo Santo Reed Diffuser",
@@ -1506,7 +1541,7 @@ const PRODUCTS = [
     "priceNum": 79.99,
     "sku": "CM-RDS-PAL-0003",
     "barcodes": [
-      "",
+      "CM-RDS-PAL-0003",
       "492522"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -1516,6 +1551,7 @@ const PRODUCTS = [
   {
     "id": 492520,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Cedar and Myrrh - Spiritual Reed Diffuser",
     "fullTitle": "Cedar and Myrrh - Cedar and Myrrh - Spiritual Reed Diffuser",
@@ -1523,7 +1559,7 @@ const PRODUCTS = [
     "priceNum": 69.99,
     "sku": "CM-RDS-SPI-0001",
     "barcodes": [
-      "",
+      "CM-RDS-SPI-0001",
       "492520"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -1533,6 +1569,7 @@ const PRODUCTS = [
   {
     "id": 492364,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Aged Indian Sandalwood Incense Stick Set (30 Sticks & Holder)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Aged Indian Sandalwood Incense Stick Set (30 Sticks & Holder)",
@@ -1540,7 +1577,7 @@ const PRODUCTS = [
     "priceNum": 44,
     "sku": "CM-INC-CED-0033",
     "barcodes": [
-      "",
+      "CM-INC-CED-0033",
       "492364"
     ],
     "pitch": "Premium aged Indian Sandalwood ( Santalum album ) , one of the world’s most prized aromatic woods Naturally aged so essential oils deepen and mellow, creating a smoother, richer fragrance Aged sandalwood offers a more refined scent than fresh or synthetic blends Traditionally burned to encourage mental clarity, grounding, and inner peace Handcrafted in China with classic incense-making methods Includes 30 incense sticks with a brass incense holder Smoke intensity: (Light to Medium) Burn time per stick: 20–25 minutes Ideal for meditation, yoga, relaxation, or creating a tranquil atmosphere Packaged in a box with a built-in insert to protect the incense sticks",
@@ -1550,6 +1587,7 @@ const PRODUCTS = [
   {
     "id": 492336,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Bonne Nuit Aromatherapy Room Spray (2 fl oz)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Bonne Nuit Aromatherapy Room Spray (2 fl oz)",
@@ -1557,7 +1595,7 @@ const PRODUCTS = [
     "priceNum": 47,
     "sku": "CM-RMS-BON-0005",
     "barcodes": [
-      "",
+      "CM-RMS-BON-0005",
       "492336"
     ],
     "pitch": "Supports deep relaxation and restful sleep with a soothing floral-woody aroma featuring lavender, sandalwood, and frankincense essential oils Perfect for nighttime rituals to calm the mind and relax the body Gentle, gel-based formula cleanses skin deeply without stripping natural moisture Infused with certified organic botanical oils including coconut oil, sunflower seed oil, olive fruit oil, shea butter, aloe vera, and rosemary leaf extract Nourishes and replenishes tired or sensitive skin Creates a subtle, clean lather ideal for daily evening use Free from sulfates, parabens, and synthetic fragrances —safe for all skin types",
@@ -1567,6 +1605,7 @@ const PRODUCTS = [
   {
     "id": 492365,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Cedarwood Incense Stick Set (30 Sticks & Holder)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Cedarwood Incense Stick Set (30 Sticks & Holder)",
@@ -1574,7 +1613,7 @@ const PRODUCTS = [
     "priceNum": 44,
     "sku": "CM-INC-PAL-0034",
     "barcodes": [
-      "",
+      "CM-INC-PAL-0034",
       "492365"
     ],
     "pitch": "Premium cedarwood known for its fresh, warm, and woody aroma with subtle resinous notes Handcrafted in China using traditional incense-making techniques Cedarwood has long been valued for grounding, calming, and protecting spiritual spaces Free from synthetic fragrances or dyes – made with natural plant binders for a pure, authentic burn Ideal for meditation, yoga, relaxation, or creating a peaceful atmosphere Includes 30 incense sticks with a brass incense holder Smoke intensity: (Light to Medium) Burn time per stick: 20–25 minutes Packaged in a box with a built-in insert to protect the incense sticks",
@@ -1584,6 +1623,7 @@ const PRODUCTS = [
   {
     "id": 492345,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Clarté Aromatherapy Room Spray (2 fl oz)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Clarté Aromatherapy Room Spray (2 fl oz)",
@@ -1591,7 +1631,7 @@ const PRODUCTS = [
     "priceNum": 47,
     "sku": "CM-RMS-DBR-0014",
     "barcodes": [
-      "",
+      "CM-RMS-DBR-0014",
       "492345"
     ],
     "pitch": "Awakens the senses with a bright, herbaceous aroma featuring spearmint, eucalyptus, and basil Energizing, clarifying formula designed to promote mental clarity, focus, and renewal Gentle, gel-based formula cleanses skin deeply without stripping natural moisture Infused with certified organic botanical oils such as coconut oil, sunflower seed oil, olive fruit oil, shea butter, aloe vera, and rosemary CO₂ extract Creates a subtle, clean lather ideal for daily use and morning refreshment Free from sulfates, parabens, and synthetic fragrances — safe for sensitive skin and daily use Perfect for starting the day or resetting your rhythm with natural aromatherapy benefits",
@@ -1601,6 +1641,7 @@ const PRODUCTS = [
   {
     "id": 492352,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Deep Breath Car Air Diffuser & Freshener",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Deep Breath Car Air Diffuser & Freshener",
@@ -1608,7 +1649,7 @@ const PRODUCTS = [
     "priceNum": 92,
     "sku": "CM-AIR-HIN-0021",
     "barcodes": [
-      "",
+      "CM-AIR-HIN-0021",
       "492352"
     ],
     "pitch": "Even in motion, there is a moment to breathe. Deep Breath is inspired by the quiet clarity that comes from pausing—expanding the lungs, softening the mind, and returning to yourself. Built around bright citrus, aromatic woods, and cleansing herbal notes, this scent is designed to bring spaciousness and ease to your time on the road—encouraging a calm, refreshed state as you drive. The scent opens with orange and chinotto , offering a lively yet comforting brightness. As it settles, Palo Santo, clove, cypress, and sage create an aromatic heart that feels both grounding and quietly invigorating. In the base, cedarwood and black wood add depth and warmth, echoing the steady rhythm of a deep, intentional breath. As air moves through the vent, these layers unfold gently—bringing a sense of clarity and lightness to your everyday journey. The Car Air Freshener case is shaped with inspiration from natural stone and crafted from sustainable zinc alloy made with recycled metals —a refined, minimal design that carries both intention and beauty. It clips seamlessly onto your car’s air vent, offering a quiet, modern presence without synthetic harshness or overpowering scent. A simple object with meaningful presence. A deep breath, carried with you through every mile. * Intentionally subtle, crafted for those who prefer a quiet, natural scent over overpowering fragrance.",
@@ -1618,6 +1659,7 @@ const PRODUCTS = [
   {
     "id": 492346,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Deep Breath Wellness Room Spray (2 fl oz)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Deep Breath Wellness Room Spray (2 fl oz)",
@@ -1625,7 +1667,7 @@ const PRODUCTS = [
     "priceNum": 47,
     "sku": "CM-RMS-SAC-0015",
     "barcodes": [
-      "",
+      "CM-RMS-SAC-0015",
       "492346"
     ],
     "pitch": "Even in motion, there is a moment to breathe. Deep Breath is inspired by the quiet clarity that comes from pausing—expanding the lungs, softening the mind, and returning to yourself. Built around bright citrus, aromatic woods, and cleansing herbal notes, this scent is designed to bring spaciousness and ease to your time on the road—encouraging a calm, refreshed state as you drive. The scent opens with orange and chinotto , offering a lively yet comforting brightness. As it settles, Palo Santo, clove, cypress, and sage create an aromatic heart that feels both grounding and quietly invigorating. In the base, cedarwood and black wood add depth and warmth, echoing the steady rhythm of a deep, intentional breath. As air moves through the vent, these layers unfold gently—bringing a sense of clarity and lightness to your everyday journey. The Car Air Freshener case is shaped with inspiration from natural stone and crafted from sustainable zinc alloy made with recycled metals —a refined, minimal design that carries both intention and beauty. It clips seamlessly onto your car’s air vent, offering a quiet, modern presence without synthetic harshness or overpowering scent. A simple object with meaningful presence. A deep breath, carried with you through every mile. * Intentionally subtle, crafted for those who prefer a quiet, natural scent over overpowering fragrance.",
@@ -1635,6 +1677,7 @@ const PRODUCTS = [
   {
     "id": 492341,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Flower Black Brass Incense Holder",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Flower Black Brass Incense Holder",
@@ -1642,7 +1685,7 @@ const PRODUCTS = [
     "priceNum": 38.89,
     "sku": "CM-HLD-FLB-0010",
     "barcodes": [
-      "",
+      "CM-HLD-FLB-0010",
       "492341"
     ],
     "pitch": "Handcrafted from black coated metal with a flower shape for a modern aesthetic Compatible with any type of smudging incense stick due to the sturdy yet elegant look Made from high-quality brass for durability and longevity Ideal for desks, shelves, and bedside tables due to compact size",
@@ -1652,6 +1695,7 @@ const PRODUCTS = [
   {
     "id": 492355,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Flower Brass Incense Holder",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Flower Brass Incense Holder",
@@ -1659,7 +1703,7 @@ const PRODUCTS = [
     "priceNum": 38.89,
     "sku": "CM-BTH-PAL-0024",
     "barcodes": [
-      "",
+      "CM-BTH-PAL-0024",
       "492355"
     ],
     "pitch": "Handcrafted from black coated metal with a flower shape for a modern aesthetic Compatible with any type of smudging incense stick due to the sturdy yet elegant look Made from high-quality brass for durability and longevity Ideal for desks, shelves, and bedside tables due to compact size",
@@ -1669,6 +1713,7 @@ const PRODUCTS = [
   {
     "id": 492334,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Hand-Rolled Incense Discovery Set (5 Scents)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Hand-Rolled Incense Discovery Set (5 Scents)",
@@ -1676,7 +1721,7 @@ const PRODUCTS = [
     "priceNum": 33.2,
     "sku": "CM-INC-DSC-0003",
     "barcodes": [
-      "",
+      "CM-INC-DSC-0003",
       "492334"
     ],
     "pitch": "* Note: Incense holder not included. Black Copal (Protium Grandifolium) Also known as “Mayan Copal” – Used by Indigenous Mesoamerican cultures in spiritual ceremonies and ancestral offerings Traditionally used to cleanse deeply, ground the spirit, and protect energetic boundaries Smoke intensity: (Medium to Heavy) Burn time : 40–45 minutes per stick Perfect for energy cleansing, protection rituals, grounding meditation, and shadow work Hand-rolled in Peru – Made with pure black copal resin and natural binding agents Root chakra alignment – Supports grounding, emotional resilience, and energetic stability Sustainably harvested – Crafted in partnership with Peruvian communities using traditional methods 100% natural ingredients – Bound with gum acacia; no synthetic fragrances, fillers, or dyes",
@@ -1686,6 +1731,7 @@ const PRODUCTS = [
   {
     "id": 492351,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Mineral Bath Salts, Flakes & Restorative Soaks",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Hinoki Bath Salt (80g Pouch)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Hinoki Bath Salt (80g Pouch)",
@@ -1693,16 +1739,17 @@ const PRODUCTS = [
     "priceNum": 23.33,
     "sku": "CM-AIR-DBR-0020",
     "barcodes": [
-      "",
+      "CM-AIR-DBR-0020",
       "492351"
     ],
     "pitch": "Immerse yourself in the tranquil ritual of Hinoki. This restorative set captures the pure essence of Japan’s sacred forests — featuring two bags of Hinoki bath flakes and one bottle of premium essential oil distilled from Yoshino Hinoki, renowned for its exceptional purity and clarity. Harvested from the ancient cypress trees of Yoshino, Nara Prefecture, the Hinoki used in this blend is celebrated for its refined, resinous-woody aroma and soothing energy. The aromatic wood flakes infuse your bath with a soft, green forest scent that relaxes the body and clears the mind, while the essential oil, sourced through gentle steam distillation, deepens the experience with delicate notes of fresh cedar, citrus, and moss. Use this ritual to release tension and restore balance, creating a quiet moment of stillness that reconnects you to nature’s rhythm. Includes 2 bags of Hinoki wood flakes (20g each) 1 Yoshino Hinoki essential oil (10ml) Details Sustainably harvested from Yoshino, Nara Prefecture Handcrafted in small batches 100% natural, vegan, and cruelty-free Ideal for bath rituals, relaxation, or mindful gifting How to Use Brew your Hinoki bath tea: Pour hot water (around 100°C / 212°F) over the wood flakes and let them steep for a few minutes. Once the aroma begins to release, pour the infused water into your bath and soak in the calming scent of Yoshino Hinoki. Add a few drops of Hinoki essential oil to enhance the aroma and invite deeper relaxation. After use, dry the wood flakes thoroughly — they can be repurposed as natural potpourri or lightly refreshed with a drop of essential oil for continued enjoyment.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492351/edit",
-    "img": "https://images.momence.com/h/200431/product-image/1b6e7941-1b37-44c0-a9d6-184137cdf56c.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0502/9789/7148/files/hinoki-bath-salt-80g.jpg?v=1766935464"
   },
   {
     "id": 492370,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Mineral Bath Salts, Flakes & Restorative Soaks",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Hinoki Bath Salt Gift Set (5 x 40g)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Hinoki Bath Salt Gift Set (5 x 40g)",
@@ -1710,16 +1757,17 @@ const PRODUCTS = [
     "priceNum": 28.5,
     "sku": "CM-BTH-HIN2-0039",
     "barcodes": [
-      "",
+      "CM-BTH-HIN2-0039",
       "492370"
     ],
     "pitch": "Immerse yourself in the tranquil ritual of Hinoki. This restorative set captures the pure essence of Japan’s sacred forests — featuring two bags of Hinoki bath flakes and one bottle of premium essential oil distilled from Yoshino Hinoki, renowned for its exceptional purity and clarity. Harvested from the ancient cypress trees of Yoshino, Nara Prefecture, the Hinoki used in this blend is celebrated for its refined, resinous-woody aroma and soothing energy. The aromatic wood flakes infuse your bath with a soft, green forest scent that relaxes the body and clears the mind, while the essential oil, sourced through gentle steam distillation, deepens the experience with delicate notes of fresh cedar, citrus, and moss. Use this ritual to release tension and restore balance, creating a quiet moment of stillness that reconnects you to nature’s rhythm. Includes 2 bags of Hinoki wood flakes (20g each) 1 Yoshino Hinoki essential oil (10ml) Details Sustainably harvested from Yoshino, Nara Prefecture Handcrafted in small batches 100% natural, vegan, and cruelty-free Ideal for bath rituals, relaxation, or mindful gifting How to Use Brew your Hinoki bath tea: Pour hot water (around 100°C / 212°F) over the wood flakes and let them steep for a few minutes. Once the aroma begins to release, pour the infused water into your bath and soak in the calming scent of Yoshino Hinoki. Add a few drops of Hinoki essential oil to enhance the aroma and invite deeper relaxation. After use, dry the wood flakes thoroughly — they can be repurposed as natural potpourri or lightly refreshed with a drop of essential oil for continued enjoyment.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492370/edit",
-    "img": "https://images.momence.com/h/200431/product-image/a8bce339-c932-46cb-9fb7-376c1d863ba5.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0502/9789/7148/files/Hinoki-bath-salt.jpg?v=1766935453"
   },
   {
     "id": 492353,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Hinoki Car Air Diffuser & Freshener",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Hinoki Car Air Diffuser & Freshener",
@@ -1727,7 +1775,7 @@ const PRODUCTS = [
     "priceNum": 92,
     "sku": "CM-PEN-AME-0022",
     "barcodes": [
-      "",
+      "CM-PEN-AME-0022",
       "492353"
     ],
     "pitch": "Even in motion, there is a moment to breathe. Hinoki, the cherished Japanese cypress, has long been appreciated for its fresh, pure aroma—a scent known for bringing ease, clarity, and a quiet sense of balance. Inspired by this tradition and the restorative practice of forest bathing (shinrin-yoku) , we designed this Car Air Freshener to bring the feeling of the forest into your daily drive—offering a grounded, contemplative pause within your day. As air moves through the vent, the crisp scent of Hinoki flows gently through your car, echoing the experience of breathing deeply in a quiet forest. Soft citrus nuances and clean wood notes add a light, uplifting calm, turning even a short drive into a moment of reconnection. The Car Air Freshener case is shaped with inspiration from natural stone and crafted from sustainable zinc alloy made with recycled metals —a refined, minimal design that carries both intention and beauty. It clips seamlessly onto your car’s air vent, offering a quiet, modern presence without synthetic fragrance or overpowering scent. A simple object with meaningful presence. A breath of forest bathing (shinrin-yoku), carried with you through every mile. * Intentionally subtle, crafted for those who prefer a quiet, natural scent over overpowering fragrance.",
@@ -1737,6 +1785,7 @@ const PRODUCTS = [
   {
     "id": 492371,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Mineral Bath Salts, Flakes & Restorative Soaks",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Hinoki Japanese Cypress Bath Flakes",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Hinoki Japanese Cypress Bath Flakes",
@@ -1744,16 +1793,17 @@ const PRODUCTS = [
     "priceNum": 24,
     "sku": "CM-BTH-PAL2-0040",
     "barcodes": [
-      "",
+      "CM-BTH-PAL2-0040",
       "492371"
     ],
     "pitch": "Hinoki ( 檜 | Japanese Cypress) Crafted from hand-shaved Hinoki wood , planed directly from solid Japanese cypress using traditional tools to preserve the purity and aroma of the forest Naturally aromatic with a crisp, woody-citrus scent that encourages reflection, clarity, and calm during your bath ritual Rooted in Japanese bathing traditions , where Hinoki has been cherished for its ability to release grounding fragrance Invites deep stillness and presence , transforming any soak into a personal onsen-inspired ritual of restoration Multi-purpose : After drying, reuse flakes as a natural air freshener or place in an aroma burner for extended enjoyment No synthetic fragrances or dyes , only raw, mindful nature in every flake Sustainably sourced and handcrafted , supporting slow living, intentional self-care, and eco-conscious wellness Perfect for ritual bathers, forest lovers, or those seeking a sensory escape at home",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492371/edit",
-    "img": "https://images.momence.com/h/200431/product-image/2361a466-bb06-430d-b4b5-25c4a1e8e8af.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0502/9789/7148/files/hinoki_japanese-bath-flakes.jpg?v=1766935117"
   },
   {
     "id": 492367,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Hinoki Japanese Incense Stick Set (30 Sticks & Holder)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Hinoki Japanese Incense Stick Set (30 Sticks & Holder)",
@@ -1761,7 +1811,7 @@ const PRODUCTS = [
     "priceNum": 44,
     "sku": "CM-OIL-HIN-0036",
     "barcodes": [
-      "",
+      "CM-OIL-HIN-0036",
       "492367"
     ],
     "pitch": "Hinoki ( 檜 | Japanese Cypress) Crafted from hand-shaved Hinoki wood , planed directly from solid Japanese cypress using traditional tools to preserve the purity and aroma of the forest Naturally aromatic with a crisp, woody-citrus scent that encourages reflection, clarity, and calm during your bath ritual Rooted in Japanese bathing traditions , where Hinoki has been cherished for its ability to release grounding fragrance Invites deep stillness and presence , transforming any soak into a personal onsen-inspired ritual of restoration Multi-purpose : After drying, reuse flakes as a natural air freshener or place in an aroma burner for extended enjoyment No synthetic fragrances or dyes , only raw, mindful nature in every flake Sustainably sourced and handcrafted , supporting slow living, intentional self-care, and eco-conscious wellness Perfect for ritual bathers, forest lovers, or those seeking a sensory escape at home",
@@ -1771,6 +1821,7 @@ const PRODUCTS = [
   {
     "id": 492368,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Hinoki Pure Essential Oil (10ml)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Hinoki Pure Essential Oil (10ml)",
@@ -1778,7 +1829,7 @@ const PRODUCTS = [
     "priceNum": 47,
     "sku": "CM-OIL-PAL-0037",
     "barcodes": [
-      "",
+      "CM-OIL-PAL-0037",
       "492368"
     ],
     "pitch": "Immerse yourself in the tranquil ritual of Hinoki. This restorative set captures the pure essence of Japan’s sacred forests — featuring two bags of Hinoki bath flakes and one bottle of premium essential oil distilled from Yoshino Hinoki, renowned for its exceptional purity and clarity. Harvested from the ancient cypress trees of Yoshino, Nara Prefecture, the Hinoki used in this blend is celebrated for its refined, resinous-woody aroma and soothing energy. The aromatic wood flakes infuse your bath with a soft, green forest scent that relaxes the body and clears the mind, while the essential oil, sourced through gentle steam distillation, deepens the experience with delicate notes of fresh cedar, citrus, and moss. Use this ritual to release tension and restore balance, creating a quiet moment of stillness that reconnects you to nature’s rhythm. Includes 2 bags of Hinoki wood flakes (20g each) 1 Yoshino Hinoki essential oil (10ml) Details Sustainably harvested from Yoshino, Nara Prefecture Handcrafted in small batches 100% natural, vegan, and cruelty-free Ideal for bath rituals, relaxation, or mindful gifting How to Use Brew your Hinoki bath tea: Pour hot water (around 100°C / 212°F) over the wood flakes and let them steep for a few minutes. Once the aroma begins to release, pour the infused water into your bath and soak in the calming scent of Yoshino Hinoki. Add a few drops of Hinoki essential oil to enhance the aroma and invite deeper relaxation. After use, dry the wood flakes thoroughly — they can be repurposed as natural potpourri or lightly refreshed with a drop of essential oil for continued enjoyment.",
@@ -1788,6 +1839,7 @@ const PRODUCTS = [
   {
     "id": 492359,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Hinoki Sacred Room Spray (2 fl oz)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Hinoki Sacred Room Spray (2 fl oz)",
@@ -1795,7 +1847,7 @@ const PRODUCTS = [
     "priceNum": 47,
     "sku": "CM-BTH-GFT-0028",
     "barcodes": [
-      "",
+      "CM-BTH-GFT-0028",
       "492359"
     ],
     "pitch": "Infused with pure Hinoki essential oil , revered in Japanese bathing rituals for its purifying, cleansing, and spiritually centering properties. Crisp, woody-citrus aroma that promotes clarity, calm, and mindful presence Gentle, gel-based formula cleanses deeply without stripping the skin Supports energetic purification, mental clarity, and emotional balance Made with certified organic botanical oils including coconut oil, sunflower seed oil, olive fruit oil, shea butter, aloe vera, and rosemary CO₂ extract Creates a subtle, clean lather perfect for daily rituals or post-ceremony care Free from sulfates, parabens, and synthetic fragrances — safe for sensitive skin and daily use",
@@ -1805,6 +1857,7 @@ const PRODUCTS = [
   {
     "id": 492361,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Mantra Car Air Diffuser & Freshener",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Mantra Car Air Diffuser & Freshener",
@@ -1812,7 +1865,7 @@ const PRODUCTS = [
     "priceNum": 92,
     "sku": "CM-AIR-PAL-0030",
     "barcodes": [
-      "",
+      "CM-AIR-PAL-0030",
       "492361"
     ],
     "pitch": "Even in motion, there is a moment to breathe. Mantra is inspired by the grounding practice of returning to a single, steady point of focus. Built around a warm, expressive blend of citrus, florals, and deep woods, this scent is designed to bring clarity, presence, and inner balance to your time on the road—encouraging a centered, intentional state as you drive. A bright opening of bergamot, grapefruit, and soft muskmelon introduces the scent with clarity and gentle lift. As the aroma settles, notes of exotic jasmine, Persian clay, and a subtle touch of leather emerge, creating a warm, meditative heart. Finally, sandalwood, vanilla, amber, and soft spice linger quietly in the background, offering a calm, steady richness that anchors the entire composition. As air moves through the vent, these layers unfold with ease—creating a soothing presence that softens the rhythm of your drive and invites a deeper sense of grounding. The Car Air Freshener case is shaped with inspiration from natural stone and crafted from sustainable zinc alloy made with recycled metals —a refined, minimal design that carries both intention and beauty. It clips seamlessly onto your car’s air vent, offering a quiet, modern presence without synthetic harshness or overpowering scent. A simple object with meaningful presence. A grounding breath, carried with you through every mile. * Intentionally subtle, crafted for those who prefer a quiet, natural scent over overpowering fragrance.",
@@ -1822,6 +1875,7 @@ const PRODUCTS = [
   {
     "id": 492357,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Mantra Wellness Room Spray (2 fl oz)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Mantra Wellness Room Spray (2 fl oz)",
@@ -1829,7 +1883,7 @@ const PRODUCTS = [
     "priceNum": 47,
     "sku": "CM-RMS-SPI-0026",
     "barcodes": [
-      "",
+      "CM-RMS-SPI-0026",
       "492357"
     ],
     "pitch": "Handcrafted in NYC to encourage intention, reflection, and mindful living Bright bergamot, grapefruit, and muskmelon create a refreshing, citrus-fruit opening that uplifts the mood Exotic jasmine, soft leather, and Persian clay form a unique heart that feels grounding yet inspiring, perfect for meditation or journaling Sandalwood, amber, vanilla, and spice provide a warm, resinous base that lingers with a sense of comfort and inner balance Made with a blend of food-grade paraffin and vegetable wax, free from phthalates, gluten, cruelty, and harmful additives Designed with a cotton wick for a clean, even burn. Once finished, the ceramic jar can be repurposed as a flower vase, extending its life in a mindful and sustainable way",
@@ -1839,6 +1893,7 @@ const PRODUCTS = [
   {
     "id": 492372,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Mineral Bath Salts, Flakes & Restorative Soaks",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Palo Santo Bath Flakes",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Palo Santo Bath Flakes",
@@ -1846,16 +1901,17 @@ const PRODUCTS = [
     "priceNum": 24,
     "sku": "CM-INC-HIN2-0041",
     "barcodes": [
-      "",
+      "CM-INC-HIN2-0041",
       "492372"
     ],
     "pitch": "Inspired by the rhythm of the moon Designed for both Palo Santo Wood Sticks , Mini White Sage and incense sticks A minimal brass object symbolizing balance and renewal Soft golden sheen adds calm and depth to any space Elevate your daily ritual with quiet elegance Dimensions Plate : 4.21″ L × 1.06″ W × 0.04″ T Holder : 0.87″ L × 0.24″ W × 0.63″ H Holder Diameter : 0.08″ (2 mm)",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492372/edit",
-    "img": "https://images.momence.com/h/200431/product-image/57dfc35a-6222-4509-a4b4-4900351d5e74.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0502/9789/7148/files/palo_santo_sacred_bath_flakes.jpg?v=1766935079"
   },
   {
     "id": 492342,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Mineral Bath Salts, Flakes & Restorative Soaks",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Palo Santo Bath Flakes & Oil Ritual Set",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Palo Santo Bath Flakes & Oil Ritual Set",
@@ -1863,16 +1919,17 @@ const PRODUCTS = [
     "priceNum": 87,
     "sku": "CM-BTH-PAL-0011",
     "barcodes": [
-      "",
+      "CM-BTH-PAL-0011",
       "492342"
     ],
     "pitch": "Inspired by the rhythm of the moon Designed for both Palo Santo Wood Sticks , Mini White Sage and incense sticks A minimal brass object symbolizing balance and renewal Soft golden sheen adds calm and depth to any space Elevate your daily ritual with quiet elegance Dimensions Plate : 4.21″ L × 1.06″ W × 0.04″ T Holder : 0.87″ L × 0.24″ W × 0.63″ H Holder Diameter : 0.08″ (2 mm)",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492342/edit",
-    "img": "https://images.momence.com/h/200431/product-image/efa3bd9d-0713-41d4-b6e4-343cff43e1cc.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0502/9789/7148/files/palo-santo-flake-essential-oil-bundle-cedar-and-myrrh.jpg?v=1766935463"
   },
   {
     "id": 492356,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Mineral Bath Salts, Flakes & Restorative Soaks",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Palo Santo Bath Salt (80g Pouch)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Palo Santo Bath Salt (80g Pouch)",
@@ -1880,16 +1937,17 @@ const PRODUCTS = [
     "priceNum": 24,
     "sku": "CM-RMS-MAN-0025",
     "barcodes": [
-      "",
+      "CM-RMS-MAN-0025",
       "492356"
     ],
     "pitch": "Inspired by the rhythm of the moon Designed for both Palo Santo Wood Sticks , Mini White Sage and incense sticks A minimal brass object symbolizing balance and renewal Soft golden sheen adds calm and depth to any space Elevate your daily ritual with quiet elegance Dimensions Plate : 4.21″ L × 1.06″ W × 0.04″ T Holder : 0.87″ L × 0.24″ W × 0.63″ H Holder Diameter : 0.08″ (2 mm)",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492356/edit",
-    "img": "https://images.momence.com/h/200431/product-image/d20d874c-fa9c-4314-a473-41d8085ca143.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0502/9789/7148/files/palo-santo-bath-salt-80g.jpg?v=1766935459"
   },
   {
     "id": 492360,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Mineral Bath Salts, Flakes & Restorative Soaks",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Palo Santo Bath Salt Gift Set (5 x 40g)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Palo Santo Bath Salt Gift Set (5 x 40g)",
@@ -1897,16 +1955,17 @@ const PRODUCTS = [
     "priceNum": 28,
     "sku": "CM-AIR-MAN-0029",
     "barcodes": [
-      "",
+      "CM-AIR-MAN-0029",
       "492360"
     ],
     "pitch": "Inspired by the rhythm of the moon Designed for both Palo Santo Wood Sticks , Mini White Sage and incense sticks A minimal brass object symbolizing balance and renewal Soft golden sheen adds calm and depth to any space Elevate your daily ritual with quiet elegance Dimensions Plate : 4.21″ L × 1.06″ W × 0.04″ T Holder : 0.87″ L × 0.24″ W × 0.63″ H Holder Diameter : 0.08″ (2 mm)",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492360/edit",
-    "img": "https://images.momence.com/h/200431/product-image/96a31910-6e22-4afe-adb4-573d765dbb83.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0502/9789/7148/files/palo-santo-bath-salt.jpg?v=1766935497"
   },
   {
     "id": 492362,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Palo Santo Car Air Diffuser & Freshener",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Palo Santo Car Air Diffuser & Freshener",
@@ -1914,16 +1973,17 @@ const PRODUCTS = [
     "priceNum": 92,
     "sku": "CM-BTH-SUG-0031",
     "barcodes": [
-      "",
+      "CM-BTH-SUG-0031",
       "492362"
     ],
     "pitch": "Inspired by the rhythm of the moon Designed for both Palo Santo Wood Sticks , Mini White Sage and incense sticks A minimal brass object symbolizing balance and renewal Soft golden sheen adds calm and depth to any space Elevate your daily ritual with quiet elegance Dimensions Plate : 4.21″ L × 1.06″ W × 0.04″ T Holder : 0.87″ L × 0.24″ W × 0.63″ H Holder Diameter : 0.08″ (2 mm)",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492362/edit",
-    "img": "https://images.momence.com/h/200431/product-image/9382a8ee-956c-427f-9c6d-7b64df5dab2a.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0502/9789/7148/files/palo-santo-car-air-freshner.jpg?v=1766935469"
   },
   {
     "id": 492366,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Palo Santo Incense Stick Set (30 Sticks & Holder)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Palo Santo Incense Stick Set (30 Sticks & Holder)",
@@ -1931,16 +1991,17 @@ const PRODUCTS = [
     "priceNum": 44,
     "sku": "CM-INC-HIN-0035",
     "barcodes": [
-      "",
+      "CM-INC-HIN-0035",
       "492366"
     ],
     "pitch": "Inspired by the rhythm of the moon Designed for both Palo Santo Wood Sticks , Mini White Sage and incense sticks A minimal brass object symbolizing balance and renewal Soft golden sheen adds calm and depth to any space Elevate your daily ritual with quiet elegance Dimensions Plate : 4.21″ L × 1.06″ W × 0.04″ T Holder : 0.87″ L × 0.24″ W × 0.63″ H Holder Diameter : 0.08″ (2 mm)",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492366/edit",
-    "img": "https://images.momence.com/h/200431/product-image/0ce65b57-40ce-4845-bbb1-19532c2dc51c.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0502/9789/7148/files/forest-incense-stick-palo-santo.jpg?v=1766935366"
   },
   {
     "id": 492369,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Palo Santo Pure Essential Oil (10ml)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Palo Santo Pure Essential Oil (10ml)",
@@ -1948,16 +2009,17 @@ const PRODUCTS = [
     "priceNum": 47,
     "sku": "CM-BTH-GFT2-0038",
     "barcodes": [
-      "",
+      "CM-BTH-GFT2-0038",
       "492369"
     ],
     "pitch": "Inspired by the rhythm of the moon Designed for both Palo Santo Wood Sticks , Mini White Sage and incense sticks A minimal brass object symbolizing balance and renewal Soft golden sheen adds calm and depth to any space Elevate your daily ritual with quiet elegance Dimensions Plate : 4.21″ L × 1.06″ W × 0.04″ T Holder : 0.87″ L × 0.24″ W × 0.63″ H Holder Diameter : 0.08″ (2 mm)",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492369/edit",
-    "img": "https://images.momence.com/h/200431/product-image/2affafbf-1eba-43d5-9dc6-4a739ddd08d3.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0502/9789/7148/files/palo_santo_essential_oil.jpg?v=1766934829"
   },
   {
     "id": 492347,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Palo Santo Sacred Room Spray (2 fl oz)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Palo Santo Sacred Room Spray (2 fl oz)",
@@ -1965,16 +2027,17 @@ const PRODUCTS = [
     "priceNum": 47,
     "sku": "CM-RMS-SER-0016",
     "barcodes": [
-      "",
+      "CM-RMS-SER-0016",
       "492347"
     ],
     "pitch": "Inspired by the rhythm of the moon Designed for both Palo Santo Wood Sticks , Mini White Sage and incense sticks A minimal brass object symbolizing balance and renewal Soft golden sheen adds calm and depth to any space Elevate your daily ritual with quiet elegance Dimensions Plate : 4.21″ L × 1.06″ W × 0.04″ T Holder : 0.87″ L × 0.24″ W × 0.63″ H Holder Diameter : 0.08″ (2 mm)",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492347/edit",
-    "img": "https://images.momence.com/h/200431/product-image/72d42f37-8d6c-4233-84ce-969ea3fd0856.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0502/9789/7148/files/palo-santo-sacred-room-spray.jpg?v=1766935022"
   },
   {
     "id": 492358,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Spiritual Room Wellness Room Spray (2 fl oz)",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Spiritual Room Wellness Room Spray (2 fl oz)",
@@ -1982,7 +2045,7 @@ const PRODUCTS = [
     "priceNum": 47,
     "sku": "CM-RMS-HIN-0027",
     "barcodes": [
-      "",
+      "CM-RMS-HIN-0027",
       "492358"
     ],
     "pitch": "*Please note: The formula has been upgraded to offer a deeper, longer-lasting aroma with distilled water and organic alcohol A citrusy-woody blend that brightens your spirit while anchoring you in calm awareness Infused with gently sweet notes to inspire serenity and sacred presence in your daily rituals Made with organic alcohol and distilled water for a clean, long-lasting aroma that energizes and soothes Ideal for spiritual practice, journaling, or anytime you want to reconnect with clarity and light Spray in your sacred space, studio, or entryway to create an uplifting and grounding atmosphere Safe for use in the air and mindful environments (not intended for direct skin contact) Free from synthetic dyes, artificial preservatives, and harsh chemicals Handcrafted in small batches by Cedar and Myrrh",
@@ -1992,6 +2055,7 @@ const PRODUCTS = [
   {
     "id": 492363,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Mineral Bath Salts, Flakes & Restorative Soaks",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Sugi Japanese Cedar Bath Flakes",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Sugi Japanese Cedar Bath Flakes",
@@ -1999,16 +2063,17 @@ const PRODUCTS = [
     "priceNum": 23.33,
     "sku": "CM-INC-IND-0032",
     "barcodes": [
-      "",
+      "CM-INC-IND-0032",
       "492363"
     ],
     "pitch": "Sugi ( 杉 | Japanese Cedar) Crafted from hand-shaved Sugi wood , Japan’s native cedar cypress known for its serene forest scent and traditional purification use Naturally aromatic with earthy, woody notes , these flakes offer a grounding bath experience that quiets the mind and restores balance Rooted in Japanese bathing traditions , where Hinoki has been cherished for its ability to release grounding fragrance and resist moisture Reddish-toned and lightweight, Sugi flakes gently steam when soaked in hot water, infusing your bath with forest energy. Inspired by Japanese onsen bathing culture , Sugi rituals are traditionally used to refresh the body and calm the spirit. Promotes mindful relaxation , making it ideal for slow-living seekers, nature lovers, or those cultivating inner stillness at home. Multi-purpose : After drying, reuse flakes as a natural air freshener or place in an aroma burner for extended enjoyment No synthetic fragrances or dyes , only raw, mindful nature in every flake Sustainably sourced and handcrafted , supporting slow living, intentional self-care, and eco-conscious wellness Perfect for ritual bathers, forest lovers, or those seeking a sensory escape at home",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492363/edit",
-    "img": "https://images.momence.com/h/200431/product-image/3bcd57c7-812d-4b59-939e-9dd78f4496fb.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0502/9789/7148/files/sugi-Japanese-bath-flakes.jpg?v=1766935092"
   },
   {
     "id": 492350,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cedar & Myrrh - Waterdrop Brass Incense Holder",
     "fullTitle": "Cedar and Myrrh - Cedar & Myrrh - Waterdrop Brass Incense Holder",
@@ -2016,7 +2081,7 @@ const PRODUCTS = [
     "priceNum": 16.67,
     "sku": "CM-BTH-HIN-0019",
     "barcodes": [
-      "",
+      "CM-BTH-HIN-0019",
       "492350"
     ],
     "pitch": "Medium in size Designed with a minimal waterdrop shape and brass material, featuring a sleek and modern style Handcrafted with attention to detail, ensuring high quality and durability It can be used on top of a plate, altars, inside a bowl, or by itself.",
@@ -2026,6 +2091,7 @@ const PRODUCTS = [
   {
     "id": 513574,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice Cafe",
     "name": "Ceremonial Cacao",
     "fullTitle": "The Practice Cafe - Ceremonial Cacao",
@@ -2038,11 +2104,12 @@ const PRODUCTS = [
     ],
     "pitch": "Made from ceremonial-grade cacao, this rich, traditional drink has long been used in rituals and meditation. It's enjoyed to promote mindfulness, emotional connection, and a sense of grounding.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513574/edit",
-    "img": "https://images.momence.com/h/200431/product-image/d26eed09-a564-4dc6-8443-ed1fdfed62ac.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/ca4ac590-0fdd-472c-9194-4d4439c5f21f.jpg"
   },
   {
     "id": 557039,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice Cafe",
     "name": "Chai Latte - Large (C)",
     "fullTitle": "The Practice Cafe - Chai Latte - Large (C)",
@@ -2055,11 +2122,12 @@ const PRODUCTS = [
     ],
     "pitch": "Specialty organic espresso handcrafted with silky micro-foam and your choice of organic milk.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/557039/edit",
-    "img": "https://images.momence.com/h/200431/product-image/d71f88f6-08f7-4205-913f-40acf263a3cd.png"
+    "img": "https://images.momence.com/h/200431/product-image/6c101bc6-0b02-443a-927e-c0f2ceaa8fec.jpg"
   },
   {
     "id": 513572,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice Cafe",
     "name": "Chai Latte - Regular (C)",
     "fullTitle": "The Practice Cafe - Chai Latte - Regular (C)",
@@ -2072,11 +2140,12 @@ const PRODUCTS = [
     ],
     "pitch": "A comforting, aromatic blend of spiced black tea and creamy, perfectly steamed milk, delivering a rich and velvety finish",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513572/edit",
-    "img": "https://images.momence.com/h/200431/product-image/8c9bdaa4-b134-45db-884c-2f9a93f6cd0d.png"
+    "img": "https://images.momence.com/h/200431/product-image/4129d61f-0f08-4880-b5e1-71d4bb5c313b.jpg"
   },
   {
     "id": 567139,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "The Practice",
     "name": "CHARGE - Wisely Chocolate",
     "fullTitle": "The Practice - CHARGE - Wisely Chocolate",
@@ -2094,6 +2163,7 @@ const PRODUCTS = [
   {
     "id": 513579,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
     "name": "Chia Seeds",
     "fullTitle": "The Practice Cafe - Chia Seeds",
@@ -2106,11 +2176,12 @@ const PRODUCTS = [
     ],
     "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513579/edit",
-    "img": "https://images.momence.com/h/200431/product-image/cf9b88ed-487e-4a21-a2bf-34e8e30364eb.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/3599e03f-c364-460c-8128-2f54a3f8cad5.jpg"
   },
   {
     "id": 492377,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Cinnamon Handrolled Incense Stick - 12 Box Bundle ->10%",
     "fullTitle": "Cedar and Myrrh - Cinnamon Handrolled Incense Stick - 12 Box Bundle ->10%",
@@ -2118,7 +2189,7 @@ const PRODUCTS = [
     "priceNum": 30.99,
     "sku": "CM-INC-SAG-0046",
     "barcodes": [
-      "",
+      "CM-INC-SAG-0046",
       "492377"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -2127,7 +2198,8 @@ const PRODUCTS = [
   },
   {
     "id": 492332,
-    "department": "Fine Jewelry & Modern Adornments",
+    "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Sacred Divination Pendulums & Ritual Tools",
     "brand": "Cedar and Myrrh",
     "name": "Citrine Crystal Divination Pendulum",
     "fullTitle": "Cedar and Myrrh - Citrine Crystal Divination Pendulum",
@@ -2135,7 +2207,7 @@ const PRODUCTS = [
     "priceNum": 75,
     "sku": "CM-PEN-CIT-0001",
     "barcodes": [
-      "",
+      "CM-PEN-CIT-0001",
       "492332"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -2143,45 +2215,12 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/b4fcc387-b506-4ec8-b20f-a8aab7b944ac.png"
   },
   {
-    "id": 513575,
-    "department": "Cafe & Nourishment",
-    "brand": "The Practice Cafe",
-    "name": "Coconut Milk",
-    "fullTitle": "The Practice Cafe - Coconut Milk",
-    "price": "$1.50",
-    "priceNum": 1.5,
-    "sku": "",
-    "barcodes": [
-      "",
-      "513575"
-    ],
-    "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/513575/edit",
-    "img": "https://images.momence.com/h/200431/product-image/7a1784e0-c4eb-4b05-8f7b-e4efffe4f457.jpg"
-  },
-  {
-    "id": 513581,
-    "department": "Cafe & Nourishment",
-    "brand": "The Practice Cafe",
-    "name": "Collagen",
-    "fullTitle": "The Practice Cafe - Collagen",
-    "price": "$3.50",
-    "priceNum": 3.5,
-    "sku": "",
-    "barcodes": [
-      "",
-      "513581"
-    ],
-    "pitch": "A premium, unflavoured nutrient boost that dissolves seamlessly into your favourite drinks to support healthy skin, hair, nails and joint health",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/513581/edit",
-    "img": "https://images.momence.com/h/200431/product-image/90e4fd08-615e-43bb-996e-16729f9cca62.jpg"
-  },
-  {
     "id": 562443,
     "department": "Cafe & Nourishment",
+    "subgroup": "Fresh Baked Goods & Artisan Cookies",
     "brand": "The Practice Cafe",
-    "name": "Cookie - Classic Chocolate (C)",
-    "fullTitle": "The Practice Cafe - Cookie - Classic Chocolate (C)",
+    "name": "Classic Chocolate Cookie",
+    "fullTitle": "The Practice Cafe - Classic Chocolate Cookie",
     "price": "$5.50",
     "priceNum": 5.5,
     "sku": "",
@@ -2194,42 +2233,45 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/adbebecb-4f15-4ab9-8fb0-04de1977fd46.png"
   },
   {
-    "id": 562441,
+    "id": 513575,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
-    "name": "Cookie - Gluten-Free Chocolate (C)",
-    "fullTitle": "The Practice Cafe - Cookie - Gluten-Free Chocolate (C)",
-    "price": "$5.50",
-    "priceNum": 5.5,
+    "name": "Coconut Milk",
+    "fullTitle": "The Practice Cafe - Coconut Milk",
+    "price": "$1.50",
+    "priceNum": 1.5,
     "sku": "",
     "barcodes": [
       "",
-      "562441"
+      "513575"
     ],
-    "pitch": "A decadent, rich chocolate cookie made with a special 1-to-1 gluten-free flour blend. Packed with generous dark chocolate chunks for a deeply satisfying flavor and fudgy center.\n\nIngredients: 1-1 gluten-free flour, butter, eggs, sugar, dark chocolate chunks.",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/562441/edit",
-    "img": "https://images.momence.com/h/200431/product-image/c6159564-d837-4452-8ddc-82cdd2645c7a.png"
+    "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/513575/edit",
+    "img": "https://images.momence.com/h/200431/product-image/a9736981-0a91-4a3d-adbc-936d447b68f4.jpg"
   },
   {
-    "id": 562446,
+    "id": 513581,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
-    "name": "Cookie - Sweet & Salty Cookie (C)",
-    "fullTitle": "The Practice Cafe - Cookie - Sweet & Salty Cookie (C)",
-    "price": "$5.50",
-    "priceNum": 5.5,
+    "name": "Collagen",
+    "fullTitle": "The Practice Cafe - Collagen",
+    "price": "$3.50",
+    "priceNum": 3.5,
     "sku": "",
     "barcodes": [
       "",
-      "562446"
+      "513581"
     ],
-    "pitch": "A perfect balance of sweet and salty. Loaded with crushed pretzels, chocolate chips, and toffee bits, then beautifully finished with a chocolate-covered pretzel and homemade caramel sauce.\n\nIngredients: Butter, eggs, flour, pretzels, chocolate chips, toffee bits. Topping: Chocolate, pretzels, homemade caramel.",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/562446/edit",
-    "img": "https://images.momence.com/h/200431/product-image/5005e979-634e-4e17-8fb5-1f13370c7a0a.png"
+    "pitch": "A premium, unflavoured nutrient boost that dissolves seamlessly into your favourite drinks to support healthy skin, hair, nails and joint health",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/513581/edit",
+    "img": "https://images.momence.com/h/200431/product-image/04ddc7c0-5903-41f5-9a89-ef0a80f3d5e8.jpg"
   },
   {
     "id": 548479,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
     "brand": "The Practice Cafe",
     "name": "Cortado (C)",
     "fullTitle": "The Practice Cafe - Cortado (C)",
@@ -2247,6 +2289,7 @@ const PRODUCTS = [
   {
     "id": 492327,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Creative women",
     "name": "Creative Women - Dante Hand-Forged Iron Candle Stands | Set of 3",
     "fullTitle": "Creative women - Creative Women - Dante Hand-Forged Iron Candle Stands | Set of 3",
@@ -2254,7 +2297,7 @@ const PRODUCTS = [
     "priceNum": 140,
     "sku": "CW-CND-DNT-0054",
     "barcodes": [
-      "",
+      "CW-CND-DNT-0054",
       "492327"
     ],
     "pitch": "Artisan-crafted home essential ethically handmade by global women artisans using sustainable, high-quality materials and traditional craft techniques.",
@@ -2264,6 +2307,7 @@ const PRODUCTS = [
   {
     "id": 492318,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Creative women",
     "name": "Creative Women - Haley Handblown Hammered Glass Bud Vase",
     "fullTitle": "Creative women - Creative Women - Haley Handblown Hammered Glass Bud Vase",
@@ -2271,7 +2315,7 @@ const PRODUCTS = [
     "priceNum": 39.99,
     "sku": "CW-VAS-BUD-MAR-0045",
     "barcodes": [
-      "",
+      "CW-VAS-BUD-MAR-0045",
       "492318"
     ],
     "pitch": "Artisan-crafted home essential ethically handmade by global women artisans using sustainable, high-quality materials and traditional craft techniques.",
@@ -2281,6 +2325,7 @@ const PRODUCTS = [
   {
     "id": 492324,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Creative women",
     "name": "Creative Women - Handblown Glass Carafe Amber",
     "fullTitle": "Creative women - Creative Women - Handblown Glass Carafe Amber",
@@ -2288,7 +2333,7 @@ const PRODUCTS = [
     "priceNum": 65,
     "sku": "CW-CAR-AMB-0051",
     "barcodes": [
-      "",
+      "CW-CAR-AMB-0051",
       "492324"
     ],
     "pitch": "Handblown from recycled glass then meticulously hammered by hand for a truly unique finish. Set includes a carafe and lid that doubles as a small drinking glass. Ethically made by a woman-owned company, this recycled glass collection aims to support people and the planet. Our carafes are made from colored glass (not sprayed) to ensure the color will last a lifetime. Please note that these items are 100% handmade and slight size variations and imperfections may occur. • Dishwasher safe • 3.5 x 3.5 x 10 inches • Ethically crafted in India. Fair-trade artisan home good supporting global women makers.",
@@ -2298,6 +2343,7 @@ const PRODUCTS = [
   {
     "id": 492326,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Creative women",
     "name": "Creative Women - Handblown Glass Carafe Blush",
     "fullTitle": "Creative women - Creative Women - Handblown Glass Carafe Blush",
@@ -2305,7 +2351,7 @@ const PRODUCTS = [
     "priceNum": 65,
     "sku": "CW-CAR-BLU-0053",
     "barcodes": [
-      "",
+      "CW-CAR-BLU-0053",
       "492326"
     ],
     "pitch": "Handblown from recycled glass then meticulously hammered by hand for a truly unique finish. Set includes a carafe and lid that doubles as a small drinking glass. Ethically made by a woman-owned company, this recycled glass collection aims to support people and the planet. Our carafes are made from colored glass (not sprayed) to ensure the color will last a lifetime. Please note that these items are 100% handmade and slight size variations and imperfections may occur. • Dishwasher safe • 3.5 x 3.5 x 10 inches • Ethically crafted in India. Fair-trade artisan home good supporting global women makers.",
@@ -2315,6 +2361,7 @@ const PRODUCTS = [
   {
     "id": 492325,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Creative women",
     "name": "Creative Women - Handblown Glass Carafe clear",
     "fullTitle": "Creative women - Creative Women - Handblown Glass Carafe clear",
@@ -2322,7 +2369,7 @@ const PRODUCTS = [
     "priceNum": 65,
     "sku": "CW-CAR-CLR-0052",
     "barcodes": [
-      "",
+      "CW-CAR-CLR-0052",
       "492325"
     ],
     "pitch": "Handblown from recycled glass then meticulously hammered by hand for a truly unique finish. Set includes a carafe and lid that doubles as a small drinking glass. Ethically made by a woman-owned company, this recycled glass collection aims to support people and the planet. Our carafes are made from colored glass (not sprayed) to ensure the color will last a lifetime. Please note that these items are 100% handmade and slight size variations and imperfections may occur. • Dishwasher safe • 3.5 x 3.5 x 10 inches • Ethically crafted in India • Ships in drop-tested packaging. Fair-trade artisan home good supporting global women makers.",
@@ -2330,25 +2377,9 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/7d6dfb32-efd3-484a-901b-b07871054f5c.png"
   },
   {
-    "id": 492323,
-    "department": "Home Decor, Barware & Artisan Textiles",
-    "brand": "Creative women",
-    "name": "Creative Women - Handblown Hammered Coupe Cocktail Glass Pair",
-    "fullTitle": "Creative women - Creative Women - Handblown Hammered Coupe Cocktail Glass Pair",
-    "price": "$75.00",
-    "priceNum": 75,
-    "sku": "CW-GLS-COP-AMB-0050",
-    "barcodes": [
-      "",
-      "492323"
-    ],
-    "pitch": "Artisan-crafted home essential ethically handmade by global women artisans using sustainable, high-quality materials and traditional craft techniques.",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/492323/edit",
-    "img": "https://images.momence.com/h/200431/product-image/cb22cacf-ad89-4d38-b9b2-c2e616c53670.png"
-  },
-  {
     "id": 492331,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Creative women",
     "name": "Creative Women - Handblown Hammered Coupe Cocktail Glass Pair",
     "fullTitle": "Creative women - Creative Women - Handblown Hammered Coupe Cocktail Glass Pair",
@@ -2356,7 +2387,7 @@ const PRODUCTS = [
     "priceNum": 75,
     "sku": "CW-GLS-TUM-BLU-0058",
     "barcodes": [
-      "",
+      "CW-GLS-TUM-BLU-0058",
       "492331"
     ],
     "pitch": "Set of two. For cocktails. Handblown, hammered finish.\nCrafted with care at a woman-owned business, ethically made\nfrom 100% colored recycled glass. (not Sprayed)\n\n100% handmade and slight size variations and imperfections\nmay occur. Tested and certified lead-free. Made in India.\n\n\n• Dishwasher safe\n\n• Sold as a set of 4 glasses\n\n• 3 inches high x 2.5 inch diameter\n\n• Ethically crafted in India",
@@ -2366,6 +2397,7 @@ const PRODUCTS = [
   {
     "id": 492330,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Creative women",
     "name": "Creative Women - Handblown Hammered Coupe Cocktail Glass Pair",
     "fullTitle": "Creative women - Creative Women - Handblown Hammered Coupe Cocktail Glass Pair",
@@ -2373,7 +2405,7 @@ const PRODUCTS = [
     "priceNum": 75,
     "sku": "CW-GLS-TUM-SMK-0057",
     "barcodes": [
-      "",
+      "CW-GLS-TUM-SMK-0057",
       "492330"
     ],
     "pitch": "Artisan-crafted home essential ethically handmade by global women artisans using sustainable, high-quality materials and traditional craft techniques.",
@@ -2381,8 +2413,27 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/0888ea33-2f54-46a9-a2b3-486a944f5e1e.png"
   },
   {
+    "id": 492323,
+    "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
+    "brand": "Creative women",
+    "name": "Creative Women - Handblown Hammered Coupe Cocktail Glass Pair",
+    "fullTitle": "Creative women - Creative Women - Handblown Hammered Coupe Cocktail Glass Pair",
+    "price": "$75.00",
+    "priceNum": 75,
+    "sku": "CW-GLS-COP-AMB-0050",
+    "barcodes": [
+      "CW-GLS-COP-AMB-0050",
+      "492323"
+    ],
+    "pitch": "Artisan-crafted home essential ethically handmade by global women artisans using sustainable, high-quality materials and traditional craft techniques.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/492323/edit",
+    "img": "https://images.momence.com/h/200431/product-image/cb22cacf-ad89-4d38-b9b2-c2e616c53670.png"
+  },
+  {
     "id": 492317,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Creative women",
     "name": "Creative Women - Handblown Hammered Glasses | Set of 4",
     "fullTitle": "Creative women - Creative Women - Handblown Hammered Glasses | Set of 4",
@@ -2390,7 +2441,7 @@ const PRODUCTS = [
     "priceNum": 76,
     "sku": "CW-GLS-BLU-0044",
     "barcodes": [
-      "",
+      "CW-GLS-BLU-0044",
       "492317"
     ],
     "pitch": "Artisan-crafted home essential ethically handmade by global women artisans using sustainable, high-quality materials and traditional craft techniques.",
@@ -2398,8 +2449,27 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/36baf255-05b6-4c6d-85fe-f866c834e135.png"
   },
   {
+    "id": 492321,
+    "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
+    "brand": "Creative women",
+    "name": "Creative Women - Handblown Hammered Glass Water Tumbler | Pair of 2",
+    "fullTitle": "Creative women - Creative Women - Handblown Hammered Glass Water Tumbler | Pair of 2",
+    "price": "$55.99",
+    "priceNum": 55.99,
+    "sku": "CW-GLS-TUM-SMK-0048",
+    "barcodes": [
+      "CW-GLS-TUM-SMK-0048",
+      "492321"
+    ],
+    "pitch": "Artisan-crafted home essential ethically handmade by global women artisans using sustainable, high-quality materials and traditional craft techniques.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/492321/edit",
+    "img": "https://images.momence.com/h/200431/product-image/1cec090f-8940-4d3a-8cd0-3dc2c1d46446.png"
+  },
+  {
     "id": 492322,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Creative women",
     "name": "Creative Women - Handblown Hammered Glass Water Tumbler | Pair of 2",
     "fullTitle": "Creative women - Creative Women - Handblown Hammered Glass Water Tumbler | Pair of 2",
@@ -2407,7 +2477,7 @@ const PRODUCTS = [
     "priceNum": 55.99,
     "sku": "CW-GLS-TUM-BLU-0049",
     "barcodes": [
-      "",
+      "CW-GLS-TUM-BLU-0049",
       "492322"
     ],
     "pitch": "Artisan-crafted home essential ethically handmade by global women artisans using sustainable, high-quality materials and traditional craft techniques.",
@@ -2417,6 +2487,7 @@ const PRODUCTS = [
   {
     "id": 492316,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Creative women",
     "name": "Creative Women - Handblown Hammered Glass Water Tumbler | Pair of 2",
     "fullTitle": "Creative women - Creative Women - Handblown Hammered Glass Water Tumbler | Pair of 2",
@@ -2424,7 +2495,7 @@ const PRODUCTS = [
     "priceNum": 55.99,
     "sku": "CW-GLS-TUM-AMB-0043",
     "barcodes": [
-      "",
+      "CW-GLS-TUM-AMB-0043",
       "492316"
     ],
     "pitch": "Artisan-crafted home essential ethically handmade by global women artisans using sustainable, high-quality materials and traditional craft techniques.",
@@ -2432,42 +2503,9 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/a06fd01c-3155-4f7f-a9af-0d90b09c3842.png"
   },
   {
-    "id": 492321,
-    "department": "Home Decor, Barware & Artisan Textiles",
-    "brand": "Creative women",
-    "name": "Creative Women - Handblown Hammered Glass Water Tumbler | Pair of 2",
-    "fullTitle": "Creative women - Creative Women - Handblown Hammered Glass Water Tumbler | Pair of 2",
-    "price": "$55.99",
-    "priceNum": 55.99,
-    "sku": "CW-GLS-TUM-SMK-0048",
-    "barcodes": [
-      "",
-      "492321"
-    ],
-    "pitch": "Artisan-crafted home essential ethically handmade by global women artisans using sustainable, high-quality materials and traditional craft techniques.",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/492321/edit",
-    "img": "https://images.momence.com/h/200431/product-image/1cec090f-8940-4d3a-8cd0-3dc2c1d46446.png"
-  },
-  {
-    "id": 492315,
-    "department": "Home Decor, Barware & Artisan Textiles",
-    "brand": "Creative women",
-    "name": "Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
-    "fullTitle": "Creative women - Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
-    "price": "$146.00",
-    "priceNum": 146,
-    "sku": "CW-VAS-HEB-BLU-0042",
-    "barcodes": [
-      "",
-      "492315"
-    ],
-    "pitch": "100% Recycled Glass. Handblown from recycled glass. Each vase is ethically crafted in India using time-honored glass blowing techniques passed through generations. Each is made from 100% recycled glass. 10 x 10 x 12 inches. Due to the artisanal nature of this product, slight variations in size and color will occur. Fair-trade artisan home good supporting global women makers.",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/492315/edit",
-    "img": "https://images.momence.com/h/200431/product-image/b41d1f4f-62b0-42e1-96c8-65be63d2fdc4.png"
-  },
-  {
     "id": 492320,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Creative women",
     "name": "Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
     "fullTitle": "Creative women - Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
@@ -2475,7 +2513,7 @@ const PRODUCTS = [
     "priceNum": 146,
     "sku": "CW-VAS-HEB-BLU-0047",
     "barcodes": [
-      "",
+      "CW-VAS-HEB-BLU-0047",
       "492320"
     ],
     "pitch": "Handblown from recycled glass. Each vase is ethically crafted in India using time-honored glass blowing techniques passed through generations. Each is made from 100% recycled glass. 10 x 10 x 12 inches. Due to the artisanal nature of this product, slight variations in size and color will occur. Fair-trade artisan home good supporting global women makers.",
@@ -2483,25 +2521,9 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/fc2e6c1a-f1e6-4347-b53c-ba0d4aef8e35.png"
   },
   {
-    "id": 492329,
-    "department": "Home Decor, Barware & Artisan Textiles",
-    "brand": "Creative women",
-    "name": "Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
-    "fullTitle": "Creative women - Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
-    "price": "$146.00",
-    "priceNum": 146,
-    "sku": "CW-HLD-BRN-0056",
-    "barcodes": [
-      "",
-      "492329"
-    ],
-    "pitch": "Handblown from recycled glass. Each vase is ethically crafted in India using time-honored glass blowing techniques passed through generations. Each is made from 100% recycled glass. 10 x 10 x 12 inches. Due to the artisanal nature of this product, slight variations in size and color will occur. Fair-trade artisan home good supporting global women makers.",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/492329/edit",
-    "img": "https://images.momence.com/h/200431/product-image/f4a47c17-525b-49b6-96d2-e87b761e81c7.png"
-  },
-  {
     "id": 492319,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Creative women",
     "name": "Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
     "fullTitle": "Creative women - Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
@@ -2509,7 +2531,7 @@ const PRODUCTS = [
     "priceNum": 146,
     "sku": "CW-VAS-HEB-BGY-0046",
     "barcodes": [
-      "",
+      "CW-VAS-HEB-BGY-0046",
       "492319"
     ],
     "pitch": "Handblown from recycled glass. Each vase is ethically crafted in India using time-honored glass blowing techniques passed through generations. Each is made from 100% recycled glass. 10 x 10 x 12 inches. Due to the artisanal nature of this product, slight variations in size and color will occur. Fair-trade artisan home good supporting global women makers.",
@@ -2517,8 +2539,27 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/2a6a78e6-0fb5-48a0-84a0-d3a4ff1daccb.png"
   },
   {
+    "id": 492315,
+    "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
+    "brand": "Creative women",
+    "name": "Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
+    "fullTitle": "Creative women - Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
+    "price": "$146.00",
+    "priceNum": 146,
+    "sku": "CW-VAS-HEB-BLU-0042",
+    "barcodes": [
+      "CW-VAS-HEB-BLU-0042",
+      "492315"
+    ],
+    "pitch": "100% Recycled Glass. Handblown from recycled glass. Each vase is ethically crafted in India using time-honored glass blowing techniques passed through generations. Each is made from 100% recycled glass. 10 x 10 x 12 inches. Due to the artisanal nature of this product, slight variations in size and color will occur. Fair-trade artisan home good supporting global women makers.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/492315/edit",
+    "img": "https://images.momence.com/h/200431/product-image/b41d1f4f-62b0-42e1-96c8-65be63d2fdc4.png"
+  },
+  {
     "id": 492328,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Creative women",
     "name": "Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
     "fullTitle": "Creative women - Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
@@ -2526,7 +2567,7 @@ const PRODUCTS = [
     "priceNum": 146,
     "sku": "CW-VAS-HEB-CLR-0055",
     "barcodes": [
-      "",
+      "CW-VAS-HEB-CLR-0055",
       "492328"
     ],
     "pitch": "Handblown from recycled glass. Each vase is ethically crafted in India using time-honored glass blowing techniques passed through generations. Each is made from 100% recycled glass. 10 x 10 x 12 inches. Due to the artisanal nature of this product, slight variations in size and color will occur. Fair-trade artisan home good supporting global women makers.",
@@ -2534,8 +2575,27 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/4cf72f61-4c19-4d5d-ac1e-09a18b2cc7f9.png"
   },
   {
+    "id": 492329,
+    "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
+    "brand": "Creative women",
+    "name": "Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
+    "fullTitle": "Creative women - Creative Women - HEBRON HANDBLOWN HAMMERED GLASS VASES",
+    "price": "$146.00",
+    "priceNum": 146,
+    "sku": "CW-HLD-BRN-0056",
+    "barcodes": [
+      "CW-HLD-BRN-0056",
+      "492329"
+    ],
+    "pitch": "Handblown from recycled glass. Each vase is ethically crafted in India using time-honored glass blowing techniques passed through generations. Each is made from 100% recycled glass. 10 x 10 x 12 inches. Due to the artisanal nature of this product, slight variations in size and color will occur. Fair-trade artisan home good supporting global women makers.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/492329/edit",
+    "img": "https://images.momence.com/h/200431/product-image/f4a47c17-525b-49b6-96d2-e87b761e81c7.png"
+  },
+  {
     "id": 492314,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Creative women",
     "name": "Creative Women - Phoenix Hand-Forged Iron Candle Stands - Set of 2",
     "fullTitle": "Creative women - Creative Women - Phoenix Hand-Forged Iron Candle Stands - Set of 2",
@@ -2543,7 +2603,7 @@ const PRODUCTS = [
     "priceNum": 99.99,
     "sku": "CW-CND-PHO-0041",
     "barcodes": [
-      "",
+      "CW-CND-PHO-0041",
       "492314"
     ],
     "pitch": "Artisan-crafted home essential ethically handmade by global women artisans using sustainable, high-quality materials and traditional craft techniques.",
@@ -2553,6 +2613,7 @@ const PRODUCTS = [
   {
     "id": 504186,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Practice",
     "name": "Crystal Agate ",
     "fullTitle": "The Practice - Crystal Agate ",
@@ -2570,6 +2631,7 @@ const PRODUCTS = [
   {
     "id": 505569,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Practice",
     "name": "Crystal Celenite Log",
     "fullTitle": "The Practice - Crystal Celenite Log",
@@ -2587,6 +2649,7 @@ const PRODUCTS = [
   {
     "id": 527616,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Practice",
     "name": "Crystal clear quartz mini",
     "fullTitle": "The Practice - Crystal clear quartz mini",
@@ -2599,11 +2662,12 @@ const PRODUCTS = [
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/527616/edit",
-    "img": "https://images.momence.com/h/200431/product-image/cb63af1a-8d60-4dab-9b14-e7debd1e7dfa.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/15d4ca76-fd6b-4b7c-8774-c62775075145.jpg"
   },
   {
     "id": 505558,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "Crystal Pink tourmaline Large",
     "fullTitle": "The Gneiss Guy - Crystal Pink tourmaline Large",
@@ -2621,6 +2685,7 @@ const PRODUCTS = [
   {
     "id": 504381,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "Crystal Rose Quartz tower ",
     "fullTitle": "The Gneiss Guy - Crystal Rose Quartz tower ",
@@ -2638,6 +2703,7 @@ const PRODUCTS = [
   {
     "id": 505572,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Practice",
     "name": "Crystal Selenite Bowl (shaped)",
     "fullTitle": "The Practice - Crystal Selenite Bowl (shaped)",
@@ -2655,6 +2721,7 @@ const PRODUCTS = [
   {
     "id": 505566,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Practice",
     "name": "Crystal silver jasper ",
     "fullTitle": "The Practice - Crystal silver jasper ",
@@ -2672,6 +2739,7 @@ const PRODUCTS = [
   {
     "id": 505564,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Practice",
     "name": "crystal smokey quartz AA quality ",
     "fullTitle": "The Practice - crystal smokey quartz AA quality ",
@@ -2689,6 +2757,7 @@ const PRODUCTS = [
   {
     "id": 505562,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Practice",
     "name": "Crystal Tigers eye",
     "fullTitle": "The Practice - Crystal Tigers eye",
@@ -2706,6 +2775,7 @@ const PRODUCTS = [
   {
     "id": 505560,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Practice",
     "name": "Crystal Tigers Iron",
     "fullTitle": "The Practice - Crystal Tigers Iron",
@@ -2723,6 +2793,7 @@ const PRODUCTS = [
   {
     "id": 498836,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Practice",
     "name": "Crystal Witch’s finger",
     "fullTitle": "The Practice - Crystal Witch’s finger",
@@ -2740,6 +2811,7 @@ const PRODUCTS = [
   {
     "id": 509736,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Culti Milano",
     "name": "Culti - 1000ml Mediterranea Diffuser",
     "fullTitle": "Culti Milano - Culti - 1000ml Mediterranea Diffuser",
@@ -2757,6 +2829,7 @@ const PRODUCTS = [
   {
     "id": 509732,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Culti Milano",
     "name": "Culti - 1000ml Supreme Amber Diffuser",
     "fullTitle": "Culti Milano - Culti - 1000ml Supreme Amber Diffuser",
@@ -2774,6 +2847,7 @@ const PRODUCTS = [
   {
     "id": 509729,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Culti Milano",
     "name": "Culti - 500ml Lamborghini Cars Diffuser",
     "fullTitle": "Culti Milano - Culti - 500ml Lamborghini Cars Diffuser",
@@ -2791,6 +2865,7 @@ const PRODUCTS = [
   {
     "id": 509738,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Culti Milano",
     "name": "Culti - 500ml Lamborghini Grigio Vulcano Diffuser",
     "fullTitle": "Culti Milano - Culti - 500ml Lamborghini Grigio Vulcano Diffuser",
@@ -2808,6 +2883,7 @@ const PRODUCTS = [
   {
     "id": 509735,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Culti Milano",
     "name": "Culti - 500ml Mediterranea Diffuser",
     "fullTitle": "Culti Milano - Culti - 500ml Mediterranea Diffuser",
@@ -2825,6 +2901,7 @@ const PRODUCTS = [
   {
     "id": 509730,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Culti Milano",
     "name": "Culti - 500ml Supreme Amber Diffuser",
     "fullTitle": "Culti Milano - Culti - 500ml Supreme Amber Diffuser",
@@ -2842,6 +2919,7 @@ const PRODUCTS = [
   {
     "id": 509741,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Culti Milano",
     "name": "Culti - Car Diffuser Mareminerale - Taupe",
     "fullTitle": "Culti Milano - Culti - Car Diffuser Mareminerale - Taupe",
@@ -2859,6 +2937,7 @@ const PRODUCTS = [
   {
     "id": 509740,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Culti Milano",
     "name": "Culti - Car Diffuser Mediterranea - Black Leather",
     "fullTitle": "Culti Milano - Culti - Car Diffuser Mediterranea - Black Leather",
@@ -2876,6 +2955,7 @@ const PRODUCTS = [
   {
     "id": 492233,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Curated Basics • Modern Minimalist Men’s & Unisex Jewelry",
     "brand": "Curated Basics",
     "name": "Curated Basics - Braided Leather Bracelet",
     "fullTitle": "Curated Basics - Curated Basics - Braided Leather Bracelet",
@@ -2883,7 +2963,7 @@ const PRODUCTS = [
     "priceNum": 85,
     "sku": "CB-BRC-0001",
     "barcodes": [
-      "",
+      "CB-BRC-0001",
       "492233"
     ],
     "pitch": "men's braided leather bracelet. Designed by Curated Basics for sleek, modern everyday sophistication.",
@@ -2893,6 +2973,7 @@ const PRODUCTS = [
   {
     "id": 492234,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Curated Basics • Modern Minimalist Men’s & Unisex Jewelry",
     "brand": "Curated Basics",
     "name": "Curated Basics - Brass Square Striped Ring-11",
     "fullTitle": "Curated Basics - Curated Basics - Brass Square Striped Ring-11",
@@ -2900,7 +2981,7 @@ const PRODUCTS = [
     "priceNum": 75,
     "sku": "CB-RNG-BSS11-0001",
     "barcodes": [
-      "",
+      "CB-RNG-BSS11-0001",
       "492234"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -2910,6 +2991,7 @@ const PRODUCTS = [
   {
     "id": 492236,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Curated Basics • Modern Minimalist Men’s & Unisex Jewelry",
     "brand": "Curated Basics",
     "name": "Curated Basics - Brass Square Striped Ring-9",
     "fullTitle": "Curated Basics - Curated Basics - Brass Square Striped Ring-9",
@@ -2917,7 +2999,7 @@ const PRODUCTS = [
     "priceNum": 75,
     "sku": "CB-RNG-BSS09-0003",
     "barcodes": [
-      "",
+      "CB-RNG-BSS09-0003",
       "492236"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -2927,6 +3009,7 @@ const PRODUCTS = [
   {
     "id": 492237,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Curated Basics",
     "name": "Curated Basics - Classic Leather Cardholder-Black",
     "fullTitle": "Curated Basics - Curated Basics - Classic Leather Cardholder-Black",
@@ -2934,7 +3017,7 @@ const PRODUCTS = [
     "priceNum": 62.99,
     "sku": "CB-CRD-BLK-0001",
     "barcodes": [
-      "",
+      "CB-CRD-BLK-0001",
       "492237"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -2944,6 +3027,7 @@ const PRODUCTS = [
   {
     "id": 492238,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Curated Basics",
     "name": "Curated Basics - Classic Leather Cardholder-Brown",
     "fullTitle": "Curated Basics - Curated Basics - Classic Leather Cardholder-Brown",
@@ -2951,7 +3035,7 @@ const PRODUCTS = [
     "priceNum": 62.99,
     "sku": "CB-CRD-BRN-0002",
     "barcodes": [
-      "",
+      "CB-CRD-BRN-0002",
       "492238"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -2961,6 +3045,7 @@ const PRODUCTS = [
   {
     "id": 492239,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Curated Basics",
     "name": "Curated Basics - Classic Leather Cardholder-Navy",
     "fullTitle": "Curated Basics - Curated Basics - Classic Leather Cardholder-Navy",
@@ -2968,7 +3053,7 @@ const PRODUCTS = [
     "priceNum": 62.99,
     "sku": "CB-CRD-NVY-0003",
     "barcodes": [
-      "",
+      "CB-CRD-NVY-0003",
       "492239"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -2978,6 +3063,7 @@ const PRODUCTS = [
   {
     "id": 492240,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Curated Basics",
     "name": "Curated Basics - Duck Embroidery Hat- Brown",
     "fullTitle": "Curated Basics - Curated Basics - Duck Embroidery Hat- Brown",
@@ -2985,7 +3071,7 @@ const PRODUCTS = [
     "priceNum": 64,
     "sku": "CB-HAT-BRN-0001",
     "barcodes": [
-      "",
+      "CB-HAT-BRN-0001",
       "492240"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -2995,6 +3081,7 @@ const PRODUCTS = [
   {
     "id": 492241,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Curated Basics",
     "name": "Curated Basics - Duck Embroidery Hat-Navy",
     "fullTitle": "Curated Basics - Curated Basics - Duck Embroidery Hat-Navy",
@@ -3002,7 +3089,7 @@ const PRODUCTS = [
     "priceNum": 64,
     "sku": "CB-HAT-NVY-0002",
     "barcodes": [
-      "",
+      "CB-HAT-NVY-0002",
       "492241"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -3012,6 +3099,7 @@ const PRODUCTS = [
   {
     "id": 492242,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Curated Basics",
     "name": "Curated Basics - Kerosene Jade Lighter",
     "fullTitle": "Curated Basics - Curated Basics - Kerosene Jade Lighter",
@@ -3019,7 +3107,7 @@ const PRODUCTS = [
     "priceNum": 120,
     "sku": "CB-LTR-JADE-0001",
     "barcodes": [
-      "",
+      "CB-LTR-JADE-0001",
       "492242"
     ],
     "pitch": "Kerosene Jade Lighter 100% solid brass, brushed finish 2 1/8\" x 2\". Designed by Curated Basics for sleek, modern everyday sophistication.",
@@ -3029,6 +3117,7 @@ const PRODUCTS = [
   {
     "id": 492243,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Curated Basics",
     "name": "Curated Basics - Large Kerosene Brass Fluted Lighter",
     "fullTitle": "Curated Basics - Curated Basics - Large Kerosene Brass Fluted Lighter",
@@ -3036,7 +3125,7 @@ const PRODUCTS = [
     "priceNum": 135,
     "sku": "CB-LTR-FLT-0002",
     "barcodes": [
-      "",
+      "CB-LTR-FLT-0002",
       "492243"
     ],
     "pitch": "Large Kerosene Brass Fluted Lighter * 100% solid brass, brushed finish * 2 1/4\" x 1 3/4\". Designed by Curated Basics for sleek, modern everyday sophistication.",
@@ -3046,6 +3135,7 @@ const PRODUCTS = [
   {
     "id": 492245,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Curated Basics • Modern Minimalist Men’s & Unisex Jewelry",
     "brand": "Curated Basics",
     "name": "Curated Basics - Onyx Inlay Octagon Ring-10",
     "fullTitle": "Curated Basics - Curated Basics - Onyx Inlay Octagon Ring-10",
@@ -3053,7 +3143,7 @@ const PRODUCTS = [
     "priceNum": 59.99,
     "sku": "CB-RNG-ONY10-0005",
     "barcodes": [
-      "",
+      "CB-RNG-ONY10-0005",
       "492245"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -3063,6 +3153,7 @@ const PRODUCTS = [
   {
     "id": 492244,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Curated Basics • Modern Minimalist Men’s & Unisex Jewelry",
     "brand": "Curated Basics",
     "name": "Curated Basics - Onyx Inlay Octagon Ring-11",
     "fullTitle": "Curated Basics - Curated Basics - Onyx Inlay Octagon Ring-11",
@@ -3070,7 +3161,7 @@ const PRODUCTS = [
     "priceNum": 59.99,
     "sku": "CB-RNG-ONY11-0004",
     "barcodes": [
-      "",
+      "CB-RNG-ONY11-0004",
       "492244"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -3080,6 +3171,7 @@ const PRODUCTS = [
   {
     "id": 492247,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Curated Basics • Modern Minimalist Men’s & Unisex Jewelry",
     "brand": "Curated Basics",
     "name": "Curated Basics - Onyx Inlay Octagon Ring-8",
     "fullTitle": "Curated Basics - Curated Basics - Onyx Inlay Octagon Ring-8",
@@ -3087,7 +3179,7 @@ const PRODUCTS = [
     "priceNum": 59.99,
     "sku": "CB-RNG-ONY08-0007",
     "barcodes": [
-      "",
+      "CB-RNG-ONY08-0007",
       "492247"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -3097,6 +3189,7 @@ const PRODUCTS = [
   {
     "id": 492246,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Curated Basics • Modern Minimalist Men’s & Unisex Jewelry",
     "brand": "Curated Basics",
     "name": "Curated Basics - Onyx Inlay Octagon Ring-9",
     "fullTitle": "Curated Basics - Curated Basics - Onyx Inlay Octagon Ring-9",
@@ -3104,7 +3197,7 @@ const PRODUCTS = [
     "priceNum": 59.99,
     "sku": "CB-RNG-ONY09-0006",
     "barcodes": [
-      "",
+      "CB-RNG-ONY09-0006",
       "492246"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -3114,6 +3207,7 @@ const PRODUCTS = [
   {
     "id": 492248,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Curated Basics • Modern Minimalist Men’s & Unisex Jewelry",
     "brand": "Curated Basics",
     "name": "Curated Basics - Reversible Tiger Eyes // Onyx Men Ring- 10",
     "fullTitle": "Curated Basics - Curated Basics - Reversible Tiger Eyes // Onyx Men Ring- 10",
@@ -3121,7 +3215,7 @@ const PRODUCTS = [
     "priceNum": 67.99,
     "sku": "CB-RNG-TEO10-0008",
     "barcodes": [
-      "",
+      "CB-RNG-TEO10-0008",
       "492248"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -3131,6 +3225,7 @@ const PRODUCTS = [
   {
     "id": 492250,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Curated Basics • Modern Minimalist Men’s & Unisex Jewelry",
     "brand": "Curated Basics",
     "name": "Curated Basics - Reversible Tiger Eyes // Onyx Men Ring-8",
     "fullTitle": "Curated Basics - Curated Basics - Reversible Tiger Eyes // Onyx Men Ring-8",
@@ -3138,7 +3233,7 @@ const PRODUCTS = [
     "priceNum": 67.99,
     "sku": "CB-RNG-TEO08-0010",
     "barcodes": [
-      "",
+      "CB-RNG-TEO08-0010",
       "492250"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -3148,6 +3243,7 @@ const PRODUCTS = [
   {
     "id": 492249,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Curated Basics • Modern Minimalist Men’s & Unisex Jewelry",
     "brand": "Curated Basics",
     "name": "Curated Basics - Reversible Tiger Eyes // Onyx Men Ring-9",
     "fullTitle": "Curated Basics - Curated Basics - Reversible Tiger Eyes // Onyx Men Ring-9",
@@ -3155,7 +3251,7 @@ const PRODUCTS = [
     "priceNum": 67.99,
     "sku": "CB-RNG-TEO09-0009",
     "barcodes": [
-      "",
+      "CB-RNG-TEO09-0009",
       "492249"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -3165,6 +3261,7 @@ const PRODUCTS = [
   {
     "id": 492251,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Curated Basics • Modern Minimalist Men’s & Unisex Jewelry",
     "brand": "Curated Basics",
     "name": "Curated Basics - Tiger Eyes with 3 Cubic Steel Bracelet",
     "fullTitle": "Curated Basics - Curated Basics - Tiger Eyes with 3 Cubic Steel Bracelet",
@@ -3172,7 +3269,7 @@ const PRODUCTS = [
     "priceNum": 56,
     "sku": "CB-BRC-TIG-0002",
     "barcodes": [
-      "",
+      "CB-BRC-TIG-0002",
       "492251"
     ],
     "pitch": "Contemporary men's accessory featuring refined architectural lines and premium materials. Built for effortless daily style and subtle luxury.",
@@ -3182,6 +3279,7 @@ const PRODUCTS = [
   {
     "id": 499574,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "The Practice",
     "name": "DIY Smoke Cleansing Kit",
     "fullTitle": "The Practice - DIY Smoke Cleansing Kit",
@@ -3199,6 +3297,7 @@ const PRODUCTS = [
   {
     "id": 492437,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Earth Moon Magick",
     "name": "Earth Moon Magick - Elemental Empath Oracle Deck & Guidebook",
     "fullTitle": "Earth Moon Magick - Earth Moon Magick - Elemental Empath Oracle Deck & Guidebook",
@@ -3206,7 +3305,7 @@ const PRODUCTS = [
     "priceNum": 64.99,
     "sku": "EM-ORA-ELE-0003",
     "barcodes": [
-      "",
+      "EM-ORA-ELE-0003",
       "492437"
     ],
     "pitch": "Intuitively channeled oracle deck with luminous celestial artwork and deep wisdom for shadow work, heart opening, and spiritual growth.",
@@ -3216,6 +3315,7 @@ const PRODUCTS = [
   {
     "id": 492435,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Earth Moon Magick",
     "name": "Earth Moon Magick - The Priestess Oracle | 52 Cards & Guidebook",
     "fullTitle": "Earth Moon Magick - Earth Moon Magick - The Priestess Oracle | 52 Cards & Guidebook",
@@ -3223,7 +3323,7 @@ const PRODUCTS = [
     "priceNum": 75,
     "sku": "EM-ORA-PRI-0001",
     "barcodes": [
-      "",
+      "EM-ORA-PRI-0001",
       "492435"
     ],
     "pitch": "Intuitively channeled oracle deck with luminous celestial artwork and deep wisdom for shadow work, heart opening, and spiritual growth.",
@@ -3233,6 +3333,7 @@ const PRODUCTS = [
   {
     "id": 492436,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Earth Moon Magick",
     "name": "Earth Moon Magick - Trust, an Oracle | Deck & Guidebook",
     "fullTitle": "Earth Moon Magick - Earth Moon Magick - Trust, an Oracle | Deck & Guidebook",
@@ -3240,7 +3341,7 @@ const PRODUCTS = [
     "priceNum": 62,
     "sku": "EM-ORA-TRU-0002",
     "barcodes": [
-      "",
+      "EM-ORA-TRU-0002",
       "492436"
     ],
     "pitch": "Intuitively channeled oracle deck with luminous celestial artwork and deep wisdom for shadow work, heart opening, and spiritual growth.",
@@ -3250,6 +3351,7 @@ const PRODUCTS = [
   {
     "id": 492284,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Sacred White Sage & Herbal Smudge Bundles",
     "brand": "Earths Elements",
     "name": "Earth's Elements - Chakra Sage Bundle",
     "fullTitle": "Earths Elements - Earth's Elements - Chakra Sage Bundle",
@@ -3257,7 +3359,7 @@ const PRODUCTS = [
     "priceNum": 2.77,
     "sku": "EE-SAG-CHAK-0011",
     "barcodes": [
-      "",
+      "EE-SAG-CHAK-0011",
       "492284"
     ],
     "pitch": "Handcrafted botanical ritual blend and smudging tool made with organic herbs and natural crystals for purifying positive energetic vibrations.",
@@ -3267,6 +3369,7 @@ const PRODUCTS = [
   {
     "id": 492283,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Sacred White Sage & Herbal Smudge Bundles",
     "brand": "Earths Elements",
     "name": "Earth's Elements - Cleansing Sage Bundle",
     "fullTitle": "Earths Elements - Earth's Elements - Cleansing Sage Bundle",
@@ -3274,7 +3377,7 @@ const PRODUCTS = [
     "priceNum": 16,
     "sku": "EE-SAG-CLN-0010",
     "barcodes": [
-      "",
+      "EE-SAG-CLN-0010",
       "492283"
     ],
     "pitch": "Handcrafted botanical ritual blend and smudging tool made with organic herbs and natural crystals for purifying positive energetic vibrations.",
@@ -3284,6 +3387,7 @@ const PRODUCTS = [
   {
     "id": 492274,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Earths Elements",
     "name": "Earth's Elements - Crystal Roll-On - Abundance",
     "fullTitle": "Earths Elements - Earth's Elements - Crystal Roll-On - Abundance",
@@ -3291,7 +3395,7 @@ const PRODUCTS = [
     "priceNum": 31.99,
     "sku": "EE-ROL-ABN-0001",
     "barcodes": [
-      "",
+      "EE-ROL-ABN-0001",
       "492274"
     ],
     "pitch": "Handcrafted botanical ritual blend and smudging tool made with organic herbs and natural crystals for purifying positive energetic vibrations.",
@@ -3301,6 +3405,7 @@ const PRODUCTS = [
   {
     "id": 492275,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Earths Elements",
     "name": "Earth's Elements - Crystal Roll-On - Focus",
     "fullTitle": "Earths Elements - Earth's Elements - Crystal Roll-On - Focus",
@@ -3308,7 +3413,7 @@ const PRODUCTS = [
     "priceNum": 31.99,
     "sku": "EE-ROL-FOC-0002",
     "barcodes": [
-      "",
+      "EE-ROL-FOC-0002",
       "492275"
     ],
     "pitch": "Handcrafted botanical ritual blend and smudging tool made with organic herbs and natural crystals for purifying positive energetic vibrations.",
@@ -3318,6 +3423,7 @@ const PRODUCTS = [
   {
     "id": 492276,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Earths Elements",
     "name": "Earth's Elements - Crystal Roll-On - Intuition",
     "fullTitle": "Earths Elements - Earth's Elements - Crystal Roll-On - Intuition",
@@ -3325,7 +3431,7 @@ const PRODUCTS = [
     "priceNum": 31.99,
     "sku": "EE-ROL-INT-0003",
     "barcodes": [
-      "",
+      "EE-ROL-INT-0003",
       "492276"
     ],
     "pitch": "Handcrafted botanical ritual blend and smudging tool made with organic herbs and natural crystals for purifying positive energetic vibrations.",
@@ -3335,6 +3441,7 @@ const PRODUCTS = [
   {
     "id": 492277,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Earths Elements",
     "name": "Earth's Elements - Crystal Roll-On - Love",
     "fullTitle": "Earths Elements - Earth's Elements - Crystal Roll-On - Love",
@@ -3342,7 +3449,7 @@ const PRODUCTS = [
     "priceNum": 31.99,
     "sku": "EE-ROL-LOV-0004",
     "barcodes": [
-      "",
+      "EE-ROL-LOV-0004",
       "492277"
     ],
     "pitch": "Handcrafted botanical ritual blend and smudging tool made with organic herbs and natural crystals for purifying positive energetic vibrations.",
@@ -3352,6 +3459,7 @@ const PRODUCTS = [
   {
     "id": 492278,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Earths Elements",
     "name": "Earth's Elements - Crystal Roll-On - Luck",
     "fullTitle": "Earths Elements - Earth's Elements - Crystal Roll-On - Luck",
@@ -3359,7 +3467,7 @@ const PRODUCTS = [
     "priceNum": 31.99,
     "sku": "EE-ROL-LCK-0005",
     "barcodes": [
-      "",
+      "EE-ROL-LCK-0005",
       "492278"
     ],
     "pitch": "Handcrafted botanical ritual blend and smudging tool made with organic herbs and natural crystals for purifying positive energetic vibrations.",
@@ -3369,6 +3477,7 @@ const PRODUCTS = [
   {
     "id": 492279,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Earths Elements",
     "name": "Earth's Elements - Crystal Roll-On - Manifest",
     "fullTitle": "Earths Elements - Earth's Elements - Crystal Roll-On - Manifest",
@@ -3376,7 +3485,7 @@ const PRODUCTS = [
     "priceNum": 31.99,
     "sku": "EE-ROL-MAN-0006",
     "barcodes": [
-      "",
+      "EE-ROL-MAN-0006",
       "492279"
     ],
     "pitch": "Handcrafted botanical ritual blend and smudging tool made with organic herbs and natural crystals for purifying positive energetic vibrations.",
@@ -3386,6 +3495,7 @@ const PRODUCTS = [
   {
     "id": 492280,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Earths Elements",
     "name": "Earth's Elements - Crystal Roll-On - Protection",
     "fullTitle": "Earths Elements - Earth's Elements - Crystal Roll-On - Protection",
@@ -3393,7 +3503,7 @@ const PRODUCTS = [
     "priceNum": 31.99,
     "sku": "EE-ROL-PRO-0007",
     "barcodes": [
-      "",
+      "EE-ROL-PRO-0007",
       "492280"
     ],
     "pitch": "Handcrafted botanical ritual blend and smudging tool made with organic herbs and natural crystals for purifying positive energetic vibrations.",
@@ -3403,6 +3513,7 @@ const PRODUCTS = [
   {
     "id": 492281,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Earths Elements",
     "name": "Earth's Elements - Crystal Roll-On - Spirit",
     "fullTitle": "Earths Elements - Earth's Elements - Crystal Roll-On - Spirit",
@@ -3410,7 +3521,7 @@ const PRODUCTS = [
     "priceNum": 31.99,
     "sku": "EE-ROL-SPI-0008",
     "barcodes": [
-      "",
+      "EE-ROL-SPI-0008",
       "492281"
     ],
     "pitch": "Handcrafted botanical ritual blend and smudging tool made with organic herbs and natural crystals for purifying positive energetic vibrations.",
@@ -3420,6 +3531,7 @@ const PRODUCTS = [
   {
     "id": 492282,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Earths Elements",
     "name": "Earth's Elements - Journal - Intention",
     "fullTitle": "Earths Elements - Earth's Elements - Journal - Intention",
@@ -3427,7 +3539,7 @@ const PRODUCTS = [
     "priceNum": 29.99,
     "sku": "EE-JOU-INT-0009",
     "barcodes": [
-      "",
+      "EE-JOU-INT-0009",
       "492282"
     ],
     "pitch": "Handcrafted botanical ritual blend and smudging tool made with organic herbs and natural crystals for purifying positive energetic vibrations.",
@@ -3437,6 +3549,7 @@ const PRODUCTS = [
   {
     "id": 492285,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Sacred White Sage & Herbal Smudge Bundles",
     "brand": "Earths Elements",
     "name": "Earth's Elements - Sage Bundle - Amethyst Crystal",
     "fullTitle": "Earths Elements - Earth's Elements - Sage Bundle - Amethyst Crystal",
@@ -3444,7 +3557,7 @@ const PRODUCTS = [
     "priceNum": 18.99,
     "sku": "EE-SAG-AMY-0012",
     "barcodes": [
-      "",
+      "EE-SAG-AMY-0012",
       "492285"
     ],
     "pitch": "Handcrafted botanical ritual blend and smudging tool made with organic herbs and natural crystals for purifying positive energetic vibrations.",
@@ -3454,6 +3567,7 @@ const PRODUCTS = [
   {
     "id": 492286,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Sacred White Sage & Herbal Smudge Bundles",
     "brand": "Earths Elements",
     "name": "Earth's Elements - Sage Bundle - Pink & Beige Sinuata",
     "fullTitle": "Earths Elements - Earth's Elements - Sage Bundle - Pink & Beige Sinuata",
@@ -3461,7 +3575,7 @@ const PRODUCTS = [
     "priceNum": 2.77,
     "sku": "EE-SAG-SIN-0013",
     "barcodes": [
-      "",
+      "EE-SAG-SIN-0013",
       "492286"
     ],
     "pitch": "Handcrafted botanical ritual blend and smudging tool made with organic herbs and natural crystals for purifying positive energetic vibrations.",
@@ -3471,6 +3585,7 @@ const PRODUCTS = [
   {
     "id": 492378,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Ecuadorian Palo Santo Sticks (10 Pieces)- Case of 12 -> 10%",
     "fullTitle": "Cedar and Myrrh - Ecuadorian Palo Santo Sticks (10 Pieces)- Case of 12 -> 10%",
@@ -3478,7 +3593,7 @@ const PRODUCTS = [
     "priceNum": 36.99,
     "sku": "CM-INC-CIN-0047",
     "barcodes": [
-      "",
+      "CM-INC-CIN-0047",
       "492378"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -3488,6 +3603,7 @@ const PRODUCTS = [
   {
     "id": 545854,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
     "brand": "The Practice Cafe",
     "name": "Espresso (C)",
     "fullTitle": "The Practice Cafe - Espresso (C)",
@@ -3500,11 +3616,12 @@ const PRODUCTS = [
     ],
     "pitch": "Espresso — Your choice of Nespresso coffee, served as a rich, concentrated shot.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/545854/edit",
-    "img": "https://images.momence.com/h/200431/product-image/e56b5487-b8e0-466c-a9a1-6c5bf1a7d4f4.png"
+    "img": "https://images.momence.com/h/200431/product-image/ef5cbab7-742b-4911-8744-4a1fa1ce0583.jpg"
   },
   {
     "id": 548476,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
     "name": "Espresso Macchiato (C)",
     "fullTitle": "The Practice Cafe - Espresso Macchiato (C)",
@@ -3517,11 +3634,12 @@ const PRODUCTS = [
     ],
     "pitch": "Espresso Macchiato — Your choice of Nespresso coffee, topped with a touch of steamed milk.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/548476/edit",
-    "img": "https://images.momence.com/h/200431/product-image/f0bc92a4-f2f8-45c6-9ff7-09acbf04d733.png"
+    "img": "https://images.momence.com/h/200431/product-image/736ac256-e0e8-4b64-a7c3-210861f9a7b1.jpg"
   },
   {
     "id": 492503,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Fancy Concrete",
     "name": "Fancy Concrete - Black Fusion Marble Daso - Textured Concrete Bowl",
     "fullTitle": "Fancy Concrete - Fancy Concrete - Black Fusion Marble Daso - Textured Concrete Bowl",
@@ -3529,7 +3647,7 @@ const PRODUCTS = [
     "priceNum": 54.99,
     "sku": "FC-BOW-BLA-0001",
     "barcodes": [
-      "",
+      "FC-BOW-BLA-0001",
       "492503"
     ],
     "pitch": "Architectural decorative bowl hand-cast from high-density artisanal concrete with bespoke marbled veining. A sculptural modern accent for studio tables or altars.",
@@ -3539,6 +3657,7 @@ const PRODUCTS = [
   {
     "id": 492506,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Fancy Concrete",
     "name": "Fancy Concrete - Black Fusion Marble Temis - Fluted Bow",
     "fullTitle": "Fancy Concrete - Fancy Concrete - Black Fusion Marble Temis - Fluted Bow",
@@ -3546,7 +3665,7 @@ const PRODUCTS = [
     "priceNum": 89.99,
     "sku": "FC-BOW-BLA-0004",
     "barcodes": [
-      "",
+      "FC-BOW-BLA-0004",
       "492506"
     ],
     "pitch": "Architectural decorative bowl hand-cast from high-density artisanal concrete with bespoke marbled veining. A sculptural modern accent for studio tables or altars.",
@@ -3556,6 +3675,7 @@ const PRODUCTS = [
   {
     "id": 504348,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Fancy Concrete",
     "name": "Fancy Concrete - Bowl (Small)",
     "fullTitle": "Fancy Concrete - Fancy Concrete - Bowl (Small)",
@@ -3568,11 +3688,12 @@ const PRODUCTS = [
     ],
     "pitch": "Architectural decorative bowl hand-cast from high-density artisanal concrete with bespoke marbled veining. A sculptural modern accent for studio tables or altars.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/504348/edit",
-    "img": "https://images.momence.com/h/200431/product-image/bb67772a-0f3d-4a7d-bd34-85c60ced9435.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/845da0f0-f44a-4fde-862a-bc2858a1c4a3.jpg"
   },
   {
     "id": 492507,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Fancy Concrete",
     "name": "Fancy Concrete - Khaki Fusion Marble Temis - Fluted Bow",
     "fullTitle": "Fancy Concrete - Fancy Concrete - Khaki Fusion Marble Temis - Fluted Bow",
@@ -3580,7 +3701,7 @@ const PRODUCTS = [
     "priceNum": 89.99,
     "sku": "FC-BOW-KHA-0005",
     "barcodes": [
-      "",
+      "FC-BOW-KHA-0005",
       "492507"
     ],
     "pitch": "Architectural decorative bowl hand-cast from high-density artisanal concrete with bespoke marbled veining. A sculptural modern accent for studio tables or altars.",
@@ -3590,6 +3711,7 @@ const PRODUCTS = [
   {
     "id": 492510,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Fancy Concrete",
     "name": "Fancy Concrete - Moroccan Cashmere-Mini Moon Candle",
     "fullTitle": "Fancy Concrete - Fancy Concrete - Moroccan Cashmere-Mini Moon Candle",
@@ -3597,7 +3719,7 @@ const PRODUCTS = [
     "priceNum": 42.99,
     "sku": "FC-CAN-MIN-0008",
     "barcodes": [
-      "",
+      "FC-CAN-MIN-0008",
       "492510"
     ],
     "pitch": "Architectural decorative bowl hand-cast from high-density artisanal concrete with bespoke marbled veining. A sculptural modern accent for studio tables or altars.",
@@ -3607,6 +3729,7 @@ const PRODUCTS = [
   {
     "id": 492504,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Fancy Concrete",
     "name": "Fancy Concrete - Off White Daso - Textured Concrete Bowl",
     "fullTitle": "Fancy Concrete - Fancy Concrete - Off White Daso - Textured Concrete Bowl",
@@ -3614,7 +3737,7 @@ const PRODUCTS = [
     "priceNum": 54.99,
     "sku": "FC-BOW-OFF-0002",
     "barcodes": [
-      "",
+      "FC-BOW-OFF-0002",
       "492504"
     ],
     "pitch": "Architectural decorative bowl hand-cast from high-density artisanal concrete with bespoke marbled veining. A sculptural modern accent for studio tables or altars.",
@@ -3624,6 +3747,7 @@ const PRODUCTS = [
   {
     "id": 492505,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Fancy Concrete",
     "name": "Fancy Concrete - Peach Fusion Marble Daso - Textured Concrete Bowl",
     "fullTitle": "Fancy Concrete - Fancy Concrete - Peach Fusion Marble Daso - Textured Concrete Bowl",
@@ -3631,7 +3755,7 @@ const PRODUCTS = [
     "priceNum": 54.99,
     "sku": "FC-BOW-PEA-0003",
     "barcodes": [
-      "",
+      "FC-BOW-PEA-0003",
       "492505"
     ],
     "pitch": "Architectural decorative bowl hand-cast from high-density artisanal concrete with bespoke marbled veining. A sculptural modern accent for studio tables or altars.",
@@ -3641,6 +3765,7 @@ const PRODUCTS = [
   {
     "id": 492508,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Fancy Concrete",
     "name": "Fancy Concrete - Tan Fusion Marble Temis - Fluted Bow",
     "fullTitle": "Fancy Concrete - Fancy Concrete - Tan Fusion Marble Temis - Fluted Bow",
@@ -3648,7 +3773,7 @@ const PRODUCTS = [
     "priceNum": 89.99,
     "sku": "FC-BOW-TAN-0006",
     "barcodes": [
-      "",
+      "FC-BOW-TAN-0006",
       "492508"
     ],
     "pitch": "Architectural decorative bowl hand-cast from high-density artisanal concrete with bespoke marbled veining. A sculptural modern accent for studio tables or altars.",
@@ -3658,6 +3783,7 @@ const PRODUCTS = [
   {
     "id": 492509,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Fancy Concrete",
     "name": "Fancy Concrete - White, Moroccan Cashmere- Half Moon Candle",
     "fullTitle": "Fancy Concrete - Fancy Concrete - White, Moroccan Cashmere- Half Moon Candle",
@@ -3665,7 +3791,7 @@ const PRODUCTS = [
     "priceNum": 175,
     "sku": "FC-CAN-HAL-0007",
     "barcodes": [
-      "",
+      "FC-CAN-HAL-0007",
       "492509"
     ],
     "pitch": "Architectural decorative bowl hand-cast from high-density artisanal concrete with bespoke marbled veining. A sculptural modern accent for studio tables or altars.",
@@ -3675,6 +3801,7 @@ const PRODUCTS = [
   {
     "id": 492576,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Aurora Essential Oil Blend",
     "fullTitle": "FernandPetal - FernandPetal - Aurora Essential Oil Blend",
@@ -3682,7 +3809,7 @@ const PRODUCTS = [
     "priceNum": 36,
     "sku": "FP-BLD-AUR-0011",
     "barcodes": [
-      "",
+      "FP-BLD-AUR-0011",
       "492576"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3692,6 +3819,7 @@ const PRODUCTS = [
   {
     "id": 492566,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Balance Roll-On",
     "fullTitle": "FernandPetal - FernandPetal - Balance Roll-On",
@@ -3699,7 +3827,7 @@ const PRODUCTS = [
     "priceNum": 31,
     "sku": "FP-ROL-BAL-0001",
     "barcodes": [
-      "",
+      "FP-ROL-BAL-0001",
       "492566"
     ],
     "pitch": "Organic aromatherapy roll-on formulated with pure botanical essential oils and golden jojoba oil. Convenient pocket-sized wellness ritual for on-the-go grounding.",
@@ -3709,6 +3837,7 @@ const PRODUCTS = [
   {
     "id": 492571,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Bergamot Essential Oil",
     "fullTitle": "FernandPetal - FernandPetal - Bergamot Essential Oil",
@@ -3716,7 +3845,7 @@ const PRODUCTS = [
     "priceNum": 24,
     "sku": "FP-OIL-BER-0006",
     "barcodes": [
-      "",
+      "FP-OIL-BER-0006",
       "492571"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3726,6 +3855,7 @@ const PRODUCTS = [
   {
     "id": 492567,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Boost Roll-On",
     "fullTitle": "FernandPetal - FernandPetal - Boost Roll-On",
@@ -3733,7 +3863,7 @@ const PRODUCTS = [
     "priceNum": 31,
     "sku": "FP-ROL-BOO-0002",
     "barcodes": [
-      "",
+      "FP-ROL-BOO-0002",
       "492567"
     ],
     "pitch": "Organic aromatherapy roll-on formulated with pure botanical essential oils and golden jojoba oil. Convenient pocket-sized wellness ritual for on-the-go grounding.",
@@ -3743,6 +3873,7 @@ const PRODUCTS = [
   {
     "id": 492577,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Breathe Essential Oil Blend",
     "fullTitle": "FernandPetal - FernandPetal - Breathe Essential Oil Blend",
@@ -3750,7 +3881,7 @@ const PRODUCTS = [
     "priceNum": 23,
     "sku": "FP-BLD-BRE-0012",
     "barcodes": [
-      "",
+      "FP-BLD-BRE-0012",
       "492577"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3760,6 +3891,7 @@ const PRODUCTS = [
   {
     "id": 492568,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Breathe Roll-On",
     "fullTitle": "FernandPetal - FernandPetal - Breathe Roll-On",
@@ -3767,7 +3899,7 @@ const PRODUCTS = [
     "priceNum": 31,
     "sku": "FP-ROL-BRE-0003",
     "barcodes": [
-      "",
+      "FP-ROL-BRE-0003",
       "492568"
     ],
     "pitch": "Organic aromatherapy roll-on formulated with pure botanical essential oils and golden jojoba oil. Convenient pocket-sized wellness ritual for on-the-go grounding.",
@@ -3777,6 +3909,7 @@ const PRODUCTS = [
   {
     "id": 492572,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Cedarwood Essential Oil",
     "fullTitle": "FernandPetal - FernandPetal - Cedarwood Essential Oil",
@@ -3784,7 +3917,7 @@ const PRODUCTS = [
     "priceNum": 16,
     "sku": "FP-OIL-CED-0007",
     "barcodes": [
-      "",
+      "FP-OIL-CED-0007",
       "492572"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3794,6 +3927,7 @@ const PRODUCTS = [
   {
     "id": 492578,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Coast Essential Oil Blend",
     "fullTitle": "FernandPetal - FernandPetal - Coast Essential Oil Blend",
@@ -3801,7 +3935,7 @@ const PRODUCTS = [
     "priceNum": 24,
     "sku": "FP-BLD-CST-0013",
     "barcodes": [
-      "",
+      "FP-BLD-CST-0013",
       "492578"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3811,6 +3945,7 @@ const PRODUCTS = [
   {
     "id": 492580,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Dawn Essential Oil Blend",
     "fullTitle": "FernandPetal - FernandPetal - Dawn Essential Oil Blend",
@@ -3818,7 +3953,7 @@ const PRODUCTS = [
     "priceNum": 28,
     "sku": "FP-BLD-DAW-0015",
     "barcodes": [
-      "",
+      "FP-BLD-DAW-0015",
       "492580"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3828,6 +3963,7 @@ const PRODUCTS = [
   {
     "id": 492583,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "FernandPetal",
     "name": "FernandPetal - Diffuser",
     "fullTitle": "FernandPetal - FernandPetal - Diffuser",
@@ -3835,7 +3971,7 @@ const PRODUCTS = [
     "priceNum": 99.99,
     "sku": "FP-DFU-STD-0018",
     "barcodes": [
-      "",
+      "FP-DFU-STD-0018",
       "492583"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3845,6 +3981,7 @@ const PRODUCTS = [
   {
     "id": 492579,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Dream Essential Oil Blend",
     "fullTitle": "FernandPetal - FernandPetal - Dream Essential Oil Blend",
@@ -3852,7 +3989,7 @@ const PRODUCTS = [
     "priceNum": 23,
     "sku": "FP-BLD-DRM-0014",
     "barcodes": [
-      "",
+      "FP-BLD-DRM-0014",
       "492579"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3862,6 +3999,7 @@ const PRODUCTS = [
   {
     "id": 492569,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Dream Roll-On",
     "fullTitle": "FernandPetal - FernandPetal - Dream Roll-On",
@@ -3869,7 +4007,7 @@ const PRODUCTS = [
     "priceNum": 31,
     "sku": "FP-ROL-DRE-0004",
     "barcodes": [
-      "",
+      "FP-ROL-DRE-0004",
       "492569"
     ],
     "pitch": "Organic aromatherapy roll-on formulated with pure botanical essential oils and golden jojoba oil. Convenient pocket-sized wellness ritual for on-the-go grounding.",
@@ -3879,6 +4017,7 @@ const PRODUCTS = [
   {
     "id": 492573,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Eucalyptus Essential Oil",
     "fullTitle": "FernandPetal - FernandPetal - Eucalyptus Essential Oil",
@@ -3886,7 +4025,7 @@ const PRODUCTS = [
     "priceNum": 16,
     "sku": "FP-OIL-EUC-0008",
     "barcodes": [
-      "",
+      "FP-OIL-EUC-0008",
       "492573"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3896,6 +4035,7 @@ const PRODUCTS = [
   {
     "id": 492584,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "FernandPetal",
     "name": "FernandPetal - Flora Shower Spray",
     "fullTitle": "FernandPetal - FernandPetal - Flora Shower Spray",
@@ -3903,7 +4043,7 @@ const PRODUCTS = [
     "priceNum": 65,
     "sku": "FP-SPR-FLR-0019",
     "barcodes": [
-      "",
+      "FP-SPR-FLR-0019",
       "492584"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3913,6 +4053,7 @@ const PRODUCTS = [
   {
     "id": 492590,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "FernandPetal",
     "name": "FernandPetal - Goddess Body Mist",
     "fullTitle": "FernandPetal - FernandPetal - Goddess Body Mist",
@@ -3920,7 +4061,7 @@ const PRODUCTS = [
     "priceNum": 24.99,
     "sku": "FP-MST-GOD-0025",
     "barcodes": [
-      "",
+      "FP-MST-GOD-0025",
       "492590"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3930,6 +4071,7 @@ const PRODUCTS = [
   {
     "id": 492587,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Mineral Bath Salts, Flakes & Restorative Soaks",
     "brand": "FernandPetal",
     "name": "FernandPetal - Grove Bath Salts",
     "fullTitle": "FernandPetal - FernandPetal - Grove Bath Salts",
@@ -3937,7 +4079,7 @@ const PRODUCTS = [
     "priceNum": 29.99,
     "sku": "FP-SLT-GRV-0022",
     "barcodes": [
-      "",
+      "FP-SLT-GRV-0022",
       "492587"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3947,6 +4089,7 @@ const PRODUCTS = [
   {
     "id": 492591,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "FernandPetal",
     "name": "FernandPetal - Lavender Body Mist",
     "fullTitle": "FernandPetal - FernandPetal - Lavender Body Mist",
@@ -3954,7 +4097,7 @@ const PRODUCTS = [
     "priceNum": 24.99,
     "sku": "FP-MST-LAV-0026",
     "barcodes": [
-      "",
+      "FP-MST-LAV-0026",
       "492591"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3964,6 +4107,7 @@ const PRODUCTS = [
   {
     "id": 492574,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Lavender Essential Oil",
     "fullTitle": "FernandPetal - FernandPetal - Lavender Essential Oil",
@@ -3971,7 +4115,7 @@ const PRODUCTS = [
     "priceNum": 23,
     "sku": "FP-OIL-LAV-0009",
     "barcodes": [
-      "",
+      "FP-OIL-LAV-0009",
       "492574"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3981,6 +4125,7 @@ const PRODUCTS = [
   {
     "id": 492575,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Lemongrass Essential Oil",
     "fullTitle": "FernandPetal - FernandPetal - Lemongrass Essential Oil",
@@ -3988,7 +4133,7 @@ const PRODUCTS = [
     "priceNum": 18,
     "sku": "FP-OIL-LEM-0010",
     "barcodes": [
-      "",
+      "FP-OIL-LEM-0010",
       "492575"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -3998,6 +4143,7 @@ const PRODUCTS = [
   {
     "id": 492581,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Meadow Essential Oil Blend",
     "fullTitle": "FernandPetal - FernandPetal - Meadow Essential Oil Blend",
@@ -4005,7 +4151,7 @@ const PRODUCTS = [
     "priceNum": 33,
     "sku": "FP-BLD-MEA-0016",
     "barcodes": [
-      "",
+      "FP-BLD-MEA-0016",
       "492581"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -4015,6 +4161,7 @@ const PRODUCTS = [
   {
     "id": 492588,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Mineral Bath Salts, Flakes & Restorative Soaks",
     "brand": "FernandPetal",
     "name": "FernandPetal - Renew Bath Salts",
     "fullTitle": "FernandPetal - FernandPetal - Renew Bath Salts",
@@ -4022,7 +4169,7 @@ const PRODUCTS = [
     "priceNum": 29.99,
     "sku": "FP-SLT-REN-0023",
     "barcodes": [
-      "",
+      "FP-SLT-REN-0023",
       "492588"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -4032,6 +4179,7 @@ const PRODUCTS = [
   {
     "id": 492589,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Mineral Bath Salts, Flakes & Restorative Soaks",
     "brand": "FernandPetal",
     "name": "FernandPetal - Salt Body Mist",
     "fullTitle": "FernandPetal - FernandPetal - Salt Body Mist",
@@ -4039,7 +4187,7 @@ const PRODUCTS = [
     "priceNum": 24.99,
     "sku": "FP-MST-SAL-0024",
     "barcodes": [
-      "",
+      "FP-MST-SAL-0024",
       "492589"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -4049,6 +4197,7 @@ const PRODUCTS = [
   {
     "id": 492582,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Soothe Essential Oil Blend",
     "fullTitle": "FernandPetal - FernandPetal - Soothe Essential Oil Blend",
@@ -4056,7 +4205,7 @@ const PRODUCTS = [
     "priceNum": 24,
     "sku": "FP-BLD-SOO-0017",
     "barcodes": [
-      "",
+      "FP-BLD-SOO-0017",
       "492582"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -4066,6 +4215,7 @@ const PRODUCTS = [
   {
     "id": 492570,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Fern & Petal • Pure Botanical Essential Oils",
     "brand": "FernandPetal",
     "name": "FernandPetal - Soothe Roll-On",
     "fullTitle": "FernandPetal - FernandPetal - Soothe Roll-On",
@@ -4073,7 +4223,7 @@ const PRODUCTS = [
     "priceNum": 31,
     "sku": "FP-ROL-SOO-0005",
     "barcodes": [
-      "",
+      "FP-ROL-SOO-0005",
       "492570"
     ],
     "pitch": "Organic aromatherapy roll-on formulated with pure botanical essential oils and golden jojoba oil. Convenient pocket-sized wellness ritual for on-the-go grounding.",
@@ -4083,6 +4233,7 @@ const PRODUCTS = [
   {
     "id": 492585,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "FernandPetal",
     "name": "FernandPetal - Summit Shower Spray",
     "fullTitle": "FernandPetal - FernandPetal - Summit Shower Spray",
@@ -4090,7 +4241,7 @@ const PRODUCTS = [
     "priceNum": 65,
     "sku": "FP-SPR-SUM-0020",
     "barcodes": [
-      "",
+      "FP-SPR-SUM-0020",
       "492585"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -4100,6 +4251,7 @@ const PRODUCTS = [
   {
     "id": 492586,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "FernandPetal",
     "name": "FernandPetal - Woods Shower Spray",
     "fullTitle": "FernandPetal - FernandPetal - Woods Shower Spray",
@@ -4107,7 +4259,7 @@ const PRODUCTS = [
     "priceNum": 65,
     "sku": "FP-SPR-WDS-0021",
     "barcodes": [
-      "",
+      "FP-SPR-WDS-0021",
       "492586"
     ],
     "pitch": "100% pure, therapeutic-grade essential oil steam-distilled from ethically harvested botanicals. Designed for active ultrasonic diffusion or custom aromatherapy blends.",
@@ -4117,6 +4269,7 @@ const PRODUCTS = [
   {
     "id": 492543,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Field Kit",
     "name": "Field Kit - The Artist - Absinthe + Vanilla - 8oz Glass Candle",
     "fullTitle": "Field Kit - Field Kit - The Artist - Absinthe + Vanilla - 8oz Glass Candle",
@@ -4124,16 +4277,17 @@ const PRODUCTS = [
     "priceNum": 44.99,
     "sku": "FK-CAN-ART-0001",
     "barcodes": [
-      "",
+      "FK-CAN-ART-0001",
       "492543"
     ],
     "pitch": "Small-batch artisanal soy wax candle hand-poured in Calgary, Canada. Formulated with fine botanical fragrance oils and cotton wick for a clean, comforting burn.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492543/edit",
-    "img": "https://images.momence.com/h/200431/product-image/6bc09c9b-ddc8-4c90-9525-6ed7cb03a6a2.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/864b7546-b8d3-452a-9bc9-b0ff00c84870.jpg"
   },
   {
     "id": 492548,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Field Kit",
     "name": "Field Kit - The Beekeeper - Honey + Clover - 8oz Glass Candle",
     "fullTitle": "Field Kit - Field Kit - The Beekeeper - Honey + Clover - 8oz Glass Candle",
@@ -4141,16 +4295,17 @@ const PRODUCTS = [
     "priceNum": 44.99,
     "sku": "FK-CAN-HNY-0006",
     "barcodes": [
-      "",
+      "FK-CAN-HNY-0006",
       "492548"
     ],
     "pitch": "Small-batch artisanal soy wax candle hand-poured in Calgary, Canada. Formulated with fine botanical fragrance oils and cotton wick for a clean, comforting burn.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492548/edit",
-    "img": "https://images.momence.com/h/200431/product-image/4aef7804-bf3b-4024-8314-c7fad87681e0.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/22d2533e-9c5f-4af3-8209-be4616bf5a5d.jpg"
   },
   {
     "id": 492544,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Field Kit",
     "name": "Field Kit - The Explorer - Bergamot + Ginger - 8oz Glass Candle",
     "fullTitle": "Field Kit - Field Kit - The Explorer - Bergamot + Ginger - 8oz Glass Candle",
@@ -4158,16 +4313,17 @@ const PRODUCTS = [
     "priceNum": 44.99,
     "sku": "FK-CAN-GIN-0002",
     "barcodes": [
-      "",
+      "FK-CAN-GIN-0002",
       "492544"
     ],
     "pitch": "Small-batch artisanal soy wax candle hand-poured in Calgary, Canada. Formulated with fine botanical fragrance oils and cotton wick for a clean, comforting burn.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492544/edit",
-    "img": "https://images.momence.com/h/200431/product-image/99599097-29ac-4d02-8b68-1c5fe878c516.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/22a6a32e-400a-4a96-813d-9f7d69ec4af8.jpg"
   },
   {
     "id": 492549,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Field Kit",
     "name": "Field Kit - The Greenhouse - Tomato Leaf - 8oz Glass Candle",
     "fullTitle": "Field Kit - Field Kit - The Greenhouse - Tomato Leaf - 8oz Glass Candle",
@@ -4175,16 +4331,17 @@ const PRODUCTS = [
     "priceNum": 44.99,
     "sku": "FK-CAN-TOM-0007",
     "barcodes": [
-      "",
+      "FK-CAN-TOM-0007",
       "492549"
     ],
     "pitch": "Small-batch artisanal soy wax candle hand-poured in Calgary, Canada. Formulated with fine botanical fragrance oils and cotton wick for a clean, comforting burn.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492549/edit",
-    "img": "https://images.momence.com/h/200431/product-image/0e266fcf-b02b-47fd-bdf5-cd96f0568c97.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/fa10af27-f2c3-41ec-b154-170e0e8a4c98.jpg"
   },
   {
     "id": 492545,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Field Kit",
     "name": "Field Kit - The Lumberjack - Birch + Smoke - 8oz Glass Candle",
     "fullTitle": "Field Kit - Field Kit - The Lumberjack - Birch + Smoke - 8oz Glass Candle",
@@ -4192,16 +4349,17 @@ const PRODUCTS = [
     "priceNum": 44.99,
     "sku": "FK-CAN-SMK-0003",
     "barcodes": [
-      "",
+      "FK-CAN-SMK-0003",
       "492545"
     ],
     "pitch": "Small-batch artisanal soy wax candle hand-poured in Calgary, Canada. Formulated with fine botanical fragrance oils and cotton wick for a clean, comforting burn.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492545/edit",
-    "img": "https://images.momence.com/h/200431/product-image/43c8837c-82d2-431d-8568-33e4bba77174.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/dc779cf0-2d5d-47cd-a8c5-d37fb7c4b21c.jpg"
   },
   {
     "id": 492546,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Field Kit",
     "name": "Field Kit - The Professor - Earl Grey + Apple - 8oz Glass Candle",
     "fullTitle": "Field Kit - Field Kit - The Professor - Earl Grey + Apple - 8oz Glass Candle",
@@ -4209,16 +4367,17 @@ const PRODUCTS = [
     "priceNum": 44.99,
     "sku": "FK-CAN-EGR-0004",
     "barcodes": [
-      "",
+      "FK-CAN-EGR-0004",
       "492546"
     ],
     "pitch": "Small-batch artisanal soy wax candle hand-poured in Calgary, Canada. Formulated with fine botanical fragrance oils and cotton wick for a clean, comforting burn.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492546/edit",
-    "img": "https://images.momence.com/h/200431/product-image/3e6dcb9b-24ab-422d-86d1-385585a84ff5.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/d9c63450-4b89-4dea-8507-b3c4f93e5050.jpg"
   },
   {
     "id": 492547,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Field Kit",
     "name": "Field Kit - The Solarium - Fig + Basil - 8oz Glass Candle",
     "fullTitle": "Field Kit - Field Kit - The Solarium - Fig + Basil - 8oz Glass Candle",
@@ -4226,7 +4385,7 @@ const PRODUCTS = [
     "priceNum": 44.99,
     "sku": "FK-CAN-FIG-0005",
     "barcodes": [
-      "",
+      "FK-CAN-FIG-0005",
       "492547"
     ],
     "pitch": "Small-batch artisanal soy wax candle hand-poured in Calgary, Canada. Formulated with fine botanical fragrance oils and cotton wick for a clean, comforting burn.",
@@ -4236,6 +4395,7 @@ const PRODUCTS = [
   {
     "id": 567963,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
     "brand": "The Practice",
     "name": "Flat White - Large (C)",
     "fullTitle": "The Practice - Flat White - Large (C)",
@@ -4248,11 +4408,12 @@ const PRODUCTS = [
     ],
     "pitch": "Your choice of Nespresso coffee, blended with steamed milk for a smooth, velvety finish.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/567963/edit",
-    "img": "https://images.momence.com/h/200431/product-image/0f3711f2-b005-4c1a-920e-6168c9b082f1.png"
+    "img": "https://images.momence.com/h/200431/product-image/e93c1f71-05eb-4a18-b722-4394a0680f1d.jpg"
   },
   {
     "id": 513546,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
     "brand": "The Practice Cafe",
     "name": "Flat White - Regular (C)",
     "fullTitle": "The Practice Cafe - Flat White - Regular (C)",
@@ -4265,11 +4426,12 @@ const PRODUCTS = [
     ],
     "pitch": "Your choice of Nespresso coffee, blended with steamed milk for a smooth, velvety finish.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513546/edit",
-    "img": "https://images.momence.com/h/200431/product-image/0f3711f2-b005-4c1a-920e-6168c9b082f1.png"
+    "img": "https://images.momence.com/h/200431/product-image/00b54489-6a31-43d6-b067-0d5dcdd82f31.jpg"
   },
   {
     "id": 567143,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Teas & Craft Chocolates",
     "brand": "The Practice",
     "name": "FOCUS - Wisely Chocolate ",
     "fullTitle": "The Practice - FOCUS - Wisely Chocolate ",
@@ -4287,6 +4449,7 @@ const PRODUCTS = [
   {
     "id": 492344,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Fraicheur Aromatherapy Room Spray- Awakening & Revitalizing",
     "fullTitle": "Cedar and Myrrh - Fraicheur Aromatherapy Room Spray- Awakening & Revitalizing",
@@ -4294,7 +4457,7 @@ const PRODUCTS = [
     "priceNum": 47,
     "sku": "CM-RMS-CLA-0013",
     "barcodes": [
-      "",
+      "CM-RMS-CLA-0013",
       "492344"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -4302,8 +4465,27 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/200064b9-b261-4e28-bbaf-c3632142620f.png"
   },
   {
+    "id": 562444,
+    "department": "Cafe & Nourishment",
+    "subgroup": "Fresh Baked Goods & Artisan Cookies",
+    "brand": "The Practice Cafe",
+    "name": "Fudgy Chocolate Brownie",
+    "fullTitle": "The Practice Cafe - Fudgy Chocolate Brownie",
+    "price": "$4.00",
+    "priceNum": 4,
+    "sku": "",
+    "barcodes": [
+      "",
+      "562444"
+    ],
+    "pitch": "A rich and fudgy classic chocolate brownie made with premium cocoa and butter. Perfectly dense with a crackly top and touch of flaky sea salt.\n\nIngredients: Flour, eggs, chocolate, butter, cocoa powder.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/562444/edit",
+    "img": "https://images.momence.com/h/200431/product-image/0f475c46-af8c-45ca-9175-e0987b948b58.png"
+  },
+  {
     "id": 492300,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Holders & Sacred Burners",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - Brass Wave Incense Holder",
     "fullTitle": "Gentle Habits - Gentle Habits - Brass Wave Incense Holder",
@@ -4311,7 +4493,7 @@ const PRODUCTS = [
     "priceNum": 57.99,
     "sku": "GH-HLD-BRS-0027",
     "barcodes": [
-      "",
+      "GH-HLD-BRS-0027",
       "492300"
     ],
     "pitch": "The Brass Wave incense holder combines modern design with a timeless material, perfect for enhancing any space with our This is Incense sticks. Crafted from high-quality brass, the holder features a smooth, wave-like form that gracefully cradles your favourite incense sticks, ensuring they burn evenly and safely. Ideal for creating a calming atmosphere, this incense holder is both a functional piece and a striking accent for your home. Designed in Australia for conscious daily rituals and mindful pauses.",
@@ -4321,6 +4503,7 @@ const PRODUCTS = [
   {
     "id": 492299,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Holders & Sacred Burners",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - Glass Marble Holder - Brown",
     "fullTitle": "Gentle Habits - Gentle Habits - Glass Marble Holder - Brown",
@@ -4328,7 +4511,7 @@ const PRODUCTS = [
     "priceNum": 108,
     "sku": "GH-HLD-MAR-0026",
     "barcodes": [
-      "",
+      "GH-HLD-MAR-0026",
       "492299"
     ],
     "pitch": "Embrace the tranquility of your own space with our Glass Marble Holder. As part of Gentle Habits' unique collection, this incense holder is designed to complement your daily rituals. Not only does it hold your incense, but it also adds a touch of elegance to your home decor. Like all Gentle Habits products, this holder prompts you to become present and grounded, transforming everyday moments into captivating experiences. Make your home a sanctuary for well-being and mental health with our Glass Marble Holder. Designed in Australia for conscious daily rituals and mindful pauses.",
@@ -4338,6 +4521,7 @@ const PRODUCTS = [
   {
     "id": 492309,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Holders & Sacred Burners",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - Glass Vessel Incense Holder - Amber",
     "fullTitle": "Gentle Habits - Gentle Habits - Glass Vessel Incense Holder - Amber",
@@ -4345,7 +4529,7 @@ const PRODUCTS = [
     "priceNum": 50,
     "sku": "GH-HLD-GLS-0036",
     "barcodes": [
-      "",
+      "GH-HLD-GLS-0036",
       "492309"
     ],
     "pitch": "These vessel glass holders are specially made to fit our incense sticks and have a join in the base to ensure incense doesn't get stuck within the vessel.. Designed in Australia for conscious daily rituals and mindful pauses.",
@@ -4355,6 +4539,7 @@ const PRODUCTS = [
   {
     "id": 492313,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - Incense Platter",
     "fullTitle": "Gentle Habits - Gentle Habits - Incense Platter",
@@ -4362,7 +4547,7 @@ const PRODUCTS = [
     "priceNum": 79.99,
     "sku": "GH-PLT-INC-0040",
     "barcodes": [
-      "",
+      "GH-PLT-INC-0040",
       "492313"
     ],
     "pitch": "A place for the ritual, and everything that comes with it. Our Incense Platter is designed to hold the small, meaningful pieces of your daily unwind - from burning incense to keeping jewellery, crystals, or evening essentials close by. Thoughtfully divided into soft, organic compartments, it invites a slower pace into your space, Each piece is crafted with a subtle, unique hand made finish making every platter uniquely its own. The built-in incense holder keeps your ritual contained, while the segmented design brings both function and calm to your bedside, coffee table, or bathroom. You can also use it for a food platter. Use it to burn, to store, or simply to create a moment. Multi-use incense holder + organiser Built-in incense hole Use as a food platter Sectioned design for jewellery, crystals, or small objects Designed for slow, everyday rituals A simple object that turns daily habits into something more intentional. Designed in Australia for conscious daily rituals and mindful pauses.",
@@ -4372,6 +4557,7 @@ const PRODUCTS = [
   {
     "id": 492302,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - Positive Outcomes Journal - OLIVE",
     "fullTitle": "Gentle Habits - Gentle Habits - Positive Outcomes Journal - OLIVE",
@@ -4379,7 +4565,7 @@ const PRODUCTS = [
     "priceNum": 39.99,
     "sku": "GH-JOU-POS-OLV-0029",
     "barcodes": [
-      "",
+      "GH-JOU-POS-OLV-0029",
       "492302"
     ],
     "pitch": "Australian ritual and sensory design piece created to inspire calm pauses, mindful moments, and grounding presence throughout the day.",
@@ -4389,6 +4575,7 @@ const PRODUCTS = [
   {
     "id": 492301,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - Positive Outcomes Journal -original",
     "fullTitle": "Gentle Habits - Gentle Habits - Positive Outcomes Journal -original",
@@ -4396,7 +4583,7 @@ const PRODUCTS = [
     "priceNum": 39.99,
     "sku": "GH-JOU-POS-0028",
     "barcodes": [
-      "",
+      "GH-JOU-POS-0028",
       "492301"
     ],
     "pitch": "Australian ritual and sensory design piece created to inspire calm pauses, mindful moments, and grounding presence throughout the day.",
@@ -4406,6 +4593,7 @@ const PRODUCTS = [
   {
     "id": 492303,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - Positive Outcomes Journal - PEACH",
     "fullTitle": "Gentle Habits - Gentle Habits - Positive Outcomes Journal - PEACH",
@@ -4413,7 +4601,7 @@ const PRODUCTS = [
     "priceNum": 39.99,
     "sku": "GH-JOU-POS-PCH-0030",
     "barcodes": [
-      "",
+      "GH-JOU-POS-PCH-0030",
       "492303"
     ],
     "pitch": "Australian ritual and sensory design piece created to inspire calm pauses, mindful moments, and grounding presence throughout the day.",
@@ -4423,6 +4611,7 @@ const PRODUCTS = [
   {
     "id": 492307,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Holders & Sacred Burners",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - The Collector Ceramic Holder - Brown Speckle",
     "fullTitle": "Gentle Habits - Gentle Habits - The Collector Ceramic Holder - Brown Speckle",
@@ -4430,7 +4619,7 @@ const PRODUCTS = [
     "priceNum": 52,
     "sku": "GH-HLD-COL-0034",
     "barcodes": [
-      "",
+      "GH-HLD-COL-0034",
       "492307"
     ],
     "pitch": "Ceramic Collector Holder Elevate your rituals with our beautiful Ceramic Collector Holder the perfect holder for our This Is Incense sticks. Each holder is made from natural ceramic and finished with a soft matte glaze, offering a minimal yet grounding presence in any space. Features: Hand-crafted ceramic with natural variations in finish Designed to hold This Is Incense sticks Heat-safe and easy to clean Available in 3 variations of earthy tones inspired by the Australian landscape. Designed in Australia for conscious daily rituals and mindful pauses.",
@@ -4440,6 +4629,7 @@ const PRODUCTS = [
   {
     "id": 492308,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Holders & Sacred Burners",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - The Vessel Incense Holder - Cream",
     "fullTitle": "Gentle Habits - Gentle Habits - The Vessel Incense Holder - Cream",
@@ -4447,7 +4637,7 @@ const PRODUCTS = [
     "priceNum": 89.99,
     "sku": "GH-HLD-VES-0035",
     "barcodes": [
-      "",
+      "GH-HLD-VES-0035",
       "492308"
     ],
     "pitch": "Inspired by calm, this rounded ceramic incense holder brings a meditative touch to your daily rituals with its smooth, circular form and gentle ridged surface. Finished in a soft matte white glaze, it pairs beautifully with any interior style, from modern minimal to earthy organic. The central opening holds standard incense sticks upright, allowing ash to catch neatly into its wide basin. Material: Hand-formed ceramic with matte white glaze Dimensions: 10 cm (W) x 4.5 cm (H) - our largest incense holder. Fits: Our This is Incense 2.1mm and new Second Wave 3mm incense sticks Care: Wipe clean between with a damp cloth A grounding addition to your spacedesigned to elevate the everyday. Designed in Australia for conscious daily rituals and mindful pauses.",
@@ -4457,6 +4647,7 @@ const PRODUCTS = [
   {
     "id": 492304,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - This Is Incense - BONDI BEACH",
     "fullTitle": "Gentle Habits - Gentle Habits - This Is Incense - BONDI BEACH",
@@ -4464,7 +4655,7 @@ const PRODUCTS = [
     "priceNum": 52,
     "sku": "GH-INC-BON-0031",
     "barcodes": [
-      "",
+      "GH-INC-BON-0031",
       "492304"
     ],
     "pitch": "Bondi, originally \"Boondi\" is an Aboriginal word which has the same meaning as the word \"surf\". Noise made by sea waves breaking on the beach. As you might have guessed, this scent has a strong ocean influence. Our Bondi Beach incense is delicate with unexpected with top notes of Grapefruit, middle sweet notes of Cardamom and grounded with Cedarwood. This is Incense is made with Australian Blended Essential oils. Use these incense sticks to relax while we take you to the beaches of Bondi; you can smell the salt in the air. Designed in Australia for conscious daily rituals and mindful pauses.",
@@ -4474,6 +4665,7 @@ const PRODUCTS = [
   {
     "id": 492310,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - This Is Incense - BYRON BAY",
     "fullTitle": "Gentle Habits - Gentle Habits - This Is Incense - BYRON BAY",
@@ -4481,7 +4673,7 @@ const PRODUCTS = [
     "priceNum": 50,
     "sku": "GH-INC-BYR-0037",
     "barcodes": [
-      "",
+      "GH-INC-BYR-0037",
       "492310"
     ],
     "pitch": "Sultry Summer Nights Looking for and endless summer holiday? Indulge your senses with our Byron Bay incense, a very delicate and sexy burner that evokes hints of earthy cedarwood combined with fresh citrus notes. The Byron Bay incense sticks also feature essential oils like White Cypress & Rosalina, native to the Byron area. This is our best selling box!. Designed in Australia for conscious daily rituals and mindful pauses.",
@@ -4491,6 +4683,7 @@ const PRODUCTS = [
   {
     "id": 492306,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - This Is Incense - IMMERSION",
     "fullTitle": "Gentle Habits - Gentle Habits - This Is Incense - IMMERSION",
@@ -4498,7 +4691,7 @@ const PRODUCTS = [
     "priceNum": 52,
     "sku": "GH-INC-IMM-0033",
     "barcodes": [
-      "",
+      "GH-INC-IMM-0033",
       "492306"
     ],
     "pitch": "A crisp, citrus scent with a deepwoody smokiness. Each stick is a moment for total presence. We go on holidays to relax, we book retreats to escape, we unplug to plug in to recorded meditations, wellness books and podcasts. We block out our day to day to feel a sense of connection and to find quiet. But shouldnt it really be about finding stillness in our every day life? Finding quiet to be able to hear. Looking less to notice more. An ode to yourself, to be here, in the now. Wherever that is. Top notes of sweetness with Orange. Middle notes of Gurjun Balsam (tree from Indonesia) smokiness with a subtly sweet, lightly woody scent. Bottom notes Amber and Cedarwood. Listen to our Immersion playlist while you burn. Designed in Australia for conscious daily rituals and mindful pauses.",
@@ -4508,6 +4701,7 @@ const PRODUCTS = [
   {
     "id": 492305,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - This is Incense - MARGARET RIVER",
     "fullTitle": "Gentle Habits - Gentle Habits - This is Incense - MARGARET RIVER",
@@ -4515,7 +4709,7 @@ const PRODUCTS = [
     "priceNum": 52,
     "sku": "GH-INC-MRG-0032",
     "barcodes": [
-      "",
+      "GH-INC-MRG-0032",
       "492305"
     ],
     "pitch": "Margies is the scent of the forest, the earth and a hint of sweet sea spray. Deep, fresh and smooth. Margaret River incense will remind you of that feeling of being free. Free in wide open spaces and the wind in your hair. Where the squeaky white sand dissects crystal blue water and rugged red rock in the south west of WA. Sandalwood oil is the main overnote, it collides beautifully with mandarin and fragonia oil making this an emotive and woody sensory experience. Perfect if you are looking to escape. This is Incense is made with Australian Blended Essential oils, which will entice you to burn a stick the moment you open the box. Designed in Australia for conscious daily rituals and mindful pauses.",
@@ -4525,6 +4719,7 @@ const PRODUCTS = [
   {
     "id": 492311,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - This Is Incense - NOOSA",
     "fullTitle": "Gentle Habits - Gentle Habits - This Is Incense - NOOSA",
@@ -4532,7 +4727,7 @@ const PRODUCTS = [
     "priceNum": 50,
     "sku": "GH-INC-NOO-0038",
     "barcodes": [
-      "",
+      "GH-INC-NOO-0038",
       "492311"
     ],
     "pitch": "All the Summer Feels. If you love Byron Bay, you will love Noosa! Delicate and woody with a hint of sweetness. This warming scent will take you to the beachside. This is Incense is made with Australian Blended Essential oils and are phthalate free. Designed in Australia for conscious daily rituals and mindful pauses.",
@@ -4542,6 +4737,7 @@ const PRODUCTS = [
   {
     "id": 492312,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Gentle Habits",
     "name": "Gentle Habits - This Is Incense - TASMANIA",
     "fullTitle": "Gentle Habits - Gentle Habits - This Is Incense - TASMANIA",
@@ -4549,7 +4745,7 @@ const PRODUCTS = [
     "priceNum": 50,
     "sku": "GH-INC-TAS-0039",
     "barcodes": [
-      "",
+      "GH-INC-TAS-0039",
       "492312"
     ],
     "pitch": "Dark and Stormy Sultry with a strong masculine tone of leather and Frankincense. This scent will take you to the roaring coast in Tasmania with a whisky in hand. If you are a fan of Bells Beach, then this is the scent for you. This is Incense is made with Australian Blended Essential oils, which will captivate you to grab an incense stick to burn the moment you open the box... let its sultry masculine aroma glide out. Designed in Australia for conscious daily rituals and mindful pauses.",
@@ -4559,6 +4755,7 @@ const PRODUCTS = [
   {
     "id": 567182,
     "department": "Cafe & Nourishment",
+    "subgroup": "Kombucha & Fermented Refreshments",
     "brand": "The Practice",
     "name": "Ginger Peach - Cathy’s Kombucha (C)",
     "fullTitle": "The Practice - Ginger Peach - Cathy’s Kombucha (C)",
@@ -4571,11 +4768,12 @@ const PRODUCTS = [
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/567182/edit",
-    "img": "https://images.momence.com/h/200431/product-image/6997350a-5f55-4f90-937d-b373e869ad43.jpg"
+    "img": "assets/cafe/kombucha_ginger_peach.jpg"
   },
   {
     "id": 567140,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "The Practice",
     "name": "GLOW - Wisely Chocolate",
     "fullTitle": "The Practice - GLOW - Wisely Chocolate",
@@ -4591,8 +4789,27 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/f2277731-95cf-4ecd-8187-4cee9e26b506.jpg"
   },
   {
+    "id": 562441,
+    "department": "Cafe & Nourishment",
+    "subgroup": "Fresh Baked Goods & Artisan Cookies",
+    "brand": "The Practice Cafe",
+    "name": "Gluten-Free Chocolate Cookie",
+    "fullTitle": "The Practice Cafe - Gluten-Free Chocolate Cookie",
+    "price": "$5.50",
+    "priceNum": 5.5,
+    "sku": "",
+    "barcodes": [
+      "",
+      "562441"
+    ],
+    "pitch": "A decadent, rich chocolate cookie made with a special 1-to-1 gluten-free flour blend. Packed with generous dark chocolate chunks for a deeply satisfying flavor and fudgy center.\n\nIngredients: 1-1 gluten-free flour, butter, eggs, sugar, dark chocolate chunks.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/562441/edit",
+    "img": "https://images.momence.com/h/200431/product-image/c6159564-d837-4452-8ddc-82cdd2645c7a.png"
+  },
+  {
     "id": 545874,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Teas & Craft Chocolates",
     "brand": "The Practice Cafe",
     "name": "Green Tea Reg or Lg (C)",
     "fullTitle": "The Practice Cafe - Green Tea Reg or Lg (C)",
@@ -4605,11 +4822,12 @@ const PRODUCTS = [
     ],
     "pitch": "A classic, soothing brew of premium green tea leaves, offering a clean, refreshing taste rich in antioxidants",
     "momenceUrl": "https://momence.com/dashboard/200431/products/545874/edit",
-    "img": "https://images.momence.com/h/200431/product-image/cb8197b7-f4f6-4153-be92-8fada49639ac.png"
+    "img": "https://images.momence.com/h/200431/product-image/ea8e0587-3154-42c6-93af-1f6457bf5b42.jpg"
   },
   {
     "id": 563936,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "The Practice",
     "name": "Grey Floral Wall Art - Lightest Turquoise Box",
     "fullTitle": "The Practice - Grey Floral Wall Art - Lightest Turquoise Box",
@@ -4627,6 +4845,7 @@ const PRODUCTS = [
   {
     "id": 492451,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Handker Bandanas",
     "name": "Handker - No. 012 Eliza Bandana",
     "fullTitle": "Handker Bandanas - Handker - No. 012 Eliza Bandana",
@@ -4634,7 +4853,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HB-ORA-ELI-0007",
     "barcodes": [
-      "",
+      "HB-ORA-ELI-0007",
       "492451"
     ],
     "pitch": "Bespoke screen-printed bandana woven from 100% soft natural cotton featuring custom hand-drawn illustrations. Beautiful as neckwear, hair accent, or wall art.",
@@ -4644,6 +4863,7 @@ const PRODUCTS = [
   {
     "id": 492452,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Handker Bandanas",
     "name": "Handker - No. 056 Betty Bandana",
     "fullTitle": "Handker Bandanas - Handker - No. 056 Betty Bandana",
@@ -4651,7 +4871,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HB-ORA-BET-0008",
     "barcodes": [
-      "",
+      "HB-ORA-BET-0008",
       "492452"
     ],
     "pitch": "Bespoke screen-printed bandana woven from 100% soft natural cotton featuring custom hand-drawn illustrations. Beautiful as neckwear, hair accent, or wall art.",
@@ -4661,6 +4881,7 @@ const PRODUCTS = [
   {
     "id": 492445,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Handker Bandanas",
     "name": "Handker - No. 068 Desert",
     "fullTitle": "Handker Bandanas - Handker - No. 068 Desert",
@@ -4668,7 +4889,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HB-ORA-DES-0001",
     "barcodes": [
-      "",
+      "HB-ORA-DES-0001",
       "492445"
     ],
     "pitch": "Bespoke screen-printed bandana woven from 100% soft natural cotton featuring custom hand-drawn illustrations. Beautiful as neckwear, hair accent, or wall art.",
@@ -4678,6 +4899,7 @@ const PRODUCTS = [
   {
     "id": 492446,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Handker Bandanas",
     "name": "Handker - No. 081 Martha Bandana",
     "fullTitle": "Handker Bandanas - Handker - No. 081 Martha Bandana",
@@ -4685,7 +4907,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HB-ORA-MAR-0002",
     "barcodes": [
-      "",
+      "HB-ORA-MAR-0002",
       "492446"
     ],
     "pitch": "Bespoke screen-printed bandana woven from 100% soft natural cotton featuring custom hand-drawn illustrations. Beautiful as neckwear, hair accent, or wall art.",
@@ -4695,6 +4917,7 @@ const PRODUCTS = [
   {
     "id": 492453,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Handker Bandanas",
     "name": "Handker - No. 103 Dandy Bandana",
     "fullTitle": "Handker Bandanas - Handker - No. 103 Dandy Bandana",
@@ -4702,7 +4925,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HB-ORA-DAN-0009",
     "barcodes": [
-      "",
+      "HB-ORA-DAN-0009",
       "492453"
     ],
     "pitch": "Bespoke screen-printed bandana woven from 100% soft natural cotton featuring custom hand-drawn illustrations. Beautiful as neckwear, hair accent, or wall art.",
@@ -4712,6 +4935,7 @@ const PRODUCTS = [
   {
     "id": 492447,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Handker Bandanas",
     "name": "Handker - No. 111 Winnie Bandana",
     "fullTitle": "Handker Bandanas - Handker - No. 111 Winnie Bandana",
@@ -4719,7 +4943,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HB-ORA-WIN-0003",
     "barcodes": [
-      "",
+      "HB-ORA-WIN-0003",
       "492447"
     ],
     "pitch": "Bespoke screen-printed bandana woven from 100% soft natural cotton featuring custom hand-drawn illustrations. Beautiful as neckwear, hair accent, or wall art.",
@@ -4729,6 +4953,7 @@ const PRODUCTS = [
   {
     "id": 492448,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Handker Bandanas",
     "name": "Handker - No. 133 Ingrid Bandana",
     "fullTitle": "Handker Bandanas - Handker - No. 133 Ingrid Bandana",
@@ -4736,7 +4961,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HB-ORA-ING-0004",
     "barcodes": [
-      "",
+      "HB-ORA-ING-0004",
       "492448"
     ],
     "pitch": "Bespoke screen-printed bandana woven from 100% soft natural cotton featuring custom hand-drawn illustrations. Beautiful as neckwear, hair accent, or wall art.",
@@ -4746,6 +4971,7 @@ const PRODUCTS = [
   {
     "id": 492454,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Handker Bandanas",
     "name": "Handker - No. 134 Violet Bandana",
     "fullTitle": "Handker Bandanas - Handker - No. 134 Violet Bandana",
@@ -4753,7 +4979,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HB-ORA-VIO-0010",
     "barcodes": [
-      "",
+      "HB-ORA-VIO-0010",
       "492454"
     ],
     "pitch": "Bespoke screen-printed bandana woven from 100% soft natural cotton featuring custom hand-drawn illustrations. Beautiful as neckwear, hair accent, or wall art.",
@@ -4763,6 +4989,7 @@ const PRODUCTS = [
   {
     "id": 492449,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Handker Bandanas",
     "name": "Handker - No. 500 Sylvia Bandana",
     "fullTitle": "Handker Bandanas - Handker - No. 500 Sylvia Bandana",
@@ -4770,7 +4997,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HB-ORA-SYL-0005",
     "barcodes": [
-      "",
+      "HB-ORA-SYL-0005",
       "492449"
     ],
     "pitch": "Bespoke screen-printed bandana woven from 100% soft natural cotton featuring custom hand-drawn illustrations. Beautiful as neckwear, hair accent, or wall art.",
@@ -4780,6 +5007,7 @@ const PRODUCTS = [
   {
     "id": 492450,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Hand-Woven Textiles & Bandanas",
     "brand": "Handker Bandanas",
     "name": "Handker - No. 501 Carly Bandana",
     "fullTitle": "Handker Bandanas - Handker - No. 501 Carly Bandana",
@@ -4787,7 +5015,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HB-ORA-CAR-0006",
     "barcodes": [
-      "",
+      "HB-ORA-CAR-0006",
       "492450"
     ],
     "pitch": "Bespoke screen-printed bandana woven from 100% soft natural cotton featuring custom hand-drawn illustrations. Beautiful as neckwear, hair accent, or wall art.",
@@ -4797,6 +5025,7 @@ const PRODUCTS = [
   {
     "id": 513584,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
     "name": "Hazelnut Syrup",
     "fullTitle": "The Practice Cafe - Hazelnut Syrup",
@@ -4809,11 +5038,12 @@ const PRODUCTS = [
     ],
     "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513584/edit",
-    "img": "https://images.momence.com/h/200431/product-image/fa44e362-c8dc-4eb6-b6d0-a5e99ec563d3.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/2678fac8-1dc1-49bf-af63-0d5793680c6e.jpg"
   },
   {
     "id": 545876,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Teas & Craft Chocolates",
     "brand": "The Practice Cafe",
     "name": "Herbal Infusion (Rooibos/Chamomile)",
     "fullTitle": "The Practice Cafe - Herbal Infusion (Rooibos/Chamomile)",
@@ -4826,11 +5056,12 @@ const PRODUCTS = [
     ],
     "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/545876/edit",
-    "img": "https://images.momence.com/h/200431/product-image/4be2ab2e-7417-4b69-b705-8c3632bab7d0.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/907bfe6d-ae8a-4377-9391-003aa33d6c4d.jpg"
   },
   {
     "id": 556999,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Teas & Craft Chocolates",
     "brand": "The Practice Cafe",
     "name": "Herbal Tea - Large (C)",
     "fullTitle": "The Practice Cafe - Herbal Tea - Large (C)",
@@ -4843,11 +5074,12 @@ const PRODUCTS = [
     ],
     "pitch": "A naturally caffeine-free infusion of premium botanicals, offering a comforting, aromatic experience to soothe and refresh",
     "momenceUrl": "https://momence.com/dashboard/200431/products/556999/edit",
-    "img": "https://images.momence.com/h/200431/product-image/b2d43d10-d462-4e76-89d8-f4aa7f4edb4f.png"
+    "img": "https://images.momence.com/h/200431/product-image/f5c249d3-c48c-4573-8ccc-693766e9964a.jpg"
   },
   {
     "id": 492516,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Homebound Tarot",
     "name": "Homebound Tarot - Abundance- Manifestation Kit",
     "fullTitle": "Homebound Tarot - Homebound Tarot - Abundance- Manifestation Kit",
@@ -4855,16 +5087,17 @@ const PRODUCTS = [
     "priceNum": 44.99,
     "sku": "HT-KIT-ABN-0001",
     "barcodes": [
-      "",
+      "HT-KIT-ABN-0001",
       "492516"
     ],
     "pitch": "Curated manifestation kit featuring high-vibrational raw crystals, California white sage smudge wand, and step-by-step ritual intention guide.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492516/edit",
-    "img": "https://images.momence.com/h/200431/product-image/d8979a18-7953-4b23-a02a-15ce96722220.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/208c023c-2349-487d-b365-5af029d46bb5.jpg"
   },
   {
     "id": 492517,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Homebound Tarot",
     "name": "Homebound Tarot - New Beginnings- Manifestation Kit",
     "fullTitle": "Homebound Tarot - Homebound Tarot - New Beginnings- Manifestation Kit",
@@ -4872,7 +5105,7 @@ const PRODUCTS = [
     "priceNum": 44.99,
     "sku": "HT-KIT-NEW-0002",
     "barcodes": [
-      "",
+      "HT-KIT-NEW-0002",
       "492517"
     ],
     "pitch": "Curated manifestation kit featuring high-vibrational raw crystals, California white sage smudge wand, and step-by-step ritual intention guide.",
@@ -4882,6 +5115,7 @@ const PRODUCTS = [
   {
     "id": 492518,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Homebound Tarot",
     "name": "Homebound Tarot - Self Discovery- Manifestation Kit",
     "fullTitle": "Homebound Tarot - Homebound Tarot - Self Discovery- Manifestation Kit",
@@ -4889,16 +5123,17 @@ const PRODUCTS = [
     "priceNum": 44.99,
     "sku": "HT-KIT-SEL-0003",
     "barcodes": [
-      "",
+      "HT-KIT-SEL-0003",
       "492518"
     ],
     "pitch": "Curated manifestation kit featuring high-vibrational raw crystals, California white sage smudge wand, and step-by-step ritual intention guide.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492518/edit",
-    "img": "https://images.momence.com/h/200431/product-image/e28e2835-55a4-4f3f-bfbb-6db7b1cb502c.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/ba0657ce-8226-49ec-a28e-6029c16fe9a5.jpg"
   },
   {
     "id": 492519,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Homebound Tarot",
     "name": "Homebound Tarot - Tarot Reading to-go",
     "fullTitle": "Homebound Tarot - Homebound Tarot - Tarot Reading to-go",
@@ -4906,7 +5141,7 @@ const PRODUCTS = [
     "priceNum": 12.99,
     "sku": "HT-TAR-REA-0004",
     "barcodes": [
-      "",
+      "HT-TAR-REA-0004",
       "492519"
     ],
     "pitch": "Curated manifestation kit featuring high-vibrational raw crystals, California white sage smudge wand, and step-by-step ritual intention guide.",
@@ -4916,6 +5151,7 @@ const PRODUCTS = [
   {
     "id": 492484,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Homecoming",
     "name": "Homecoming - Amber + Bitter Orange Home Mist",
     "fullTitle": "Homecoming - Homecoming - Amber + Bitter Orange Home Mist",
@@ -4923,16 +5159,17 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HC-MIS-AMB-0008",
     "barcodes": [
-      "",
+      "HC-MIS-AMB-0008",
       "492484"
     ],
     "pitch": "All-natural botanical room and linen mist crafted with pure essential oils and witch hazel. Instantly refreshes any room or yoga space.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492484/edit",
-    "img": "https://images.momence.com/h/200431/product-image/0de9eb17-feb0-4c79-afad-d318559e67b4.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/4b5f98f0-8913-4029-8dc9-54ad8374f754.jpg"
   },
   {
     "id": 492478,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Homecoming",
     "name": "Homecoming - Balsam Fir Neroli Incense",
     "fullTitle": "Homecoming - Homecoming - Balsam Fir Neroli Incense",
@@ -4940,16 +5177,17 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HC-INC-BAL-0002",
     "barcodes": [
-      "",
+      "HC-INC-BAL-0002",
       "492478"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492478/edit",
-    "img": "https://images.momence.com/h/200431/product-image/e3caaa96-47c4-45c9-b24e-1a751a3b8cf0.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/e347ebf4-7ac9-49e7-981d-50ee3d4c290d.jpg"
   },
   {
     "id": 492493,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Homecoming",
     "name": "Homecoming - Balsam Fir Neroli Soy Wax Candle",
     "fullTitle": "Homecoming - Homecoming - Balsam Fir Neroli Soy Wax Candle",
@@ -4957,16 +5195,17 @@ const PRODUCTS = [
     "priceNum": 64.99,
     "sku": "HC-CAN-BAL-0017",
     "barcodes": [
-      "",
+      "HC-CAN-BAL-0017",
       "492493"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492493/edit",
-    "img": "https://images.momence.com/h/200431/product-image/0245ebe6-ba0e-47e5-b80a-384bb1326adb.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/a336785e-6756-4ce2-9717-e6c4af23bcdc.jpg"
   },
   {
     "id": 492497,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Homecoming",
     "name": "Homecoming - Candle Snuffer",
     "fullTitle": "Homecoming - Homecoming - Candle Snuffer",
@@ -4974,16 +5213,17 @@ const PRODUCTS = [
     "priceNum": 29.99,
     "sku": "HC-ACC-SNU-0021",
     "barcodes": [
-      "",
+      "HC-ACC-SNU-0021",
       "492497"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492497/edit",
-    "img": "https://images.momence.com/h/200431/product-image/900f517e-8c02-4f66-83a2-cc8b702f00e9.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/54594c01-6021-4b16-bdd1-2db3bdd8db56.jpg"
   },
   {
     "id": 492486,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Homecoming",
     "name": "Homecoming - Cedarwood + Pine Home Mist",
     "fullTitle": "Homecoming - Homecoming - Cedarwood + Pine Home Mist",
@@ -4991,16 +5231,17 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HC-MIS-CEA-0010",
     "barcodes": [
-      "",
+      "HC-MIS-CEA-0010",
       "492486"
     ],
     "pitch": "All-natural botanical room and linen mist crafted with pure essential oils and witch hazel. Instantly refreshes any room or yoga space.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492486/edit",
-    "img": "https://images.momence.com/h/200431/product-image/33285e94-0fb3-437d-ae50-fd4aa0fdd1e0.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/c6e6e6b8-49c8-4f15-ae00-afaa6e7f2648.jpg"
   },
   {
     "id": 492488,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Homecoming",
     "name": "Homecoming - Coconut Milk + Santal Home Mist",
     "fullTitle": "Homecoming - Homecoming - Coconut Milk + Santal Home Mist",
@@ -5008,16 +5249,17 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HC-MIS-COC-0012",
     "barcodes": [
-      "",
+      "HC-MIS-COC-0012",
       "492488"
     ],
     "pitch": "All-natural botanical room and linen mist crafted with pure essential oils and witch hazel. Instantly refreshes any room or yoga space.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492488/edit",
-    "img": "https://images.momence.com/h/200431/product-image/d16584c4-984c-4b77-8709-4e5ac2504e55.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/28df880b-3bd7-41d6-a180-b9f6f5453daf.jpg"
   },
   {
     "id": 492477,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Homecoming",
     "name": "Homecoming - Ginger Flower Saffron Incense",
     "fullTitle": "Homecoming - Homecoming - Ginger Flower Saffron Incense",
@@ -5025,16 +5267,17 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HC-INC-GIN-0001",
     "barcodes": [
-      "",
+      "HC-INC-GIN-0001",
       "492477"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492477/edit",
-    "img": "https://images.momence.com/h/200431/product-image/4ea6336a-945c-4743-9a04-1e54e30af2bc.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/722956af-0d69-43fc-9314-7130c272eb16.jpg"
   },
   {
     "id": 492492,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Homecoming",
     "name": "Homecoming - Ginger Flower Saffron Soy Wax Candle",
     "fullTitle": "Homecoming - Homecoming - Ginger Flower Saffron Soy Wax Candle",
@@ -5042,7 +5285,7 @@ const PRODUCTS = [
     "priceNum": 64.99,
     "sku": "HC-CAN-GIN-0016",
     "barcodes": [
-      "",
+      "HC-CAN-GIN-0016",
       "492492"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
@@ -5052,6 +5295,7 @@ const PRODUCTS = [
   {
     "id": 492489,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Homecoming",
     "name": "Homecoming - Lavender + Sandalwood Home Mist",
     "fullTitle": "Homecoming - Homecoming - Lavender + Sandalwood Home Mist",
@@ -5059,16 +5303,17 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HC-MIS-LAV-0013",
     "barcodes": [
-      "",
+      "HC-MIS-LAV-0013",
       "492489"
     ],
     "pitch": "All-natural botanical room and linen mist crafted with pure essential oils and witch hazel. Instantly refreshes any room or yoga space.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492489/edit",
-    "img": "https://images.momence.com/h/200431/product-image/1da8f217-1c96-4eaa-a254-bb20bfafb2d6.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/7b991894-718c-46ea-814a-362415430185.jpg"
   },
   {
     "id": 492490,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Homecoming",
     "name": "Homecoming - Lemon Rind + Honey Home Mist",
     "fullTitle": "Homecoming - Homecoming - Lemon Rind + Honey Home Mist",
@@ -5076,16 +5321,17 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HC-MIS-LEM-0014",
     "barcodes": [
-      "",
+      "HC-MIS-LEM-0014",
       "492490"
     ],
     "pitch": "All-natural botanical room and linen mist crafted with pure essential oils and witch hazel. Instantly refreshes any room or yoga space.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492490/edit",
-    "img": "https://images.momence.com/h/200431/product-image/565fdfc9-351f-40ce-b632-9ca5e4b57d7f.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/3f598724-dc15-4547-8f65-cf25b58a7cb9.jpg"
   },
   {
     "id": 492498,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Homecoming",
     "name": "Homecoming - Minimalist Brass Tray",
     "fullTitle": "Homecoming - Homecoming - Minimalist Brass Tray",
@@ -5093,7 +5339,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HC-ACC-MAT-0022",
     "barcodes": [
-      "",
+      "HC-ACC-MAT-0022",
       "492498"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
@@ -5103,6 +5349,7 @@ const PRODUCTS = [
   {
     "id": 492483,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Homecoming",
     "name": "Homecoming - Moment Candle Stick Holder",
     "fullTitle": "Homecoming - Homecoming - Moment Candle Stick Holder",
@@ -5110,16 +5357,17 @@ const PRODUCTS = [
     "priceNum": 29.99,
     "sku": "HC-ACC-MOM-0007",
     "barcodes": [
-      "",
+      "HC-ACC-MOM-0007",
       "492483"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492483/edit",
-    "img": "https://images.momence.com/h/200431/product-image/d3a1b024-88e6-40da-98ce-6acf4d84022a.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/b0f5e6fd-be00-402a-b003-34df1994d3f7.jpg"
   },
   {
     "id": 492485,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Sacred White Sage & Herbal Smudge Bundles",
     "brand": "Homecoming",
     "name": "Homecoming - Oakmoss + Sage Home Mist",
     "fullTitle": "Homecoming - Homecoming - Oakmoss + Sage Home Mist",
@@ -5127,16 +5375,17 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HC-MIS-OAK-0009",
     "barcodes": [
-      "",
+      "HC-MIS-OAK-0009",
       "492485"
     ],
     "pitch": "All-natural botanical room and linen mist crafted with pure essential oils and witch hazel. Instantly refreshes any room or yoga space.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492485/edit",
-    "img": "https://images.momence.com/h/200431/product-image/d2a0fc1f-cbc5-4ad5-a542-a88ae2fbfe07.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/42a1fdc9-cf8a-4be7-b2a5-6e2c1d832d6f.jpg"
   },
   {
     "id": 492481,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Homecoming",
     "name": "Homecoming - Oud Patchouli Resin Incense",
     "fullTitle": "Homecoming - Homecoming - Oud Patchouli Resin Incense",
@@ -5144,7 +5393,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HC-INC-OUD-0005",
     "barcodes": [
-      "",
+      "HC-INC-OUD-0005",
       "492481"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
@@ -5154,6 +5403,7 @@ const PRODUCTS = [
   {
     "id": 492496,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Homecoming",
     "name": "Homecoming - Oud Patchouli Resin Soy Wax Candle",
     "fullTitle": "Homecoming - Homecoming - Oud Patchouli Resin Soy Wax Candle",
@@ -5161,16 +5411,17 @@ const PRODUCTS = [
     "priceNum": 64.99,
     "sku": "HC-CAN-OUD-0020",
     "barcodes": [
-      "",
+      "HC-CAN-OUD-0020",
       "492496"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492496/edit",
-    "img": "https://images.momence.com/h/200431/product-image/0c640ccd-40d6-4567-93ab-383cf9076e67.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/fcc5458a-6ac3-4518-8250-0441122c964e.jpg"
   },
   {
     "id": 492487,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Homecoming",
     "name": "Homecoming - Peppermint + Eucalyptus Home Mist",
     "fullTitle": "Homecoming - Homecoming - Peppermint + Eucalyptus Home Mist",
@@ -5178,16 +5429,17 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HC-MIS-PEP-0011",
     "barcodes": [
-      "",
+      "HC-MIS-PEP-0011",
       "492487"
     ],
     "pitch": "All-natural botanical room and linen mist crafted with pure essential oils and witch hazel. Instantly refreshes any room or yoga space.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492487/edit",
-    "img": "https://images.momence.com/h/200431/product-image/5a4cb90b-1b0a-4c21-8ca1-ae4e3a5ebf0d.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/9ade1661-0b10-4a7d-b49f-8f8a54360fa3.jpg"
   },
   {
     "id": 492479,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Homecoming",
     "name": "Homecoming - Sandalwood Smoke Incense",
     "fullTitle": "Homecoming - Homecoming - Sandalwood Smoke Incense",
@@ -5195,16 +5447,17 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HC-INC-SAN-0003",
     "barcodes": [
-      "",
+      "HC-INC-SAN-0003",
       "492479"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492479/edit",
-    "img": "https://images.momence.com/h/200431/product-image/efebb682-7fac-4e46-b5ae-974e8f17ca72.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/9eedf22b-2811-497f-85e0-b08dc9dcbcb3.jpg"
   },
   {
     "id": 492495,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Homecoming",
     "name": "Homecoming - Sandalwood Smoke Soy Wax Candle",
     "fullTitle": "Homecoming - Homecoming - Sandalwood Smoke Soy Wax Candle",
@@ -5212,16 +5465,17 @@ const PRODUCTS = [
     "priceNum": 64.99,
     "sku": "HC-CAN-SAN-0019",
     "barcodes": [
-      "",
+      "HC-CAN-SAN-0019",
       "492495"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492495/edit",
-    "img": "https://images.momence.com/h/200431/product-image/cdc550d6-6fb5-4d95-8250-0611a4ff7d50.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/1fef81a0-5dd8-4efc-82f1-91bc4abac6fb.jpg"
   },
   {
     "id": 492491,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Homecoming",
     "name": "Homecoming - Sea Salt Citron Soy Wax Candle",
     "fullTitle": "Homecoming - Homecoming - Sea Salt Citron Soy Wax Candle",
@@ -5229,16 +5483,17 @@ const PRODUCTS = [
     "priceNum": 64.99,
     "sku": "HC-CAN-SEA-0015",
     "barcodes": [
-      "",
+      "HC-CAN-SEA-0015",
       "492491"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492491/edit",
-    "img": "https://images.momence.com/h/200431/product-image/3e7fbea2-c11c-4f31-ad8a-6f99a202f9dc.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/cd5e7897-9cbd-4be0-bd0a-62323cef2845.jpg"
   },
   {
     "id": 492499,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Homecoming",
     "name": "Homecoming - Strike Matchstick Holder",
     "fullTitle": "Homecoming - Homecoming - Strike Matchstick Holder",
@@ -5246,7 +5501,7 @@ const PRODUCTS = [
     "priceNum": 45.99,
     "sku": "HC-ACC-STR-0023",
     "barcodes": [
-      "",
+      "HC-ACC-STR-0023",
       "492499"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
@@ -5256,6 +5511,7 @@ const PRODUCTS = [
   {
     "id": 492480,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Homecoming",
     "name": "Homecoming - Tobacco Wild Rose Incense",
     "fullTitle": "Homecoming - Homecoming - Tobacco Wild Rose Incense",
@@ -5263,16 +5519,17 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "HC-INC-TOB-0004",
     "barcodes": [
-      "",
+      "HC-INC-TOB-0004",
       "492480"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492480/edit",
-    "img": "https://images.momence.com/h/200431/product-image/c5e1021a-59cb-4004-ba36-d0fb58500bce.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/8247085f-35e8-4e6d-8b9e-24f654ccb544.jpg"
   },
   {
     "id": 492494,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Homecoming",
     "name": "Homecoming - Tobacco Wild Rose Soy Wax Candle",
     "fullTitle": "Homecoming - Homecoming - Tobacco Wild Rose Soy Wax Candle",
@@ -5280,16 +5537,17 @@ const PRODUCTS = [
     "priceNum": 64.99,
     "sku": "HC-CAN-TOB-0018",
     "barcodes": [
-      "",
+      "HC-CAN-TOB-0018",
       "492494"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492494/edit",
-    "img": "https://images.momence.com/h/200431/product-image/ebcd1c5e-a0e6-4032-9c02-3bf99f8a62f7.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/7e92341f-3ce9-4aa6-b409-b4932f32ed6b.jpg"
   },
   {
     "id": 492482,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Homecoming",
     "name": "Homecoming - Wick Trimmer",
     "fullTitle": "Homecoming - Homecoming - Wick Trimmer",
@@ -5297,16 +5555,17 @@ const PRODUCTS = [
     "priceNum": 29.99,
     "sku": "HC-ACC-WIC-0006",
     "barcodes": [
-      "",
+      "HC-ACC-WIC-0006",
       "492482"
     ],
     "pitch": "Minimalist home design essential crafted from solid metal with a brushed satin finish. Designed to hold candles, incense, or everyday sacred treasures.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492482/edit",
-    "img": "https://images.momence.com/h/200431/product-image/45519067-9cf0-4f3e-abea-144df8038f28.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/cbf19b21-6091-4c92-b709-8bc93cdacb4f.jpg"
   },
   {
     "id": 492664,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - 111 Angel Number Necklace (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - 111 Angel Number Necklace (Yellow Gold)",
@@ -5314,7 +5573,7 @@ const PRODUCTS = [
     "priceNum": 143,
     "sku": "HM-NCK-111-YG-0025",
     "barcodes": [
-      "",
+      "HM-NCK-111-YG-0025",
       "492664"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5324,6 +5583,7 @@ const PRODUCTS = [
   {
     "id": 492655,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - 15\" Fantasy Chain (Rhodium / Silver)",
     "fullTitle": "House of Moda - House of Moda - 15\" Fantasy Chain (Rhodium / Silver)",
@@ -5331,7 +5591,7 @@ const PRODUCTS = [
     "priceNum": 230,
     "sku": "HM-CHN-FAN-RH-0016",
     "barcodes": [
-      "",
+      "HM-CHN-FAN-RH-0016",
       "492655"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 925 sterling silver / rhodium and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5341,6 +5601,7 @@ const PRODUCTS = [
   {
     "id": 492654,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - 15\" Fantasy Chain (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - 15\" Fantasy Chain (Yellow Gold)",
@@ -5348,7 +5609,7 @@ const PRODUCTS = [
     "priceNum": 230,
     "sku": "HM-CHN-FAN-YG-0015",
     "barcodes": [
-      "",
+      "HM-CHN-FAN-YG-0015",
       "492654"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5358,6 +5619,7 @@ const PRODUCTS = [
   {
     "id": 492694,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - 16\" Eterna Twist Chain (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - 16\" Eterna Twist Chain (Yellow Gold)",
@@ -5365,7 +5627,7 @@ const PRODUCTS = [
     "priceNum": 149,
     "sku": "HM-CHN-16T-0055",
     "barcodes": [
-      "",
+      "HM-CHN-16T-0055",
       "492694"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5375,6 +5637,7 @@ const PRODUCTS = [
   {
     "id": 492691,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - 16\" Long Link Chain (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - 16\" Long Link Chain (Yellow Gold)",
@@ -5382,7 +5645,7 @@ const PRODUCTS = [
     "priceNum": 199,
     "sku": "HM-SPC-HAL-LIL-0052",
     "barcodes": [
-      "",
+      "HM-SPC-HAL-LIL-0052",
       "492691"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5392,6 +5655,7 @@ const PRODUCTS = [
   {
     "id": 492693,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - 16\" Tiny Link Chain (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - 16\" Tiny Link Chain (Yellow Gold)",
@@ -5399,7 +5663,7 @@ const PRODUCTS = [
     "priceNum": 136,
     "sku": "HM-CHN-20L-0054",
     "barcodes": [
-      "",
+      "HM-CHN-20L-0054",
       "492693"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5409,6 +5673,7 @@ const PRODUCTS = [
   {
     "id": 492695,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - 18\" Eterna Twist Chain (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - 18\" Eterna Twist Chain (Yellow Gold)",
@@ -5416,7 +5681,7 @@ const PRODUCTS = [
     "priceNum": 161,
     "sku": "HM-CHN-16TWT-0056",
     "barcodes": [
-      "",
+      "HM-CHN-16TWT-0056",
       "492695"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5426,6 +5691,7 @@ const PRODUCTS = [
   {
     "id": 492692,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - 20\" Long Link Chain (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - 20\" Long Link Chain (Yellow Gold)",
@@ -5433,7 +5699,7 @@ const PRODUCTS = [
     "priceNum": 236,
     "sku": "HM-CHN-16L-0053",
     "barcodes": [
-      "",
+      "HM-CHN-16L-0053",
       "492692"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5443,6 +5709,7 @@ const PRODUCTS = [
   {
     "id": 492665,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - 222 Angel Number Necklace (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - 222 Angel Number Necklace (Yellow Gold)",
@@ -5450,7 +5717,7 @@ const PRODUCTS = [
     "priceNum": 143,
     "sku": "HM-NCK-222-YG-0026",
     "barcodes": [
-      "",
+      "HM-NCK-222-YG-0026",
       "492665"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5460,6 +5727,7 @@ const PRODUCTS = [
   {
     "id": 492666,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - 333 Angel Number Necklace (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - 333 Angel Number Necklace (Yellow Gold)",
@@ -5467,7 +5735,7 @@ const PRODUCTS = [
     "priceNum": 143,
     "sku": "HM-NCK-333-YG-0027",
     "barcodes": [
-      "",
+      "HM-NCK-333-YG-0027",
       "492666"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5477,6 +5745,7 @@ const PRODUCTS = [
   {
     "id": 492667,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - 444 Angel Number Necklace (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - 444 Angel Number Necklace (Yellow Gold)",
@@ -5484,7 +5753,7 @@ const PRODUCTS = [
     "priceNum": 143,
     "sku": "HM-NCK-444-YG-0028",
     "barcodes": [
-      "",
+      "HM-NCK-444-YG-0028",
       "492667"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5494,6 +5763,7 @@ const PRODUCTS = [
   {
     "id": 492668,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - 555 Angel Number Necklace (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - 555 Angel Number Necklace (Yellow Gold)",
@@ -5501,7 +5771,7 @@ const PRODUCTS = [
     "priceNum": 143,
     "sku": "HM-NCK-555-YG-0029",
     "barcodes": [
-      "",
+      "HM-NCK-555-YG-0029",
       "492668"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5511,6 +5781,7 @@ const PRODUCTS = [
   {
     "id": 492709,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - 6 Ring",
     "fullTitle": "House of Moda - House of Moda - 6 Ring",
@@ -5518,7 +5789,7 @@ const PRODUCTS = [
     "priceNum": 90,
     "sku": "HM-RNG-WIL-6-0071",
     "barcodes": [
-      "",
+      "HM-RNG-WIL-6-0071",
       "492709"
     ],
     "pitch": "Waterproof, 18K PVD Gold Plated Stainless Steel. Gorgeous Jewel tones, Fun Statement Piece. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -5528,6 +5799,7 @@ const PRODUCTS = [
   {
     "id": 492702,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Aurelia 6 Ring",
     "fullTitle": "House of Moda - House of Moda - Aurelia 6 Ring",
@@ -5535,7 +5807,7 @@ const PRODUCTS = [
     "priceNum": 90,
     "sku": "HM-RNG-AUR-6-0064",
     "barcodes": [
-      "",
+      "HM-RNG-AUR-6-0064",
       "492702"
     ],
     "pitch": "18K PVD Gold Plated Stainless Steel. Waterproof. Square Cut Crystal Centrepiece. Sleek, contemporary, classic. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -5545,6 +5817,7 @@ const PRODUCTS = [
   {
     "id": 492703,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Aurelia 7 Ring",
     "fullTitle": "House of Moda - House of Moda - Aurelia 7 Ring",
@@ -5552,7 +5825,7 @@ const PRODUCTS = [
     "priceNum": 90,
     "sku": "HM-RNG-AUR-7-0065",
     "barcodes": [
-      "",
+      "HM-RNG-AUR-7-0065",
       "492703"
     ],
     "pitch": "18K PVD Gold Plated Stainless Steel. Waterproof. Square Cut Crystal Centrepiece. Sleek, contemporary, classic. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -5562,6 +5835,7 @@ const PRODUCTS = [
   {
     "id": 492704,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Aurelia 8 Ring",
     "fullTitle": "House of Moda - House of Moda - Aurelia 8 Ring",
@@ -5569,7 +5843,7 @@ const PRODUCTS = [
     "priceNum": 90,
     "sku": "HM-RNG-AUR-8-0066",
     "barcodes": [
-      "",
+      "HM-RNG-AUR-8-0066",
       "492704"
     ],
     "pitch": "18K PVD Gold Plated Stainless Steel. Waterproof. Square Cut Crystal Centrepiece. Sleek, contemporary, classic. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -5579,6 +5853,7 @@ const PRODUCTS = [
   {
     "id": 492672,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Azure Moon Charm- Clear/Navy YG",
     "fullTitle": "House of Moda - House of Moda - Azure Moon Charm- Clear/Navy YG",
@@ -5586,7 +5861,7 @@ const PRODUCTS = [
     "priceNum": 99,
     "sku": "HM-CHM-AZM-YG-0033",
     "barcodes": [
-      "",
+      "HM-CHM-AZM-YG-0033",
       "492672"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5596,6 +5871,7 @@ const PRODUCTS = [
   {
     "id": 492705,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Baguette 7 Ring",
     "fullTitle": "House of Moda - House of Moda - Baguette 7 Ring",
@@ -5603,7 +5879,7 @@ const PRODUCTS = [
     "priceNum": 80,
     "sku": "HM-RNG-BAG-7-0067",
     "barcodes": [
-      "",
+      "HM-RNG-BAG-7-0067",
       "492705"
     ],
     "pitch": "18K PVD Gold Plated Stainless Steel. Waterproof. Perfect centrepiece for your ring vibe. Sculptural and striking. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -5613,6 +5889,7 @@ const PRODUCTS = [
   {
     "id": 492706,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Baguette 8 Ring",
     "fullTitle": "House of Moda - House of Moda - Baguette 8 Ring",
@@ -5620,7 +5897,7 @@ const PRODUCTS = [
     "priceNum": 80,
     "sku": "HM-RNG-BAG-8-0068",
     "barcodes": [
-      "",
+      "HM-RNG-BAG-8-0068",
       "492706"
     ],
     "pitch": "18K PVD Gold Plated Stainless Steel. Waterproof. Perfect centrepiece for your ring vibe. Sculptural and striking. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -5630,6 +5907,7 @@ const PRODUCTS = [
   {
     "id": 492687,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Baguette Spacer Charm (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Baguette Spacer Charm (Yellow Gold)",
@@ -5637,7 +5915,7 @@ const PRODUCTS = [
     "priceNum": 25,
     "sku": "HM-SPC-BAG-0048",
     "barcodes": [
-      "",
+      "HM-SPC-BAG-0048",
       "492687"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5647,6 +5925,7 @@ const PRODUCTS = [
   {
     "id": 492676,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Big Sun Charm-Champagne (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Big Sun Charm-Champagne (Yellow Gold)",
@@ -5654,7 +5933,7 @@ const PRODUCTS = [
     "priceNum": 186,
     "sku": "HM-CHM-SUN-CHM-0037",
     "barcodes": [
-      "",
+      "HM-CHM-SUN-CHM-0037",
       "492676"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5664,6 +5943,7 @@ const PRODUCTS = [
   {
     "id": 492675,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Big Sun Charm-Navy (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Big Sun Charm-Navy (Yellow Gold)",
@@ -5671,7 +5951,7 @@ const PRODUCTS = [
     "priceNum": 166,
     "sku": "HM-CHM-SUN-NVY-0036",
     "barcodes": [
-      "",
+      "HM-CHM-SUN-NVY-0036",
       "492675"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5681,6 +5961,7 @@ const PRODUCTS = [
   {
     "id": 492699,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Bold Eternity 6 Ring",
     "fullTitle": "House of Moda - House of Moda - Bold Eternity 6 Ring",
@@ -5688,7 +5969,7 @@ const PRODUCTS = [
     "priceNum": 124,
     "sku": "HM-RNG-BLD-6-0061",
     "barcodes": [
-      "",
+      "HM-RNG-BLD-6-0061",
       "492699"
     ],
     "pitch": "Waterproof, 18K PVD Gold Plated Stainless Steel. 3.5 mm cubic zirconia Stones. Eternity band symbolizes “Forever”. Great for stacking with other rings. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -5698,6 +5979,7 @@ const PRODUCTS = [
   {
     "id": 492700,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Bold Eternity 7 Ring",
     "fullTitle": "House of Moda - House of Moda - Bold Eternity 7 Ring",
@@ -5705,7 +5987,7 @@ const PRODUCTS = [
     "priceNum": 124,
     "sku": "HM-RNG-BLD-7-0062",
     "barcodes": [
-      "",
+      "HM-RNG-BLD-7-0062",
       "492700"
     ],
     "pitch": "Waterproof, 18K PVD Gold Plated Stainless Steel. 3.5 mm cubic zirconia Stones. Eternity band symbolizes “Forever”. Great for stacking with other rings. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -5715,6 +5997,7 @@ const PRODUCTS = [
   {
     "id": 492701,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Bold Eternity 8 Ring",
     "fullTitle": "House of Moda - House of Moda - Bold Eternity 8 Ring",
@@ -5722,7 +6005,7 @@ const PRODUCTS = [
     "priceNum": 124,
     "sku": "HM-RNG-BLD-8-0063",
     "barcodes": [
-      "",
+      "HM-RNG-BLD-8-0063",
       "492701"
     ],
     "pitch": "Waterproof, 18K PVD Gold Plated Stainless Steel. 3.5 mm cubic zirconia Stones. Eternity band symbolizes “Forever”. Great for stacking with other rings. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -5732,6 +6015,7 @@ const PRODUCTS = [
   {
     "id": 492657,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Caroline 7 Ring",
     "fullTitle": "House of Moda - House of Moda - Caroline 7 Ring",
@@ -5739,7 +6023,7 @@ const PRODUCTS = [
     "priceNum": 177,
     "sku": "HM-RNG-CAR-YG-0018",
     "barcodes": [
-      "",
+      "HM-RNG-CAR-YG-0018",
       "492657"
     ],
     "pitch": "925 Sterling Silver, 18K Gold Vermeil. Square & teardrop shaped ring, embellished with baguette & round style crystals. Unique & modern look. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -5749,6 +6033,7 @@ const PRODUCTS = [
   {
     "id": 492670,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Chiara Chain Bracelet-Clear RH",
     "fullTitle": "House of Moda - House of Moda - Chiara Chain Bracelet-Clear RH",
@@ -5756,7 +6041,7 @@ const PRODUCTS = [
     "priceNum": 254,
     "sku": "HM-BRC-CHI-RH-0031",
     "barcodes": [
-      "",
+      "HM-BRC-CHI-RH-0031",
       "492670"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 925 sterling silver / rhodium and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5766,6 +6051,7 @@ const PRODUCTS = [
   {
     "id": 492669,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Chiara Chain Bracelet-Clear YG",
     "fullTitle": "House of Moda - House of Moda - Chiara Chain Bracelet-Clear YG",
@@ -5773,7 +6059,7 @@ const PRODUCTS = [
     "priceNum": 254,
     "sku": "HM-BRC-CHI-YG-0030",
     "barcodes": [
-      "",
+      "HM-BRC-CHI-YG-0030",
       "492669"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5783,6 +6069,7 @@ const PRODUCTS = [
   {
     "id": 492685,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Chubby Pave Spacer Charm-Clear (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Chubby Pave Spacer Charm-Clear (Yellow Gold)",
@@ -5790,7 +6077,7 @@ const PRODUCTS = [
     "priceNum": 40,
     "sku": "HM-SPC-PNK-0046",
     "barcodes": [
-      "",
+      "HM-SPC-PNK-0046",
       "492685"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5800,6 +6087,7 @@ const PRODUCTS = [
   {
     "id": 492686,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Chubby Pave Spacer Charm-Pink (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Chubby Pave Spacer Charm-Pink (Yellow Gold)",
@@ -5807,7 +6095,7 @@ const PRODUCTS = [
     "priceNum": 40,
     "sku": "HM-SPC-BAG-0047",
     "barcodes": [
-      "",
+      "HM-SPC-BAG-0047",
       "492686"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5817,6 +6105,7 @@ const PRODUCTS = [
   {
     "id": 492651,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Coastal Nazar Bracelet",
     "fullTitle": "House of Moda - House of Moda - Coastal Nazar Bracelet",
@@ -5824,7 +6113,7 @@ const PRODUCTS = [
     "priceNum": 250,
     "sku": "HM-BRC-NZR-YG-0012",
     "barcodes": [
-      "",
+      "HM-BRC-NZR-YG-0012",
       "492651"
     ],
     "pitch": "Handcrafted, 925 Sterling Silver, 18K Gold Vermeil. Cubic Zirconia crystals. 6.5” with 2” extender for adjustable fit. Wear it solo as a protective amulet, or layer it to build your own curated ‘spiritual stack.’ Nazar Amulet, is an eye-shaped talisman designed to protect against the curse of the evil eye. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -5834,6 +6123,7 @@ const PRODUCTS = [
   {
     "id": 492653,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Duo Nazar Bracelet (Rhodium / Silver)",
     "fullTitle": "House of Moda - House of Moda - Duo Nazar Bracelet (Rhodium / Silver)",
@@ -5841,7 +6131,7 @@ const PRODUCTS = [
     "priceNum": 250,
     "sku": "HM-BRC-DNZ-RH-0014",
     "barcodes": [
-      "",
+      "HM-BRC-DNZ-RH-0014",
       "492653"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 925 sterling silver / rhodium and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5851,6 +6141,7 @@ const PRODUCTS = [
   {
     "id": 492652,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Duo Nazar Gold Bracelet",
     "fullTitle": "House of Moda - House of Moda - Duo Nazar Gold Bracelet",
@@ -5858,7 +6149,7 @@ const PRODUCTS = [
     "priceNum": 250,
     "sku": "HM-BRC-DNZ-YG-0013",
     "barcodes": [
-      "",
+      "HM-BRC-DNZ-YG-0013",
       "492652"
     ],
     "pitch": "Handcrafted, 925 Sterling Silver, 18K Gold Vermeil. Cubic Zirconia crystals. 6.5” with 2” extender for adjustable fit. Wear it solo as a protective amulet, or layer it to build your own curated ‘spiritual stack.’ Nazar Amulet, is an eye-shaped talisman designed to protect against the curse of the evil eye. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -5868,6 +6159,7 @@ const PRODUCTS = [
   {
     "id": 560764,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Duo Nazar Silver Bracelet",
     "fullTitle": "House of Moda - House of Moda - Duo Nazar Silver Bracelet",
@@ -5875,7 +6167,7 @@ const PRODUCTS = [
     "priceNum": 250,
     "sku": "HM-BRC-DNZ-YG-0013sil",
     "barcodes": [
-      "",
+      "HM-BRC-DNZ-YG-0013sil",
       "560764"
     ],
     "pitch": "Handcrafted, 925 Sterling Silver, 18K Gold Vermeil. Cubic Zirconia crystals. 6.5” with 2” extender for adjustable fit. Wear it solo as a protective amulet, or layer it to build your own curated ‘spiritual stack.’ Nazar Amulet, is an eye-shaped talisman designed to protect against the curse of the evil eye. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -5885,6 +6177,7 @@ const PRODUCTS = [
   {
     "id": 492684,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Eternity Spacer Charm-Clear (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Eternity Spacer Charm-Clear (Yellow Gold)",
@@ -5892,7 +6185,7 @@ const PRODUCTS = [
     "priceNum": 28,
     "sku": "HM-SPC-CLR-0045",
     "barcodes": [
-      "",
+      "HM-SPC-CLR-0045",
       "492684"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5902,6 +6195,7 @@ const PRODUCTS = [
   {
     "id": 492683,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Eternity Spacer Charm-Navy (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Eternity Spacer Charm-Navy (Yellow Gold)",
@@ -5909,7 +6203,7 @@ const PRODUCTS = [
     "priceNum": 28,
     "sku": "HM-SPC-NAV-0044",
     "barcodes": [
-      "",
+      "HM-SPC-NAV-0044",
       "492683"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5919,6 +6213,7 @@ const PRODUCTS = [
   {
     "id": 492671,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Ferris Wheel Charm- Light Pink YG",
     "fullTitle": "House of Moda - House of Moda - Ferris Wheel Charm- Light Pink YG",
@@ -5926,7 +6221,7 @@ const PRODUCTS = [
     "priceNum": 154,
     "sku": "HM-CHM-FRW-YG-0032",
     "barcodes": [
-      "",
+      "HM-CHM-FRW-YG-0032",
       "492671"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5936,6 +6231,7 @@ const PRODUCTS = [
   {
     "id": 492674,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Goz Charm (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Goz Charm (Yellow Gold)",
@@ -5943,7 +6239,7 @@ const PRODUCTS = [
     "priceNum": 110,
     "sku": "HM-CHM-GOZ-YG-0035",
     "barcodes": [
-      "",
+      "HM-CHM-GOZ-YG-0035",
       "492674"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5953,6 +6249,7 @@ const PRODUCTS = [
   {
     "id": 492689,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Halo Spacer Charm-Clear (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Halo Spacer Charm-Clear (Yellow Gold)",
@@ -5960,7 +6257,7 @@ const PRODUCTS = [
     "priceNum": 43,
     "sku": "HM-SPC-SOL-0050",
     "barcodes": [
-      "",
+      "HM-SPC-SOL-0050",
       "492689"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5970,6 +6267,7 @@ const PRODUCTS = [
   {
     "id": 492690,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Halo Spacer Charm-Lilac (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Halo Spacer Charm-Lilac (Yellow Gold)",
@@ -5977,7 +6275,7 @@ const PRODUCTS = [
     "priceNum": 43,
     "sku": "HM-SPC-HAL-CLR-0051",
     "barcodes": [
-      "",
+      "HM-SPC-HAL-CLR-0051",
       "492690"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -5987,6 +6285,7 @@ const PRODUCTS = [
   {
     "id": 492696,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Hero Diamond Bracelet-Clear (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Hero Diamond Bracelet-Clear (Yellow Gold)",
@@ -5994,7 +6293,7 @@ const PRODUCTS = [
     "priceNum": 78,
     "sku": "HM-BRC-HER-0058",
     "barcodes": [
-      "",
+      "HM-BRC-HER-0058",
       "492696"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6004,6 +6303,7 @@ const PRODUCTS = [
   {
     "id": 492673,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Inner Compass Charm- Clear",
     "fullTitle": "House of Moda - House of Moda - Inner Compass Charm- Clear",
@@ -6011,7 +6311,7 @@ const PRODUCTS = [
     "priceNum": 121,
     "sku": "HM-CHM-ICO-YG-0034",
     "barcodes": [
-      "",
+      "HM-CHM-ICO-YG-0034",
       "492673"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 925 sterling silver / rhodium and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6021,6 +6321,7 @@ const PRODUCTS = [
   {
     "id": 492658,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Jennifer Earrings",
     "fullTitle": "House of Moda - House of Moda - Jennifer Earrings",
@@ -6028,7 +6329,7 @@ const PRODUCTS = [
     "priceNum": 188,
     "sku": "HM-HOP-JEN-YG-0019",
     "barcodes": [
-      "",
+      "HM-HOP-JEN-YG-0019",
       "492658"
     ],
     "pitch": "Hand cut, handcrafted, & hollow. Lightweight so it's not a heavy hoop! 925 Sterling Silver, 18K Gold plated. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6038,6 +6339,7 @@ const PRODUCTS = [
   {
     "id": 492647,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Jumbo Dougie Earrings",
     "fullTitle": "House of Moda - House of Moda - Jumbo Dougie Earrings",
@@ -6045,7 +6347,7 @@ const PRODUCTS = [
     "priceNum": 100,
     "sku": "HM-HUG-DOU-RH-0008",
     "barcodes": [
-      "",
+      "HM-HUG-DOU-RH-0008",
       "492647"
     ],
     "pitch": "925 silver stamped. Beveled Edge for a modern twist. Lead and Nickel free posts. Great for second, third hole hoops. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6055,6 +6357,7 @@ const PRODUCTS = [
   {
     "id": 492642,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Justin Gold Earrings",
     "fullTitle": "House of Moda - House of Moda - Justin Gold Earrings",
@@ -6062,7 +6365,7 @@ const PRODUCTS = [
     "priceNum": 110,
     "sku": "HM-HOP-JUS-YG-0003",
     "barcodes": [
-      "",
+      "HM-HOP-JUS-YG-0003",
       "492642"
     ],
     "pitch": "18 K gold Plated. 0.5\" diameter. Hollow & Lightweight. Perfect Everyday piece. Great Layering Earring for anyone that has a double piercing. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6072,6 +6375,7 @@ const PRODUCTS = [
   {
     "id": 492643,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Justin Silver Earrings",
     "fullTitle": "House of Moda - House of Moda - Justin Silver Earrings",
@@ -6079,7 +6383,7 @@ const PRODUCTS = [
     "priceNum": 110,
     "sku": "HM-HOP-JUS-RH-0004",
     "barcodes": [
-      "",
+      "HM-HOP-JUS-RH-0004",
       "492643"
     ],
     "pitch": "925 Sterling Silver. 0.5\" diameter. Hollow & Lightweight. Perfect Everyday piece. Great Layering Earring for anyone that has a double piercing. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6089,6 +6393,7 @@ const PRODUCTS = [
   {
     "id": 492678,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Little Eye Charm-Clear/Navy (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Little Eye Charm-Clear/Navy (Yellow Gold)",
@@ -6096,7 +6401,7 @@ const PRODUCTS = [
     "priceNum": 86,
     "sku": "HM-CHM-EYE-CLR-0039",
     "barcodes": [
-      "",
+      "HM-CHM-EYE-CLR-0039",
       "492678"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6106,6 +6411,7 @@ const PRODUCTS = [
   {
     "id": 492650,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Long Link Bracelet (Rhodium / Silver)",
     "fullTitle": "House of Moda - House of Moda - Long Link Bracelet (Rhodium / Silver)",
@@ -6113,7 +6419,7 @@ const PRODUCTS = [
     "priceNum": 109.99,
     "sku": "HM-CHN-LNK-RH-0011",
     "barcodes": [
-      "",
+      "HM-CHN-LNK-RH-0011",
       "492650"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 925 sterling silver / rhodium and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6123,6 +6429,7 @@ const PRODUCTS = [
   {
     "id": 492649,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Long Link Bracelet (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Long Link Bracelet (Yellow Gold)",
@@ -6130,7 +6437,7 @@ const PRODUCTS = [
     "priceNum": 109.99,
     "sku": "HM-CHN-LNK-YG-0010",
     "barcodes": [
-      "",
+      "HM-CHN-LNK-YG-0010",
       "492649"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6140,6 +6447,7 @@ const PRODUCTS = [
   {
     "id": 492646,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Micro Dougie Earrings",
     "fullTitle": "House of Moda - House of Moda - Micro Dougie Earrings",
@@ -6147,7 +6455,7 @@ const PRODUCTS = [
     "priceNum": 85,
     "sku": "HM-HUG-DUG-RH-0007",
     "barcodes": [
-      "",
+      "HM-HUG-DUG-RH-0007",
       "492646"
     ],
     "pitch": "925 Silver stamped. Same as plain micro but with beveled edge. Lead and Nickel free posts. For sensitive skin. Click closure. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6157,6 +6465,7 @@ const PRODUCTS = [
   {
     "id": 492656,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Micro Earrings",
     "fullTitle": "House of Moda - House of Moda - Micro Earrings",
@@ -6164,7 +6473,7 @@ const PRODUCTS = [
     "priceNum": 100,
     "sku": "HM-HUG-MIC-YG-0017",
     "barcodes": [
-      "",
+      "HM-HUG-MIC-YG-0017",
       "492656"
     ],
     "pitch": "18k gold vermeil, Nickel free posts for sensitive skin, encrusted with crystals (unknown on site), click closure, perfect for gifting. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6174,6 +6483,7 @@ const PRODUCTS = [
   {
     "id": 492698,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Micro Eternity 8 Ring",
     "fullTitle": "House of Moda - House of Moda - Micro Eternity 8 Ring",
@@ -6181,7 +6491,7 @@ const PRODUCTS = [
     "priceNum": 100,
     "sku": "HM-RNG-MET-8-0060",
     "barcodes": [
-      "",
+      "HM-RNG-MET-8-0060",
       "492698"
     ],
     "pitch": "1mm CZ stones. 18K Gold PVD Stainless steel. Waterproof. Elegance & wearability. Thin and stackable. Eternity symbolizes \"forever\". Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6191,6 +6501,7 @@ const PRODUCTS = [
   {
     "id": 492679,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Mini Eye Charm-Clear (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Mini Eye Charm-Clear (Yellow Gold)",
@@ -6198,7 +6509,7 @@ const PRODUCTS = [
     "priceNum": 86,
     "sku": "HM-CHM-MIN-CLR-0040",
     "barcodes": [
-      "",
+      "HM-CHM-MIN-CLR-0040",
       "492679"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6208,6 +6519,7 @@ const PRODUCTS = [
   {
     "id": 492682,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Mini Moon Charm-Clear (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Mini Moon Charm-Clear (Yellow Gold)",
@@ -6215,7 +6527,7 @@ const PRODUCTS = [
     "priceNum": 86,
     "sku": "HM-CHM-MOON-CLR-0043",
     "barcodes": [
-      "",
+      "HM-CHM-MOON-CLR-0043",
       "492682"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6225,6 +6537,7 @@ const PRODUCTS = [
   {
     "id": 492648,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Mini Swarovski Bracelet- Clear YG",
     "fullTitle": "House of Moda - House of Moda - Mini Swarovski Bracelet- Clear YG",
@@ -6232,7 +6545,7 @@ const PRODUCTS = [
     "priceNum": 109.99,
     "sku": "HM-BRC-SWR-0009",
     "barcodes": [
-      "",
+      "HM-BRC-SWR-0009",
       "492648"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6242,6 +6555,7 @@ const PRODUCTS = [
   {
     "id": 492708,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Olivia 8 Ring",
     "fullTitle": "House of Moda - House of Moda - Olivia 8 Ring",
@@ -6249,7 +6563,7 @@ const PRODUCTS = [
     "priceNum": 90,
     "sku": "HM-RNG-OLV-8-0070",
     "barcodes": [
-      "",
+      "HM-RNG-OLV-8-0070",
       "492708"
     ],
     "pitch": "18K PVD Gold Plated Stainless Steel. Waterproof. Modern Take on Vintage style. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6259,6 +6573,7 @@ const PRODUCTS = [
   {
     "id": 492644,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Plain micro gold Earrings",
     "fullTitle": "House of Moda - House of Moda - Plain micro gold Earrings",
@@ -6266,7 +6581,7 @@ const PRODUCTS = [
     "priceNum": 85,
     "sku": "HM-HUG-PMC-YG-0005",
     "barcodes": [
-      "",
+      "HM-HUG-PMC-YG-0005",
       "492644"
     ],
     "pitch": "18K Gold Vermeil, Lead and Nickel free posts. For sensitive skin. Click closure ensures no one to ever lose one. Simple & Sweet. Kismet Charms can be added on as a customization. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6276,6 +6591,7 @@ const PRODUCTS = [
   {
     "id": 492645,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Plain micro Silver Earrings",
     "fullTitle": "House of Moda - House of Moda - Plain micro Silver Earrings",
@@ -6283,7 +6599,7 @@ const PRODUCTS = [
     "priceNum": 85,
     "sku": "HM-HUG-PMC-RH-0006",
     "barcodes": [
-      "",
+      "HM-HUG-PMC-RH-0006",
       "492645"
     ],
     "pitch": "925 Silver Stamped. Lead and Nickel free posts. For sensitive skin. Click closure ensures no one to ever lose one. Simple & Sweet. Kismet Charms can be added on as a customization. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6293,6 +6609,7 @@ const PRODUCTS = [
   {
     "id": 492640,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Prism Gold Earrings",
     "fullTitle": "House of Moda - House of Moda - Prism Gold Earrings",
@@ -6300,7 +6617,7 @@ const PRODUCTS = [
     "priceNum": 200,
     "sku": "HM-HOP-PRM-YG-0001",
     "barcodes": [
-      "",
+      "HM-HOP-PRM-YG-0001",
       "492640"
     ],
     "pitch": "18 k gold plated. Versatile for day to night looks. Geometric design. The designers fave earring. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6310,6 +6627,7 @@ const PRODUCTS = [
   {
     "id": 492641,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Prism Silver Earrings",
     "fullTitle": "House of Moda - House of Moda - Prism Silver Earrings",
@@ -6317,7 +6635,7 @@ const PRODUCTS = [
     "priceNum": 200,
     "sku": "HM-HOP-PRM-RH-0002",
     "barcodes": [
-      "",
+      "HM-HOP-PRM-RH-0002",
       "492641"
     ],
     "pitch": "925 Silver. Versatile for day to night looks. Geometric design. Secure click closure. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6327,6 +6645,7 @@ const PRODUCTS = [
   {
     "id": 492681,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Racket Charm (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Racket Charm (Yellow Gold)",
@@ -6334,7 +6653,7 @@ const PRODUCTS = [
     "priceNum": 99,
     "sku": "HM-CHM-RAC-0042",
     "barcodes": [
-      "",
+      "HM-CHM-RAC-0042",
       "492681"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6344,6 +6663,7 @@ const PRODUCTS = [
   {
     "id": 492680,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Set in Clover Charm-Clear (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Set in Clover Charm-Clear (Yellow Gold)",
@@ -6351,7 +6671,7 @@ const PRODUCTS = [
     "priceNum": 111,
     "sku": "HM-CHM-CLO-CLR-0041",
     "barcodes": [
-      "",
+      "HM-CHM-CLO-CLR-0041",
       "492680"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6361,6 +6681,7 @@ const PRODUCTS = [
   {
     "id": 492663,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Signature Tennis Bracelet- Clear (Rhodium / Silver)",
     "fullTitle": "House of Moda - House of Moda - Signature Tennis Bracelet- Clear (Rhodium / Silver)",
@@ -6368,7 +6689,7 @@ const PRODUCTS = [
     "priceNum": 221,
     "sku": "HM-BRC-TEN-RH-0024",
     "barcodes": [
-      "",
+      "HM-BRC-TEN-RH-0024",
       "492663"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 925 sterling silver / rhodium and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6378,6 +6699,7 @@ const PRODUCTS = [
   {
     "id": 492662,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Signature Tennis Bracelet- Clear (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Signature Tennis Bracelet- Clear (Yellow Gold)",
@@ -6385,7 +6707,7 @@ const PRODUCTS = [
     "priceNum": 225,
     "sku": "HM-BRC-TEN-YG-0023",
     "barcodes": [
-      "",
+      "HM-BRC-TEN-YG-0023",
       "492662"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6395,6 +6717,7 @@ const PRODUCTS = [
   {
     "id": 492697,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - size 7 Micro Eternity Ring-Clear (Rhodium / Silver)",
     "fullTitle": "House of Moda - House of Moda - size 7 Micro Eternity Ring-Clear (Rhodium / Silver)",
@@ -6402,7 +6725,7 @@ const PRODUCTS = [
     "priceNum": 99.99,
     "sku": "HM-RNG-MET-7-0059",
     "barcodes": [
-      "",
+      "HM-RNG-MET-7-0059",
       "492697"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 925 sterling silver / rhodium and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6412,6 +6735,7 @@ const PRODUCTS = [
   {
     "id": 492707,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - size 7 Olivia Ring-Clear (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - size 7 Olivia Ring-Clear (Yellow Gold)",
@@ -6419,7 +6743,7 @@ const PRODUCTS = [
     "priceNum": 89.99,
     "sku": "HM-RNG-OLV-7-0069",
     "barcodes": [
-      "",
+      "HM-RNG-OLV-7-0069",
       "492707"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6428,7 +6752,8 @@ const PRODUCTS = [
   },
   {
     "id": 492711,
-    "department": "Clean Apothecary, Bath & Grooming",
+    "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - size 8 Willow Ring-Multi (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - size 8 Willow Ring-Multi (Yellow Gold)",
@@ -6436,7 +6761,7 @@ const PRODUCTS = [
     "priceNum": 89.99,
     "sku": "HM-RNG-WIL-8-0073",
     "barcodes": [
-      "",
+      "HM-RNG-WIL-8-0073",
       "492711"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6446,6 +6771,7 @@ const PRODUCTS = [
   {
     "id": 492688,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Solid Spacer Charm (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Solid Spacer Charm (Yellow Gold)",
@@ -6453,7 +6779,7 @@ const PRODUCTS = [
     "priceNum": 20,
     "sku": "HM-SPC-SOL-0049",
     "barcodes": [
-      "",
+      "HM-SPC-SOL-0049",
       "492688"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6463,6 +6789,7 @@ const PRODUCTS = [
   {
     "id": 492659,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Spiked Gold Earrings",
     "fullTitle": "House of Moda - House of Moda - Spiked Gold Earrings",
@@ -6470,7 +6797,7 @@ const PRODUCTS = [
     "priceNum": 166,
     "sku": "HM-HUG-SPI-YG-0020",
     "barcodes": [
-      "",
+      "HM-HUG-SPI-YG-0020",
       "492659"
     ],
     "pitch": "18K Gold Vermeil, Lead and Nickel free posts. For sensitive skin. Fun & Bold. Click Closure (nice and secure!). Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6480,6 +6807,7 @@ const PRODUCTS = [
   {
     "id": 492660,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Spiked Silver Earrings",
     "fullTitle": "House of Moda - House of Moda - Spiked Silver Earrings",
@@ -6487,7 +6815,7 @@ const PRODUCTS = [
     "priceNum": 166,
     "sku": "HM-HUG-SPI-RH-0021",
     "barcodes": [
-      "",
+      "HM-HUG-SPI-RH-0021",
       "492660"
     ],
     "pitch": "925 Silver (Stamped), Lead and Nickel free posts. For sensitive skin. Fun & Bold. Click Closure (nice and secure!). Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6497,6 +6825,7 @@ const PRODUCTS = [
   {
     "id": 492677,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Sunny Eye Charm-Clear/Navy (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Sunny Eye Charm-Clear/Navy (Yellow Gold)",
@@ -6504,7 +6833,7 @@ const PRODUCTS = [
     "priceNum": 124,
     "sku": "HM-CHM-EYE-NVY-0038",
     "barcodes": [
-      "",
+      "HM-CHM-EYE-NVY-0038",
       "492677"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6514,6 +6843,7 @@ const PRODUCTS = [
   {
     "id": 492661,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Thick Link Chain Bracelet (Yellow Gold)",
     "fullTitle": "House of Moda - House of Moda - Thick Link Chain Bracelet (Yellow Gold)",
@@ -6521,7 +6851,7 @@ const PRODUCTS = [
     "priceNum": 177,
     "sku": "HM-BRC-THK-YG-0022",
     "barcodes": [
-      "",
+      "HM-BRC-THK-YG-0022",
       "492661"
     ],
     "pitch": "Artisan handcrafted jewelry piece featuring premium 14k gold vermeil and brilliant crystal embellishments. Designed for effortless everyday luxury and elevated personal styling.",
@@ -6531,6 +6861,7 @@ const PRODUCTS = [
   {
     "id": 492710,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "House of Moda • Statement Rings, Earrings & Pendants",
     "brand": "House of Moda",
     "name": "House of Moda - Willow 7 Ring",
     "fullTitle": "House of Moda - House of Moda - Willow 7 Ring",
@@ -6538,7 +6869,7 @@ const PRODUCTS = [
     "priceNum": 90,
     "sku": "HM-RNG-WIL-7-0072",
     "barcodes": [
-      "",
+      "HM-RNG-WIL-7-0072",
       "492710"
     ],
     "pitch": "Waterproof, 18K PVD Gold Plated Stainless Steel. Gorgeous Jewel tones, Fun Statement Piece. Handcrafted by Canadian artisan House of Moda for elegant daily wear and versatile layering.",
@@ -6548,6 +6879,7 @@ const PRODUCTS = [
   {
     "id": 492502,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "I Love Books and Bows",
     "name": "I Love Books and Bows - Blind Date With a Book- BESTSELLERS",
     "fullTitle": "I Love Books and Bows - I Love Books and Bows - Blind Date With a Book- BESTSELLERS",
@@ -6555,7 +6887,7 @@ const PRODUCTS = [
     "priceNum": 29.99,
     "sku": "IL-BOO-BES-0003",
     "barcodes": [
-      "",
+      "IL-BOO-BES-0003",
       "492502"
     ],
     "pitch": "Delightful mystery package wrapped in vintage butcher kraft paper, secured with jute twine and a wax seal, stamped with intriguing thematic clues.",
@@ -6565,6 +6897,7 @@ const PRODUCTS = [
   {
     "id": 492500,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "I Love Books and Bows",
     "name": "I Love Books and Bows - Blind Date With an Adult Coloring Book",
     "fullTitle": "I Love Books and Bows - I Love Books and Bows - Blind Date With an Adult Coloring Book",
@@ -6572,7 +6905,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "IL-BOO-COL-0001",
     "barcodes": [
-      "",
+      "IL-BOO-COL-0001",
       "492500"
     ],
     "pitch": "Delightful mystery package wrapped in vintage butcher kraft paper, secured with jute twine and a wax seal, stamped with intriguing thematic clues.",
@@ -6582,6 +6915,7 @@ const PRODUCTS = [
   {
     "id": 492501,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Luxury Board Games & Backgammon Sets",
     "brand": "I Love Books and Bows",
     "name": "I Love Books and Bows - Blind Date with a Puzzle",
     "fullTitle": "I Love Books and Bows - I Love Books and Bows - Blind Date with a Puzzle",
@@ -6589,7 +6923,7 @@ const PRODUCTS = [
     "priceNum": 39.99,
     "sku": "IL-BOO-PUZ-0002",
     "barcodes": [
-      "",
+      "IL-BOO-PUZ-0002",
       "492501"
     ],
     "pitch": "Delightful mystery package wrapped in vintage butcher kraft paper, secured with jute twine and a wax seal, stamped with intriguing thematic clues.",
@@ -6599,6 +6933,7 @@ const PRODUCTS = [
   {
     "id": 492271,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "Jaxon Lane",
     "name": "Jaxon Lane - Bro Mask Duo",
     "fullTitle": "Jaxon Lane - Jaxon Lane - Bro Mask Duo",
@@ -6606,7 +6941,7 @@ const PRODUCTS = [
     "priceNum": 56.99,
     "sku": "JL-SKN-DUO-0003",
     "barcodes": [
-      "",
+      "JL-SKN-DUO-0003",
       "492271"
     ],
     "pitch": "Clinical-grade California skincare powered by Korean dermatological science, packed with collagen, peptides, and botanical nutrients for radiant skin.",
@@ -6616,6 +6951,7 @@ const PRODUCTS = [
   {
     "id": 492272,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "Jaxon Lane",
     "name": "Jaxon Lane - Bro Mask Facial Set- Ready, Set, Glow Gift Box By Jaxon Lane",
     "fullTitle": "Jaxon Lane - Jaxon Lane - Bro Mask Facial Set- Ready, Set, Glow Gift Box By Jaxon Lane",
@@ -6623,7 +6959,7 @@ const PRODUCTS = [
     "priceNum": 145,
     "sku": "JL-SKN-GFT-0004",
     "barcodes": [
-      "",
+      "JL-SKN-GFT-0004",
       "492272"
     ],
     "pitch": "Clinical-grade California skincare powered by Korean dermatological science, packed with collagen, peptides, and botanical nutrients for radiant skin.",
@@ -6633,6 +6969,7 @@ const PRODUCTS = [
   {
     "id": 492273,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Jaxon Lane",
     "name": "Jaxon Lane - Bro Mask Half Mask Beard Friendly Sheet Mask (Single)",
     "fullTitle": "Jaxon Lane - Jaxon Lane - Bro Mask Half Mask Beard Friendly Sheet Mask (Single)",
@@ -6640,7 +6977,7 @@ const PRODUCTS = [
     "priceNum": 14.99,
     "sku": "JL-SKN-HALF-0005",
     "barcodes": [
-      "",
+      "JL-SKN-HALF-0005",
       "492273"
     ],
     "pitch": "Clinical-grade California skincare powered by Korean dermatological science, packed with collagen, peptides, and botanical nutrients for radiant skin.",
@@ -6650,6 +6987,7 @@ const PRODUCTS = [
   {
     "id": 492269,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "Jaxon Lane",
     "name": "Jaxon Lane - Bro Mask Hydrogel Cooling Eye Gels (Single) Men's Skin Care",
     "fullTitle": "Jaxon Lane - Jaxon Lane - Bro Mask Hydrogel Cooling Eye Gels (Single) Men's Skin Care",
@@ -6657,7 +6995,7 @@ const PRODUCTS = [
     "priceNum": 14.99,
     "sku": "JL-SKN-EYE-0001",
     "barcodes": [
-      "",
+      "JL-SKN-EYE-0001",
       "492269"
     ],
     "pitch": "Clinical-grade California skincare powered by Korean dermatological science, packed with collagen, peptides, and botanical nutrients for radiant skin.",
@@ -6667,6 +7005,7 @@ const PRODUCTS = [
   {
     "id": 492270,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "Jaxon Lane",
     "name": "Jaxon Lane - Bro Mask Hydrogel Face Mask Sheet Mask For Men (Single)",
     "fullTitle": "Jaxon Lane - Jaxon Lane - Bro Mask Hydrogel Face Mask Sheet Mask For Men (Single)",
@@ -6674,7 +7013,7 @@ const PRODUCTS = [
     "priceNum": 19,
     "sku": "JL-SKN-FAC-0002",
     "barcodes": [
-      "",
+      "JL-SKN-FAC-0002",
       "492270"
     ],
     "pitch": "Clinical-grade California skincare powered by Korean dermatological science, packed with collagen, peptides, and botanical nutrients for radiant skin.",
@@ -6684,6 +7023,7 @@ const PRODUCTS = [
   {
     "id": 498734,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Jaypore",
     "name": "Jaypore - Golden Flower Spoon",
     "fullTitle": "Jaypore - Jaypore - Golden Flower Spoon",
@@ -6701,6 +7041,7 @@ const PRODUCTS = [
   {
     "id": 492561,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Keepsake Candle",
     "name": "Keepsake Candle - Black Apothecary Safety Matches",
     "fullTitle": "Keepsake Candle - Keepsake Candle - Black Apothecary Safety Matches",
@@ -6708,7 +7049,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "KC-MAT-APP-BLK-0003",
     "barcodes": [
-      "",
+      "KC-MAT-APP-BLK-0003",
       "492561"
     ],
     "pitch": "Apothecary glass safety match bottle fitted with a natural cork stopper and integrated strike pad. Elegant companion for mindful candle rituals.",
@@ -6718,6 +7059,7 @@ const PRODUCTS = [
   {
     "id": 492559,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Keepsake Candle",
     "name": "Keepsake Candle - Black Mini Safety Matches",
     "fullTitle": "Keepsake Candle - Keepsake Candle - Black Mini Safety Matches",
@@ -6725,7 +7067,7 @@ const PRODUCTS = [
     "priceNum": 9.99,
     "sku": "KC-MAT-MIN-BLK-0001",
     "barcodes": [
-      "",
+      "KC-MAT-MIN-BLK-0001",
       "492559"
     ],
     "pitch": "Apothecary glass safety match bottle fitted with a natural cork stopper and integrated strike pad. Elegant companion for mindful candle rituals.",
@@ -6735,6 +7077,7 @@ const PRODUCTS = [
   {
     "id": 492565,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Keepsake Candle",
     "name": "Keepsake Candle - Electric USB Candle Lighter",
     "fullTitle": "Keepsake Candle - Keepsake Candle - Electric USB Candle Lighter",
@@ -6742,7 +7085,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "KC-LIG-USB-0007",
     "barcodes": [
-      "",
+      "KC-LIG-USB-0007",
       "492565"
     ],
     "pitch": "Rechargeable electric USB arc candle lighter. Flameless, windproof, eco-friendly, and engineered for effortless candle lighting.",
@@ -6752,6 +7095,7 @@ const PRODUCTS = [
   {
     "id": 492563,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Keepsake Candle",
     "name": "Keepsake Candle - Midnight Apothecary Safety Matches",
     "fullTitle": "Keepsake Candle - Keepsake Candle - Midnight Apothecary Safety Matches",
@@ -6759,7 +7103,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "KC-MAT-APP-MID-0005",
     "barcodes": [
-      "",
+      "KC-MAT-APP-MID-0005",
       "492563"
     ],
     "pitch": "Apothecary glass safety match bottle fitted with a natural cork stopper and integrated strike pad. Elegant companion for mindful candle rituals.",
@@ -6769,6 +7113,7 @@ const PRODUCTS = [
   {
     "id": 492560,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Keepsake Candle",
     "name": "Keepsake Candle - Midnight Mini Safety Matches",
     "fullTitle": "Keepsake Candle - Keepsake Candle - Midnight Mini Safety Matches",
@@ -6776,7 +7121,7 @@ const PRODUCTS = [
     "priceNum": 9.99,
     "sku": "KC-MAT-MIN-MID-0002",
     "barcodes": [
-      "",
+      "KC-MAT-MIN-MID-0002",
       "492560"
     ],
     "pitch": "Apothecary glass safety match bottle fitted with a natural cork stopper and integrated strike pad. Elegant companion for mindful candle rituals.",
@@ -6786,6 +7131,7 @@ const PRODUCTS = [
   {
     "id": 492562,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Keepsake Candle",
     "name": "Keepsake Candle - White Apothecary Safety Matches",
     "fullTitle": "Keepsake Candle - Keepsake Candle - White Apothecary Safety Matches",
@@ -6793,7 +7139,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "KC-MAT-APP-WHT-0004",
     "barcodes": [
-      "",
+      "KC-MAT-APP-WHT-0004",
       "492562"
     ],
     "pitch": "Apothecary glass safety match bottle fitted with a natural cork stopper and integrated strike pad. Elegant companion for mindful candle rituals.",
@@ -6803,6 +7149,7 @@ const PRODUCTS = [
   {
     "id": 492564,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Keepsake Candle",
     "name": "Keepsake Candle - White Mini Safety Matches",
     "fullTitle": "Keepsake Candle - Keepsake Candle - White Mini Safety Matches",
@@ -6810,7 +7157,7 @@ const PRODUCTS = [
     "priceNum": 9.99,
     "sku": "KC-MAT-MIN-WHT-0006",
     "barcodes": [
-      "",
+      "KC-MAT-MIN-WHT-0006",
       "492564"
     ],
     "pitch": "Apothecary glass safety match bottle fitted with a natural cork stopper and integrated strike pad. Elegant companion for mindful candle rituals.",
@@ -6820,6 +7167,7 @@ const PRODUCTS = [
   {
     "id": 492432,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Sacred White Sage & Herbal Smudge Bundles",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Kiyo Home - Black- Palo Santo and Sage Ceramic Chimney Burner",
     "fullTitle": "Kiyo Home | No Tariffs - Kiyo Home - Black- Palo Santo and Sage Ceramic Chimney Burner",
@@ -6827,7 +7175,7 @@ const PRODUCTS = [
     "priceNum": 65,
     "sku": "KH-BUR-BLA-0013",
     "barcodes": [
-      "",
+      "KH-BUR-BLA-0013",
       "492432"
     ],
     "pitch": "Sleek contemporary home and bar accessory crafted to unite functional utility with sculptural minimalist aesthetic.",
@@ -6837,6 +7185,7 @@ const PRODUCTS = [
   {
     "id": 492434,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Kiyo Home - Cellular Rotating Whiskey Glass with Wood Coaster",
     "fullTitle": "Kiyo Home | No Tariffs - Kiyo Home - Cellular Rotating Whiskey Glass with Wood Coaster",
@@ -6844,7 +7193,7 @@ const PRODUCTS = [
     "priceNum": 56,
     "sku": "KH-GLS-WHI-0015",
     "barcodes": [
-      "",
+      "KH-GLS-WHI-0015",
       "492434"
     ],
     "pitch": "Sleek contemporary home and bar accessory crafted to unite functional utility with sculptural minimalist aesthetic.",
@@ -6854,6 +7203,7 @@ const PRODUCTS = [
   {
     "id": 492425,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Kiyo Home - Gold Ginkgo Leaf Tray",
     "fullTitle": "Kiyo Home | No Tariffs - Kiyo Home - Gold Ginkgo Leaf Tray",
@@ -6861,7 +7211,7 @@ const PRODUCTS = [
     "priceNum": 100,
     "sku": "KH-TRAY-GIN-0006",
     "barcodes": [
-      "",
+      "KH-TRAY-GIN-0006",
       "492425"
     ],
     "pitch": "Sleek contemporary home and bar accessory crafted to unite functional utility with sculptural minimalist aesthetic.",
@@ -6871,6 +7221,7 @@ const PRODUCTS = [
   {
     "id": 492430,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Kiyo Home - Large-Travertine Pillar Candleholders",
     "fullTitle": "Kiyo Home | No Tariffs - Kiyo Home - Large-Travertine Pillar Candleholders",
@@ -6878,7 +7229,7 @@ const PRODUCTS = [
     "priceNum": 268.76,
     "sku": "KH-CAN-TRA-0011",
     "barcodes": [
-      "",
+      "KH-CAN-TRA-0011",
       "492430"
     ],
     "pitch": "Sleek contemporary home and bar accessory crafted to unite functional utility with sculptural minimalist aesthetic.",
@@ -6888,6 +7239,7 @@ const PRODUCTS = [
   {
     "id": 492421,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Kiyo Home - Large- White Rippled Ceramic Vase",
     "fullTitle": "Kiyo Home | No Tariffs - Kiyo Home - Large- White Rippled Ceramic Vase",
@@ -6895,7 +7247,7 @@ const PRODUCTS = [
     "priceNum": 109.99,
     "sku": "KH-VAS-RIP-0002",
     "barcodes": [
-      "",
+      "KH-VAS-RIP-0002",
       "492421"
     ],
     "pitch": "Sleek contemporary home and bar accessory crafted to unite functional utility with sculptural minimalist aesthetic.",
@@ -6905,6 +7257,7 @@ const PRODUCTS = [
   {
     "id": 492428,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Kiyo Home - Matte Ceramic Vase",
     "fullTitle": "Kiyo Home | No Tariffs - Kiyo Home - Matte Ceramic Vase",
@@ -6912,7 +7265,7 @@ const PRODUCTS = [
     "priceNum": 276,
     "sku": "KH-VAS-SEN-0009",
     "barcodes": [
-      "",
+      "KH-VAS-SEN-0009",
       "492428"
     ],
     "pitch": "Sleek contemporary home and bar accessory crafted to unite functional utility with sculptural minimalist aesthetic.",
@@ -6922,6 +7275,7 @@ const PRODUCTS = [
   {
     "id": 492427,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Kiyo Home - Matte Ceramic Vase",
     "fullTitle": "Kiyo Home | No Tariffs - Kiyo Home - Matte Ceramic Vase",
@@ -6929,7 +7283,7 @@ const PRODUCTS = [
     "priceNum": 276,
     "sku": "KH-VAS-HER-0008",
     "barcodes": [
-      "",
+      "KH-VAS-HER-0008",
       "492427"
     ],
     "pitch": "Sleek contemporary home and bar accessory crafted to unite functional utility with sculptural minimalist aesthetic.",
@@ -6939,6 +7293,7 @@ const PRODUCTS = [
   {
     "id": 492429,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Kiyo Home - Medium-Travertine Pillar Candleholders",
     "fullTitle": "Kiyo Home | No Tariffs - Kiyo Home - Medium-Travertine Pillar Candleholders",
@@ -6946,7 +7301,7 @@ const PRODUCTS = [
     "priceNum": 205.36,
     "sku": "KH-CAN-TRA-0010",
     "barcodes": [
-      "",
+      "KH-CAN-TRA-0010",
       "492429"
     ],
     "pitch": "Sleek contemporary home and bar accessory crafted to unite functional utility with sculptural minimalist aesthetic.",
@@ -6956,6 +7311,7 @@ const PRODUCTS = [
   {
     "id": 492420,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Kiyo Home - Small-White Rippled Ceramic Vase",
     "fullTitle": "Kiyo Home | No Tariffs - Kiyo Home - Small-White Rippled Ceramic Vase",
@@ -6963,7 +7319,7 @@ const PRODUCTS = [
     "priceNum": 82.99,
     "sku": "KH-VAS-RIP-0001",
     "barcodes": [
-      "",
+      "KH-VAS-RIP-0001",
       "492420"
     ],
     "pitch": "Sleek contemporary home and bar accessory crafted to unite functional utility with sculptural minimalist aesthetic.",
@@ -6973,6 +7329,7 @@ const PRODUCTS = [
   {
     "id": 492426,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Kiyo Home - Whispers- Matte Ceramic Vase",
     "fullTitle": "Kiyo Home | No Tariffs - Kiyo Home - Whispers- Matte Ceramic Vase",
@@ -6980,7 +7337,7 @@ const PRODUCTS = [
     "priceNum": 276,
     "sku": "KH-VAS-MAT-0007",
     "barcodes": [
-      "",
+      "KH-VAS-MAT-0007",
       "492426"
     ],
     "pitch": "Sleek contemporary home and bar accessory crafted to unite functional utility with sculptural minimalist aesthetic.",
@@ -6990,6 +7347,7 @@ const PRODUCTS = [
   {
     "id": 492431,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Sacred White Sage & Herbal Smudge Bundles",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Kiyo Home - White- Palo Santo and Sage Ceramic Chimney Burner",
     "fullTitle": "Kiyo Home | No Tariffs - Kiyo Home - White- Palo Santo and Sage Ceramic Chimney Burner",
@@ -6997,7 +7355,7 @@ const PRODUCTS = [
     "priceNum": 65,
     "sku": "KH-BUR-WHI-0012",
     "barcodes": [
-      "",
+      "KH-BUR-WHI-0012",
       "492431"
     ],
     "pitch": "Sleek contemporary home and bar accessory crafted to unite functional utility with sculptural minimalist aesthetic.",
@@ -7007,6 +7365,7 @@ const PRODUCTS = [
   {
     "id": 492422,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "Kiyo Home | No Tariffs",
     "name": "Kiyo Home - Zen Brass Incense Frog",
     "fullTitle": "Kiyo Home | No Tariffs - Kiyo Home - Zen Brass Incense Frog",
@@ -7014,7 +7373,7 @@ const PRODUCTS = [
     "priceNum": 31.99,
     "sku": "KH-INC-FRO-0003",
     "barcodes": [
-      "",
+      "KH-INC-FRO-0003",
       "492422"
     ],
     "pitch": "Sleek contemporary home and bar accessory crafted to unite functional utility with sculptural minimalist aesthetic.",
@@ -7024,6 +7383,7 @@ const PRODUCTS = [
   {
     "id": 492402,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Paper Mirchi",
     "name": "Large Trellis Indigo- Organic Cotton Toiletry Bag",
     "fullTitle": "Paper Mirchi - Large Trellis Indigo- Organic Cotton Toiletry Bag",
@@ -7031,7 +7391,7 @@ const PRODUCTS = [
     "priceNum": 60.99,
     "sku": "PM-BAG-TRE-0006",
     "barcodes": [
-      "",
+      "PM-BAG-TRE-0006",
       "492402"
     ],
     "pitch": "Artisan stationery hand-crafted using 100% tree-free recycled cotton rag paper and traditional Indian woodblock printing techniques.",
@@ -7041,6 +7401,7 @@ const PRODUCTS = [
   {
     "id": 492375,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Lavender Handrolled Incense Stick - 12 Box Bundle ->10%",
     "fullTitle": "Cedar and Myrrh - Lavender Handrolled Incense Stick - 12 Box Bundle ->10%",
@@ -7048,7 +7409,7 @@ const PRODUCTS = [
     "priceNum": 30.99,
     "sku": "CM-INC-COC-0044",
     "barcodes": [
-      "",
+      "CM-INC-COC-0044",
       "492375"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -7058,6 +7419,7 @@ const PRODUCTS = [
   {
     "id": 513587,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
     "name": "Lavender Syrup",
     "fullTitle": "The Practice Cafe - Lavender Syrup",
@@ -7070,11 +7432,12 @@ const PRODUCTS = [
     ],
     "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513587/edit",
-    "img": "https://images.momence.com/h/200431/product-image/9bc9df3d-e309-4144-971a-642e2c51f929.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/2678fac8-1dc1-49bf-af63-0d5793680c6e.jpg"
   },
   {
     "id": 492349,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Le Jardin Aromatherapy Room Spray- Blooming & Nurturing",
     "fullTitle": "Cedar and Myrrh - Le Jardin Aromatherapy Room Spray- Blooming & Nurturing",
@@ -7082,7 +7445,7 @@ const PRODUCTS = [
     "priceNum": 47,
     "sku": "CM-HLD-WDR-0018",
     "barcodes": [
-      "",
+      "CM-HLD-WDR-0018",
       "492349"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -7090,8 +7453,27 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/983cf26d-8efe-4565-b734-a8c15bccf711.png"
   },
   {
+    "id": 562449,
+    "department": "Cafe & Nourishment",
+    "subgroup": "Fresh Baked Goods & Artisan Cookies",
+    "brand": "The Practice Cafe",
+    "name": "Lemon Poppyseed Biscotti",
+    "fullTitle": "The Practice Cafe - Lemon Poppyseed Biscotti",
+    "price": "$3.50",
+    "priceNum": 3.5,
+    "sku": "",
+    "barcodes": [
+      "",
+      "562449"
+    ],
+    "pitch": "Bright and citrusy biscotti beautifully speckled with poppyseeds. Finished with a sweet, tangy lemon juice and icing sugar glaze.\n\nIngredients: Flour, eggs, poppyseeds. Topping: Icing sugar and lemon juice glaze.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/562449/edit",
+    "img": "https://images.momence.com/h/200431/product-image/317f81c5-0f16-4571-ba3c-e305968d59ca.png"
+  },
+  {
     "id": 492593,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Lola Blankets • Luxury Faux Fur & Weighted Throws",
     "brand": "Lola Blankets",
     "name": "Lola Blanket - Antique Ivory (The Original Lola)",
     "fullTitle": "Lola Blankets - Lola Blanket - Antique Ivory (The Original Lola)",
@@ -7099,7 +7481,7 @@ const PRODUCTS = [
     "priceNum": 499,
     "sku": "LOLA_ANTQIVR",
     "barcodes": [
-      "",
+      "LOLA_ANTQIVR",
       "492593"
     ],
     "pitch": "Experience cloud-like luxury with The Original Lola Blanket in Antique Ivory. Crafted with double-sided, ultra-plush faux fur featuring Lola's signature 4-way therapeutic stretch and elastic ribbed banding that hugs your body. 100% vegan, cruelty-free, zero-shed, and OEKO-TEX Standard 100 certified for safe, non-toxic comfort. Machine washable, stain-resistant, and hand-dyed for timeless elegance.",
@@ -7109,6 +7491,7 @@ const PRODUCTS = [
   {
     "id": 492592,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Lola Blankets • Luxury Faux Fur & Weighted Throws",
     "brand": "Lola Blankets",
     "name": "Lola Blanket - Blush Pink (The Original Lola)",
     "fullTitle": "Lola Blankets - Lola Blanket - Blush Pink (The Original Lola)",
@@ -7116,7 +7499,7 @@ const PRODUCTS = [
     "priceNum": 499,
     "sku": "LOLA_BLSHPNK",
     "barcodes": [
-      "",
+      "LOLA_BLSHPNK",
       "492592"
     ],
     "pitch": "Experience cloud-like luxury with The Original Lola Blanket in Blush Pink. Crafted with double-sided, ultra-plush faux fur featuring Lola's signature 4-way therapeutic stretch and elastic ribbed banding that hugs your body. 100% vegan, cruelty-free, zero-shed, and OEKO-TEX Standard 100 certified for safe, non-toxic comfort. Machine washable, stain-resistant, and hand-dyed for timeless elegance.",
@@ -7126,6 +7509,7 @@ const PRODUCTS = [
   {
     "id": 557189,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Lola Blankets • Luxury Faux Fur & Weighted Throws",
     "brand": "Lola Blankets",
     "name": "Lola Blanket - Bondi Beige (The Original Lola)",
     "fullTitle": "Lola Blankets - Lola Blanket - Bondi Beige (The Original Lola)",
@@ -7133,7 +7517,7 @@ const PRODUCTS = [
     "priceNum": 499,
     "sku": "LOLA_BNDIBGE",
     "barcodes": [
-      "",
+      "LOLA_BNDIBGE",
       "557189"
     ],
     "pitch": "Experience cloud-like luxury with The Original Lola Blanket in Bondi Beige. Crafted with double-sided, ultra-plush faux fur featuring Lola's signature 4-way therapeutic stretch and elastic ribbed banding that hugs your body. 100% vegan, cruelty-free, zero-shed, and OEKO-TEX Standard 100 certified for safe, non-toxic comfort. Machine washable, stain-resistant, and hand-dyed for timeless elegance.",
@@ -7143,6 +7527,7 @@ const PRODUCTS = [
   {
     "id": 492594,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Lola Blankets • Luxury Faux Fur & Weighted Throws",
     "brand": "Lola Blankets",
     "name": "Lola Blanket - Charcoal Grey (The Original Lola)",
     "fullTitle": "Lola Blankets - Lola Blanket - Charcoal Grey (The Original Lola)",
@@ -7150,7 +7535,7 @@ const PRODUCTS = [
     "priceNum": 499,
     "sku": "LOLA_CHRCGRY",
     "barcodes": [
-      "",
+      "LOLA_CHRCGRY",
       "492594"
     ],
     "pitch": "Experience cloud-like luxury with The Original Lola Blanket in Charcoal Grey. Crafted with double-sided, ultra-plush faux fur featuring Lola's signature 4-way therapeutic stretch and elastic ribbed banding that hugs your body. 100% vegan, cruelty-free, zero-shed, and OEKO-TEX Standard 100 certified for safe, non-toxic comfort. Machine washable, stain-resistant, and hand-dyed for timeless elegance.",
@@ -7160,6 +7545,7 @@ const PRODUCTS = [
   {
     "id": 492596,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Lola Blankets • Luxury Faux Fur & Weighted Throws",
     "brand": "Lola Blankets",
     "name": "Lola Blanket - Creamy Cloud (The Original Lola)",
     "fullTitle": "Lola Blankets - Lola Blanket - Creamy Cloud (The Original Lola)",
@@ -7167,7 +7553,7 @@ const PRODUCTS = [
     "priceNum": 499,
     "sku": "LOLA_CRMCLD",
     "barcodes": [
-      "",
+      "LOLA_CRMCLD",
       "492596"
     ],
     "pitch": "Experience cloud-like luxury with The Original Lola Blanket in Creamy Cloud. Crafted with double-sided, ultra-plush faux fur featuring Lola's signature 4-way therapeutic stretch and elastic ribbed banding that hugs your body. 100% vegan, cruelty-free, zero-shed, and OEKO-TEX Standard 100 certified for safe, non-toxic comfort. Machine washable, stain-resistant, and hand-dyed for timeless elegance.",
@@ -7177,6 +7563,7 @@ const PRODUCTS = [
   {
     "id": 492595,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Lola Blankets • Luxury Faux Fur & Weighted Throws",
     "brand": "Lola Blankets",
     "name": "Lola Blanket - Desert Dune (The Original Lola)",
     "fullTitle": "Lola Blankets - Lola Blanket - Desert Dune (The Original Lola)",
@@ -7184,7 +7571,7 @@ const PRODUCTS = [
     "priceNum": 499,
     "sku": "LOLA_DSRTDNE",
     "barcodes": [
-      "",
+      "LOLA_DSRTDNE",
       "492595"
     ],
     "pitch": "Experience cloud-like luxury with The Original Lola Blanket in Desert Dune. Crafted with double-sided, ultra-plush faux fur featuring Lola's signature 4-way therapeutic stretch and elastic ribbed banding that hugs your body. 100% vegan, cruelty-free, zero-shed, and OEKO-TEX Standard 100 certified for safe, non-toxic comfort. Machine washable, stain-resistant, and hand-dyed for timeless elegance.",
@@ -7194,6 +7581,7 @@ const PRODUCTS = [
   {
     "id": 557191,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Lola Blankets • Luxury Faux Fur & Weighted Throws",
     "brand": "Lola Blankets",
     "name": "Lola Blanket - Huckleberry Harvest (The Original Lola)",
     "fullTitle": "Lola Blankets - Lola Blanket - Huckleberry Harvest (The Original Lola)",
@@ -7201,7 +7589,7 @@ const PRODUCTS = [
     "priceNum": 499,
     "sku": "LOLA_HCKLHRV",
     "barcodes": [
-      "",
+      "LOLA_HCKLHRV",
       "557191"
     ],
     "pitch": "Experience cloud-like luxury with The Original Lola Blanket in Huckleberry Harvest. Crafted with double-sided, ultra-plush faux fur featuring Lola's signature 4-way therapeutic stretch and elastic ribbed banding that hugs your body. 100% vegan, cruelty-free, zero-shed, and OEKO-TEX Standard 100 certified for safe, non-toxic comfort. Machine washable, stain-resistant, and hand-dyed for timeless elegance.",
@@ -7211,6 +7599,7 @@ const PRODUCTS = [
   {
     "id": 557190,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Lola Blankets • Luxury Faux Fur & Weighted Throws",
     "brand": "Lola Blankets",
     "name": "Lola Blanket - Malibu Blue (The Original Lola)",
     "fullTitle": "Lola Blankets - Lola Blanket - Malibu Blue (The Original Lola)",
@@ -7218,7 +7607,7 @@ const PRODUCTS = [
     "priceNum": 499,
     "sku": "LOLA_MLBUBLU",
     "barcodes": [
-      "",
+      "LOLA_MLBUBLU",
       "557190"
     ],
     "pitch": "Experience cloud-like luxury with The Original Lola Blanket in Malibu Blue. Crafted with double-sided, ultra-plush faux fur featuring Lola's signature 4-way therapeutic stretch and elastic ribbed banding that hugs your body. 100% vegan, cruelty-free, zero-shed, and OEKO-TEX Standard 100 certified for safe, non-toxic comfort. Machine washable, stain-resistant, and hand-dyed for timeless elegance.",
@@ -7228,6 +7617,7 @@ const PRODUCTS = [
   {
     "id": 557188,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Lola Blankets • Luxury Faux Fur & Weighted Throws",
     "brand": "Lola Blankets",
     "name": "Lola Blanket - Moon Beam (The Original Lola)",
     "fullTitle": "Lola Blankets - Lola Blanket - Moon Beam (The Original Lola)",
@@ -7235,7 +7625,7 @@ const PRODUCTS = [
     "priceNum": 499,
     "sku": "LOLA_MNBEAM",
     "barcodes": [
-      "",
+      "LOLA_MNBEAM",
       "557188"
     ],
     "pitch": "Experience cloud-like luxury with The Original Lola Blanket in Moon Beam. Crafted with double-sided, ultra-plush faux fur featuring Lola's signature 4-way therapeutic stretch and elastic ribbed banding that hugs your body. 100% vegan, cruelty-free, zero-shed, and OEKO-TEX Standard 100 certified for safe, non-toxic comfort. Machine washable, stain-resistant, and hand-dyed for timeless elegance.",
@@ -7245,6 +7635,7 @@ const PRODUCTS = [
   {
     "id": 492597,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Lola Blankets • Luxury Faux Fur & Weighted Throws",
     "brand": "Lola Blankets",
     "name": "Lola Blanket - Slate Blue (The Original Lola)",
     "fullTitle": "Lola Blankets - Lola Blanket - Slate Blue (The Original Lola)",
@@ -7252,7 +7643,7 @@ const PRODUCTS = [
     "priceNum": 499,
     "sku": "LOLA_SLTEBLU",
     "barcodes": [
-      "",
+      "LOLA_SLTEBLU",
       "492597"
     ],
     "pitch": "Experience cloud-like luxury with The Original Lola Blanket in Slate Blue. Crafted with double-sided, ultra-plush faux fur featuring Lola's signature 4-way therapeutic stretch and elastic ribbed banding that hugs your body. 100% vegan, cruelty-free, zero-shed, and OEKO-TEX Standard 100 certified for safe, non-toxic comfort. Machine washable, stain-resistant, and hand-dyed for timeless elegance.",
@@ -7262,6 +7653,7 @@ const PRODUCTS = [
   {
     "id": 557187,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Lola Blankets • Luxury Faux Fur & Weighted Throws",
     "brand": "Lola Blankets",
     "name": "Lola Blanket - Toasted Almond (The Original Lola)",
     "fullTitle": "Lola Blankets - Lola Blanket - Toasted Almond (The Original Lola)",
@@ -7269,7 +7661,7 @@ const PRODUCTS = [
     "priceNum": 499,
     "sku": "LOLA_TSTDALM",
     "barcodes": [
-      "",
+      "LOLA_TSTDALM",
       "557187"
     ],
     "pitch": "Experience cloud-like luxury with The Original Lola Blanket in Toasted Almond. Crafted with double-sided, ultra-plush faux fur featuring Lola's signature 4-way therapeutic stretch and elastic ribbed banding that hugs your body. 100% vegan, cruelty-free, zero-shed, and OEKO-TEX Standard 100 certified for safe, non-toxic comfort. Machine washable, stain-resistant, and hand-dyed for timeless elegance.",
@@ -7279,6 +7671,7 @@ const PRODUCTS = [
   {
     "id": 567180,
     "department": "Cafe & Nourishment",
+    "subgroup": "Kombucha & Fermented Refreshments",
     "brand": "The Practice",
     "name": "Mango Pineapple- Cathy’s Kombucha (C)",
     "fullTitle": "The Practice - Mango Pineapple- Cathy’s Kombucha (C)",
@@ -7291,11 +7684,12 @@ const PRODUCTS = [
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/567180/edit",
-    "img": "https://images.momence.com/h/200431/product-image/ef86d8af-738d-4de2-943d-b3be273c0dd3.jpg"
+    "img": "assets/cafe/kombucha_mango_pineapple.jpg"
   },
   {
     "id": 492408,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Luxury Board Games & Backgammon Sets",
     "brand": "MarbleCultures",
     "name": "Marble Chess Set with Storage Case - Green Onyx and Black",
     "fullTitle": "MarbleCultures - Marble Chess Set with Storage Case - Green Onyx and Black",
@@ -7303,7 +7697,7 @@ const PRODUCTS = [
     "priceNum": 325,
     "sku": "MC-CHS-GRN-0005",
     "barcodes": [
-      "",
+      "MC-CHS-GRN-0005",
       "492408"
     ],
     "pitch": "Heirloom luxury coffee table game hand-carved from solid Italian marble and supple leather. An exquisite, tactile statement piece for connection.",
@@ -7313,6 +7707,7 @@ const PRODUCTS = [
   {
     "id": 492406,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Luxury Board Games & Backgammon Sets",
     "brand": "MarbleCultures",
     "name": "MarbleCultures - Italian Marble Tic Tac Toe Set (Black and White)",
     "fullTitle": "MarbleCultures - MarbleCultures - Italian Marble Tic Tac Toe Set (Black and White)",
@@ -7320,7 +7715,7 @@ const PRODUCTS = [
     "priceNum": 290,
     "sku": "MC-TTT-ITA-0003",
     "barcodes": [
-      "",
+      "MC-TTT-ITA-0003",
       "492406"
     ],
     "pitch": "Heirloom luxury coffee table game hand-carved from solid Italian marble and supple leather. An exquisite, tactile statement piece for connection.",
@@ -7330,6 +7725,7 @@ const PRODUCTS = [
   {
     "id": 507725,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Luxury Board Games & Backgammon Sets",
     "brand": "MarbleCultures",
     "name": "MarbleCultures - Leather Backgammon Set - Black",
     "fullTitle": "MarbleCultures - MarbleCultures - Leather Backgammon Set - Black",
@@ -7347,6 +7743,7 @@ const PRODUCTS = [
   {
     "id": 492405,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Luxury Board Games & Backgammon Sets",
     "brand": "MarbleCultures",
     "name": "MarbleCultures - Leather Backgammon Set - Green and White",
     "fullTitle": "MarbleCultures - MarbleCultures - Leather Backgammon Set - Green and White",
@@ -7354,7 +7751,7 @@ const PRODUCTS = [
     "priceNum": 220,
     "sku": "MC-BAC-LEA-0002",
     "barcodes": [
-      "",
+      "MC-BAC-LEA-0002",
       "492405"
     ],
     "pitch": "Heirloom luxury coffee table game hand-carved from solid Italian marble and supple leather. An exquisite, tactile statement piece for connection.",
@@ -7364,6 +7761,7 @@ const PRODUCTS = [
   {
     "id": 492404,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Luxury Board Games & Backgammon Sets",
     "brand": "MarbleCultures",
     "name": "MarbleCultures - Marble Checkers Set with Storage Case - White and Onyx",
     "fullTitle": "MarbleCultures - MarbleCultures - Marble Checkers Set with Storage Case - White and Onyx",
@@ -7371,7 +7769,7 @@ const PRODUCTS = [
     "priceNum": 250,
     "sku": "MC-CHE-MAR-0001",
     "barcodes": [
-      "",
+      "MC-CHE-MAR-0001",
       "492404"
     ],
     "pitch": "Heirloom luxury coffee table game hand-carved from solid Italian marble and supple leather. An exquisite, tactile statement piece for connection.",
@@ -7381,6 +7779,7 @@ const PRODUCTS = [
   {
     "id": 492407,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Luxury Board Games & Backgammon Sets",
     "brand": "MarbleCultures",
     "name": "MarbleCultures - Marble Chess Set with Storage Case - Oceanic and White",
     "fullTitle": "MarbleCultures - MarbleCultures - Marble Chess Set with Storage Case - Oceanic and White",
@@ -7388,7 +7787,7 @@ const PRODUCTS = [
     "priceNum": 325,
     "sku": "MC-CHS-MAR-0004",
     "barcodes": [
-      "",
+      "MC-CHS-MAR-0004",
       "492407"
     ],
     "pitch": "Heirloom luxury coffee table game hand-carved from solid Italian marble and supple leather. An exquisite, tactile statement piece for connection.",
@@ -7398,6 +7797,7 @@ const PRODUCTS = [
   {
     "id": 492409,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "MarbleCultures",
     "name": "MarbleCultures - White Quartz Decorative Jewelry & Storage Box",
     "fullTitle": "MarbleCultures - MarbleCultures - White Quartz Decorative Jewelry & Storage Box",
@@ -7405,7 +7805,7 @@ const PRODUCTS = [
     "priceNum": 225,
     "sku": "MC-JEW-BOX-0006",
     "barcodes": [
-      "",
+      "MC-JEW-BOX-0006",
       "492409"
     ],
     "pitch": "Heirloom luxury coffee table game hand-carved from solid Italian marble and supple leather. An exquisite, tactile statement piece for connection.",
@@ -7415,6 +7815,7 @@ const PRODUCTS = [
   {
     "id": 557000,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice Cafe",
     "name": "Matcha Latte - Large (C)",
     "fullTitle": "The Practice Cafe - Matcha Latte - Large (C)",
@@ -7427,11 +7828,12 @@ const PRODUCTS = [
     ],
     "pitch": "A vibrant, finely ground green tea powder whisked with hot water into a smooth, earthy brew for a pure and comforting taste",
     "momenceUrl": "https://momence.com/dashboard/200431/products/557000/edit",
-    "img": "https://images.momence.com/h/200431/product-image/5487a5e0-343a-482c-bd33-4dc313510325.png"
+    "img": "https://images.momence.com/h/200431/product-image/bbbc2011-e9e8-4e37-bd19-cdd0287263d8.jpg"
   },
   {
     "id": 513568,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice Cafe",
     "name": "Matcha Latte - Regular (C)",
     "fullTitle": "The Practice Cafe - Matcha Latte - Regular (C)",
@@ -7444,11 +7846,12 @@ const PRODUCTS = [
     ],
     "pitch": "A vibrant, finely ground green tea powder whisked with hot water into a smooth, earthy brew for a pure and comforting taste",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513568/edit",
-    "img": "https://images.momence.com/h/200431/product-image/5f77b925-2951-4a2a-a369-dfe5249cd59f.png"
+    "img": "https://images.momence.com/h/200431/product-image/8ec07d2c-3eae-4e1d-9bb9-a360317529e5.jpg"
   },
   {
     "id": 513578,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
     "name": "MCT Oil",
     "fullTitle": "The Practice Cafe - MCT Oil",
@@ -7461,11 +7864,12 @@ const PRODUCTS = [
     ],
     "pitch": "A premium, clean energy boost derived from quality coconuts, designed to blend seamlessly into your favourite drinks to support mental clarity and sustained focus",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513578/edit",
-    "img": "https://images.momence.com/h/200431/product-image/d53ca9fc-b1a4-4a59-897c-b0fe5e75240d.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/78f6ef49-3a49-4c9d-930f-6a34d83d45f7.jpg"
   },
   {
     "id": 492265,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Cape Diablo • Natural Healing Stone Wrap Bracelets",
     "brand": "Cape Diablo",
     "name": "Men's Grey Jasper Tibetan Bracelet",
     "fullTitle": "Cape Diablo - Men's Grey Jasper Tibetan Bracelet",
@@ -7473,7 +7877,7 @@ const PRODUCTS = [
     "priceNum": 45,
     "sku": "CD-BRC-GJT-0014",
     "barcodes": [
-      "",
+      "CD-BRC-GJT-0014",
       "492265"
     ],
     "pitch": "Handcrafted bohemian wrap bracelet woven with natural healing gemstones, genuine leather, and engraved clasp.",
@@ -7483,6 +7887,7 @@ const PRODUCTS = [
   {
     "id": 563939,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "The Practice",
     "name": "Milk Teal Floral Wall Art - Most Turquoise Box",
     "fullTitle": "The Practice - Milk Teal Floral Wall Art - Most Turquoise Box",
@@ -7500,6 +7905,7 @@ const PRODUCTS = [
   {
     "id": 492230,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Minful matters",
     "name": "Mindful Matters - The 28-Day Meditation Kit",
     "fullTitle": "Minful matters - Mindful Matters - The 28-Day Meditation Kit",
@@ -7507,7 +7913,7 @@ const PRODUCTS = [
     "priceNum": 69.99,
     "sku": "MM-MED-0001",
     "barcodes": [
-      "",
+      "MM-MED-0001",
       "492230"
     ],
     "pitch": "Sensory meditation candle system designed to anchor a consistent daily mindfulness practice through soothing flame and calming aromatics.",
@@ -7517,6 +7923,7 @@ const PRODUCTS = [
   {
     "id": 492231,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Minful matters",
     "name": "Mindful Matters - The Meditation Candle Refill (28 Pack)",
     "fullTitle": "Minful matters - Mindful Matters - The Meditation Candle Refill (28 Pack)",
@@ -7524,7 +7931,7 @@ const PRODUCTS = [
     "priceNum": 39.99,
     "sku": "MM-CND-0001",
     "barcodes": [
-      "",
+      "MM-CND-0001",
       "492231"
     ],
     "pitch": "Candle refill pack of 28 candles for meditation kit.",
@@ -7534,6 +7941,7 @@ const PRODUCTS = [
   {
     "id": 492232,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Minful matters",
     "name": "Mindful Matters - The Meditation Candle Set",
     "fullTitle": "Minful matters - Mindful Matters - The Meditation Candle Set",
@@ -7541,7 +7949,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "MM-CND-SET-0002",
     "barcodes": [
-      "",
+      "MM-CND-SET-0002",
       "492232"
     ],
     "pitch": "Small meditation candle set.",
@@ -7551,6 +7959,7 @@ const PRODUCTS = [
   {
     "id": 499572,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Sacred White Sage & Herbal Smudge Bundles",
     "brand": "The Practice",
     "name": "Mini Sage Bundle 12th Moon",
     "fullTitle": "The Practice - Mini Sage Bundle 12th Moon",
@@ -7563,11 +7972,12 @@ const PRODUCTS = [
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/499572/edit",
-    "img": "https://images.momence.com/h/200431/product-image/90d2ccc3-3d43-470d-8280-90fa7ff75103.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/b89f5a3a-2aeb-4fdd-845d-3f7544e8f740.jpg"
   },
   {
     "id": 492444,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Mio Queena",
     "name": "Mio Queena - 1pcs Brass Dice",
     "fullTitle": "Mio Queena - Mio Queena - 1pcs Brass Dice",
@@ -7575,7 +7985,7 @@ const PRODUCTS = [
     "priceNum": 4.81,
     "sku": "MQ-DEC-DIC-0007",
     "barcodes": [
-      "",
+      "MQ-DEC-DIC-0007",
       "492444"
     ],
     "pitch": "Heavyweight solid brass miniature tabletop ornament hand-cast with vintage character, heirloom durability, and grounding tactile charm.",
@@ -7585,6 +7995,7 @@ const PRODUCTS = [
   {
     "id": 492440,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Mio Queena",
     "name": "Mio Queena - Brass Heart Bulldog Crafts Decoration Desktop Ornaments",
     "fullTitle": "Mio Queena - Mio Queena - Brass Heart Bulldog Crafts Decoration Desktop Ornaments",
@@ -7592,7 +8003,7 @@ const PRODUCTS = [
     "priceNum": 18,
     "sku": "MQ-DEC-HEA-0003",
     "barcodes": [
-      "",
+      "MQ-DEC-HEA-0003",
       "492440"
     ],
     "pitch": "Heavyweight solid brass miniature tabletop ornament hand-cast with vintage character, heirloom durability, and grounding tactile charm.",
@@ -7602,6 +8013,7 @@ const PRODUCTS = [
   {
     "id": 492439,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Mio Queena",
     "name": "Mio Queena - Brass Peacock Crafts Decoration Desktop Ornaments",
     "fullTitle": "Mio Queena - Mio Queena - Brass Peacock Crafts Decoration Desktop Ornaments",
@@ -7609,7 +8021,7 @@ const PRODUCTS = [
     "priceNum": 12.51,
     "sku": "MQ-DEC-PEA-0002",
     "barcodes": [
-      "",
+      "MQ-DEC-PEA-0002",
       "492439"
     ],
     "pitch": "Heavyweight solid brass miniature tabletop ornament hand-cast with vintage character, heirloom durability, and grounding tactile charm.",
@@ -7619,6 +8031,7 @@ const PRODUCTS = [
   {
     "id": 492438,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Mio Queena",
     "name": "Mio Queena - Brass Toad Crafts Decoration Desktop Ornaments",
     "fullTitle": "Mio Queena - Mio Queena - Brass Toad Crafts Decoration Desktop Ornaments",
@@ -7626,7 +8039,7 @@ const PRODUCTS = [
     "priceNum": 29.52,
     "sku": "MQ-DEC-TOA-0001",
     "barcodes": [
-      "",
+      "MQ-DEC-TOA-0001",
       "492438"
     ],
     "pitch": "Heavyweight solid brass miniature tabletop ornament hand-cast with vintage character, heirloom durability, and grounding tactile charm.",
@@ -7636,6 +8049,7 @@ const PRODUCTS = [
   {
     "id": 492442,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Mio Queena",
     "name": "Mio Queena - Portable Brass Handle Foldable Stainless Steel Knife",
     "fullTitle": "Mio Queena - Mio Queena - Portable Brass Handle Foldable Stainless Steel Knife",
@@ -7643,7 +8057,7 @@ const PRODUCTS = [
     "priceNum": 15.82,
     "sku": "MQ-KNI-POR-0005",
     "barcodes": [
-      "",
+      "MQ-KNI-POR-0005",
       "492442"
     ],
     "pitch": "Heavyweight solid brass miniature tabletop ornament hand-cast with vintage character, heirloom durability, and grounding tactile charm.",
@@ -7653,6 +8067,7 @@ const PRODUCTS = [
   {
     "id": 492441,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Mio Queena",
     "name": "Mio Queena - The Kungfu Frog in Meditation Brass Crafts Desktop Ornaments",
     "fullTitle": "Mio Queena - Mio Queena - The Kungfu Frog in Meditation Brass Crafts Desktop Ornaments",
@@ -7660,7 +8075,7 @@ const PRODUCTS = [
     "priceNum": 31.57,
     "sku": "MQ-DEC-FRO-0004",
     "barcodes": [
-      "",
+      "MQ-DEC-FRO-0004",
       "492441"
     ],
     "pitch": "Heavyweight solid brass miniature tabletop ornament hand-cast with vintage character, heirloom durability, and grounding tactile charm.",
@@ -7670,6 +8085,7 @@ const PRODUCTS = [
   {
     "id": 492396,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "Misc Goods Co",
     "name": "Misc. Goods Co. - Greyhaven Natural Deodorant Ocean, Pine & Moss | Aluminum-Free, 2.65oz",
     "fullTitle": "Misc Goods Co - Misc. Goods Co. - Greyhaven Natural Deodorant Ocean, Pine & Moss | Aluminum-Free, 2.65oz",
@@ -7677,7 +8093,7 @@ const PRODUCTS = [
     "priceNum": 28.99,
     "sku": "MG-DEA-GRE-0009",
     "barcodes": [
-      "",
+      "MG-DEA-GRE-0009",
       "492396"
     ],
     "pitch": "Premium American-crafted apothecary essential made with all-natural botanicals, nourishing plant oils, and complex woodsy nature notes.",
@@ -7686,7 +8102,8 @@ const PRODUCTS = [
   },
   {
     "id": 492393,
-    "department": "Aromatherapy, Incense & Sacred Smudging",
+    "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "Misc Goods Co",
     "name": "Misc. Goods Co. - Greyhaven Roll-On Cologne | Oil-Based | Ocean, Pine + Moss",
     "fullTitle": "Misc Goods Co - Misc. Goods Co. - Greyhaven Roll-On Cologne | Oil-Based | Ocean, Pine + Moss",
@@ -7694,7 +8111,7 @@ const PRODUCTS = [
     "priceNum": 48,
     "sku": "MG-ROL-GRE-0006",
     "barcodes": [
-      "",
+      "MG-ROL-GRE-0006",
       "492393"
     ],
     "pitch": "Premium American-crafted apothecary essential made with all-natural botanicals, nourishing plant oils, and complex woodsy nature notes.",
@@ -7703,7 +8120,8 @@ const PRODUCTS = [
   },
   {
     "id": 492389,
-    "department": "Aromatherapy, Incense & Sacred Smudging",
+    "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "Misc Goods Co",
     "name": "Misc. Goods Co. - Kings Market Roll-On Cologne | Oil-Based | Coconut & Fig",
     "fullTitle": "Misc Goods Co - Misc. Goods Co. - Kings Market Roll-On Cologne | Oil-Based | Coconut & Fig",
@@ -7711,7 +8129,7 @@ const PRODUCTS = [
     "priceNum": 48,
     "sku": "MG-ROL-KIN-0002",
     "barcodes": [
-      "",
+      "MG-ROL-KIN-0002",
       "492389"
     ],
     "pitch": "Premium American-crafted apothecary essential made with all-natural botanicals, nourishing plant oils, and complex woodsy nature notes.",
@@ -7721,6 +8139,7 @@ const PRODUCTS = [
   {
     "id": 492394,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "Misc Goods Co",
     "name": "Misc. Goods Co. - Meadowland Natural Deodorant Grass, Cedar & Patchouli | Aluminum-Free, 2.65oz",
     "fullTitle": "Misc Goods Co - Misc. Goods Co. - Meadowland Natural Deodorant Grass, Cedar & Patchouli | Aluminum-Free, 2.65oz",
@@ -7728,7 +8147,7 @@ const PRODUCTS = [
     "priceNum": 28.99,
     "sku": "MG-DEA-MEA-0007",
     "barcodes": [
-      "",
+      "MG-DEA-MEA-0007",
       "492394"
     ],
     "pitch": "Premium American-crafted apothecary essential made with all-natural botanicals, nourishing plant oils, and complex woodsy nature notes.",
@@ -7737,7 +8156,8 @@ const PRODUCTS = [
   },
   {
     "id": 492390,
-    "department": "Aromatherapy, Incense & Sacred Smudging",
+    "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "Misc Goods Co",
     "name": "Misc. Goods Co. - Meadowland Roll-On Cologne | Oil-Based | Cedar + Patchouli",
     "fullTitle": "Misc Goods Co - Misc. Goods Co. - Meadowland Roll-On Cologne | Oil-Based | Cedar + Patchouli",
@@ -7745,7 +8165,7 @@ const PRODUCTS = [
     "priceNum": 48,
     "sku": "MG-ROL-MEA-0003",
     "barcodes": [
-      "",
+      "MG-ROL-MEA-0003",
       "492390"
     ],
     "pitch": "Premium American-crafted apothecary essential made with all-natural botanicals, nourishing plant oils, and complex woodsy nature notes.",
@@ -7754,7 +8174,8 @@ const PRODUCTS = [
   },
   {
     "id": 492388,
-    "department": "Aromatherapy, Incense & Sacred Smudging",
+    "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "Misc Goods Co",
     "name": "Misc. Goods Co. - Nameless Earth Roll-On Cologne | Oil-Based | Mineral + Smoke",
     "fullTitle": "Misc Goods Co - Misc. Goods Co. - Nameless Earth Roll-On Cologne | Oil-Based | Mineral + Smoke",
@@ -7762,7 +8183,7 @@ const PRODUCTS = [
     "priceNum": 48,
     "sku": "MG-ROL-NAM-0001",
     "barcodes": [
-      "",
+      "MG-ROL-NAM-0001",
       "492388"
     ],
     "pitch": "Premium American-crafted apothecary essential made with all-natural botanicals, nourishing plant oils, and complex woodsy nature notes.",
@@ -7772,6 +8193,7 @@ const PRODUCTS = [
   {
     "id": 492395,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "Misc Goods Co",
     "name": "Misc. Goods Co. - Underhill Natural Deodorant Tobacco, Cedar & Ale | Aluminum-Free, 2.65oz",
     "fullTitle": "Misc Goods Co - Misc. Goods Co. - Underhill Natural Deodorant Tobacco, Cedar & Ale | Aluminum-Free, 2.65oz",
@@ -7779,7 +8201,7 @@ const PRODUCTS = [
     "priceNum": 28.99,
     "sku": "MG-DEA-UND-0008",
     "barcodes": [
-      "",
+      "MG-DEA-UND-0008",
       "492395"
     ],
     "pitch": "Premium American-crafted apothecary essential made with all-natural botanicals, nourishing plant oils, and complex woodsy nature notes.",
@@ -7788,7 +8210,8 @@ const PRODUCTS = [
   },
   {
     "id": 492391,
-    "department": "Aromatherapy, Incense & Sacred Smudging",
+    "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Clean Skincare, Natural Deodorants & Body Washes",
     "brand": "Misc Goods Co",
     "name": "Misc. Goods Co. - Underhill Roll-On Cologne | Oil-Based | Tobacco, Cedar + Ale",
     "fullTitle": "Misc Goods Co - Misc. Goods Co. - Underhill Roll-On Cologne | Oil-Based | Tobacco, Cedar + Ale",
@@ -7796,7 +8219,7 @@ const PRODUCTS = [
     "priceNum": 48,
     "sku": "MG-ROL-UND-0004",
     "barcodes": [
-      "",
+      "MG-ROL-UND-0004",
       "492391"
     ],
     "pitch": "Premium American-crafted apothecary essential made with all-natural botanicals, nourishing plant oils, and complex woodsy nature notes.",
@@ -7806,6 +8229,7 @@ const PRODUCTS = [
   {
     "id": 492392,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Teas & Craft Chocolates",
     "brand": "The Practice Cafe",
     "name": "Misc. Goods Co. - Valley of Gold Roll-On Cologne | Oil-Based | Rose+Black Tea",
     "fullTitle": "The Practice Cafe - Misc. Goods Co. - Valley of Gold Roll-On Cologne | Oil-Based | Rose+Black Tea",
@@ -7813,7 +8237,7 @@ const PRODUCTS = [
     "priceNum": 48,
     "sku": "MG-ROL-GOL-0005",
     "barcodes": [
-      "",
+      "MG-ROL-GOL-0005",
       "492392"
     ],
     "pitch": "Premium American-crafted apothecary essential made with all-natural botanicals, nourishing plant oils, and complex woodsy nature notes.",
@@ -7822,7 +8246,8 @@ const PRODUCTS = [
   },
   {
     "id": 492337,
-    "department": "Fine Jewelry & Modern Adornments",
+    "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Sacred Divination Pendulums & Ritual Tools",
     "brand": "Cedar and Myrrh",
     "name": "Natural Obsidian Crystal Divination Pendulum",
     "fullTitle": "Cedar and Myrrh - Natural Obsidian Crystal Divination Pendulum",
@@ -7830,7 +8255,7 @@ const PRODUCTS = [
     "priceNum": 58.89,
     "sku": "CM-PEN-OBS-0006",
     "barcodes": [
-      "",
+      "CM-PEN-OBS-0006",
       "492337"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -7840,6 +8265,7 @@ const PRODUCTS = [
   {
     "id": 492333,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Natural Palo Santo Scented Wax Melts | 6 Cubes",
     "fullTitle": "Cedar and Myrrh - Natural Palo Santo Scented Wax Melts | 6 Cubes",
@@ -7847,7 +8273,7 @@ const PRODUCTS = [
     "priceNum": 38.89,
     "sku": "CM-WXM-PAL-0002",
     "barcodes": [
-      "",
+      "CM-WXM-PAL-0002",
       "492333"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -7856,7 +8282,8 @@ const PRODUCTS = [
   },
   {
     "id": 492340,
-    "department": "Fine Jewelry & Modern Adornments",
+    "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Sacred Divination Pendulums & Ritual Tools",
     "brand": "Cedar and Myrrh",
     "name": "Natural Smoky Quartz Crystal Divination Pendulum",
     "fullTitle": "Cedar and Myrrh - Natural Smoky Quartz Crystal Divination Pendulum",
@@ -7864,7 +8291,7 @@ const PRODUCTS = [
     "priceNum": 60,
     "sku": "CM-PEN-SMQ-0009",
     "barcodes": [
-      "",
+      "CM-PEN-SMQ-0009",
       "492340"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -7874,6 +8301,7 @@ const PRODUCTS = [
   {
     "id": 567988,
     "department": "Cafe & Nourishment",
+    "subgroup": "Fresh Baked Goods & Artisan Cookies",
     "brand": "The Practice Cafe",
     "name": "Oat Breakfast Cookie",
     "fullTitle": "The Practice Cafe - Oat Breakfast Cookie",
@@ -7891,6 +8319,7 @@ const PRODUCTS = [
   {
     "id": 513577,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
     "name": "Oat Milk (C)",
     "fullTitle": "The Practice Cafe - Oat Milk (C)",
@@ -7903,11 +8332,12 @@ const PRODUCTS = [
     ],
     "pitch": "Small additional fee for oat milk.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513577/edit",
-    "img": "https://images.momence.com/h/200431/product-image/f3f0866d-962e-4000-a0cd-2a477b3eea0c.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/6440a4b0-b0fd-4bb3-987b-fa1d5769e8f2.jpg"
   },
   {
     "id": 492335,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Organic White Sage Smudge Stick - Medium",
     "fullTitle": "Cedar and Myrrh - Organic White Sage Smudge Stick - Medium",
@@ -7915,7 +8345,7 @@ const PRODUCTS = [
     "priceNum": 38.89,
     "sku": "CM-SAG-MED-0004",
     "barcodes": [
-      "",
+      "CM-SAG-MED-0004",
       "492335"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -7925,6 +8355,7 @@ const PRODUCTS = [
   {
     "id": 499575,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "The Practice",
     "name": "Palo Santo and Lavender Bundle",
     "fullTitle": "The Practice - Palo Santo and Lavender Bundle",
@@ -7937,11 +8368,12 @@ const PRODUCTS = [
     ],
     "pitch": "Purple bundle",
     "momenceUrl": "https://momence.com/dashboard/200431/products/499575/edit",
-    "img": "https://images.momence.com/h/200431/product-image/f46c9840-4d63-4587-87ef-32a35b1009b6.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/cd7e04d4-963e-4902-8f4a-f11b5cb4154e.jpg"
   },
   {
     "id": 492373,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Palo Santo Handrolled Incense Stick - 12 Box Bundle ->10%",
     "fullTitle": "Cedar and Myrrh - Palo Santo Handrolled Incense Stick - 12 Box Bundle ->10%",
@@ -7949,7 +8381,7 @@ const PRODUCTS = [
     "priceNum": 27.99,
     "sku": "CM-INC-PAL2-0042",
     "barcodes": [
-      "",
+      "CM-INC-PAL2-0042",
       "492373"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -7959,6 +8391,7 @@ const PRODUCTS = [
   {
     "id": 492403,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Paper Mirchi",
     "name": "Paper Mirchi - Large Ditsy Floral Blush- Organic Cotton Toiletry Bag",
     "fullTitle": "Paper Mirchi - Paper Mirchi - Large Ditsy Floral Blush- Organic Cotton Toiletry Bag",
@@ -7966,7 +8399,7 @@ const PRODUCTS = [
     "priceNum": 60.99,
     "sku": "PM-BAG-DIS-0007",
     "barcodes": [
-      "",
+      "PM-BAG-DIS-0007",
       "492403"
     ],
     "pitch": "Artisan stationery hand-crafted using 100% tree-free recycled cotton rag paper and traditional Indian woodblock printing techniques.",
@@ -7976,6 +8409,7 @@ const PRODUCTS = [
   {
     "id": 492400,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Paper Mirchi",
     "name": "Paper Mirchi - Marigold Glitz Blush- Block Printed Ruled Notebook (A5)",
     "fullTitle": "Paper Mirchi - Paper Mirchi - Marigold Glitz Blush- Block Printed Ruled Notebook (A5)",
@@ -7983,7 +8417,7 @@ const PRODUCTS = [
     "priceNum": 52.99,
     "sku": "PM-NOT-MAR-0004",
     "barcodes": [
-      "",
+      "PM-NOT-MAR-0004",
       "492400"
     ],
     "pitch": "Artisan stationery hand-crafted using 100% tree-free recycled cotton rag paper and traditional Indian woodblock printing techniques.",
@@ -7993,6 +8427,7 @@ const PRODUCTS = [
   {
     "id": 492398,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Paper Mirchi",
     "name": "Paper Mirchi - Medium Ditsy Floral Blush- Organic Cotton Toiletry Bag",
     "fullTitle": "Paper Mirchi - Paper Mirchi - Medium Ditsy Floral Blush- Organic Cotton Toiletry Bag",
@@ -8000,7 +8435,7 @@ const PRODUCTS = [
     "priceNum": 51.99,
     "sku": "PM-BAG-DIS-0002",
     "barcodes": [
-      "",
+      "PM-BAG-DIS-0002",
       "492398"
     ],
     "pitch": "Artisan stationery hand-crafted using 100% tree-free recycled cotton rag paper and traditional Indian woodblock printing techniques.",
@@ -8010,6 +8445,7 @@ const PRODUCTS = [
   {
     "id": 492401,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Paper Mirchi",
     "name": "Paper Mirchi - Mini Scallops Lavender- Hand Marbled Blank Notebook (A5)",
     "fullTitle": "Paper Mirchi - Paper Mirchi - Mini Scallops Lavender- Hand Marbled Blank Notebook (A5)",
@@ -8017,7 +8453,7 @@ const PRODUCTS = [
     "priceNum": 52.99,
     "sku": "PM-NOT-SCA-0005",
     "barcodes": [
-      "",
+      "PM-NOT-SCA-0005",
       "492401"
     ],
     "pitch": "Artisan stationery hand-crafted using 100% tree-free recycled cotton rag paper and traditional Indian woodblock printing techniques.",
@@ -8027,6 +8463,7 @@ const PRODUCTS = [
   {
     "id": 492397,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Paper Mirchi",
     "name": "Paper Mirchi - Small Trellis Indigo- Organic Cotton Toiletry Bag",
     "fullTitle": "Paper Mirchi - Paper Mirchi - Small Trellis Indigo- Organic Cotton Toiletry Bag",
@@ -8034,7 +8471,7 @@ const PRODUCTS = [
     "priceNum": 39.99,
     "sku": "PM-BAG-TRE-0001",
     "barcodes": [
-      "",
+      "PM-BAG-TRE-0001",
       "492397"
     ],
     "pitch": "Artisan stationery hand-crafted using 100% tree-free recycled cotton rag paper and traditional Indian woodblock printing techniques.",
@@ -8044,6 +8481,7 @@ const PRODUCTS = [
   {
     "id": 492399,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Paper Mirchi",
     "name": "Paper Mirchi - Trellis Indigo- Block Printed Ruled Notebook (A5)",
     "fullTitle": "Paper Mirchi - Paper Mirchi - Trellis Indigo- Block Printed Ruled Notebook (A5)",
@@ -8051,7 +8489,7 @@ const PRODUCTS = [
     "priceNum": 52.99,
     "sku": "PM-NOT-TRE-0003",
     "barcodes": [
-      "",
+      "PM-NOT-TRE-0003",
       "492399"
     ],
     "pitch": "Artisan stationery hand-crafted using 100% tree-free recycled cotton rag paper and traditional Indian woodblock printing techniques.",
@@ -8060,7 +8498,8 @@ const PRODUCTS = [
   },
   {
     "id": 492343,
-    "department": "Fine Jewelry & Modern Adornments",
+    "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Sacred Divination Pendulums & Ritual Tools",
     "brand": "Cedar and Myrrh",
     "name": "Pendulum Divination Board Bag",
     "fullTitle": "Cedar and Myrrh - Pendulum Divination Board Bag",
@@ -8068,7 +8507,7 @@ const PRODUCTS = [
     "priceNum": 31,
     "sku": "CM-RMS-FRA-0012",
     "barcodes": [
-      "",
+      "CM-RMS-FRA-0012",
       "492343"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -8078,6 +8517,7 @@ const PRODUCTS = [
   {
     "id": 492379,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "Peruvian Palo Santo Sticks (6 Pieces) - Case of 12 -> 10%",
     "fullTitle": "Cedar and Myrrh - Peruvian Palo Santo Sticks (6 Pieces) - Case of 12 -> 10%",
@@ -8085,7 +8525,7 @@ const PRODUCTS = [
     "priceNum": 28.99,
     "sku": "CM-INC-ECU-0048",
     "barcodes": [
-      "",
+      "CM-INC-ECU-0048",
       "492379"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -8095,6 +8535,7 @@ const PRODUCTS = [
   {
     "id": 492638,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Amelia (Gold)",
     "fullTitle": "Pig & Hen - Pig & Hen - Amelia (Gold)",
@@ -8102,7 +8543,7 @@ const PRODUCTS = [
     "priceNum": 82,
     "sku": "PH-AML-GLD-0041",
     "barcodes": [
-      "",
+      "PH-AML-GLD-0041",
       "492638"
     ],
     "pitch": "Stainless Steel. Inspired by adventure and independence Represents strength, persistence, and breaking barriers. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8112,6 +8553,7 @@ const PRODUCTS = [
   {
     "id": 492639,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Amelia (Silver)",
     "fullTitle": "Pig & Hen - Pig & Hen - Amelia (Silver)",
@@ -8119,7 +8561,7 @@ const PRODUCTS = [
     "priceNum": 82,
     "sku": "PH-AML-SLV-0042",
     "barcodes": [
-      "",
+      "PH-AML-SLV-0042",
       "492639"
     ],
     "pitch": "Stainless Steel. Inspired by adventure and independence Represents strength, persistence, and breaking barriers. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8129,6 +8571,7 @@ const PRODUCTS = [
   {
     "id": 539093,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Boxchain Chain Necklace (Black, 55cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Boxchain Chain Necklace (Black, 55cm)",
@@ -8136,7 +8579,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "BoChaNeBla55",
     "barcodes": [
-      "",
+      "BoChaNeBla55",
       "539093"
     ],
     "pitch": "Stainless Steel. Timeless + Elegant. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8146,6 +8589,7 @@ const PRODUCTS = [
   {
     "id": 539095,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Boxchain Chain Necklace (Gold, 55cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Boxchain Chain Necklace (Gold, 55cm)",
@@ -8153,7 +8597,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "BoChaNeGo55",
     "barcodes": [
-      "",
+      "BoChaNeGo55",
       "539095"
     ],
     "pitch": "Stainless Steel. Timeless + Elegant. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8163,6 +8607,7 @@ const PRODUCTS = [
   {
     "id": 539094,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Boxchain Chain Necklace (Silver, 55cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Boxchain Chain Necklace (Silver, 55cm)",
@@ -8170,7 +8615,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "BoChaNeSi55",
     "barcodes": [
-      "",
+      "BoChaNeSi55",
       "539094"
     ],
     "pitch": "Stainless Steel. Timeless + Elegant. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8180,6 +8625,7 @@ const PRODUCTS = [
   {
     "id": 492600,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Foxtail (Army & Vintage, M)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Foxtail (Army & Vintage, M)",
@@ -8187,7 +8633,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "CaFoArmy|ViL",
     "barcodes": [
-      "",
+      "CaFoArmy|ViL",
       "492600"
     ],
     "pitch": "Slate Gray | Bronze, M 18cm) Crafted from premium stainless steel with our signature nautical rope woven into the foxtail pattern, it perfectly balances strength, style and craftsmanship. Waterproof and wear resistant, made to accompany for years to come. Color: Black | Black Rope width: 5 mm Rope type: Chain Shackle color: Black Shackle size: 8 mm Shackle type: T- shackle Material type: 316L Stainless Steel vintage | Marine rope About Pig & Hen Pig & Hen is a Dutch brand that stands for adventure, style and craftsmanship. Every piece of jewelry is handcrafted and rooted in Amsterdam, where our designs and stories come to life. Our name and inspiration date back to the 17th century, when Dutch sailors tattooed a pig and a hen on their bodies as a symbol of protection and good fortune. Today, we carry that tradition forward through our jewelry, where the same symbol of strength and protection is subtly embedded in every design. Our collections combine authentic heritage with contemporary design and durable materials such as marine rope, stainless steel, gemstones and precious metals of the highest quality. Built to last, our jewelry is waterproof, wear-resistant and made to accompany you for years to come. For over twelve years, people around the world have discovered Pig & Hen and share our passion for quality, authenticity and timeless design. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8197,6 +8643,7 @@ const PRODUCTS = [
   {
     "id": 539024,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Foxtail (Army & Vintage, M/L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Foxtail (Army & Vintage, M/L)",
@@ -8204,7 +8651,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "CaFoArmy|ViM/L",
     "barcodes": [
-      "",
+      "CaFoArmy|ViM/L",
       "539024"
     ],
     "pitch": "Slate Gray | Bronze, M 18cm) Crafted from premium stainless steel with our signature nautical rope woven into the foxtail pattern, it perfectly balances strength, style and craftsmanship. Waterproof and wear resistant, made to accompany for years to come. Color: Black | Black Rope width: 5 mm Rope type: Chain Shackle color: Black Shackle size: 8 mm Shackle type: T- shackle Material type: 316L Stainless Steel vintage | Marine rope About Pig & Hen Pig & Hen is a Dutch brand that stands for adventure, style and craftsmanship. Every piece of jewelry is handcrafted and rooted in Amsterdam, where our designs and stories come to life. Our name and inspiration date back to the 17th century, when Dutch sailors tattooed a pig and a hen on their bodies as a symbol of protection and good fortune. Today, we carry that tradition forward through our jewelry, where the same symbol of strength and protection is subtly embedded in every design. Our collections combine authentic heritage with contemporary design and durable materials such as marine rope, stainless steel, gemstones and precious metals of the highest quality. Built to last, our jewelry is waterproof, wear-resistant and made to accompany you for years to come. For over twelve years, people around the world have discovered Pig & Hen and share our passion for quality, authenticity and timeless design. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8214,6 +8661,7 @@ const PRODUCTS = [
   {
     "id": 492599,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Foxtail (Black & Black, L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Foxtail (Black & Black, L)",
@@ -8221,7 +8669,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "CaFoBla|BlaL",
     "barcodes": [
-      "",
+      "CaFoBla|BlaL",
       "492599"
     ],
     "pitch": "Crafted from premium stainless steel with our signature nautical rope woven into the foxtail pattern, it perfectly balances strength, style and craftsmanship. Waterproof and wear resistant, made to accompany for years to come. Color: Black | Black Rope width: 5 mm Rope type: Chain Shackle color: Black Shackle size: 8 mm Shackle type: T- shackle Material type: 316L Stainless Steel Black PVD | Marine rope About Pig & Hen Pig & Hen is a Dutch brand that stands for adventure, style and craftsmanship. Every piece of jewelry is handcrafted and rooted in Amsterdam, where our designs and stories come to life. Our name and inspiration date back to the 17th century, when Dutch sailors tattooed a pig and a hen on their bodies as a symbol of protection and good fortune. Today, we carry that tradition forward through our jewelry, where the same symbol of strength and protection is subtly embedded in every design. Our collections combine authentic heritage with contemporary design and durable materials such as marine rope, stainless steel, gemstones and precious metals of the highest quality. Built to last, our jewelry is waterproof, wear-resistant and made to accompany you for years to come. For over twelve years, people around the world have discovered Pig & Hen and share our passion for quality, authenticity and timeless design. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8231,6 +8679,7 @@ const PRODUCTS = [
   {
     "id": 539031,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Foxtail (Black & Black, M)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Foxtail (Black & Black, M)",
@@ -8238,7 +8687,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "CaFoBla|BlaM",
     "barcodes": [
-      "",
+      "CaFoBla|BlaM",
       "539031"
     ],
     "pitch": "Crafted from premium stainless steel with our signature nautical rope woven into the foxtail pattern, it perfectly balances strength, style and craftsmanship. Waterproof and wear resistant, made to accompany for years to come. Color: Black | Black Rope width: 5 mm Rope type: Chain Shackle color: Black Shackle size: 8 mm Shackle type: T- shackle Material type: 316L Stainless Steel Black PVD | Marine rope About Pig & Hen Pig & Hen is a Dutch brand that stands for adventure, style and craftsmanship. Every piece of jewelry is handcrafted and rooted in Amsterdam, where our designs and stories come to life. Our name and inspiration date back to the 17th century, when Dutch sailors tattooed a pig and a hen on their bodies as a symbol of protection and good fortune. Today, we carry that tradition forward through our jewelry, where the same symbol of strength and protection is subtly embedded in every design. Our collections combine authentic heritage with contemporary design and durable materials such as marine rope, stainless steel, gemstones and precious metals of the highest quality. Built to last, our jewelry is waterproof, wear-resistant and made to accompany you for years to come. For over twelve years, people around the world have discovered Pig & Hen and share our passion for quality, authenticity and timeless design. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8248,6 +8697,7 @@ const PRODUCTS = [
   {
     "id": 539030,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Foxtail (Black & Black, M/L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Foxtail (Black & Black, M/L)",
@@ -8255,7 +8705,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "CaFoBla|BlaM/L",
     "barcodes": [
-      "",
+      "CaFoBla|BlaM/L",
       "539030"
     ],
     "pitch": "Crafted from premium stainless steel with our signature nautical rope woven into the foxtail pattern, it perfectly balances strength, style and craftsmanship. Waterproof and wear resistant, made to accompany for years to come. Color: Black | Black Rope width: 5 mm Rope type: Chain Shackle color: Black Shackle size: 8 mm Shackle type: T- shackle Material type: 316L Stainless Steel Black PVD | Marine rope About Pig & Hen Pig & Hen is a Dutch brand that stands for adventure, style and craftsmanship. Every piece of jewelry is handcrafted and rooted in Amsterdam, where our designs and stories come to life. Our name and inspiration date back to the 17th century, when Dutch sailors tattooed a pig and a hen on their bodies as a symbol of protection and good fortune. Today, we carry that tradition forward through our jewelry, where the same symbol of strength and protection is subtly embedded in every design. Our collections combine authentic heritage with contemporary design and durable materials such as marine rope, stainless steel, gemstones and precious metals of the highest quality. Built to last, our jewelry is waterproof, wear-resistant and made to accompany you for years to come. For over twelve years, people around the world have discovered Pig & Hen and share our passion for quality, authenticity and timeless design. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8265,6 +8715,7 @@ const PRODUCTS = [
   {
     "id": 492598,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Foxtail (Navy & Silver, L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Foxtail (Navy & Silver, L)",
@@ -8272,7 +8723,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "CaFoNa|SiL",
     "barcodes": [
-      "",
+      "CaFoNa|SiL",
       "492598"
     ],
     "pitch": "Crafted from premium stainless steel with our signature nautical rope woven into the foxtail pattern, it perfectly balances strength, style and craftsmanship. Waterproof and wear resistant, made to accompany for years to come. Color: Black | Black Rope width: 5 mm Rope type: Chain Shackle color: silver Shackle size: 8 mm Shackle type: T- shackle Material type: 316L Stainless Steel vintage | Marine rope About Pig & Hen Pig & Hen is a Dutch brand that stands for adventure, style and craftsmanship. Every piece of jewelry is handcrafted and rooted in Amsterdam, where our designs and stories come to life. Our name and inspiration date back to the 17th century, when Dutch sailors tattooed a pig and a hen on their bodies as a symbol of protection and good fortune. Today, we carry that tradition forward through our jewelry, where the same symbol of strength and protection is subtly embedded in every design. Our collections combine authentic heritage with contemporary design and durable materials such as marine rope, stainless steel, gemstones and precious metals of the highest quality. Built to last, our jewelry is waterproof, wear-resistant and made to accompany you for years to come. For over twelve years, people around the world have discovered Pig & Hen and share our passion for quality, authenticity and timeless design. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8282,6 +8733,7 @@ const PRODUCTS = [
   {
     "id": 550212,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Foxtail (Navy & Silver, M)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Foxtail (Navy & Silver, M)",
@@ -8289,7 +8741,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "PiHeCaFo(Navy|SiM)",
     "barcodes": [
-      "",
+      "PiHeCaFo(Navy|SiM)",
       "550212"
     ],
     "pitch": "Crafted from premium stainless steel with our signature nautical rope woven into the foxtail pattern, it perfectly balances strength, style and craftsmanship. Waterproof and wear resistant, made to accompany for years to come. Color: Black | Black Rope width: 5 mm Rope type: Chain Shackle color: silver Shackle size: 8 mm Shackle type: T- shackle Material type: 316L Stainless Steel vintage | Marine rope About Pig & Hen Pig & Hen is a Dutch brand that stands for adventure, style and craftsmanship. Every piece of jewelry is handcrafted and rooted in Amsterdam, where our designs and stories come to life. Our name and inspiration date back to the 17th century, when Dutch sailors tattooed a pig and a hen on their bodies as a symbol of protection and good fortune. Today, we carry that tradition forward through our jewelry, where the same symbol of strength and protection is subtly embedded in every design. Our collections combine authentic heritage with contemporary design and durable materials such as marine rope, stainless steel, gemstones and precious metals of the highest quality. Built to last, our jewelry is waterproof, wear-resistant and made to accompany you for years to come. For over twelve years, people around the world have discovered Pig & Hen and share our passion for quality, authenticity and timeless design. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8299,6 +8751,7 @@ const PRODUCTS = [
   {
     "id": 539029,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Foxtail (Navy & Silver, M/L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Foxtail (Navy & Silver, M/L)",
@@ -8306,7 +8759,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "CaFoNa|SiM/L",
     "barcodes": [
-      "",
+      "CaFoNa|SiM/L",
       "539029"
     ],
     "pitch": "Crafted from premium stainless steel with our signature nautical rope woven into the foxtail pattern, it perfectly balances strength, style and craftsmanship. Waterproof and wear resistant, made to accompany for years to come. Color: Black | Black Rope width: 5 mm Rope type: Chain Shackle color: silver Shackle size: 8 mm Shackle type: T- shackle Material type: 316L Stainless Steel vintage | Marine rope About Pig & Hen Pig & Hen is a Dutch brand that stands for adventure, style and craftsmanship. Every piece of jewelry is handcrafted and rooted in Amsterdam, where our designs and stories come to life. Our name and inspiration date back to the 17th century, when Dutch sailors tattooed a pig and a hen on their bodies as a symbol of protection and good fortune. Today, we carry that tradition forward through our jewelry, where the same symbol of strength and protection is subtly embedded in every design. Our collections combine authentic heritage with contemporary design and durable materials such as marine rope, stainless steel, gemstones and precious metals of the highest quality. Built to last, our jewelry is waterproof, wear-resistant and made to accompany you for years to come. For over twelve years, people around the world have discovered Pig & Hen and share our passion for quality, authenticity and timeless design. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8316,6 +8769,7 @@ const PRODUCTS = [
   {
     "id": 492601,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Foxtail (Slate Gray & Bronze, L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Foxtail (Slate Gray & Bronze, L)",
@@ -8323,7 +8777,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "CaFoSlaGra|BroL",
     "barcodes": [
-      "",
+      "CaFoSlaGra|BroL",
       "492601"
     ],
     "pitch": "Slate Gray | Bronze, M 18cm) Crafted from premium stainless steel with our signature nautical rope woven into the foxtail pattern, it perfectly balances strength, style and craftsmanship. Waterproof and wear resistant, made to accompany for years to come. Color: Black | Black Rope width: 5 mm Rope type: Chain Shackle color: Black Shackle size: 8 mm Shackle type: T- shackle Material type: 316L Stainless Steel Bronze | Marine rope About Pig & Hen Pig & Hen is a Dutch brand that stands for adventure, style and craftsmanship. Every piece of jewelry is handcrafted and rooted in Amsterdam, where our designs and stories come to life. Our name and inspiration date back to the 17th century, when Dutch sailors tattooed a pig and a hen on their bodies as a symbol of protection and good fortune. Today, we carry that tradition forward through our jewelry, where the same symbol of strength and protection is subtly embedded in every design. Our collections combine authentic heritage with contemporary design and durable materials such as marine rope, stainless steel, gemstones and precious metals of the highest quality. Built to last, our jewelry is waterproof, wear-resistant and made to accompany you for years to come. For over twelve years, people around the world have discovered Pig & Hen and share our passion for quality, authenticity and timeless design. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8333,6 +8787,7 @@ const PRODUCTS = [
   {
     "id": 539028,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Foxtail (Slate Gray & Bronze, M)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Foxtail (Slate Gray & Bronze, M)",
@@ -8340,7 +8795,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "CaFoSlaGra|BroM",
     "barcodes": [
-      "",
+      "CaFoSlaGra|BroM",
       "539028"
     ],
     "pitch": "Crafted from premium stainless steel with our signature nautical rope woven into the foxtail pattern, it perfectly balances strength, style and craftsmanship. Waterproof and wear resistant, made to accompany for years to come. Color: Black | Black Rope width: 5 mm Rope type: Chain Shackle color: Black Shackle size: 8 mm Shackle type: T- shackle Material type: 316L Stainless Steel Bronze | Marine rope About Pig & Hen Pig & Hen is a Dutch brand that stands for adventure, style and craftsmanship. Every piece of jewelry is handcrafted and rooted in Amsterdam, where our designs and stories come to life. Our name and inspiration date back to the 17th century, when Dutch sailors tattooed a pig and a hen on their bodies as a symbol of protection and good fortune. Today, we carry that tradition forward through our jewelry, where the same symbol of strength and protection is subtly embedded in every design. Our collections combine authentic heritage with contemporary design and durable materials such as marine rope, stainless steel, gemstones and precious metals of the highest quality. Built to last, our jewelry is waterproof, wear-resistant and made to accompany you for years to come. For over twelve years, people around the world have discovered Pig & Hen and share our passion for quality, authenticity and timeless design. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8350,6 +8805,7 @@ const PRODUCTS = [
   {
     "id": 539027,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Foxtail (Slate Gray & Bronze, M/L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Foxtail (Slate Gray & Bronze, M/L)",
@@ -8357,7 +8813,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "CaFoSlaGra|BroM/L",
     "barcodes": [
-      "",
+      "CaFoSlaGra|BroM/L",
       "539027"
     ],
     "pitch": "Slate Gray | Bronze, M 18cm) Crafted from premium stainless steel with our signature nautical rope woven into the foxtail pattern, it perfectly balances strength, style and craftsmanship. Waterproof and wear resistant, made to accompany for years to come. Color: Black | Black Rope width: 5 mm Rope type: Chain Shackle color: Black Shackle size: 8 mm Shackle type: T- shackle Material type: 316L Stainless Steel Bronze | Marine rope About Pig & Hen Pig & Hen is a Dutch brand that stands for adventure, style and craftsmanship. Every piece of jewelry is handcrafted and rooted in Amsterdam, where our designs and stories come to life. Our name and inspiration date back to the 17th century, when Dutch sailors tattooed a pig and a hen on their bodies as a symbol of protection and good fortune. Today, we carry that tradition forward through our jewelry, where the same symbol of strength and protection is subtly embedded in every design. Our collections combine authentic heritage with contemporary design and durable materials such as marine rope, stainless steel, gemstones and precious metals of the highest quality. Built to last, our jewelry is waterproof, wear-resistant and made to accompany you for years to come. For over twelve years, people around the world have discovered Pig & Hen and share our passion for quality, authenticity and timeless design. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8367,6 +8823,7 @@ const PRODUCTS = [
   {
     "id": 539046,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Black Gold L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Black Gold L)",
@@ -8374,7 +8831,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "CaVe7BlaGoL",
     "barcodes": [
-      "",
+      "CaVe7BlaGoL",
       "539046"
     ],
     "pitch": "Stainless Steel with woven marine rope. double box chain design. Bold, polished, nautical. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8384,6 +8841,7 @@ const PRODUCTS = [
   {
     "id": 539043,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Black Gold M)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Black Gold M)",
@@ -8391,7 +8849,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "CaVe7BlaGoM",
     "barcodes": [
-      "",
+      "CaVe7BlaGoM",
       "539043"
     ],
     "pitch": "Stainless Steel with woven marine rope. double box chain design. Bold, polished, nautical. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8401,6 +8859,7 @@ const PRODUCTS = [
   {
     "id": 539044,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Black Gold M/L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Black Gold M/L)",
@@ -8408,7 +8867,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "CaVe7BlaGoM/L",
     "barcodes": [
-      "",
+      "CaVe7BlaGoM/L",
       "539044"
     ],
     "pitch": "Stainless Steel with woven marine rope. double box chain design. Bold, polished, nautical. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8418,6 +8877,7 @@ const PRODUCTS = [
   {
     "id": 539041,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Black Gold S)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Black Gold S)",
@@ -8425,7 +8885,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "CaVe7BlaGoS",
     "barcodes": [
-      "",
+      "CaVe7BlaGoS",
       "539041"
     ],
     "pitch": "Stainless Steel with woven marine rope. double box chain design. Bold, polished, nautical. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8435,6 +8895,7 @@ const PRODUCTS = [
   {
     "id": 539042,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Black Gold S/M)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Black Gold S/M)",
@@ -8442,7 +8903,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "CaVe7BlaGoS/M",
     "barcodes": [
-      "",
+      "CaVe7BlaGoS/M",
       "539042"
     ],
     "pitch": "Stainless Steel with woven marine rope. double box chain design. Bold, polished, nautical. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8452,6 +8913,7 @@ const PRODUCTS = [
   {
     "id": 539082,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Ivory Gold S)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Ivory Gold S)",
@@ -8459,7 +8921,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "CaVe7IvoGoS",
     "barcodes": [
-      "",
+      "CaVe7IvoGoS",
       "539082"
     ],
     "pitch": "Stainless Steel with woven marine rope. double box chain design. Bold, polished, nautical. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8469,6 +8931,7 @@ const PRODUCTS = [
   {
     "id": 539083,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Ivory Gold S/M)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Ivory Gold S/M)",
@@ -8476,7 +8939,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "CaVe7IvoGoS/M",
     "barcodes": [
-      "",
+      "CaVe7IvoGoS/M",
       "539083"
     ],
     "pitch": "Stainless Steel with woven marine rope. double box chain design. Bold, polished, nautical. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8486,6 +8949,7 @@ const PRODUCTS = [
   {
     "id": 539085,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Lilac Purple S)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Lilac Purple S)",
@@ -8493,7 +8957,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "CaVe7LiPuS",
     "barcodes": [
-      "",
+      "CaVe7LiPuS",
       "539085"
     ],
     "pitch": "Stainless Steel with woven marine rope. double box chain design. Bold, polished, nautical. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8503,6 +8967,7 @@ const PRODUCTS = [
   {
     "id": 539034,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Navy & Silver, L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Navy & Silver, L)",
@@ -8510,7 +8975,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "CaVe7Na|SiL",
     "barcodes": [
-      "",
+      "CaVe7Na|SiL",
       "539034"
     ],
     "pitch": "Stainless Steel with woven marine rope. double box chain design. Bold, polished, nautical. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8520,6 +8985,7 @@ const PRODUCTS = [
   {
     "id": 492602,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Navy & Silver, M 18cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Navy & Silver, M 18cm)",
@@ -8527,7 +8993,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "PH-CHA-VEN-NVY-0005",
     "barcodes": [
-      "",
+      "PH-CHA-VEN-NVY-0005",
       "492602"
     ],
     "pitch": "Stainless Steel with woven marine rope. double box chain design. Bold, polished, nautical. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8537,6 +9003,7 @@ const PRODUCTS = [
   {
     "id": 539033,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Navy & Silver, M/L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Navy & Silver, M/L)",
@@ -8544,7 +9011,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "CaVe7Na|SiM/L",
     "barcodes": [
-      "",
+      "CaVe7Na|SiM/L",
       "539033"
     ],
     "pitch": "Stainless Steel with woven marine rope. double box chain design. Bold, polished, nautical. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8554,6 +9021,7 @@ const PRODUCTS = [
   {
     "id": 539081,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Slate Grey / Bronze L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Slate Grey / Bronze L)",
@@ -8561,7 +9029,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "CaVe7SlaGre/BroL",
     "barcodes": [
-      "",
+      "CaVe7SlaGre/BroL",
       "539081"
     ],
     "pitch": "Slate Grey / Bronze | L Stainless Steel with woven marine rope. double box chain design. Bold, polished, nautical. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8571,6 +9039,7 @@ const PRODUCTS = [
   {
     "id": 539080,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Slate Grey / Bronze M)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Slate Grey / Bronze M)",
@@ -8578,7 +9047,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "CaVe7SlaGre/BroM",
     "barcodes": [
-      "",
+      "CaVe7SlaGre/BroM",
       "539080"
     ],
     "pitch": "Slate Grey / Bronze | M. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8588,6 +9057,7 @@ const PRODUCTS = [
   {
     "id": 539079,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Catena Venetian 7mm (Slate Grey / Bronze M/L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Catena Venetian 7mm (Slate Grey / Bronze M/L)",
@@ -8595,7 +9065,7 @@ const PRODUCTS = [
     "priceNum": 240,
     "sku": "CaVe7SlaGre/BroM/L",
     "barcodes": [
-      "",
+      "CaVe7SlaGre/BroM/L",
       "539079"
     ],
     "pitch": "Slate Grey / Bronze | M/L Stainless Steel with woven marine rope. double box chain design. Bold, polished, nautical. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8605,6 +9075,7 @@ const PRODUCTS = [
   {
     "id": 492622,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Compass Rose Necklace (Bronze)",
     "fullTitle": "Pig & Hen - Pig & Hen - Compass Rose Necklace (Bronze)",
@@ -8612,7 +9083,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-CMP-RSE-BNZ-0025",
     "barcodes": [
-      "",
+      "PH-CMP-RSE-BNZ-0025",
       "492622"
     ],
     "pitch": "Stainless Steel Compass Rose Necklace symbol of direction and adventure. Crafted from high-quality stainless steel. it is built to last—resistant to wear and tarnishing. The pendant features the classic compass rose, representing exploration and determination. On the back, you’ll find the Pig & Hen logo, a subtle tribute to our roots. Rugged, stylish, and versatile. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8622,6 +9093,7 @@ const PRODUCTS = [
   {
     "id": 492623,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Compass Rose Necklace (Vintage)",
     "fullTitle": "Pig & Hen - Pig & Hen - Compass Rose Necklace (Vintage)",
@@ -8629,7 +9101,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-CMP-RSE-VIN-0026",
     "barcodes": [
-      "",
+      "PH-CMP-RSE-VIN-0026",
       "492623"
     ],
     "pitch": "Stainless Steel Compass Rose Necklace symbol of direction and adventure. Crafted from high-quality stainless steel. it is built to last—resistant to wear and tarnishing. The pendant features the classic compass rose, representing exploration and determination. On the back, you’ll find the Pig & Hen logo, a subtle tribute to our roots. Rugged, stylish, and versatile. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8639,6 +9111,7 @@ const PRODUCTS = [
   {
     "id": 492620,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Curb Chain Necklace (Black, 55cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Curb Chain Necklace (Black, 55cm)",
@@ -8646,7 +9119,7 @@ const PRODUCTS = [
     "priceNum": 80,
     "sku": "PH-CRB-CHN-BLK-0023",
     "barcodes": [
-      "",
+      "PH-CRB-CHN-BLK-0023",
       "492620"
     ],
     "pitch": "Material type: 316L Stainless Steel Black PVD. a classic piece. Great for layering. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8656,6 +9129,7 @@ const PRODUCTS = [
   {
     "id": 492621,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Curb Chain Necklace (Gold, 55cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Curb Chain Necklace (Gold, 55cm)",
@@ -8663,7 +9137,7 @@ const PRODUCTS = [
     "priceNum": 80,
     "sku": "PH-CRB-CHN-GLD-0024",
     "barcodes": [
-      "",
+      "PH-CRB-CHN-GLD-0024",
       "492621"
     ],
     "pitch": "316L Stainless Steel Black PVD. a classic piece. Great for layering. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8673,6 +9147,7 @@ const PRODUCTS = [
   {
     "id": 539092,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Curb Chain Necklace (Silver, 55cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Curb Chain Necklace (Silver, 55cm)",
@@ -8680,7 +9155,7 @@ const PRODUCTS = [
     "priceNum": 80,
     "sku": "CuChaNeSi55",
     "barcodes": [
-      "",
+      "CuChaNeSi55",
       "539092"
     ],
     "pitch": "316L Stainless Steel Black PVD. a classic piece. Great for layering. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8690,6 +9165,7 @@ const PRODUCTS = [
   {
     "id": 492637,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Elizabeth (Gold)",
     "fullTitle": "Pig & Hen - Pig & Hen - Elizabeth (Gold)",
@@ -8697,7 +9173,7 @@ const PRODUCTS = [
     "priceNum": 185,
     "sku": "PH-ELZ-GLD-0040",
     "barcodes": [
-      "",
+      "PH-ELZ-GLD-0040",
       "492637"
     ],
     "pitch": "Stainless Steel w/ gold pvd. Bold yet refined. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8707,6 +9183,7 @@ const PRODUCTS = [
   {
     "id": 492624,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Eva (Bi-Color)",
     "fullTitle": "Pig & Hen - Pig & Hen - Eva (Bi-Color)",
@@ -8714,7 +9191,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-EVA-BCL-0027",
     "barcodes": [
-      "",
+      "PH-EVA-BCL-0027",
       "492624"
     ],
     "pitch": "nautical inspired, timeless yet versatile. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8724,6 +9201,7 @@ const PRODUCTS = [
   {
     "id": 492626,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Julie (Gold)",
     "fullTitle": "Pig & Hen - Pig & Hen - Julie (Gold)",
@@ -8731,7 +9209,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-JUL-GLD-0029",
     "barcodes": [
-      "",
+      "PH-JUL-GLD-0029",
       "492626"
     ],
     "pitch": "Stainless Steel with pvd coating. Lightweight and comfortable. Easy to layer. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8741,6 +9219,7 @@ const PRODUCTS = [
   {
     "id": 492625,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Julie (Silver)",
     "fullTitle": "Pig & Hen - Pig & Hen - Julie (Silver)",
@@ -8748,7 +9227,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-JUL-SLV-0028",
     "barcodes": [
-      "",
+      "PH-JUL-SLV-0028",
       "492625"
     ],
     "pitch": "Stainless Steel with pvd coating. Lightweight and comfortable. Easy to layer. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8758,6 +9237,7 @@ const PRODUCTS = [
   {
     "id": 492627,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Lewis (Ivory & Gold, S 16-17cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Lewis (Ivory & Gold, S 16-17cm)",
@@ -8765,7 +9245,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-LWS-IVR-GLD-0030",
     "barcodes": [
-      "",
+      "PH-LWS-IVR-GLD-0030",
       "492627"
     ],
     "pitch": "Stainless steel hardware + Marine rope. minimalist easy everyday piece. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8775,6 +9255,7 @@ const PRODUCTS = [
   {
     "id": 539091,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Lewis (Lilac & Purple, S)",
     "fullTitle": "Pig & Hen - Pig & Hen - Lewis (Lilac & Purple, S)",
@@ -8782,7 +9263,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "LeLi|PuS)",
     "barcodes": [
-      "",
+      "LeLi|PuS)",
       "539091"
     ],
     "pitch": "Stainless steel hardware + Marine rope. minimalist easy everyday piece. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8792,6 +9273,7 @@ const PRODUCTS = [
   {
     "id": 492628,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Lewis (Royal Blue & Gold, S 16-17cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Lewis (Royal Blue & Gold, S 16-17cm)",
@@ -8799,7 +9281,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-LWS-RBL-GLD-0031",
     "barcodes": [
-      "",
+      "PH-LWS-RBL-GLD-0031",
       "492628"
     ],
     "pitch": "Stainless steel hardware + Marine rope. minimalist easy everyday piece. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8809,6 +9291,7 @@ const PRODUCTS = [
   {
     "id": 492604,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Little Lewis DBL (Army & Vintage, L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Little Lewis DBL (Army & Vintage, L)",
@@ -8816,7 +9299,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-BRC-LW1-ARM-0007",
     "barcodes": [
-      "",
+      "PH-BRC-LW1-ARM-0007",
       "492604"
     ],
     "pitch": "Little Lewis DBL features two stylish stainless-steel sliders that keep the authentic maritime rope perfectly in place, ensuring a comfortable and adjustable fit. Available in several colors, it is understated and masculine, looking just as good with a tee as it does slipped under a white shirt cuff. Story behind the name: A true craftsman. We call him Little because he appreciates the little things in life and because we always want him to work a little faster. Every single craft is a masterpiece, Lewis has a razor sharp eye for detail. If only he had an eye for the time as well. stainless steel/marine rope. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8826,6 +9309,7 @@ const PRODUCTS = [
   {
     "id": 539038,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Little Lewis DBL (Army & Vintage, M)",
     "fullTitle": "Pig & Hen - Pig & Hen - Little Lewis DBL (Army & Vintage, M)",
@@ -8833,7 +9317,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "LiLeDBLArmy|ViM",
     "barcodes": [
-      "",
+      "LiLeDBLArmy|ViM",
       "539038"
     ],
     "pitch": "Little Lewis DBL features two stylish stainless-steel sliders that keep the authentic maritime rope perfectly in place, ensuring a comfortable and adjustable fit. Available in several colors, it is understated and masculine, looking just as good with a tee as it does slipped under a white shirt cuff. Story behind the name: A true craftsman. We call him Little because he appreciates the little things in life and because we always want him to work a little faster. Every single craft is a masterpiece, Lewis has a razor sharp eye for detail. If only he had an eye for the time as well. stainless steel/marine rope. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8843,6 +9327,7 @@ const PRODUCTS = [
   {
     "id": 539039,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Little Lewis DBL (Black & Black, L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Little Lewis DBL (Black & Black, L)",
@@ -8850,7 +9335,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "LiLeDBLBla|BlaL",
     "barcodes": [
-      "",
+      "LiLeDBLBla|BlaL",
       "539039"
     ],
     "pitch": "Slate Grey Bronze L Little Lewis DBL features two stylish stainless-steel sliders that keep the authentic maritime rope perfectly in place, ensuring a comfortable and adjustable fit. Available in several colors, it is understated and masculine, looking just as good with a tee as it does slipped under a white shirt cuff. Story behind the name: A true craftsman. We call him Little because he appreciates the little things in life and because we always want him to work a little faster. Every single craft is a masterpiece, Lewis has a razor sharp eye for detail. If only he had an eye for the time as well. stainless steel/marine rope. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8860,6 +9345,7 @@ const PRODUCTS = [
   {
     "id": 492603,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Little Lewis DBL (Black & Black, M 18-19cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Little Lewis DBL (Black & Black, M 18-19cm)",
@@ -8867,7 +9353,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-BRC-LW1-BLK-0006",
     "barcodes": [
-      "",
+      "PH-BRC-LW1-BLK-0006",
       "492603"
     ],
     "pitch": "Slate Grey Bronze L Little Lewis DBL features two stylish stainless-steel sliders that keep the authentic maritime rope perfectly in place, ensuring a comfortable and adjustable fit. Available in several colors, it is understated and masculine, looking just as good with a tee as it does slipped under a white shirt cuff. Story behind the name: A true craftsman. We call him Little because he appreciates the little things in life and because we always want him to work a little faster. Every single craft is a masterpiece, Lewis has a razor sharp eye for detail. If only he had an eye for the time as well. stainless steel/marine rope. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8877,6 +9363,7 @@ const PRODUCTS = [
   {
     "id": 539090,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Little Lewis DBL (Navy & Silver, L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Little Lewis DBL (Navy & Silver, L)",
@@ -8884,7 +9371,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "LiLeDBLNa|SiL)",
     "barcodes": [
-      "",
+      "LiLeDBLNa|SiL)",
       "539090"
     ],
     "pitch": "Navy Silver L Slate Grey Bronze L Little Lewis DBL features two stylish stainless-steel sliders that keep the authentic maritime rope perfectly in place, ensuring a comfortable and adjustable fit. Available in several colors, it is understated and masculine, looking just as good with a tee as it does slipped under a white shirt cuff. Story behind the name: A true craftsman. We call him Little because he appreciates the little things in life and because we always want him to work a little faster. Every single craft is a masterpiece, Lewis has a razor sharp eye for detail. If only he had an eye for the time as well. stainless steel/marine rope. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8894,6 +9381,7 @@ const PRODUCTS = [
   {
     "id": 539089,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Little Lewis DBL (Navy & Silver, M)",
     "fullTitle": "Pig & Hen - Pig & Hen - Little Lewis DBL (Navy & Silver, M)",
@@ -8901,7 +9389,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "LiLeDBLNa|SiM)",
     "barcodes": [
-      "",
+      "LiLeDBLNa|SiM)",
       "539089"
     ],
     "pitch": "Authentic handcrafted nautical bracelet designed in Amsterdam from genuine marine-grade ship rope and corrosion-resistant stainless steel. Waterproof, ruggedly refined, and built to endure a lifetime of adventure.",
@@ -8911,6 +9399,7 @@ const PRODUCTS = [
   {
     "id": 539087,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Little Lewis DBL (Slate Grey & Bronze, L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Little Lewis DBL (Slate Grey & Bronze, L)",
@@ -8918,7 +9407,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "LiLeDBLSlaGre|BroL)",
     "barcodes": [
-      "",
+      "LiLeDBLSlaGre|BroL)",
       "539087"
     ],
     "pitch": "Slate Grey Bronze L Little Lewis DBL features two stylish stainless-steel sliders that keep the authentic maritime rope perfectly in place, ensuring a comfortable and adjustable fit. Available in several colors, it is understated and masculine, looking just as good with a tee as it does slipped under a white shirt cuff. Story behind the name: A true craftsman. We call him Little because he appreciates the little things in life and because we always want him to work a little faster. Every single craft is a masterpiece, Lewis has a razor sharp eye for detail. If only he had an eye for the time as well. stainless steel/marine rope. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8928,6 +9417,7 @@ const PRODUCTS = [
   {
     "id": 539088,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Little Lewis DBL (Slate Grey & Bronze, M)",
     "fullTitle": "Pig & Hen - Pig & Hen - Little Lewis DBL (Slate Grey & Bronze, M)",
@@ -8935,7 +9425,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "LiLeDBLSlaGre|BroM)",
     "barcodes": [
-      "",
+      "LiLeDBLSlaGre|BroM)",
       "539088"
     ],
     "pitch": "Slate Grey Bronze M Slate Grey Bronze L Little Lewis DBL features two stylish stainless-steel sliders that keep the authentic maritime rope perfectly in place, ensuring a comfortable and adjustable fit. Available in several colors, it is understated and masculine, looking just as good with a tee as it does slipped under a white shirt cuff. Story behind the name: A true craftsman. We call him Little because he appreciates the little things in life and because we always want him to work a little faster. Every single craft is a masterpiece, Lewis has a razor sharp eye for detail. If only he had an eye for the time as well. stainless steel/marine rope. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8945,6 +9435,7 @@ const PRODUCTS = [
   {
     "id": 492635,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Maya Lou 6mm (Black & Gold, S 16cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Maya Lou 6mm (Black & Gold, S 16cm)",
@@ -8952,7 +9443,7 @@ const PRODUCTS = [
     "priceNum": 185,
     "sku": "PH-MYL-BLK-S16-0038",
     "barcodes": [
-      "",
+      "PH-MYL-BLK-S16-0038",
       "492635"
     ],
     "pitch": "stainless steel with pvd coating. Sleek and understated with it's namesake representing having a strong voice and being true to yourself. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8962,6 +9453,7 @@ const PRODUCTS = [
   {
     "id": 492636,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Maya Lou 6mm (Black & Gold, S/M 17cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Maya Lou 6mm (Black & Gold, S/M 17cm)",
@@ -8969,7 +9461,7 @@ const PRODUCTS = [
     "priceNum": 185,
     "sku": "PH-MYL-BLK-S17-0039",
     "barcodes": [
-      "",
+      "PH-MYL-BLK-S17-0039",
       "492636"
     ],
     "pitch": "stainless steel with pvd coating. Sleek and understated with it's namesake representing having a strong voice and being true to yourself. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8979,6 +9471,7 @@ const PRODUCTS = [
   {
     "id": 492629,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Maya Lou (Ivory & Gold, S 16cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Maya Lou (Ivory & Gold, S 16cm)",
@@ -8986,7 +9479,7 @@ const PRODUCTS = [
     "priceNum": 185,
     "sku": "PH-MYL-IVR-S16-0032",
     "barcodes": [
-      "",
+      "PH-MYL-IVR-S16-0032",
       "492629"
     ],
     "pitch": "stainless steel with pvd coating. Sleek and understated with it's namesake representing having a strong voice and being true to yourself. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -8996,6 +9489,7 @@ const PRODUCTS = [
   {
     "id": 492630,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Maya Lou (Ivory & Gold, S/M 17cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Maya Lou (Ivory & Gold, S/M 17cm)",
@@ -9003,7 +9497,7 @@ const PRODUCTS = [
     "priceNum": 185,
     "sku": "PH-MYL-IVR-S17-0033",
     "barcodes": [
-      "",
+      "PH-MYL-IVR-S17-0033",
       "492630"
     ],
     "pitch": "stainless steel with pvd coating. Sleek and understated with it's namesake representing having a strong voice and being true to yourself. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9013,6 +9507,7 @@ const PRODUCTS = [
   {
     "id": 492631,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Maya Lou (Lilac Purple & Silver, S 16cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Maya Lou (Lilac Purple & Silver, S 16cm)",
@@ -9020,7 +9515,7 @@ const PRODUCTS = [
     "priceNum": 185,
     "sku": "PH-MYL-LIL-S16-0034",
     "barcodes": [
-      "",
+      "PH-MYL-LIL-S16-0034",
       "492631"
     ],
     "pitch": "stainless steel. Sleek and understated with it's namesake representing having a strong voice and being true to yourself. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9030,6 +9525,7 @@ const PRODUCTS = [
   {
     "id": 492632,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Maya Lou (Lilac Purple & Silver, S/M 17cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Maya Lou (Lilac Purple & Silver, S/M 17cm)",
@@ -9037,7 +9533,7 @@ const PRODUCTS = [
     "priceNum": 185,
     "sku": "PH-MYL-LIL-S17-0035",
     "barcodes": [
-      "",
+      "PH-MYL-LIL-S17-0035",
       "492632"
     ],
     "pitch": "stainless steel. Sleek and understated with it's namesake representing having a strong voice and being true to yourself. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9047,6 +9543,7 @@ const PRODUCTS = [
   {
     "id": 492633,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Maya Lou (Royal Blue & Gold, S 16cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Maya Lou (Royal Blue & Gold, S 16cm)",
@@ -9054,7 +9551,7 @@ const PRODUCTS = [
     "priceNum": 185,
     "sku": "PH-MYL-RBL-S16-0036",
     "barcodes": [
-      "",
+      "PH-MYL-RBL-S16-0036",
       "492633"
     ],
     "pitch": "stainless steel with pvd coating. Sleek and understated with it's namesake representing having a strong voice and being true to yourself. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9064,6 +9561,7 @@ const PRODUCTS = [
   {
     "id": 492634,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Maya Lou (Royal Blue & Gold, S/M 17cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Maya Lou (Royal Blue & Gold, S/M 17cm)",
@@ -9071,7 +9569,7 @@ const PRODUCTS = [
     "priceNum": 185,
     "sku": "PH-MYL-RBL-S17-0037",
     "barcodes": [
-      "",
+      "PH-MYL-RBL-S17-0037",
       "492634"
     ],
     "pitch": "stainless steel with pvd coating. Sleek and understated with it's namesake representing having a strong voice and being true to yourself. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9081,6 +9579,7 @@ const PRODUCTS = [
   {
     "id": 492608,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm (Army & Vintage, M 18cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm (Army & Vintage, M 18cm)",
@@ -9088,7 +9587,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "PH-NAV-ARM-VIN-0011",
     "barcodes": [
-      "",
+      "PH-NAV-ARM-VIN-0011",
       "492608"
     ],
     "pitch": "(Navy | Silver, M 18cm)Created for the born leaders, the Navarch 6mm Cuff features a textured nautical rope insert that gives a modern edge to a timeless design. Its name comes from the ancient Greek word 'Navarchos', meaning 'leader of the fleet', symbolizing strength, confidence and authority. stainless steel vintage. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9098,6 +9597,7 @@ const PRODUCTS = [
   {
     "id": 539023,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm (Army & Vintage, M/L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm (Army & Vintage, M/L)",
@@ -9105,7 +9605,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "Na6Army|ViM/L",
     "barcodes": [
-      "",
+      "Na6Army|ViM/L",
       "539023"
     ],
     "pitch": "(Navy | Silver, M 18cm)Created for the born leaders, the Navarch 6mm Cuff features a textured nautical rope insert that gives a modern edge to a timeless design. Its name comes from the ancient Greek word 'Navarchos', meaning 'leader of the fleet', symbolizing strength, confidence and authority. stainless steel vintage. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9115,6 +9615,7 @@ const PRODUCTS = [
   {
     "id": 492605,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm (Black & Black, M 18cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm (Black & Black, M 18cm)",
@@ -9122,7 +9623,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "PH-NAV-BLK-BLK-0008",
     "barcodes": [
-      "",
+      "PH-NAV-BLK-BLK-0008",
       "492605"
     ],
     "pitch": "Created for the born leaders, the Navarch 6mm Cuff features a textured nautical rope insert that gives a modern edge to a timeless design. Its name comes from the ancient Greek word 'Navarchos', meaning 'leader of the fleet', symbolizing strength, confidence and authority. stainless steel black pvd. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9132,6 +9633,7 @@ const PRODUCTS = [
   {
     "id": 539017,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm (Black & Black, M/L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm (Black & Black, M/L)",
@@ -9139,7 +9641,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "N6-NOS-290000-ML",
     "barcodes": [
-      "8719874884587",
+      "N6-NOS-290000-ML",
       "539017"
     ],
     "pitch": "Created for the born leaders, the Navarch 6mm Cuff features a textured nautical rope insert that gives a modern edge to a timeless design. Its name comes from the ancient Greek word 'Navarchos', meaning 'leader of the fleet', symbolizing strength, confidence and authority. stainless steel black pvd. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9149,6 +9651,7 @@ const PRODUCTS = [
   {
     "id": 492607,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm (Black & Gold, M 18cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm (Black & Gold, M 18cm)",
@@ -9156,7 +9659,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "PH-NAV-BLK-GLD-0010",
     "barcodes": [
-      "",
+      "PH-NAV-BLK-GLD-0010",
       "492607"
     ],
     "pitch": "Created for the born leaders, the Navarch 6mm Cuff features a textured nautical rope insert that gives a modern edge to a timeless design. Its name comes from the ancient Greek word 'Navarchos', meaning 'leader of the fleet', symbolizing strength, confidence and authority. stainless steel Gold. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9166,6 +9669,7 @@ const PRODUCTS = [
   {
     "id": 539022,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm (Black & Gold, M/L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm (Black & Gold, M/L)",
@@ -9173,7 +9677,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "Na6Bla|GoM18",
     "barcodes": [
-      "",
+      "Na6Bla|GoM18",
       "539022"
     ],
     "pitch": "Created for the born leaders, the Navarch 6mm Cuff features a textured nautical rope insert that gives a modern edge to a timeless design. Its name comes from the ancient Greek word 'Navarchos', meaning 'leader of the fleet', symbolizing strength, confidence and authority. stainless steel Gold. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9183,6 +9687,7 @@ const PRODUCTS = [
   {
     "id": 492606,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm (Navy & Silver, M 18cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm (Navy & Silver, M 18cm)",
@@ -9190,7 +9695,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "PH-NAV-NVY-SLV-0009",
     "barcodes": [
-      "",
+      "PH-NAV-NVY-SLV-0009",
       "492606"
     ],
     "pitch": "(Navy | Silver, M 18cm)Created for the born leaders, the Navarch 6mm Cuff features a textured nautical rope insert that gives a modern edge to a timeless design. Its name comes from the ancient Greek word 'Navarchos', meaning 'leader of the fleet', symbolizing strength, confidence and authority. stainless steel. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9200,6 +9705,7 @@ const PRODUCTS = [
   {
     "id": 539021,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm (Navy & Silver, M/L)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm (Navy & Silver, M/L)",
@@ -9207,7 +9713,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "Na6Na|SiM/L",
     "barcodes": [
-      "",
+      "Na6Na|SiM/L",
       "539021"
     ],
     "pitch": "Created for the born leaders, the Navarch 6mm Cuff features a textured nautical rope insert that gives a modern edge to a timeless design. Its name comes from the ancient Greek word 'Navarchos', meaning 'leader of the fleet', symbolizing strength, confidence and authority. stainless steel. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9217,6 +9723,7 @@ const PRODUCTS = [
   {
     "id": 492616,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm Ring (Army & Vintage, 63/20mm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm Ring (Army & Vintage, 63/20mm)",
@@ -9224,7 +9731,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-NAV-RNG-ARM-63-0019",
     "barcodes": [
-      "",
+      "PH-NAV-RNG-ARM-63-0019",
       "492616"
     ],
     "pitch": "Stainless Steel/Marine rope -- means leader of ships in greek. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9234,6 +9741,7 @@ const PRODUCTS = [
   {
     "id": 492617,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm Ring (Army & Vintage, 66/21mm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm Ring (Army & Vintage, 66/21mm)",
@@ -9241,7 +9749,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-NAV-RNG-ARM-66-0020",
     "barcodes": [
-      "",
+      "PH-NAV-RNG-ARM-66-0020",
       "492617"
     ],
     "pitch": "( Stainless Steel/Marine rope -- means leader of ships in greek. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9251,6 +9759,7 @@ const PRODUCTS = [
   {
     "id": 492618,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm Ring (Army & Vintage, 69/22mm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm Ring (Army & Vintage, 69/22mm)",
@@ -9258,7 +9767,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-NAV-RNG-ARM-69-0021",
     "barcodes": [
-      "",
+      "PH-NAV-RNG-ARM-69-0021",
       "492618"
     ],
     "pitch": "(Army | Vintage, 63/20mm) Stainless Steel/Marine rope -- means leader of ships in greek. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9268,6 +9777,7 @@ const PRODUCTS = [
   {
     "id": 492613,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm Ring (Black & Black, 63/20mm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm Ring (Black & Black, 63/20mm)",
@@ -9275,7 +9785,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-NAV-RNG-BLK-63-0016",
     "barcodes": [
-      "",
+      "PH-NAV-RNG-BLK-63-0016",
       "492613"
     ],
     "pitch": "Stainless Steel/Marine rope -- means leader of ships in greek. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9285,6 +9795,7 @@ const PRODUCTS = [
   {
     "id": 492614,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm Ring (Black & Black, 66/21mm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm Ring (Black & Black, 66/21mm)",
@@ -9292,7 +9803,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-NAV-RNG-BLK-66-0017",
     "barcodes": [
-      "",
+      "PH-NAV-RNG-BLK-66-0017",
       "492614"
     ],
     "pitch": "Stainless Steel/Marine rope -- means leader of ships in greek. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9302,6 +9813,7 @@ const PRODUCTS = [
   {
     "id": 492615,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm Ring (Black & Black, 69/22mm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm Ring (Black & Black, 69/22mm)",
@@ -9309,7 +9821,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-NAV-RNG-BLK-69-0018",
     "barcodes": [
-      "",
+      "PH-NAV-RNG-BLK-69-0018",
       "492615"
     ],
     "pitch": "Stainless Steel/Marine rope -- means leader of ships in greek. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9319,6 +9831,7 @@ const PRODUCTS = [
   {
     "id": 492610,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm Ring (Navy & Silver, 63/20mm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm Ring (Navy & Silver, 63/20mm)",
@@ -9326,7 +9839,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-NAV-RNG-NVY-0013",
     "barcodes": [
-      "",
+      "PH-NAV-RNG-NVY-0013",
       "492610"
     ],
     "pitch": "Stainless Steel/Marine rope -- means leader of ships in greek. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9336,6 +9849,7 @@ const PRODUCTS = [
   {
     "id": 492611,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm Ring (Navy & Silver, 66/21mm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm Ring (Navy & Silver, 66/21mm)",
@@ -9343,7 +9857,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-NAV-RNG-NVY-66-0014",
     "barcodes": [
-      "",
+      "PH-NAV-RNG-NVY-66-0014",
       "492611"
     ],
     "pitch": "Stainless Steel/Marine rope -- means leader of ships in greek. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9353,6 +9867,7 @@ const PRODUCTS = [
   {
     "id": 492612,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm Ring (Navy & Silver, 69/22mm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm Ring (Navy & Silver, 69/22mm)",
@@ -9360,7 +9875,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "PH-NAV-RNG-NVY-69-0015",
     "barcodes": [
-      "",
+      "PH-NAV-RNG-NVY-69-0015",
       "492612"
     ],
     "pitch": "Stainless Steel/Marine rope -- means leader of ships in greek. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9370,6 +9885,7 @@ const PRODUCTS = [
   {
     "id": 539099,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm Ring (Slate Grey & Bronze, 66/21mm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm Ring (Slate Grey & Bronze, 66/21mm)",
@@ -9377,7 +9893,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "Na6RiSlaGre|Bro66",
     "barcodes": [
-      "",
+      "Na6RiSlaGre|Bro66",
       "539099"
     ],
     "pitch": "Stainless Steel/Marine rope -- means leader of ships in greek. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9387,6 +9903,7 @@ const PRODUCTS = [
   {
     "id": 539097,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm Ring (Slate Grey & Bronze, 69/22mm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm Ring (Slate Grey & Bronze, 69/22mm)",
@@ -9394,7 +9911,7 @@ const PRODUCTS = [
     "priceNum": 130,
     "sku": "Na6RiSlaGre|Bro69",
     "barcodes": [
-      "",
+      "Na6RiSlaGre|Bro69",
       "539097"
     ],
     "pitch": "Stainless Steel/Marine rope -- means leader of ships in greek. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9404,6 +9921,7 @@ const PRODUCTS = [
   {
     "id": 492609,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen - Navarch 6mm (Slate Gray & Bronze, M 18cm)",
     "fullTitle": "Pig & Hen - Pig & Hen - Navarch 6mm (Slate Gray & Bronze, M 18cm)",
@@ -9411,7 +9929,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "PH-NAV-SLG-BNZ-0012",
     "barcodes": [
-      "",
+      "PH-NAV-SLG-BNZ-0012",
       "492609"
     ],
     "pitch": "Created for the born leaders, the Navarch 6mm Cuff features a textured nautical rope insert that gives a modern edge to a timeless design. Its name comes from the ancient Greek word 'Navarchos', meaning 'leader of the fleet', symbolizing strength, confidence and authority. stainless steel bronze. Handcrafted in Amsterdam with authentic nautical circular rope and marine-grade stainless steel for lifetime waterproof resilience.",
@@ -9421,6 +9939,7 @@ const PRODUCTS = [
   {
     "id": 539019,
     "department": "Fine Jewelry & Modern Adornments",
+    "subgroup": "Pig & Hen • Nautical Rope Bracelets & Cuffs",
     "brand": "Pig & Hen",
     "name": "Pig & Hen Navarch 6mm (Slate Gray | Bronze, M/L",
     "fullTitle": "Pig & Hen - Pig & Hen Navarch 6mm (Slate Gray | Bronze, M/L",
@@ -9428,7 +9947,7 @@ const PRODUCTS = [
     "priceNum": 179,
     "sku": "Na6SlaGra|BroM/L",
     "barcodes": [
-      "",
+      "Na6SlaGra|BroM/L",
       "539019"
     ],
     "pitch": "(Slate Gray | Bronze, M/L) Created for the born leaders, the Navarch 6mm Cuff features a textured nautical rope insert that gives a modern edge to a timeless design. Its name comes from the ancient Greek word 'Navarchos', meaning 'leader of the fleet', symbolizing strength, confidence and authority.\n\nstainless steel bronze",
@@ -9436,8 +9955,27 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/a877d1da-3fd1-4db5-aed6-d370d002d995.png"
   },
   {
+    "id": 562448,
+    "department": "Cafe & Nourishment",
+    "subgroup": "Fresh Baked Goods & Artisan Cookies",
+    "brand": "The Practice Cafe",
+    "name": "Pistachio & Cranberry Biscotti",
+    "fullTitle": "The Practice Cafe - Pistachio & Cranberry Biscotti",
+    "price": "$3.50",
+    "priceNum": 3.5,
+    "sku": "",
+    "barcodes": [
+      "",
+      "562448"
+    ],
+    "pitch": "A crisp, buttery traditional biscotti packed with roasted pistachios and sweet cranberries. Elegantly topped with white chocolate drizzle and crushed pistachios.\n\nIngredients: Flour, eggs, butter, pistachios, cranberries. Topping: White chocolate, crushed pistachios.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/562448/edit",
+    "img": "https://images.momence.com/h/200431/product-image/b18e44d7-1470-428e-9331-ebed33f8a860.png"
+  },
+  {
     "id": 492538,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Preston Grooming",
     "name": "Preston Grooming - Argan Oil Infused Beard Oil",
     "fullTitle": "Preston Grooming - Preston Grooming - Argan Oil Infused Beard Oil",
@@ -9445,7 +9983,7 @@ const PRODUCTS = [
     "priceNum": 24.99,
     "sku": "PG-CAN-LUM-0003",
     "barcodes": [
-      "",
+      "PG-CAN-LUM-0003",
       "492538"
     ],
     "pitch": "High-performance clean men's grooming apothecary crafted with organic plant oils, antioxidant botanicals, and invigorating nature extracts.",
@@ -9455,6 +9993,7 @@ const PRODUCTS = [
   {
     "id": 492536,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Preston Grooming",
     "name": "Preston Grooming - Cooling Shave Cream",
     "fullTitle": "Preston Grooming - Preston Grooming - Cooling Shave Cream",
@@ -9462,7 +10001,7 @@ const PRODUCTS = [
     "priceNum": 19.99,
     "sku": "PG-CAN-ART-0001",
     "barcodes": [
-      "",
+      "PG-CAN-ART-0001",
       "492536"
     ],
     "pitch": "High-performance clean men's grooming apothecary crafted with organic plant oils, antioxidant botanicals, and invigorating nature extracts.",
@@ -9472,6 +10011,7 @@ const PRODUCTS = [
   {
     "id": 492540,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Preston Grooming",
     "name": "Preston Grooming - Cream Pomade",
     "fullTitle": "Preston Grooming - Preston Grooming - Cream Pomade",
@@ -9479,7 +10019,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "PG-CAN-SOL-0005",
     "barcodes": [
-      "",
+      "PG-CAN-SOL-0005",
       "492540"
     ],
     "pitch": "High-performance clean men's grooming apothecary crafted with organic plant oils, antioxidant botanicals, and invigorating nature extracts.",
@@ -9489,6 +10029,7 @@ const PRODUCTS = [
   {
     "id": 492539,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Preston Grooming",
     "name": "Preston Grooming - Exfoliating Face Wash",
     "fullTitle": "Preston Grooming - Preston Grooming - Exfoliating Face Wash",
@@ -9496,7 +10037,7 @@ const PRODUCTS = [
     "priceNum": 29.99,
     "sku": "PG-CAN-PRO-0004",
     "barcodes": [
-      "",
+      "PG-CAN-PRO-0004",
       "492539"
     ],
     "pitch": "High-performance clean men's grooming apothecary crafted with organic plant oils, antioxidant botanicals, and invigorating nature extracts.",
@@ -9506,6 +10047,7 @@ const PRODUCTS = [
   {
     "id": 492537,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Preston Grooming",
     "name": "Preston Grooming - Shea Butter Infused Beard Balm",
     "fullTitle": "Preston Grooming - Preston Grooming - Shea Butter Infused Beard Balm",
@@ -9513,7 +10055,7 @@ const PRODUCTS = [
     "priceNum": 24.99,
     "sku": "PG-CAN-EXP-0002",
     "barcodes": [
-      "",
+      "PG-CAN-EXP-0002",
       "492537"
     ],
     "pitch": "High-performance clean men's grooming apothecary crafted with organic plant oils, antioxidant botanicals, and invigorating nature extracts.",
@@ -9523,6 +10065,7 @@ const PRODUCTS = [
   {
     "id": 492542,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Preston Grooming",
     "name": "Preston Grooming - Shower Steamer - Eucalyptus",
     "fullTitle": "Preston Grooming - Preston Grooming - Shower Steamer - Eucalyptus",
@@ -9530,7 +10073,7 @@ const PRODUCTS = [
     "priceNum": 45,
     "sku": "PG-CAN-GRE-0007",
     "barcodes": [
-      "",
+      "PG-CAN-GRE-0007",
       "492542"
     ],
     "pitch": "High-performance clean men's grooming apothecary crafted with organic plant oils, antioxidant botanicals, and invigorating nature extracts.",
@@ -9540,6 +10083,7 @@ const PRODUCTS = [
   {
     "id": 492541,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Preston Grooming",
     "name": "Preston Grooming - Translucent Sunscreen Face Stick - SPF 50",
     "fullTitle": "Preston Grooming - Preston Grooming - Translucent Sunscreen Face Stick - SPF 50",
@@ -9547,7 +10091,7 @@ const PRODUCTS = [
     "priceNum": 42,
     "sku": "PG-CAN-BEE-0006",
     "barcodes": [
-      "",
+      "PG-CAN-BEE-0006",
       "492541"
     ],
     "pitch": "High-performance clean men's grooming apothecary crafted with organic plant oils, antioxidant botanicals, and invigorating nature extracts.",
@@ -9557,6 +10101,7 @@ const PRODUCTS = [
   {
     "id": 513580,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
     "name": "Protein Powder",
     "fullTitle": "The Practice Cafe - Protein Powder",
@@ -9569,11 +10114,12 @@ const PRODUCTS = [
     ],
     "pitch": "A premium, highly versatile nutrient boost designed to easily blend into your favourite beverages, smoothies, or recipes for a clean dose of highly-quality protein",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513580/edit",
-    "img": "https://images.momence.com/h/200431/product-image/8a380bc7-8884-4c77-9796-747cadd32e58.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/8b484b9f-3119-434f-8819-a99d6f8096f2.jpg"
   },
   {
     "id": 563938,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "The Practice",
     "name": "Purple Floral Wall Art - Green Box",
     "fullTitle": "The Practice - Purple Floral Wall Art - Green Box",
@@ -9589,8 +10135,27 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/ebd9a068-2cba-43d2-ae44-402246d368e3.jpeg"
   },
   {
+    "id": 563895,
+    "department": "Cafe & Nourishment",
+    "subgroup": "Fresh Baked Goods & Artisan Cookies",
+    "brand": "The Practice",
+    "name": "Quinoa Breakfast Cookie",
+    "fullTitle": "The Practice - Quinoa Breakfast Cookie",
+    "price": "$5.50",
+    "priceNum": 5.5,
+    "sku": "",
+    "barcodes": [
+      "",
+      "563895"
+    ],
+    "pitch": "A wholesome, nutrient-dense treat. Carefully crafted with quinoa flakes, almond flour, oats, dark chocolate chips, mixed seeds, dried fruit, and a touch of tahini.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/563895/edit",
+    "img": "https://images.momence.com/h/200431/product-image/4c7e5555-4b62-4dc1-850d-8cce527a94ba.jpg"
+  },
+  {
     "id": 492383,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Raincoast Distribution Group",
     "name": "Raincoast - Avalon Visions Oracle",
     "fullTitle": "Raincoast Distribution Group - Raincoast - Avalon Visions Oracle",
@@ -9598,7 +10163,7 @@ const PRODUCTS = [
     "priceNum": 49.99,
     "sku": "RC-AVA-VIS-0004",
     "barcodes": [
-      "",
+      "RC-AVA-VIS-0004",
       "492383"
     ],
     "pitch": "Curated publication or intuitive oracle deck designed to nurture reflection, mindful awareness, and creative personal discovery.",
@@ -9608,6 +10173,7 @@ const PRODUCTS = [
   {
     "id": 492382,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Raincoast Distribution Group",
     "name": "Raincoast - Divine Masculine Healing Oracle",
     "fullTitle": "Raincoast Distribution Group - Raincoast - Divine Masculine Healing Oracle",
@@ -9615,7 +10181,7 @@ const PRODUCTS = [
     "priceNum": 49.99,
     "sku": "RC-ORA-DIV-0003",
     "barcodes": [
-      "",
+      "RC-ORA-DIV-0003",
       "492382"
     ],
     "pitch": "Curated publication or intuitive oracle deck designed to nurture reflection, mindful awareness, and creative personal discovery.",
@@ -9625,6 +10191,7 @@ const PRODUCTS = [
   {
     "id": 492380,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Raincoast Distribution Group",
     "name": "Raincoast - Emergency Dad Jokes",
     "fullTitle": "Raincoast Distribution Group - Raincoast - Emergency Dad Jokes",
@@ -9632,7 +10199,7 @@ const PRODUCTS = [
     "priceNum": 22.99,
     "sku": "RC-JOK-DAD-0001",
     "barcodes": [
-      "",
+      "RC-JOK-DAD-0001",
       "492380"
     ],
     "pitch": "Curated publication or intuitive oracle deck designed to nurture reflection, mindful awareness, and creative personal discovery.",
@@ -9642,6 +10209,7 @@ const PRODUCTS = [
   {
     "id": 492387,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Raincoast Distribution Group",
     "name": "Raincoast - Manifestation Journal for Beginners",
     "fullTitle": "Raincoast Distribution Group - Raincoast - Manifestation Journal for Beginners",
@@ -9649,7 +10217,7 @@ const PRODUCTS = [
     "priceNum": 20.99,
     "sku": "RC-MAN-JRN-0008",
     "barcodes": [
-      "",
+      "RC-MAN-JRN-0008",
       "492387"
     ],
     "pitch": "Curated publication or intuitive oracle deck designed to nurture reflection, mindful awareness, and creative personal discovery.",
@@ -9659,6 +10227,7 @@ const PRODUCTS = [
   {
     "id": 492385,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Raincoast Distribution Group",
     "name": "Raincoast - Manifesting Rituals",
     "fullTitle": "Raincoast Distribution Group - Raincoast - Manifesting Rituals",
@@ -9666,7 +10235,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "RC-MAN-RIT-0006",
     "barcodes": [
-      "",
+      "RC-MAN-RIT-0006",
       "492385"
     ],
     "pitch": "Curated publication or intuitive oracle deck designed to nurture reflection, mindful awareness, and creative personal discovery.",
@@ -9676,6 +10245,7 @@ const PRODUCTS = [
   {
     "id": 492381,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Raincoast Distribution Group",
     "name": "Raincoast - The Living Untethered Card Deck",
     "fullTitle": "Raincoast Distribution Group - Raincoast - The Living Untethered Card Deck",
@@ -9683,7 +10253,7 @@ const PRODUCTS = [
     "priceNum": 34.99,
     "sku": "RC-ORC-LIV-0002",
     "barcodes": [
-      "",
+      "RC-ORC-LIV-0002",
       "492381"
     ],
     "pitch": "Curated publication or intuitive oracle deck designed to nurture reflection, mindful awareness, and creative personal discovery.",
@@ -9693,6 +10263,7 @@ const PRODUCTS = [
   {
     "id": 492384,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Raincoast Distribution Group",
     "name": "Raincoast - The Untethered Soul",
     "fullTitle": "Raincoast Distribution Group - Raincoast - The Untethered Soul",
@@ -9700,7 +10271,7 @@ const PRODUCTS = [
     "priceNum": 32.99,
     "sku": "RC-UNT-SOU-0005",
     "barcodes": [
-      "",
+      "RC-UNT-SOU-0005",
       "492384"
     ],
     "pitch": "Curated publication or intuitive oracle deck designed to nurture reflection, mindful awareness, and creative personal discovery.",
@@ -9710,6 +10281,7 @@ const PRODUCTS = [
   {
     "id": 492386,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Raincoast Distribution Group",
     "name": "Raincoast - Wisdom Within Mini Card Deck",
     "fullTitle": "Raincoast Distribution Group - Raincoast - Wisdom Within Mini Card Deck",
@@ -9717,7 +10289,7 @@ const PRODUCTS = [
     "priceNum": 35.99,
     "sku": "RC-WIS-MIN-0007",
     "barcodes": [
-      "",
+      "RC-WIS-MIN-0007",
       "492386"
     ],
     "pitch": "Curated publication or intuitive oracle deck designed to nurture reflection, mindful awareness, and creative personal discovery.",
@@ -9727,6 +10299,7 @@ const PRODUCTS = [
   {
     "id": 492298,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Real Fun Wow!",
     "name": "Real Fun Wow! - First Time Human' Diner Mug",
     "fullTitle": "Real Fun Wow! - Real Fun Wow! - First Time Human' Diner Mug",
@@ -9734,7 +10307,7 @@ const PRODUCTS = [
     "priceNum": 30,
     "sku": "RFW-MUG-FTH-0025",
     "barcodes": [
-      "",
+      "RFW-MUG-FTH-0025",
       "492298"
     ],
     "pitch": "Mindful lifestyle item illustrated by Ojai, California artist Danni Schenkler, blending mid-century artwork with humorous, grounding self-reflection.",
@@ -9744,6 +10317,7 @@ const PRODUCTS = [
   {
     "id": 492295,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Real Fun Wow!",
     "name": "Real Fun Wow! - no Idea' Linen Bound Journal",
     "fullTitle": "Real Fun Wow! - Real Fun Wow! - no Idea' Linen Bound Journal",
@@ -9751,7 +10325,7 @@ const PRODUCTS = [
     "priceNum": 26,
     "sku": "RFW-JOU-NOIDEA-0022",
     "barcodes": [
-      "",
+      "RFW-JOU-NOIDEA-0022",
       "492295"
     ],
     "pitch": "Mindful lifestyle item illustrated by Ojai, California artist Danni Schenkler, blending mid-century artwork with humorous, grounding self-reflection.",
@@ -9761,6 +10335,7 @@ const PRODUCTS = [
   {
     "id": 492297,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Real Fun Wow!",
     "name": "Real Fun Wow! - The Sol Deck",
     "fullTitle": "Real Fun Wow! - Real Fun Wow! - The Sol Deck",
@@ -9768,7 +10343,7 @@ const PRODUCTS = [
     "priceNum": 24,
     "sku": "RFW-DEC-SOL-0024",
     "barcodes": [
-      "",
+      "RFW-DEC-SOL-0024",
       "492297"
     ],
     "pitch": "Mindful lifestyle item illustrated by Ojai, California artist Danni Schenkler, blending mid-century artwork with humorous, grounding self-reflection.",
@@ -9778,6 +10353,7 @@ const PRODUCTS = [
   {
     "id": 492296,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Real Fun Wow!",
     "name": "Real Fun Wow! - today I Choose Peace' Linen Bound Journal",
     "fullTitle": "Real Fun Wow! - Real Fun Wow! - today I Choose Peace' Linen Bound Journal",
@@ -9785,7 +10361,7 @@ const PRODUCTS = [
     "priceNum": 26,
     "sku": "RFW-JOU-PEACE-0023",
     "barcodes": [
-      "",
+      "RFW-JOU-PEACE-0023",
       "492296"
     ],
     "pitch": "Mindful lifestyle item illustrated by Ojai, California artist Danni Schenkler, blending mid-century artwork with humorous, grounding self-reflection.",
@@ -9795,6 +10371,7 @@ const PRODUCTS = [
   {
     "id": 567142,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "The Practice",
     "name": "RELAX - Wisely Chocolate",
     "fullTitle": "The Practice - RELAX - Wisely Chocolate",
@@ -9812,6 +10389,7 @@ const PRODUCTS = [
   {
     "id": 513541,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
     "brand": "The Practice Cafe",
     "name": "Ristretto",
     "fullTitle": "The Practice Cafe - Ristretto",
@@ -9824,11 +10402,12 @@ const PRODUCTS = [
     ],
     "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513541/edit",
-    "img": "https://images.momence.com/h/200431/product-image/71543dfa-93de-46b3-b650-7cb9a9d59d1c.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/62a29d86-97d3-4de0-9fe0-313a8111d447.jpg"
   },
   {
     "id": 563943,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "The Practice",
     "name": "Rose Grey Floral Wall Art - Grey Box",
     "fullTitle": "The Practice - Rose Grey Floral Wall Art - Grey Box",
@@ -9845,7 +10424,8 @@ const PRODUCTS = [
   },
   {
     "id": 492339,
-    "department": "Fine Jewelry & Modern Adornments",
+    "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Sacred Divination Pendulums & Ritual Tools",
     "brand": "Cedar and Myrrh",
     "name": "Rose Quartz Crystal Divination Pendulum",
     "fullTitle": "Cedar and Myrrh - Rose Quartz Crystal Divination Pendulum",
@@ -9853,7 +10433,7 @@ const PRODUCTS = [
     "priceNum": 58.89,
     "sku": "CM-PEN-RSQ-0008",
     "barcodes": [
-      "",
+      "CM-PEN-RSQ-0008",
       "492339"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -9863,6 +10443,7 @@ const PRODUCTS = [
   {
     "id": 513582,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice Cafe",
     "name": "Sea Moss",
     "fullTitle": "The Practice Cafe - Sea Moss",
@@ -9875,11 +10456,12 @@ const PRODUCTS = [
     ],
     "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513582/edit",
-    "img": "https://images.momence.com/h/200431/product-image/d4f89494-2631-42c8-88b1-628d0b4b7f0f.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/f95ac404-d76e-414f-9b4d-9bc1e926776a.jpg"
   },
   {
     "id": 505574,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Practice",
     "name": "Selenite Bowl (Oval) ",
     "fullTitle": "The Practice - Selenite Bowl (Oval) ",
@@ -9897,6 +10479,7 @@ const PRODUCTS = [
   {
     "id": 517204,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Artisan Incense Sticks & Ritual Cones",
     "brand": "The Practice",
     "name": "Single Palo Santo Stick",
     "fullTitle": "The Practice - Single Palo Santo Stick",
@@ -9909,11 +10492,12 @@ const PRODUCTS = [
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/517204/edit",
-    "img": "https://images.momence.com/h/200431/product-image/002523f2-d6a2-4aef-bc72-5ae70bbcdcdd.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/8ce28815-4483-4195-8c5b-c8b9a969af3b.jpg"
   },
   {
     "id": 545887,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice Cafe",
     "name": "Smoothie add on - Collagen",
     "fullTitle": "The Practice Cafe - Smoothie add on - Collagen",
@@ -9926,11 +10510,12 @@ const PRODUCTS = [
     ],
     "pitch": "Nourishing superfood wellness smoothie blended with adaptogens, antioxidants, and house-made nut milk.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/545887/edit",
-    "img": "https://images.momence.com/h/200431/product-image/3d187836-9539-4bc0-ab82-589f003fe10e.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/04ddc7c0-5903-41f5-9a89-ef0a80f3d5e8.jpg"
   },
   {
     "id": 545886,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice Cafe",
     "name": "Smoothie add on - MCT oil ",
     "fullTitle": "The Practice Cafe - Smoothie add on - MCT oil ",
@@ -9943,11 +10528,12 @@ const PRODUCTS = [
     ],
     "pitch": "Nourishing superfood wellness smoothie blended with adaptogens, antioxidants, and house-made nut milk.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/545886/edit",
-    "img": "https://images.momence.com/h/200431/product-image/90bc7a51-f362-4e02-a9e4-f7a8100408f2.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/78f6ef49-3a49-4c9d-930f-6a34d83d45f7.jpg"
   },
   {
     "id": 545884,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice Cafe",
     "name": "Smoothie Add on -Vegan Protein",
     "fullTitle": "The Practice Cafe - Smoothie Add on -Vegan Protein",
@@ -9960,31 +10546,15 @@ const PRODUCTS = [
     ],
     "pitch": "Nourishing superfood wellness smoothie blended with adaptogens, antioxidants, and house-made nut milk.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/545884/edit",
-    "img": "https://images.momence.com/h/200431/product-image/634f702b-9695-4c94-acbb-876c625a015f.jpg"
-  },
-  {
-    "id": 557042,
-    "department": "Cafe & Nourishment",
-    "brand": "The Practice Cafe",
-    "name": "Smoothies - Berry Balance Large (C)",
-    "fullTitle": "The Practice Cafe - Smoothies - Berry Balance Large (C)",
-    "price": "$17.00",
-    "priceNum": 17,
-    "sku": "",
-    "barcodes": [
-      "",
-      "557042"
-    ],
-    "pitch": "Almond Milk, Banana, Mixed Berries",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/557042/edit",
-    "img": "https://images.momence.com/h/200431/product-image/1dbe586b-123f-48c0-ae65-edbf2c3bb6e8.png"
+    "img": "https://images.momence.com/h/200431/product-image/8b484b9f-3119-434f-8819-a99d6f8096f2.jpg"
   },
   {
     "id": 545880,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice Cafe",
-    "name": "Smoothies - Berry Balance Regular (C)",
-    "fullTitle": "The Practice Cafe - Smoothies - Berry Balance Regular (C)",
+    "name": "Smoothie - Berry Balance",
+    "fullTitle": "The Practice Cafe - Berry Balance Smoothie (Regular 16oz)",
     "price": "$15.00",
     "priceNum": 15,
     "sku": "",
@@ -9994,31 +10564,15 @@ const PRODUCTS = [
     ],
     "pitch": "Almond Milk, Banana, Mixed Berries",
     "momenceUrl": "https://momence.com/dashboard/200431/products/545880/edit",
-    "img": "https://images.momence.com/h/200431/product-image/1dbe586b-123f-48c0-ae65-edbf2c3bb6e8.png"
-  },
-  {
-    "id": 557040,
-    "department": "Cafe & Nourishment",
-    "brand": "The Practice Cafe",
-    "name": "Smoothies - Grounding Greens - Large (C) ",
-    "fullTitle": "The Practice Cafe - Smoothies - Grounding Greens - Large (C) ",
-    "price": "$17.00",
-    "priceNum": 17,
-    "sku": "",
-    "barcodes": [
-      "",
-      "557040"
-    ],
-    "pitch": "Coconut water, pineapple, banana, spinach, kale, ginger,",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/557040/edit",
-    "img": "https://images.momence.com/h/200431/product-image/5f42fe36-7c8c-473f-8cac-116353ce6ed7.png"
+    "img": "assets/cafe/smoothie_berry.jpg"
   },
   {
     "id": 545878,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice Cafe",
-    "name": "Smoothies - Grounding Greens - Regular (C)",
-    "fullTitle": "The Practice Cafe - Smoothies - Grounding Greens - Regular (C)",
+    "name": "Smoothie - Grounding Greens",
+    "fullTitle": "The Practice Cafe - Grounding Greens Smoothie (Regular 16oz)",
     "price": "$15.00",
     "priceNum": 15,
     "sku": "",
@@ -10028,31 +10582,15 @@ const PRODUCTS = [
     ],
     "pitch": "Coconut water, pineapple, banana, spinach, kale, ginger,",
     "momenceUrl": "https://momence.com/dashboard/200431/products/545878/edit",
-    "img": "https://images.momence.com/h/200431/product-image/5f42fe36-7c8c-473f-8cac-116353ce6ed7.png"
-  },
-  {
-    "id": 557041,
-    "department": "Cafe & Nourishment",
-    "brand": "The Practice Cafe",
-    "name": "Smoothies - Nutty Namaste Large (C)",
-    "fullTitle": "The Practice Cafe - Smoothies - Nutty Namaste Large (C)",
-    "price": "$17.00",
-    "priceNum": 17,
-    "sku": "",
-    "barcodes": [
-      "",
-      "557041"
-    ],
-    "pitch": "oat milk, dates, almond butter, raw cacao, vanilla extract, espresso",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/557041/edit",
-    "img": "https://images.momence.com/h/200431/product-image/b393d0f6-dca5-41b8-ae8c-cb7118279cb3.png"
+    "img": "https://images.momence.com/h/200431/product-image/7f482537-ba90-4b8b-9a0a-aa44186d36d4.jpg"
   },
   {
     "id": 545879,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice Cafe",
-    "name": "Smoothies - Nutty Namaste Regular (C)",
-    "fullTitle": "The Practice Cafe - Smoothies - Nutty Namaste Regular (C)",
+    "name": "Smoothie - Nutty Namaste",
+    "fullTitle": "The Practice Cafe - Nutty Namaste Smoothie (Regular 16oz)",
     "price": "$15.00",
     "priceNum": 15,
     "sku": "",
@@ -10062,31 +10600,15 @@ const PRODUCTS = [
     ],
     "pitch": "oat milk, dates, almond butter, raw cacao, vanilla extract, espresso",
     "momenceUrl": "https://momence.com/dashboard/200431/products/545879/edit",
-    "img": "https://images.momence.com/h/200431/product-image/b393d0f6-dca5-41b8-ae8c-cb7118279cb3.png"
-  },
-  {
-    "id": 557044,
-    "department": "Cafe & Nourishment",
-    "brand": "The Practice Cafe",
-    "name": "Smoothies - Tropical Tantra Large (C)",
-    "fullTitle": "The Practice Cafe - Smoothies - Tropical Tantra Large (C)",
-    "price": "$17.00",
-    "priceNum": 17,
-    "sku": "",
-    "barcodes": [
-      "",
-      "557044"
-    ],
-    "pitch": "Coconut Water, Banana, Mango, Pineapple",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/557044/edit",
-    "img": "https://images.momence.com/h/200431/product-image/2a6826b9-a2b9-420b-b1f9-8adcebd03ffb.png"
+    "img": "https://images.momence.com/h/200431/product-image/8a79e66b-0256-4985-b4aa-c61256c62622.jpg"
   },
   {
     "id": 545881,
     "department": "Cafe & Nourishment",
+    "subgroup": "Functional Smoothies & Ceremonial Elixirs",
     "brand": "The Practice Cafe",
-    "name": "Smoothies - Tropical Tantra Regular (C) ",
-    "fullTitle": "The Practice Cafe - Smoothies - Tropical Tantra Regular (C) ",
+    "name": "Smoothie - Tropical Tantra",
+    "fullTitle": "The Practice Cafe - Tropical Tantra Smoothie (Regular 16oz)",
     "price": "$15.00",
     "priceNum": 15,
     "sku": "",
@@ -10096,11 +10618,12 @@ const PRODUCTS = [
     ],
     "pitch": "Coconut Water, Banana, Mango, Pineapple",
     "momenceUrl": "https://momence.com/dashboard/200431/products/545881/edit",
-    "img": "https://images.momence.com/h/200431/product-image/2a6826b9-a2b9-420b-b1f9-8adcebd03ffb.png"
+    "img": "assets/cafe/smoothie_tropical.jpg"
   },
   {
     "id": 492466,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Something Different",
     "name": "Something Different - Angel Number Affirmation Cards with Wooden Stand",
     "fullTitle": "Something Different - Something Different - Angel Number Affirmation Cards with Wooden Stand",
@@ -10108,7 +10631,7 @@ const PRODUCTS = [
     "priceNum": 22.99,
     "sku": "SD-ORA-ANG-0011",
     "barcodes": [
-      "",
+      "SD-ORA-ANG-0011",
       "492466"
     ],
     "pitch": "Inspirational affirmation card deck accompanied by a carved natural wood display stand. Offers daily empowering messages for mindful living.",
@@ -10118,6 +10641,7 @@ const PRODUCTS = [
   {
     "id": 492465,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "Something Different",
     "name": "Something Different - Black Astrology Wheel Trinket Dish",
     "fullTitle": "Something Different - Something Different - Black Astrology Wheel Trinket Dish",
@@ -10125,7 +10649,7 @@ const PRODUCTS = [
     "priceNum": 16.99,
     "sku": "SD-ORA-BLA-0010",
     "barcodes": [
-      "",
+      "SD-ORA-BLA-0010",
       "492465"
     ],
     "pitch": "Ceramic astrological trinket dish adorned with celestial metallic gold foil accents. Perfect for holding everyday crystals, sacred jewelry, or burning herbs.",
@@ -10135,6 +10659,7 @@ const PRODUCTS = [
   {
     "id": 492460,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Something Different",
     "name": "Something Different - Ethereal Affirmation Cards with Wooden Stand",
     "fullTitle": "Something Different - Something Different - Ethereal Affirmation Cards with Wooden Stand",
@@ -10142,7 +10667,7 @@ const PRODUCTS = [
     "priceNum": 22.99,
     "sku": "SD-ORA-ETH-0005",
     "barcodes": [
-      "",
+      "SD-ORA-ETH-0005",
       "492460"
     ],
     "pitch": "Inspirational affirmation card deck accompanied by a carved natural wood display stand. Offers daily empowering messages for mindful living.",
@@ -10152,6 +10677,7 @@ const PRODUCTS = [
   {
     "id": 492464,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Something Different",
     "name": "Something Different - Mindful Living Inspiration Cards",
     "fullTitle": "Something Different - Something Different - Mindful Living Inspiration Cards",
@@ -10159,7 +10685,7 @@ const PRODUCTS = [
     "priceNum": 54.99,
     "sku": "SD-ORA-MIN-0009",
     "barcodes": [
-      "",
+      "SD-ORA-MIN-0009",
       "492464"
     ],
     "pitch": "Inspirational affirmation card deck accompanied by a carved natural wood display stand. Offers daily empowering messages for mindful living.",
@@ -10169,6 +10695,7 @@ const PRODUCTS = [
   {
     "id": 492459,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Something Different",
     "name": "Something Different - Mindful Moments Affirmation Cards with Wooden Stand",
     "fullTitle": "Something Different - Something Different - Mindful Moments Affirmation Cards with Wooden Stand",
@@ -10176,7 +10703,7 @@ const PRODUCTS = [
     "priceNum": 18.99,
     "sku": "SD-ORA-MIN-0004",
     "barcodes": [
-      "",
+      "SD-ORA-MIN-0004",
       "492459"
     ],
     "pitch": "Inspirational affirmation card deck accompanied by a carved natural wood display stand. Offers daily empowering messages for mindful living.",
@@ -10186,6 +10713,7 @@ const PRODUCTS = [
   {
     "id": 492456,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Something Different",
     "name": "Something Different - Moonology Manifestation Oracle Cards",
     "fullTitle": "Something Different - Something Different - Moonology Manifestation Oracle Cards",
@@ -10193,7 +10721,7 @@ const PRODUCTS = [
     "priceNum": 45.99,
     "sku": "SD-ORA-MOO-0001",
     "barcodes": [
-      "",
+      "SD-ORA-MOO-0001",
       "492456"
     ],
     "pitch": "Inspirational affirmation card deck accompanied by a carved natural wood display stand. Offers daily empowering messages for mindful living.",
@@ -10203,6 +10731,7 @@ const PRODUCTS = [
   {
     "id": 492457,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Something Different",
     "name": "Something Different - Moonology Oracle Cards",
     "fullTitle": "Something Different - Something Different - Moonology Oracle Cards",
@@ -10210,7 +10739,7 @@ const PRODUCTS = [
     "priceNum": 45.99,
     "sku": "SD-ORA-MOO-0002",
     "barcodes": [
-      "",
+      "SD-ORA-MOO-0002",
       "492457"
     ],
     "pitch": "Inspirational affirmation card deck accompanied by a carved natural wood display stand. Offers daily empowering messages for mindful living.",
@@ -10220,6 +10749,7 @@ const PRODUCTS = [
   {
     "id": 492462,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Something Different",
     "name": "Something Different - Pure Magic Oracle Cards",
     "fullTitle": "Something Different - Something Different - Pure Magic Oracle Cards",
@@ -10227,7 +10757,7 @@ const PRODUCTS = [
     "priceNum": 39.99,
     "sku": "SD-ORA-PUR-0007",
     "barcodes": [
-      "",
+      "SD-ORA-PUR-0007",
       "492462"
     ],
     "pitch": "Inspirational affirmation card deck accompanied by a carved natural wood display stand. Offers daily empowering messages for mindful living.",
@@ -10237,6 +10767,7 @@ const PRODUCTS = [
   {
     "id": 492468,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Something Different",
     "name": "Something Different - Soul's Journey Oracle Cards",
     "fullTitle": "Something Different - Something Different - Soul's Journey Oracle Cards",
@@ -10244,7 +10775,7 @@ const PRODUCTS = [
     "priceNum": 49.99,
     "sku": "SD-ORA-SOU-0013",
     "barcodes": [
-      "",
+      "SD-ORA-SOU-0013",
       "492468"
     ],
     "pitch": "Inspirational affirmation card deck accompanied by a carved natural wood display stand. Offers daily empowering messages for mindful living.",
@@ -10254,6 +10785,7 @@ const PRODUCTS = [
   {
     "id": 492461,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Something Different",
     "name": "Something Different - The Divine Feminine Oracle Cards",
     "fullTitle": "Something Different - Something Different - The Divine Feminine Oracle Cards",
@@ -10261,7 +10793,7 @@ const PRODUCTS = [
     "priceNum": 45.99,
     "sku": "SD-ORA-DIV-0006",
     "barcodes": [
-      "",
+      "SD-ORA-DIV-0006",
       "492461"
     ],
     "pitch": "Inspirational affirmation card deck accompanied by a carved natural wood display stand. Offers daily empowering messages for mindful living.",
@@ -10271,6 +10803,7 @@ const PRODUCTS = [
   {
     "id": 492458,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Something Different",
     "name": "Something Different - The Soul's Journey Lesson Cards",
     "fullTitle": "Something Different - Something Different - The Soul's Journey Lesson Cards",
@@ -10278,7 +10811,7 @@ const PRODUCTS = [
     "priceNum": 39.99,
     "sku": "SD-ORA-SOU-0003",
     "barcodes": [
-      "",
+      "SD-ORA-SOU-0003",
       "492458"
     ],
     "pitch": "Inspirational affirmation card deck accompanied by a carved natural wood display stand. Offers daily empowering messages for mindful living.",
@@ -10288,6 +10821,7 @@ const PRODUCTS = [
   {
     "id": 492463,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Something Different",
     "name": "Something Different - The Spirit Animal Oracle Cards",
     "fullTitle": "Something Different - Something Different - The Spirit Animal Oracle Cards",
@@ -10295,7 +10829,7 @@ const PRODUCTS = [
     "priceNum": 59.99,
     "sku": "SD-ORA-SPI-0008",
     "barcodes": [
-      "",
+      "SD-ORA-SPI-0008",
       "492463"
     ],
     "pitch": "Inspirational affirmation card deck accompanied by a carved natural wood display stand. Offers daily empowering messages for mindful living.",
@@ -10305,6 +10839,7 @@ const PRODUCTS = [
   {
     "id": 492467,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sacred Tarot Decks, Oracle Cards & Divination",
     "brand": "Something Different",
     "name": "Something Different - The Universe Has Your Back Oracle Cards",
     "fullTitle": "Something Different - Something Different - The Universe Has Your Back Oracle Cards",
@@ -10312,7 +10847,7 @@ const PRODUCTS = [
     "priceNum": 49.99,
     "sku": "SD-ORA-UNI-0012",
     "barcodes": [
-      "",
+      "SD-ORA-UNI-0012",
       "492467"
     ],
     "pitch": "Inspirational affirmation card deck accompanied by a carved natural wood display stand. Offers daily empowering messages for mindful living.",
@@ -10322,6 +10857,7 @@ const PRODUCTS = [
   {
     "id": 567968,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
     "brand": "The Practice",
     "name": "Specialty Latte -Large (C)",
     "fullTitle": "The Practice - Specialty Latte -Large (C)",
@@ -10334,11 +10870,12 @@ const PRODUCTS = [
     ],
     "pitch": "A seasonal signature latte featuring a rotating blend of unique flavours and ingredients.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/567968/edit",
-    "img": "https://images.momence.com/h/200431/product-image/8d99d813-3171-417b-90c7-a6629fdfe3dc.png"
+    "img": "https://images.momence.com/h/200431/product-image/a5fe3fb3-5ac0-417a-a1e8-4857aa76cc30.jpg"
   },
   {
     "id": 556832,
     "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
     "brand": "The Practice Cafe",
     "name": "Specialty Latte - Regular (C)",
     "fullTitle": "The Practice Cafe - Specialty Latte - Regular (C)",
@@ -10351,11 +10888,12 @@ const PRODUCTS = [
     ],
     "pitch": "A seasonal signature latte featuring a rotating blend of unique flavours and ingredients.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/556832/edit",
-    "img": "https://images.momence.com/h/200431/product-image/8d99d813-3171-417b-90c7-a6629fdfe3dc.png"
+    "img": "https://images.momence.com/h/200431/product-image/53945160-e009-495e-9356-d1d840851b3f.jpg"
   },
   {
     "id": 492348,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Reed Diffusers, Room Mists & Fragrance Refills",
     "brand": "Cedar and Myrrh",
     "name": "Srnit Aromatherapy Room Spray-Calming & Balancing",
     "fullTitle": "Cedar and Myrrh - Srnit Aromatherapy Room Spray-Calming & Balancing",
@@ -10363,7 +10901,7 @@ const PRODUCTS = [
     "priceNum": 47,
     "sku": "CM-RMS-JAR-0017",
     "barcodes": [
-      "",
+      "CM-RMS-JAR-0017",
       "492348"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -10373,6 +10911,7 @@ const PRODUCTS = [
   {
     "id": 567178,
     "department": "Cafe & Nourishment",
+    "subgroup": "Kombucha & Fermented Refreshments",
     "brand": "The Practice",
     "name": "Strawberry Rhubara - Cathy’s Kombucha (C)",
     "fullTitle": "The Practice - Strawberry Rhubara - Cathy’s Kombucha (C)",
@@ -10385,11 +10924,12 @@ const PRODUCTS = [
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/567178/edit",
-    "img": "https://images.momence.com/h/200431/product-image/538953f2-30c2-44a4-b85b-40386bf93c76.jpg"
+    "img": "assets/cafe/kombucha_strawberry_rhubarb.jpg"
   },
   {
     "id": 492413,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sugarfina • Artisan Confections & Gourmet Treats",
     "brand": "Sugarfina",
     "name": "Sugarfina - Bubbly Bears - Celebration Bottle",
     "fullTitle": "Sugarfina - Sugarfina - Bubbly Bears - Celebration Bottle",
@@ -10397,7 +10937,7 @@ const PRODUCTS = [
     "priceNum": 32.56,
     "sku": "SF-BEA-BUB-0004",
     "barcodes": [
-      "",
+      "SF-BEA-BUB-0004",
       "492413"
     ],
     "pitch": "Luxury confection made in Germany infused with premium French sparkling champagne and artisan flavors. Non-alcoholic, refined, and delectable.",
@@ -10407,6 +10947,7 @@ const PRODUCTS = [
   {
     "id": 492417,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sugarfina • Artisan Confections & Gourmet Treats",
     "brand": "Sugarfina",
     "name": "Sugarfina - Bubbly Bears- Small",
     "fullTitle": "Sugarfina - Sugarfina - Bubbly Bears- Small",
@@ -10414,7 +10955,7 @@ const PRODUCTS = [
     "priceNum": 14.58,
     "sku": "SF-SMA-BUB-0008",
     "barcodes": [
-      "",
+      "SF-SMA-BUB-0008",
       "492417"
     ],
     "pitch": "Luxury confection made in Germany infused with premium French sparkling champagne and artisan flavors. Non-alcoholic, refined, and delectable.",
@@ -10424,6 +10965,7 @@ const PRODUCTS = [
   {
     "id": 492416,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sugarfina • Artisan Confections & Gourmet Treats",
     "brand": "Sugarfina",
     "name": "Sugarfina - Champagne Bears- Small",
     "fullTitle": "Sugarfina - Sugarfina - Champagne Bears- Small",
@@ -10431,7 +10973,7 @@ const PRODUCTS = [
     "priceNum": 14.58,
     "sku": "SF-SMA-BEA-0007",
     "barcodes": [
-      "",
+      "SF-SMA-BEA-0007",
       "492416"
     ],
     "pitch": "Luxury confection made in Germany infused with premium French sparkling champagne and artisan flavors. Non-alcoholic, refined, and delectable.",
@@ -10441,6 +10983,7 @@ const PRODUCTS = [
   {
     "id": 492414,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sugarfina • Artisan Confections & Gourmet Treats",
     "brand": "Sugarfina",
     "name": "Sugarfina - Champagne Bubbles - Small",
     "fullTitle": "Sugarfina - Sugarfina - Champagne Bubbles - Small",
@@ -10448,7 +10991,7 @@ const PRODUCTS = [
     "priceNum": 13.12,
     "sku": "SF-SMA-CHA-0005",
     "barcodes": [
-      "",
+      "SF-SMA-CHA-0005",
       "492414"
     ],
     "pitch": "Luxury confection made in Germany infused with premium French sparkling champagne and artisan flavors. Non-alcoholic, refined, and delectable.",
@@ -10458,6 +11001,7 @@ const PRODUCTS = [
   {
     "id": 492412,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sugarfina • Artisan Confections & Gourmet Treats",
     "brand": "Sugarfina",
     "name": "Sugarfina - Champagne & Rosé - Candy Mix Bag (Sweet Escape)",
     "fullTitle": "Sugarfina - Sugarfina - Champagne & Rosé - Candy Mix Bag (Sweet Escape)",
@@ -10465,7 +11009,7 @@ const PRODUCTS = [
     "priceNum": 29.4,
     "sku": "SF-MIX-CHA-0003",
     "barcodes": [
-      "",
+      "SF-MIX-CHA-0003",
       "492412"
     ],
     "pitch": "Luxury confection made in Germany infused with premium French sparkling champagne and artisan flavors. Non-alcoholic, refined, and delectable.",
@@ -10475,6 +11019,7 @@ const PRODUCTS = [
   {
     "id": 492419,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sugarfina • Artisan Confections & Gourmet Treats",
     "brand": "Sugarfina",
     "name": "Sugarfina - Sour Rainbow Belts - Small",
     "fullTitle": "Sugarfina - Sugarfina - Sour Rainbow Belts - Small",
@@ -10482,7 +11027,7 @@ const PRODUCTS = [
     "priceNum": 14.58,
     "sku": "SF-SMA-SOU-0010",
     "barcodes": [
-      "",
+      "SF-SMA-SOU-0010",
       "492419"
     ],
     "pitch": "Luxury confection made in Germany infused with premium French sparkling champagne and artisan flavors. Non-alcoholic, refined, and delectable.",
@@ -10492,6 +11037,7 @@ const PRODUCTS = [
   {
     "id": 492410,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sugarfina • Artisan Confections & Gourmet Treats",
     "brand": "Sugarfina",
     "name": "Sugarfina - Strawberry Champagne Bears Celebration Bottle",
     "fullTitle": "Sugarfina - Sugarfina - Strawberry Champagne Bears Celebration Bottle",
@@ -10499,7 +11045,7 @@ const PRODUCTS = [
     "priceNum": 32.99,
     "sku": "SF-BEA-STR-0001",
     "barcodes": [
-      "",
+      "SF-BEA-STR-0001",
       "492410"
     ],
     "pitch": "Luxury confection made in Germany infused with premium French sparkling champagne and artisan flavors. Non-alcoholic, refined, and delectable.",
@@ -10509,6 +11055,7 @@ const PRODUCTS = [
   {
     "id": 492418,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sugarfina • Artisan Confections & Gourmet Treats",
     "brand": "Sugarfina",
     "name": "Sugarfina - Strawberry Champagne Bears - Small",
     "fullTitle": "Sugarfina - Sugarfina - Strawberry Champagne Bears - Small",
@@ -10516,7 +11063,7 @@ const PRODUCTS = [
     "priceNum": 14.58,
     "sku": "SF-SMA-STR-0009",
     "barcodes": [
-      "",
+      "SF-SMA-STR-0009",
       "492418"
     ],
     "pitch": "Luxury confection made in Germany infused with premium French sparkling champagne and artisan flavors. Non-alcoholic, refined, and delectable.",
@@ -10526,6 +11073,7 @@ const PRODUCTS = [
   {
     "id": 492415,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sugarfina • Artisan Confections & Gourmet Treats",
     "brand": "Sugarfina",
     "name": "Sugarfina - Sugar Lips- Small",
     "fullTitle": "Sugarfina - Sugarfina - Sugar Lips- Small",
@@ -10533,7 +11081,7 @@ const PRODUCTS = [
     "priceNum": 13.12,
     "sku": "SF-SMA-LIP-0006",
     "barcodes": [
-      "",
+      "SF-SMA-LIP-0006",
       "492415"
     ],
     "pitch": "Luxury confection made in Germany infused with premium French sparkling champagne and artisan flavors. Non-alcoholic, refined, and delectable.",
@@ -10543,6 +11091,7 @@ const PRODUCTS = [
   {
     "id": 492411,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Sugarfina • Artisan Confections & Gourmet Treats",
     "brand": "Sugarfina",
     "name": "Sugarfina - Sugar Lips & Sour Strawberries - Candy Mix Bag",
     "fullTitle": "Sugarfina - Sugarfina - Sugar Lips & Sour Strawberries - Candy Mix Bag",
@@ -10550,7 +11099,7 @@ const PRODUCTS = [
     "priceNum": 28.14,
     "sku": "SF-MIX-LIP-0002",
     "barcodes": [
-      "",
+      "SF-MIX-LIP-0002",
       "492411"
     ],
     "pitch": "Luxury confection made in Germany infused with premium French sparkling champagne and artisan flavors. Non-alcoholic, refined, and delectable.",
@@ -10558,8 +11107,27 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/5c3cb3a0-6390-4e47-86fc-10a593ab42e7.png"
   },
   {
+    "id": 562446,
+    "department": "Cafe & Nourishment",
+    "subgroup": "Fresh Baked Goods & Artisan Cookies",
+    "brand": "The Practice Cafe",
+    "name": "Sweet & Salty Cookie",
+    "fullTitle": "The Practice Cafe - Sweet & Salty Cookie",
+    "price": "$5.50",
+    "priceNum": 5.5,
+    "sku": "",
+    "barcodes": [
+      "",
+      "562446"
+    ],
+    "pitch": "A perfect balance of sweet and salty. Loaded with crushed pretzels, chocolate chips, and toffee bits, then beautifully finished with a chocolate-covered pretzel and homemade caramel sauce.\n\nIngredients: Butter, eggs, flour, pretzels, chocolate chips, toffee bits. Topping: Chocolate, pretzels, homemade caramel.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/562446/edit",
+    "img": "https://images.momence.com/h/200431/product-image/5005e979-634e-4e17-8fb5-1f13370c7a0a.png"
+  },
+  {
     "id": 556866,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
     "name": "Syrup Added - (C)",
     "fullTitle": "The Practice Cafe - Syrup Added - (C)",
@@ -10572,11 +11140,12 @@ const PRODUCTS = [
     ],
     "pitch": "Add one of our delicious signature syrups for a little extra flavour.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/556866/edit",
-    "img": "https://images.momence.com/h/200431/product-image/91b027b3-0585-4949-862a-99f9ed81b8cd.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/2678fac8-1dc1-49bf-af63-0d5793680c6e.jpg"
   },
   {
     "id": 563937,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Curated Barware, Glassware & Studio Accents",
     "brand": "The Practice",
     "name": "Teal Floral Wall Art - Baby Blue Box",
     "fullTitle": "The Practice - Teal Floral Wall Art - Baby Blue Box",
@@ -10594,6 +11163,7 @@ const PRODUCTS = [
   {
     "id": 495234,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Telford",
     "name": "Telford - Body Wash",
     "fullTitle": "Telford - Telford - Body Wash",
@@ -10611,6 +11181,7 @@ const PRODUCTS = [
   {
     "id": 504392,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Telford",
     "name": "Telford - Conditioner",
     "fullTitle": "Telford - Telford - Conditioner",
@@ -10628,6 +11199,7 @@ const PRODUCTS = [
   {
     "id": 492727,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Telford",
     "name": "Telford - Hand Wash",
     "fullTitle": "Telford - Telford - Hand Wash",
@@ -10635,16 +11207,17 @@ const PRODUCTS = [
     "priceNum": 46,
     "sku": "TB-HAN-WAS-0001",
     "barcodes": [
-      "",
+      "TB-HAN-WAS-0001",
       "492727"
     ],
     "pitch": "Clean, plant-derived body and hair care essential formulated with gentle botanical cleansers, soothing aloe, and nourishing essential oils for daily wellness.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492727/edit",
-    "img": "https://images.momence.com/h/200431/product-image/de08f9fd-f636-436f-9e67-be2d434f4c0a.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/d6539535-a37a-4e85-bbcd-8d0f34aafe91.jpg"
   },
   {
     "id": 492728,
     "department": "Clean Apothecary, Bath & Grooming",
+    "subgroup": "Telford & Preston Grooming • Hand & Men’s Care",
     "brand": "Telford",
     "name": "Telford - Lotion",
     "fullTitle": "Telford - Telford - Lotion",
@@ -10652,7 +11225,7 @@ const PRODUCTS = [
     "priceNum": 52,
     "sku": "TB-LOT-CRM-0002",
     "barcodes": [
-      "",
+      "TB-LOT-CRM-0002",
       "492728"
     ],
     "pitch": "Clean, plant-derived body and hair care essential formulated with gentle botanical cleansers, soothing aloe, and nourishing essential oils for daily wellness.",
@@ -10662,6 +11235,7 @@ const PRODUCTS = [
   {
     "id": 492287,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Sacred White Sage & Herbal Smudge Bundles",
     "brand": "The 12th Moon",
     "name": "The 12th Moon - Cleanse and Manifest Kit - Bundle - 4 Pack - Sage Smudge",
     "fullTitle": "The 12th Moon - The 12th Moon - Cleanse and Manifest Kit - Bundle - 4 Pack - Sage Smudge",
@@ -10669,7 +11243,7 @@ const PRODUCTS = [
     "priceNum": 24.99,
     "sku": "TM-KIT-CLM-0014",
     "barcodes": [
-      "",
+      "TM-KIT-CLM-0014",
       "492287"
     ],
     "pitch": "Intention-driven ritual smudge kit featuring sustainably harvested white sage, holy Palo Santo, and raw healing gemstones.",
@@ -10679,6 +11253,7 @@ const PRODUCTS = [
   {
     "id": 492288,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Sacred White Sage & Herbal Smudge Bundles",
     "brand": "The 12th Moon",
     "name": "The 12th Moon - Diy Smudge Kit",
     "fullTitle": "The 12th Moon - The 12th Moon - Diy Smudge Kit",
@@ -10686,7 +11261,7 @@ const PRODUCTS = [
     "priceNum": 43.99,
     "sku": "TM-KIT-DIY-0015",
     "barcodes": [
-      "",
+      "TM-KIT-DIY-0015",
       "492288"
     ],
     "pitch": "Intention-driven ritual smudge kit featuring sustainably harvested white sage, holy Palo Santo, and raw healing gemstones.",
@@ -10696,6 +11271,7 @@ const PRODUCTS = [
   {
     "id": 492289,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "The 12th Moon",
     "name": "The 12th Moon - Goddess Intention Kit",
     "fullTitle": "The 12th Moon - The 12th Moon - Goddess Intention Kit",
@@ -10703,7 +11279,7 @@ const PRODUCTS = [
     "priceNum": 48.99,
     "sku": "TM-KIT-GOD-0016",
     "barcodes": [
-      "",
+      "TM-KIT-GOD-0016",
       "492289"
     ],
     "pitch": "Intention-driven ritual smudge kit featuring sustainably harvested white sage, holy Palo Santo, and raw healing gemstones.",
@@ -10713,6 +11289,7 @@ const PRODUCTS = [
   {
     "id": 492292,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "The 12th Moon",
     "name": "The 12th Moon - Intentions Kit Dream + Manifest Kit - Protecting My Energy Kit",
     "fullTitle": "The 12th Moon - The 12th Moon - Intentions Kit Dream + Manifest Kit - Protecting My Energy Kit",
@@ -10720,7 +11297,7 @@ const PRODUCTS = [
     "priceNum": 69.99,
     "sku": "TM-KIT-DRM-0019",
     "barcodes": [
-      "",
+      "TM-KIT-DRM-0019",
       "492292"
     ],
     "pitch": "Intentions Kit- Dream + Manifest. Handcrafted with intention in Southern California.",
@@ -10730,6 +11307,7 @@ const PRODUCTS = [
   {
     "id": 492290,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Sacred White Sage & Herbal Smudge Bundles",
     "brand": "The 12th Moon",
     "name": "The 12th Moon - Mini Sage Bundle - Botanical Smoke Cleansing Bundle",
     "fullTitle": "The 12th Moon - The 12th Moon - Mini Sage Bundle - Botanical Smoke Cleansing Bundle",
@@ -10737,7 +11315,7 @@ const PRODUCTS = [
     "priceNum": 17,
     "sku": "TM-SAG-MINI-0017",
     "barcodes": [
-      "",
+      "TM-SAG-MINI-0017",
       "492290"
     ],
     "pitch": "Intention-driven ritual smudge kit featuring sustainably harvested white sage, holy Palo Santo, and raw healing gemstones.",
@@ -10747,6 +11325,7 @@ const PRODUCTS = [
   {
     "id": 492291,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Sacred White Sage & Herbal Smudge Bundles",
     "brand": "The 12th Moon",
     "name": "The 12th Moon - Palo Santo & Lavender Bundle - Smoke Cleansing - Smudge",
     "fullTitle": "The 12th Moon - The 12th Moon - Palo Santo & Lavender Bundle - Smoke Cleansing - Smudge",
@@ -10754,7 +11333,7 @@ const PRODUCTS = [
     "priceNum": 11.99,
     "sku": "TM-SAG-PSL-0018",
     "barcodes": [
-      "",
+      "TM-SAG-PSL-0018",
       "492291"
     ],
     "pitch": "Intention-driven ritual smudge kit featuring sustainably harvested white sage, holy Palo Santo, and raw healing gemstones.",
@@ -10764,6 +11343,7 @@ const PRODUCTS = [
   {
     "id": 492293,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "The 12th Moon",
     "name": "The 12th Moon - Thriving Kit + Personal growth + Balance- Protecting My Energy Kit",
     "fullTitle": "The 12th Moon - The 12th Moon - Thriving Kit + Personal growth + Balance- Protecting My Energy Kit",
@@ -10771,7 +11351,7 @@ const PRODUCTS = [
     "priceNum": 69.99,
     "sku": "TM-KIT-THR-0020",
     "barcodes": [
-      "",
+      "TM-KIT-THR-0020",
       "492293"
     ],
     "pitch": "Thriving Kit + Personal growth + Balance. Handcrafted with intention in Southern California.",
@@ -10781,6 +11361,7 @@ const PRODUCTS = [
   {
     "id": 492294,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "The 12th Moon",
     "name": "The 12th Moon - Vibing Kit + Relieve Stress + Remove Negativity- Protecting My Energy Kit",
     "fullTitle": "The 12th Moon - The 12th Moon - Vibing Kit + Relieve Stress + Remove Negativity- Protecting My Energy Kit",
@@ -10788,7 +11369,7 @@ const PRODUCTS = [
     "priceNum": 69.99,
     "sku": "TM-KIT-VIB-0021",
     "barcodes": [
-      "",
+      "TM-KIT-VIB-0021",
       "492294"
     ],
     "pitch": "Vibing Kit + Relieve Stress + Remove Negativity. Handcrafted with intention in Southern California.",
@@ -10798,6 +11379,7 @@ const PRODUCTS = [
   {
     "id": 504266,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst",
@@ -10815,6 +11397,7 @@ const PRODUCTS = [
   {
     "id": 504265,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst",
@@ -10832,6 +11415,7 @@ const PRODUCTS = [
   {
     "id": 504272,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst chevron (Large)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst chevron (Large)",
@@ -10849,6 +11433,7 @@ const PRODUCTS = [
   {
     "id": 504185,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst Chevron - (Medium)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst Chevron - (Medium)",
@@ -10866,6 +11451,7 @@ const PRODUCTS = [
   {
     "id": 504273,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst chevron (Small)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst chevron (Small)",
@@ -10883,6 +11469,7 @@ const PRODUCTS = [
   {
     "id": 504278,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst Crystal Chunk (XL)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst Crystal Chunk (XL)",
@@ -10900,6 +11487,7 @@ const PRODUCTS = [
   {
     "id": 504277,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst Crystal Chunk (XXL)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst Crystal Chunk (XXL)",
@@ -10917,6 +11505,7 @@ const PRODUCTS = [
   {
     "id": 504279,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst (Extra Small) flat cluster",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst (Extra Small) flat cluster",
@@ -10934,6 +11523,7 @@ const PRODUCTS = [
   {
     "id": 504270,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst Large circle",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst Large circle",
@@ -10951,6 +11541,7 @@ const PRODUCTS = [
   {
     "id": 504269,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst large flat cluster",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst large flat cluster",
@@ -10968,6 +11559,7 @@ const PRODUCTS = [
   {
     "id": 504280,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst laser large",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst laser large",
@@ -10985,6 +11577,7 @@ const PRODUCTS = [
   {
     "id": 504276,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst Polished (Bigger)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst Polished (Bigger)",
@@ -11002,6 +11595,7 @@ const PRODUCTS = [
   {
     "id": 504274,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst Polished (Smaller)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst Polished (Smaller)",
@@ -11019,6 +11613,7 @@ const PRODUCTS = [
   {
     "id": 504184,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst (Shangaan)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst (Shangaan)",
@@ -11036,6 +11631,7 @@ const PRODUCTS = [
   {
     "id": 504268,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Amethyst (Small) flat cluster",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Amethyst (Small) flat cluster",
@@ -11053,6 +11649,7 @@ const PRODUCTS = [
   {
     "id": 504282,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Apophyllite",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Apophyllite",
@@ -11070,6 +11667,7 @@ const PRODUCTS = [
   {
     "id": 504281,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Apophyllite Large",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Apophyllite Large",
@@ -11087,6 +11685,7 @@ const PRODUCTS = [
   {
     "id": 504283,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Apophyllite/stilbite",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Apophyllite/stilbite",
@@ -11104,6 +11703,7 @@ const PRODUCTS = [
   {
     "id": 504284,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Aragonite",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Aragonite",
@@ -11121,6 +11721,7 @@ const PRODUCTS = [
   {
     "id": 504285,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Banded Agate",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Banded Agate",
@@ -11138,6 +11739,7 @@ const PRODUCTS = [
   {
     "id": 504286,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Bermejillo Selenite",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Bermejillo Selenite",
@@ -11155,6 +11757,7 @@ const PRODUCTS = [
   {
     "id": 504287,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Blue Calcite",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Blue Calcite",
@@ -11172,6 +11775,7 @@ const PRODUCTS = [
   {
     "id": 504288,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Brown Zebra Jasper",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Brown Zebra Jasper",
@@ -11189,6 +11793,7 @@ const PRODUCTS = [
   {
     "id": 504289,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Carnelian",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Carnelian",
@@ -11206,6 +11811,7 @@ const PRODUCTS = [
   {
     "id": 504297,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Celestite Large",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Celestite Large",
@@ -11223,6 +11829,7 @@ const PRODUCTS = [
   {
     "id": 504294,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Celestite (Medium)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Celestite (Medium)",
@@ -11240,6 +11847,7 @@ const PRODUCTS = [
   {
     "id": 504290,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Celestite (Small)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Celestite (Small)",
@@ -11257,6 +11865,7 @@ const PRODUCTS = [
   {
     "id": 504299,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Clear Quartz Tower lg",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Clear Quartz Tower lg",
@@ -11274,6 +11883,7 @@ const PRODUCTS = [
   {
     "id": 504301,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Clear Quartz Tower mini",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Clear Quartz Tower mini",
@@ -11291,6 +11901,7 @@ const PRODUCTS = [
   {
     "id": 504379,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Crystals Rose Quartz polished stone (sm)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Crystals Rose Quartz polished stone (sm)",
@@ -11308,6 +11919,7 @@ const PRODUCTS = [
   {
     "id": 504302,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Double Terminated Quartz",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Double Terminated Quartz",
@@ -11325,6 +11937,7 @@ const PRODUCTS = [
   {
     "id": 504305,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Fancy Jasper",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Fancy Jasper",
@@ -11342,6 +11955,7 @@ const PRODUCTS = [
   {
     "id": 504306,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Flower Agate round",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Flower Agate round",
@@ -11359,6 +11973,7 @@ const PRODUCTS = [
   {
     "id": 504308,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Flower Agate Sphere Big",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Flower Agate Sphere Big",
@@ -11376,6 +11991,7 @@ const PRODUCTS = [
   {
     "id": 504307,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Flower Agate Sphere (Small)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Flower Agate Sphere (Small)",
@@ -11393,6 +12009,7 @@ const PRODUCTS = [
   {
     "id": 504309,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Prehistoric Fossils & Sacred Geodes",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Fossil Squid - Orthoceras (Large)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Fossil Squid - Orthoceras (Large)",
@@ -11410,6 +12027,7 @@ const PRODUCTS = [
   {
     "id": 504312,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "Prehistoric Fossils & Sacred Geodes",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Fossil Squid - Orthoceras (Small)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Fossil Squid - Orthoceras (Small)",
@@ -11427,6 +12045,7 @@ const PRODUCTS = [
   {
     "id": 504314,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Geode Quartz Large",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Geode Quartz Large",
@@ -11444,6 +12063,7 @@ const PRODUCTS = [
   {
     "id": 504317,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - green Fluorite large",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - green Fluorite large",
@@ -11461,6 +12081,7 @@ const PRODUCTS = [
   {
     "id": 504316,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Green Fluorite - (Medium)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Green Fluorite - (Medium)",
@@ -11478,6 +12099,7 @@ const PRODUCTS = [
   {
     "id": 504315,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Green Fluorite round",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Green Fluorite round",
@@ -11495,6 +12117,7 @@ const PRODUCTS = [
   {
     "id": 504319,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Green Jasper",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Green Jasper",
@@ -11512,6 +12135,7 @@ const PRODUCTS = [
   {
     "id": 504320,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Green Tourmaline in Quartz",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Green Tourmaline in Quartz",
@@ -11529,6 +12153,7 @@ const PRODUCTS = [
   {
     "id": 504321,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Halite - \"Salt\"",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Halite - \"Salt\"",
@@ -11546,6 +12171,7 @@ const PRODUCTS = [
   {
     "id": 504325,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Heulandite, Apophyllite, Calcito",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Heulandite, Apophyllite, Calcito",
@@ -11563,6 +12189,7 @@ const PRODUCTS = [
   {
     "id": 504326,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Kambaba Jasper",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Kambaba Jasper",
@@ -11580,6 +12207,7 @@ const PRODUCTS = [
   {
     "id": 504333,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Kyanite Large",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Kyanite Large",
@@ -11597,6 +12225,7 @@ const PRODUCTS = [
   {
     "id": 504329,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Labradorite",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Labradorite",
@@ -11614,6 +12243,7 @@ const PRODUCTS = [
   {
     "id": 504331,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Labradorite Ball",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Labradorite Ball",
@@ -11631,6 +12261,7 @@ const PRODUCTS = [
   {
     "id": 504330,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Labradorite Ball",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Labradorite Ball",
@@ -11648,6 +12279,7 @@ const PRODUCTS = [
   {
     "id": 504332,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Labradorite Large",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Labradorite Large",
@@ -11665,6 +12297,7 @@ const PRODUCTS = [
   {
     "id": 504336,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Phantom Quartz",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Phantom Quartz",
@@ -11682,6 +12315,7 @@ const PRODUCTS = [
   {
     "id": 504271,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Pink Amethyst",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Pink Amethyst",
@@ -11699,6 +12333,7 @@ const PRODUCTS = [
   {
     "id": 505555,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Pink tourmaline Large",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Pink tourmaline Large",
@@ -11716,6 +12351,7 @@ const PRODUCTS = [
   {
     "id": 504337,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Pink Tourmaline (Small)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Pink Tourmaline (Small)",
@@ -11733,6 +12369,7 @@ const PRODUCTS = [
   {
     "id": 504338,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Quartz AA Quality Large",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Quartz AA Quality Large",
@@ -11750,6 +12387,7 @@ const PRODUCTS = [
   {
     "id": 504335,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Quartz - large",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Quartz - large",
@@ -11767,6 +12405,7 @@ const PRODUCTS = [
   {
     "id": 504340,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - rainbow Fluorite Large",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - rainbow Fluorite Large",
@@ -11784,6 +12423,7 @@ const PRODUCTS = [
   {
     "id": 504341,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Rhodonite",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Rhodonite",
@@ -11799,25 +12439,9 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/00a37ffc-82c7-4fdb-9a7f-e05432b59297.png"
   },
   {
-    "id": 504371,
-    "department": "Sacred Minerals, Crystals & Fossils",
-    "brand": "The Gneiss Guy",
-    "name": "The Gneiss Guy - Rose Quartz (Biggest chunk on tray)",
-    "fullTitle": "The Gneiss Guy - The Gneiss Guy - Rose Quartz (Biggest chunk on tray)",
-    "price": "$35.00",
-    "priceNum": 35,
-    "sku": "",
-    "barcodes": [
-      "",
-      "504371"
-    ],
-    "pitch": "Ethically sourced natural mineral specimen from Ontario's renowned gemologist mineralogists. Master healer crystal that amplifies intention, cleanses the energetic field, and directs focused vitality. Perfect for sacred studio altars, meditation rituals, or mindful home decor.",
-    "momenceUrl": "https://momence.com/dashboard/200431/products/504371/edit",
-    "img": "https://images.momence.com/h/200431/product-image/07738fef-06d3-4316-afa5-e46e60baa009.png"
-  },
-  {
     "id": 504372,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Rose Quartz (Biggest chunk on tray)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Rose Quartz (Biggest chunk on tray)",
@@ -11833,8 +12457,27 @@ const PRODUCTS = [
     "img": "https://images.momence.com/h/200431/product-image/2eebd3a6-7366-4f85-b228-92f6afc65d08.png"
   },
   {
+    "id": 504371,
+    "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
+    "brand": "The Gneiss Guy",
+    "name": "The Gneiss Guy - Rose Quartz (Biggest chunk on tray)",
+    "fullTitle": "The Gneiss Guy - The Gneiss Guy - Rose Quartz (Biggest chunk on tray)",
+    "price": "$35.00",
+    "priceNum": 35,
+    "sku": "",
+    "barcodes": [
+      "",
+      "504371"
+    ],
+    "pitch": "Ethically sourced natural mineral specimen from Ontario's renowned gemologist mineralogists. Master healer crystal that amplifies intention, cleanses the energetic field, and directs focused vitality. Perfect for sacred studio altars, meditation rituals, or mindful home decor.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/504371/edit",
+    "img": "https://images.momence.com/h/200431/product-image/07738fef-06d3-4316-afa5-e46e60baa009.png"
+  },
+  {
     "id": 504374,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Rose Quartz ((Extra Small) chunks)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Rose Quartz ((Extra Small) chunks)",
@@ -11852,6 +12495,7 @@ const PRODUCTS = [
   {
     "id": 504375,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Rose Quartz flat",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Rose Quartz flat",
@@ -11869,6 +12513,7 @@ const PRODUCTS = [
   {
     "id": 504376,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Rose Quartz polished stone (lg)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Rose Quartz polished stone (lg)",
@@ -11886,6 +12531,7 @@ const PRODUCTS = [
   {
     "id": 504373,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Rose Quartz ((Small) chunks)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Rose Quartz ((Small) chunks)",
@@ -11903,6 +12549,7 @@ const PRODUCTS = [
   {
     "id": 492433,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "Kiyo Home | No Tariffs",
     "name": "The Gneiss Guy - Rose Quartz tower",
     "fullTitle": "Kiyo Home | No Tariffs - The Gneiss Guy - Rose Quartz tower",
@@ -11910,7 +12557,7 @@ const PRODUCTS = [
     "priceNum": 140,
     "sku": "KH-BAR-COC-0014",
     "barcodes": [
-      "",
+      "KH-BAR-COC-0014",
       "492433"
     ],
     "pitch": "Ethically sourced natural mineral specimen from Ontario's renowned gemologist mineralogists. Master healer crystal that amplifies intention, cleanses the energetic field, and directs focused vitality. Perfect for sacred studio altars, meditation rituals, or mindful home decor.",
@@ -11920,6 +12567,7 @@ const PRODUCTS = [
   {
     "id": 504383,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Sandstone Large",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Sandstone Large",
@@ -11937,6 +12585,7 @@ const PRODUCTS = [
   {
     "id": 504382,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Sandstone (Medium)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Sandstone (Medium)",
@@ -11954,6 +12603,7 @@ const PRODUCTS = [
   {
     "id": 505576,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Sandstone (Small)",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Sandstone (Small)",
@@ -11971,6 +12621,7 @@ const PRODUCTS = [
   {
     "id": 504384,
     "department": "Sacred Minerals, Crystals & Fossils",
+    "subgroup": "The Gneiss Guy • Raw Mineral Specimens & Crystals",
     "brand": "The Gneiss Guy",
     "name": "The Gneiss Guy - Sodalite",
     "fullTitle": "The Gneiss Guy - The Gneiss Guy - Sodalite",
@@ -11988,6 +12639,7 @@ const PRODUCTS = [
   {
     "id": 504349,
     "department": "Home Decor, Barware & Artisan Textiles",
+    "subgroup": "Artisan Concrete, Ceramic & Marble Vessels",
     "brand": "The Practice",
     "name": "The Practice - Fancy Concrete Bowl (Large)",
     "fullTitle": "The Practice - The Practice - Fancy Concrete Bowl (Large)",
@@ -12005,6 +12657,7 @@ const PRODUCTS = [
   {
     "id": 498737,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "The Practice",
     "name": "The Practice Journal",
     "fullTitle": "The Practice - The Practice Journal",
@@ -12022,6 +12675,7 @@ const PRODUCTS = [
   {
     "id": 493198,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "The Practice",
     "name": "The Whisper",
     "fullTitle": "The Practice - The Whisper",
@@ -12029,7 +12683,7 @@ const PRODUCTS = [
     "priceNum": 26.99,
     "sku": "",
     "barcodes": [
-      "9967533876469",
+      "",
       "493198"
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
@@ -12039,6 +12693,7 @@ const PRODUCTS = [
   {
     "id": 493178,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "The Practice",
     "name": "The Whisper - Limited Edition",
     "fullTitle": "The Practice - The Whisper - Limited Edition",
@@ -12046,7 +12701,7 @@ const PRODUCTS = [
     "priceNum": 39.54,
     "sku": "",
     "barcodes": [
-      "9961781347993",
+      "",
       "493178"
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
@@ -12056,6 +12711,7 @@ const PRODUCTS = [
   {
     "id": 492475,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Thought Catalog",
     "name": "Thought Catalog - 101 Essays That Will Change The Way You Think",
     "fullTitle": "Thought Catalog - Thought Catalog - 101 Essays That Will Change The Way You Think",
@@ -12063,7 +12719,7 @@ const PRODUCTS = [
     "priceNum": 39.99,
     "sku": "TC-BOK-101-0007",
     "barcodes": [
-      "",
+      "TC-BOK-101-0007",
       "492475"
     ],
     "pitch": "A celebrated philosophical anthology by Brianna Wiest exploring cognitive biases, emotional regulation, daily routine, and personal purpose over fleeting passion. Each essay provides illuminating perspectives designed to expand self-awareness and reshape how you view life, relationships, and success.",
@@ -12073,6 +12729,7 @@ const PRODUCTS = [
   {
     "id": 492476,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Thought Catalog",
     "name": "Thought Catalog - Dream Journal",
     "fullTitle": "Thought Catalog - Thought Catalog - Dream Journal",
@@ -12080,7 +12737,7 @@ const PRODUCTS = [
     "priceNum": 29.99,
     "sku": "TC-JOU-DRE-0008",
     "barcodes": [
-      "",
+      "TC-JOU-DRE-0008",
       "492476"
     ],
     "pitch": "An exquisite cloth-bound dream journal featuring gold foil accents and whimsical artwork by Danica Gim. Designed to rest conveniently on your nightstand, this guided keepsake offers intuitive prompts to record, interpret, and reflect upon your subconscious dreams and nocturnal insights.",
@@ -12090,6 +12747,7 @@ const PRODUCTS = [
   {
     "id": 492473,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Thought Catalog",
     "name": "Thought Catalog - I Am The Hero Of My Own Life",
     "fullTitle": "Thought Catalog - Thought Catalog - I Am The Hero Of My Own Life",
@@ -12097,7 +12755,7 @@ const PRODUCTS = [
     "priceNum": 24.99,
     "sku": "TC-JOU-HER-0005",
     "barcodes": [
-      "",
+      "TC-JOU-HER-0005",
       "492473"
     ],
     "pitch": "A transformative guided journal by bestselling author Brianna Wiest. Filled with thought-provoking prompts, exercises, and inspiring passages, this journal helps you identify self-limiting beliefs, align your daily habits with your values, and step into the role of the creator and hero of your life.",
@@ -12107,6 +12765,7 @@ const PRODUCTS = [
   {
     "id": 492471,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Thought Catalog",
     "name": "Thought Catalog - The Becoming Journal",
     "fullTitle": "Thought Catalog - Thought Catalog - The Becoming Journal",
@@ -12114,7 +12773,7 @@ const PRODUCTS = [
     "priceNum": 44.99,
     "sku": "TC-JOU-BEC-0003",
     "barcodes": [
-      "",
+      "TC-JOU-BEC-0003",
       "492471"
     ],
     "pitch": "A companion guided journal designed by Bianca Sparacino to navigate seasons of personal transformation and self-discovery. Features daily reflection practices, gratitude prompts, and thoughtful weekly exercises to help you process emotion, cultivate vulnerability, and align with your highest self.",
@@ -12124,6 +12783,7 @@ const PRODUCTS = [
   {
     "id": 492470,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Thought Catalog",
     "name": "Thought Catalog - The Life That's Waiting",
     "fullTitle": "Thought Catalog - Thought Catalog - The Life That's Waiting",
@@ -12131,7 +12791,7 @@ const PRODUCTS = [
     "priceNum": 29.99,
     "sku": "TC-BOK-LIF-0002",
     "barcodes": [
-      "",
+      "TC-BOK-LIF-0002",
       "492470"
     ],
     "pitch": "An empowering literary guide to stepping beyond past hurt and self-doubt. Author Bianca Sparacino inspires readers to stop merely trying to keep life together and instead embrace the vibrant, fulfilling reality waiting on the other side of fear. Beautifully written for anyone navigating life transitions and seeking personal purpose.",
@@ -12141,6 +12801,7 @@ const PRODUCTS = [
   {
     "id": 492474,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Thought Catalog",
     "name": "Thought Catalog - The Mountain Is You",
     "fullTitle": "Thought Catalog - Thought Catalog - The Mountain Is You",
@@ -12148,7 +12809,7 @@ const PRODUCTS = [
     "priceNum": 39.99,
     "sku": "TC-BOK-MOU-0006",
     "barcodes": [
-      "",
+      "TC-BOK-MOU-0006",
       "492474"
     ],
     "pitch": "The global bestselling guide to transforming self-sabotage into self-mastery by Brianna Wiest. Using the mountain as a metaphor for internal resistance, this book explains why we self-sabotage, how to understand our emotional triggers, and how to build the emotional intelligence necessary to reach our full potential.",
@@ -12158,6 +12819,7 @@ const PRODUCTS = [
   {
     "id": 492469,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Thought Catalog",
     "name": "Thought Catalog - The Strength In Our Scars",
     "fullTitle": "Thought Catalog - Thought Catalog - The Strength In Our Scars",
@@ -12165,7 +12827,7 @@ const PRODUCTS = [
     "priceNum": 29.99,
     "sku": "TC-BOK-STR-0001",
     "barcodes": [
-      "",
+      "TC-BOK-STR-0001",
       "492469"
     ],
     "pitch": "A poignant collection of poetry, prose, and compassionate encouragement by Bianca Sparacino. Dedicated to those on a healing journey, this book addresses themes of self-love, moving forward, and finding inner resilience through life's trials. A gentle reminder that even our deepest struggles can become the foundation of our greatest strength.",
@@ -12175,6 +12837,7 @@ const PRODUCTS = [
   {
     "id": 492472,
     "department": "Mindful Living, Journals & Games",
+    "subgroup": "Mindful Literature, Reflection Journals & Guided Books",
     "brand": "Thought Catalog",
     "name": "Thought Catalog - Your Heart Will Heal",
     "fullTitle": "Thought Catalog - Thought Catalog - Your Heart Will Heal",
@@ -12182,7 +12845,7 @@ const PRODUCTS = [
     "priceNum": 29.99,
     "sku": "TC-JOU-HEA-0004",
     "barcodes": [
-      "",
+      "TC-JOU-HEA-0004",
       "492472"
     ],
     "pitch": "Subtitled \"A Gentle Guided Journal for Getting Over Anyone,\" this compassionate workbook by Chrissy Stockton offers a safe space to process heartbreak. Providing structured prompts to navigate grief, denial, and healing at your own pace, it helps you release emotional weight and rediscover peace within yourself.",
@@ -12192,6 +12855,7 @@ const PRODUCTS = [
   {
     "id": 513585,
     "department": "Cafe & Nourishment",
+    "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
     "brand": "The Practice Cafe",
     "name": "Vanilla Syrup",
     "fullTitle": "The Practice Cafe - Vanilla Syrup",
@@ -12204,11 +12868,12 @@ const PRODUCTS = [
     ],
     "pitch": "Handcrafted organic wellness refreshment prepared fresh at The Practice Cafe bar.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/513585/edit",
-    "img": "https://images.momence.com/h/200431/product-image/022cfa19-8de0-4165-98a3-394c3d816d21.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/2678fac8-1dc1-49bf-af63-0d5793680c6e.jpg"
   },
   {
     "id": 567179,
     "department": "Cafe & Nourishment",
+    "subgroup": "Kombucha & Fermented Refreshments",
     "brand": "The Practice",
     "name": "Very Berry - Cathy’s Kombucha (C)",
     "fullTitle": "The Practice - Very Berry - Cathy’s Kombucha (C)",
@@ -12221,11 +12886,12 @@ const PRODUCTS = [
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/567179/edit",
-    "img": "https://images.momence.com/h/200431/product-image/60e7174d-c709-4870-ac16-4d1137c3adfb.jpg"
+    "img": "assets/cafe/kombucha_very_berry.jpg"
   },
   {
     "id": 504350,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "The Practice",
     "name": "White, Moroccan Cashmere- Half Moon Candle | Small Candle",
     "fullTitle": "The Practice - White, Moroccan Cashmere- Half Moon Candle | Small Candle",
@@ -12238,11 +12904,12 @@ const PRODUCTS = [
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/504350/edit",
-    "img": "https://images.momence.com/h/200431/product-image/7673b755-bf50-4db6-80c7-a40bda25813f.jpg"
+    "img": "https://images.momence.com/h/200431/product-image/53012f91-d676-484c-9f02-00a0a40b043a.jpg"
   },
   {
     "id": 492376,
     "department": "Aromatherapy, Incense & Sacred Smudging",
+    "subgroup": "Cedar & Myrrh • Sacred Aromatherapy, Mists & Incense",
     "brand": "Cedar and Myrrh",
     "name": "White Sage Handrolled Incense Stick - 12 Box Bundle ->10%",
     "fullTitle": "Cedar and Myrrh - White Sage Handrolled Incense Stick - 12 Box Bundle ->10%",
@@ -12250,7 +12917,7 @@ const PRODUCTS = [
     "priceNum": 30.99,
     "sku": "CM-INC-LAV-0045",
     "barcodes": [
-      "",
+      "CM-INC-LAV-0045",
       "492376"
     ],
     "pitch": "Non-toxic reed diffuser crafted with natural rattan reeds and pure therapeutic essential oils in an apothecary amber glass bottle for continuous botanical aroma.",
@@ -12260,6 +12927,7 @@ const PRODUCTS = [
   {
     "id": 492524,
     "department": "Luxury Candles & Home Fragrance",
+    "subgroup": "Hand-Poured Luxury Scented Candles",
     "brand": "Bradley Mountain",
     "name": "Wild Fig & Citrus Candle",
     "fullTitle": "Bradley Mountain - Wild Fig & Citrus Candle",
@@ -12267,7 +12935,7 @@ const PRODUCTS = [
     "priceNum": 42,
     "sku": "BM-CAN-WIL-0001",
     "barcodes": [
-      "",
+      "BM-CAN-WIL-0001",
       "492524"
     ],
     "pitch": "Hand-poured all-natural soy wax candle crafted in San Diego, CA. Features a clean lead-free cotton wick and rich, woody aroma notes inspired by wilderness adventures.",
