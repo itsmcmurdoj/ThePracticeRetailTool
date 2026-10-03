@@ -72,6 +72,26 @@
   * `&4`: *Member Portal Architecture & AI Search Optimization (GEO)*
 * **Shift-Weighted Issues**: Logged and linked 7 operational issues with exact hourly weights matching confirmed shift allocations (8h for Shift 1; 6h for Shift 2).
 
+#### E. End-of-Shift Workspace Cleanup & Structural Harmonization
+* **Municipal & Compliance Document Organization**:
+  * Relocated loose root regulatory PDFs into [`Operations & Compliance/Municipal & Regulatory/`](file:///Users/jacksonmcmurdo/Desktop/The%20Practice/Operations%20&%20Compliance/Municipal%20&%20Regulatory/) with standardized naming:
+    * `City_of_Toronto_Food_Establishment_Licence_B50-5661992.pdf` (City of Toronto Take-Out / Food Establishment Licence, exp. Aug 28, 2027)
+    * `Province_of_Ontario_Business_Name_Registration_1001719998.pdf` (Ontario Business Names Act Registration Certificate)
+    * `Waste_Management_Commercial_Service_Invoice_1150033.pdf` (WM Commercial waste and recycling service invoice)
+  * Centralized `TechOps_Weekly_Operations_Dashboard.html` and `.pdf` inside `Operations & Compliance/`.
+  * Added `operations` symlink in project root to ensure local navigation from `daily_schedule.html` resolves reliably.
+* **Executive & Team Strategy Consolidation**:
+  * Relocated loose action plans into [`Executive & Team/Action Plans & Roadmaps/`](file:///Users/jacksonmcmurdo/Desktop/The%20Practice/Executive%20&%20Team/Action%20Plans%20&%20Roadmaps/):
+    * `The_Practice_Action_Plan_Sept30_2026.html` / `.pdf`
+    * `The_Practice_October_2026_Action_Plan.html` / `.pdf`
+  * Preserved Jackson's raw scratch notes into `Executive & Team/Work_Notes_Sep29_Oct03_2026.rtf`.
+* **Asset & Folder Hygiene**:
+  * Isolated raw numerical camera uploads in `Cafe Baked Goods/raw_scratch_assets/` without deleting original assets.
+  * Created `Hiring & Recruiting/README.md` to document candidate pools and applicant scraping tools.
+  * Hardened `google_workspace/.gitignore` (`token_hr.json`, `*.log`) and archived duplicate alternate-spelling documentation into `google_workspace/archive/`.
+  * Moved browser cache `.temp_chrome_profile` into `.cache/chrome_automation_profile` and purged empty Google Drive download/upload temp directories.
+  * Verified 100% byte parity between `iPad Fleet/iPad_Fleet_Deployments` and `ThePracticeRetailTool/ipad-fleet`.
+
 ---
 
 ### 2. Current Blockers & Access Dependencies
