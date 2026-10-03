@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Practice • Cafe Ordering & Beverage Customizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="widget.css">
+</head>
+<body>
+
+  <!-- MAIN APP CONTAINER -->
+  <div class="app-container">
+    
+    <!-- HEADER -->
+    <header class="sanctuary-header">
+      <span class="brand-badge">The Practice Sanctuary Cafe</span>
+      <h1 class="brand-title">Artisan Coffee, Elixirs & Nourishment</h1>
+      <p class="brand-tagline">Consciously crafted espresso, ceremonial adaptogens & superfood smoothies designed to restore vitality.</p>
+    </header>
+
+    <!-- IN-STORE PICKUP POLICY BANNER -->
+    <div class="pickup-policy-banner">
+      <div class="policy-info">
+        <span class="policy-icon">📍</span>
+        <div class="policy-text">
+          <h4>In-Studio Pickup Only • No Shipping Available</h4>
+          <p>Orders are freshly prepared for pickup at <strong>190 Richmond St E, Toronto</strong> during regular opening hours.</p>
+        </div>
+      </div>
+      <div class="policy-badge">Momence Member Sign-In at Checkout</div>
+    </div>
+
+    <!-- CATEGORY TABS -->
+    <nav class="category-tabs" aria-label="Menu categories">
+      <button class="cat-tab-btn active" data-cat="all">All Offerings</button>
+      <button class="cat-tab-btn" data-cat="coffee">Artisan Coffee & Espresso</button>
+      <button class="cat-tab-btn" data-cat="wellness">Ceremonial Elixirs & Teas</button>
+      <button class="cat-tab-btn" data-cat="smoothies">Functional Smoothies (Regular 16oz)</button>
+    </nav>
+
+    <!-- PRODUCT GRID -->
+    <main id="menu-grid" class="menu-grid">
+      <!-- Dynamically populated via widget.js -->
+    </main>
+
+  </div>
+
+  <!-- STICKY BOTTOM ORDER BAR -->
+  <aside id="sticky-order-bar" class="sticky-order-bar" style="display: none;">
+    <div class="sticky-order-content">
+      <div class="sticky-cart-summary" onclick="openCartDrawer()" style="cursor: pointer;">
+        <div class="cart-icon-bubble">
+          🛒
+          <span id="cart-badge" class="cart-badge-count">0</span>
+        </div>
+        <div class="sticky-details">
+          <h5>Your Pickup Order</h5>
+          <p><span id="sticky-subtotal">$0.00</span> • Tap to view items & checkout</p>
+        </div>
+      </div>
+      <button class="btn-checkout-bundle" onclick="openCartDrawer()">
+        <span>Review Order & Checkout</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- CUSTOMIZATION MODAL (1-CLICK BEVERAGE BUILDER) -->
+  <div id="customizer-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 id="modal-item-name">Beverage Name</h3>
+          <p id="modal-item-desc">Beverage description</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal()" aria-label="Close">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- SIZE -->
+        <div id="modal-size-section" class="option-section">
+          <div class="option-section-title">
+            <span>Size Selection</span>
+            <span class="option-required">Required</span>
+          </div>
+          <div id="modal-size-options" class="options-pill-grid"></div>
+        </div>
+
+        <!-- TEMPERATURE -->
+        <div id="modal-temp-section" class="option-section">
+          <div class="option-section-title">
+            <span>Temperature</span>
+            <span class="option-required">Required</span>
+          </div>
+          <div id="modal-temp-options" class="options-pill-grid"></div>
+        </div>
+
+        <!-- MILK SELECTION -->
+        <div id="modal-milk-section" class="option-section">
+          <div class="option-section-title">
+            <span>Choice of Milk</span>
+            <span class="option-required">Choose 1</span>
+          </div>
+          <div id="modal-milk-options" class="options-pill-grid"></div>
+        </div>
+
+        <!-- SWEETENER / SYRUP -->
+        <div id="modal-syrup-section" class="option-section">
+          <div class="option-section-title">
+            <span>House Crafted Syrups</span>
+            <span style="font-size: 11px; color: var(--text-muted);">Optional</span>
+          </div>
+          <div id="modal-syrup-options" class="options-pill-grid"></div>
+        </div>
+
+        <!-- ADAPTOGENIC BOOSTERS & MODIFIERS -->
+        <div class="option-section">
+          <div class="option-section-title">
+            <span>Adaptogenic Boosters & Modifiers</span>
+            <span style="font-size: 11px; color: var(--brand-gold);">1-Click Bundled</span>
+          </div>
+          <div id="modal-booster-options" class="modifiers-list"></div>
+        </div>
+
+        <!-- SPECIAL BARISTA INSTRUCTIONS -->
+        <div class="option-section">
+          <div class="option-section-title">
+            <span>Special Requests for Barista</span>
+          </div>
+          <textarea id="modal-special-notes" class="special-notes-textarea" placeholder="e.g. Extra hot, light ice, half-sweet..."></textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="modal-price-tally">
+          <span class="tally-label">Beverage Total</span>
+          <span id="modal-price-display" class="tally-amount">$0.00</span>
+        </div>
+        <button class="btn-add-to-cart" onclick="addConfiguredItemToCart()">
+          Add Custom Drink to Order
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDING CART DRAWER -->
+  <div id="cart-drawer-overlay" class="cart-drawer-overlay">
+    <div class="cart-drawer">
+      <div class="drawer-header">
+        <h3>Your In-Store Pickup Order</h3>
+        <button class="modal-close-btn" onclick="closeCartDrawer()">✕</button>
+      </div>
+
+      <div id="drawer-items-list" class="drawer-items">
+        <!-- Rendered by widget.js -->
+      </div>
+
+      <div class="drawer-footer">
+        <div class="totals-row">
+          <span>Subtotal</span>
+          <span id="drawer-subtotal">$0.00</span>
+        </div>
+        <div class="totals-row">
+          <span>Ontario HST (13%)</span>
+          <span id="drawer-tax">$0.00</span>
+        </div>
+        <div class="totals-row grand-total">
+          <span>Estimated Total</span>
+          <span id="drawer-grand-total">$0.00</span>
+        </div>
+
+        <button class="btn-momence-checkout" onclick="executeMomenceCheckout()">
+          <span>Proceed to Momence Checkout (1-Click)</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+
+        <p style="font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 10px;">
+          📍 Pickup at 190 Richmond St E. You will sign in with your Momence account.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1-CLICK MOMENCE INTEGRATION MODAL -->
+  <div id="code-embed-modal" class="modal-overlay">
+    <div class="modal-dialog code-modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3>Momence 1-Click Bundle Payload</h3>
+          <p>Automated Cart Bundler for thepracticetoronto.com</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeCodeModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">
+          This custom widget solves the modifier challenge: instead of forcing customers to hunt down 3 separate items, it bundles the base beverage and all chosen add-ons (milk, syrup, collagen, MCT oil) into Momence checkout in a single tap:
+        </p>
+        <pre id="bundle-payload-code" class="code-snippet"></pre>
+        <div style="background: var(--bg-subtle); padding: 14px; border-radius: var(--radius-md); font-size: 12px; color: var(--text-secondary); margin-top: 12px;">
+          <strong>How this embeds into Squarespace / Webflow:</strong><br>
+          Paste this widget container and embed script into any custom code block on <code>thepracticetoronto.com/cafe</code>. On click, it transmits the pre-configured bundle directly to Momence POS/Store cart.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-customize" onclick="closeCodeModal()">Back to Ordering</button>
+        <a id="direct-checkout-link" href="https://momence.com/The-Practice-Inc/products/200431" target="_blank" class="btn-add-to-cart" style="text-decoration: none; display: inline-block;">
+          Open Live Momence Store →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="widget.js"></script>
+</body>
+</html>

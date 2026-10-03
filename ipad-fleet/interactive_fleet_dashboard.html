@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Practice — Fleet Operations Control Room & Kiosk Blueprint</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Authentic The Practice Design Tokens */
+            --color-bg-base: #0E1110;
+            --color-bg-card: #151918;
+            --color-bg-elevated: #1D2321;
+            --color-mineral-sage: #EBEDEA;
+            --color-charcoal: #151515;
+            --color-text-primary: #F8FAFC;
+            --color-text-secondary: #94A3B8;
+            --color-text-muted: #64748B;
+            --color-accent-amber: #F5A258;
+            --color-accent-peach: #FFBC7D;
+            --color-button-indigo: #03095F;
+            --color-bronze-gold: #D4AF37;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-bronze: rgba(212, 175, 55, 0.3);
+            --radius-arch: 100px 100px 0 0;
+            --radius-card: 20px;
+            --radius-pill: 100px;
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --shadow-elevation: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-bg-base);
+            color: var(--color-text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding: 40px 24px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* Header & Brand Identity */
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            position: relative;
+        }
+        .brand-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-bronze);
+            color: var(--color-bronze-gold);
+            padding: 6px 18px;
+            border-radius: var(--radius-pill);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .brand-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-bronze-gold);
+        }
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 44px;
+            font-weight: 500;
+            color: #FFFFFF;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+        .subtitle {
+            color: var(--color-text-secondary);
+            font-size: 16px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* Top Nav View Selector */
+        .view-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+        .view-btn {
+            background: var(--color-bg-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--color-text-secondary);
+            padding: 12px 24px;
+            border-radius: var(--radius-pill);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .view-btn.active {
+            background: var(--color-bg-elevated);
+            color: #FFFFFF;
+            border-color: var(--color-bronze-gold);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+        }
+
+        /* SECTION 1: FLEET DEVICE MATRIX */
+        .device-selector-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
+        }
+        .device-tab {
+            background: var(--color-bg-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--color-text-secondary);
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .device-tab:hover {
+            color: #FFFFFF;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .device-tab.active {
+            background: var(--color-bg-elevated);
+            color: var(--color-accent-amber);
+            border-color: var(--color-accent-amber);
+            font-weight: 600;
+        }
+
+        .device-card {
+            display: none;
+            background: var(--color-bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-card);
+            padding: 36px;
+            box-shadow: var(--shadow-elevation);
+            animation: fadeIn 0.3s ease;
+        }
+        .device-card.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            align-items: start;
+        }
+        @media (max-width: 1024px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mockup Viewer Box */
+        .mockup-box {
+            background: #000000;
+            border-radius: 16px;
+            padding: 18px;
+            border: 1px solid var(--border-subtle);
+        }
+        .mockup-controls {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .mockup-toggle-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--color-text-muted);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .mockup-toggle-btn.active {
+            background: var(--color-bronze-gold);
+            color: #000000;
+        }
+        .mockup-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* Details Box */
+        .info-card {
+            background: var(--color-bg-elevated);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid var(--border-subtle);
+            margin-bottom: 24px;
+        }
+        .asset-code {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--color-bronze-gold);
+            background: rgba(212, 175, 55, 0.1);
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        .device-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .device-desc {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .spec-cell {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .spec-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-text-muted);
+            margin-bottom: 4px;
+        }
+        .spec-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .section-header {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-accent-amber);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 24px 0 12px 0;
+        }
+        .pill-cluster {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .app-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-bronze-gold);
+        }
+        .code-snippet {
+            background: #080A0E;
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 14px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: #CBD5E1;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        /* SECTION 2: INTERIOR & ARCHITECTURAL MATCHING */
+        .interior-section {
+            display: none;
+            background: var(--color-bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-card);
+            padding: 36px;
+            animation: fadeIn 0.3s ease;
+        }
+        .interior-section.active {
+            display: block;
+        }
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+        .photo-card {
+            background: var(--color-bg-elevated);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+        }
+        .photo-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+        .photo-caption {
+            padding: 16px 20px;
+        }
+        .photo-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+        .photo-sub {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+        }
+
+        /* SECTION 3: INTERACTIVE 4-TILE KIOSK LAUNCHER SIMULATOR */
+        .kiosk-sim-section {
+            display: none;
+            background: var(--color-bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-card);
+            padding: 36px;
+            animation: fadeIn 0.3s ease;
+        }
+        .kiosk-sim-section.active {
+            display: block;
+        }
+        .kiosk-frame {
+            max-width: 960px;
+            margin: 0 auto;
+            border: 14px solid #1E2221;
+            border-radius: 40px;
+            background: var(--color-mineral-sage);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            color: var(--color-charcoal);
+            position: relative;
+        }
+        .sim-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 32px;
+            border-bottom: 1px solid rgba(21, 21, 21, 0.08);
+        }
+        .sim-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 32px;
+        }
+        .sim-tile {
+            background: #FFFFFF;
+            border: 1px solid rgba(21, 21, 21, 0.08);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 180px;
+        }
+        .sim-tile:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+            border-color: var(--color-accent-amber);
+        }
+        .sim-tile-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sim-tile-icon {
+            font-size: 28px;
+            width: 52px;
+            height: 52px;
+            background: #F4F5F3;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sim-tile-badge {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 600;
+            color: #64748B;
+            background: #F1F3F0;
+            padding: 4px 10px;
+            border-radius: 100px;
+        }
+        .sim-tile-title {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 600;
+            color: #151515;
+            margin-top: 14px;
+        }
+        .sim-tile-desc {
+            font-size: 13px;
+            color: #54595F;
+            margin-top: 4px;
+        }
+        .sim-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            background: #F1F3F0;
+            border-top: 1px solid rgba(21, 21, 21, 0.06);
+            font-size: 12px;
+            color: #54595F;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand-pill">
+            <div class="brand-dot"></div>
+            The Practice • 360 Davenport Rd, Yorkville
+        </div>
+        <h1>Fleet Operations & Kiosk Architecture</h1>
+        <p class="subtitle">Unified remote MDM deployment, architectural interior matching, and high-contrast 4-tile kiosk launchpads for wall-mounted fleet iPads.</p>
+    </header>
+
+    <!-- Master Navigation Views -->
+    <div class="view-switcher">
+        <button class="view-btn active" onclick="switchMainView('devices')">📱 5-Device Fleet Matrix</button>
+        <button class="view-btn" onclick="switchMainView('kiosk-sim')">⚡ Interactive 4-Tile Kiosk</button>
+        <button class="view-btn" onclick="switchMainView('interior')">🏛️ Yorkville Studio Aesthetic</button>
+    </div>
+
+    <!-- VIEW 1: FLEET DEVICE MATRIX -->
+    <div id="view-devices">
+        <div class="device-selector-tabs">
+            <button class="device-tab active" onclick="selectDevice(0)">01. Retail iPad</button>
+            <button class="device-tab" onclick="selectDevice(1)">02. Yoga Studio</button>
+            <button class="device-tab" onclick="selectDevice(2)">03. The Cafe</button>
+            <button class="device-tab" onclick="selectDevice(3)">04. Event Space</button>
+            <button class="device-tab" onclick="selectDevice(4)">05. Head Office Admin</button>
+        </div>
+
+        <!-- 01 Retail iPad -->
+        <div class="device-card active" id="device-card-0">
+            <div class="grid-layout">
+                <div class="mockup-box">
+                    <div class="mockup-controls">
+                        <button class="mockup-toggle-btn active" onclick="toggleMockupImg(this, 'img-d0', 'layout_references/01_Retail_iPad_Layout_Mockup_Light.png')">Alabaster Layout</button>
+                        <button class="mockup-toggle-btn" onclick="toggleMockupImg(this, 'img-d0', 'wallpapers/01_Retail_iPad_Wallpaper_Light.jpg')">Alabaster Wallpaper</button>
+                        <button class="mockup-toggle-btn" onclick="toggleMockupImg(this, 'img-d0', 'wallpapers/01_Retail_iPad_Wallpaper.jpg')">Obsidian Mode</button>
+                    </div>
+                    <img id="img-d0" class="mockup-img" src="layout_references/01_Retail_iPad_Layout_Mockup_Light.png" alt="Retail iPad">
+                </div>
+                <div>
+                    <div class="info-card">
+                        <span class="asset-code">PRAC-RETAIL-KSK-01</span>
+                        <h2 class="device-title">Retail Showroom iPad</h2>
+                        <p class="device-desc">Wall/stand mounted at the retail boutique counter for instant point-of-sale transactions, customer profile lookups, barcode label printing, and Spotify showroom audio.</p>
+                        <div class="spec-grid">
+                            <div class="spec-cell">
+                                <div class="spec-label">Mounting Type</div>
+                                <div class="spec-value">Magnetic Flush Wall Mount</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Security Restriction</div>
+                                <div class="spec-value">Multi-App Kiosk Mode</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Audio Matrix</div>
+                                <div class="spec-value">Spotify Retail Stream</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Label Printing</div>
+                                <div class="spec-value">Nelko (Tags) & Munbyn (Boxes)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-header">Whitelisted Core Applications</div>
+                    <div class="pill-cluster">
+                        <div class="app-badge"><div class="badge-dot"></div>The Practice (Web Clip)</div>
+                        <div class="app-badge"><div class="badge-dot"></div>Moments (POS Register)</div>
+                        <div class="app-badge"><div class="badge-dot"></div>Nelko Print</div>
+                        <div class="app-badge"><div class="badge-dot"></div>Munbyn Print</div>
+                    </div>
+
+                    <div class="section-header">Locked Dock Icons</div>
+                    <div class="pill-cluster">
+                        <div class="app-badge">Moments</div>
+                        <div class="app-badge">The Practice</div>
+                        <div class="app-badge">VSSL Soundtrack</div>
+                        <div class="app-badge">Settings (Restricted)</div>
+                    </div>
+
+                    <div class="section-header">MDM Lock Screen Footnote Payload</div>
+                    <div class="code-snippet">LOCATION: RETAIL SHOWROOM • ROLE: RETAIL KIOSK
+[ SERIAL NUMBER: {{SerialNumber}} ]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 02 Yoga Studio -->
+        <div class="device-card" id="device-card-1">
+            <div class="grid-layout">
+                <div class="mockup-box">
+                    <div class="mockup-controls">
+                        <button class="mockup-toggle-btn active" onclick="toggleMockupImg(this, 'img-d1', 'layout_references/02_Yoga_Studio_iPad_Layout_Mockup_Light.png')">Alabaster Layout</button>
+                        <button class="mockup-toggle-btn" onclick="toggleMockupImg(this, 'img-d1', 'wallpapers/02_Yoga_Studio_iPad_Wallpaper_Light.jpg')">Alabaster Wallpaper</button>
+                        <button class="mockup-toggle-btn" onclick="toggleMockupImg(this, 'img-d1', 'wallpapers/02_Yoga_Studio_iPad_Wallpaper.jpg')">Obsidian Mode</button>
+                    </div>
+                    <img id="img-d1" class="mockup-img" src="layout_references/02_Yoga_Studio_iPad_Layout_Mockup_Light.png" alt="Yoga Studio iPad">
+                </div>
+                <div>
+                    <div class="info-card">
+                        <span class="asset-code">PRAC-YOGA-STU-01</span>
+                        <h2 class="device-title">Yoga Studio 1 iPad</h2>
+                        <p class="device-desc">Mounted outside/inside Studio 1 for session check-in, soothing soundscape control across VSSL multi-zone amplifiers, and warm architectural cove lighting adjustments.</p>
+                        <div class="spec-grid">
+                            <div class="spec-cell">
+                                <div class="spec-label">Mounting Type</div>
+                                <div class="spec-value">Flush Plaster Wall Mount</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Security Restriction</div>
+                                <div class="spec-value">Autonomous SAM / Ambient</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Amplifier Matrix</div>
+                                <div class="spec-value">VSSL Studio Zone Volume</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Lighting Scenes</div>
+                                <div class="spec-value">Google Home Smart Dimmer</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-header">Whitelisted Core Applications</div>
+                    <div class="pill-cluster">
+                        <div class="app-badge"><div class="badge-dot"></div>The Practice (Class Check-In)</div>
+                        <div class="app-badge"><div class="badge-dot"></div>Google Home (Lighting Presets)</div>
+                    </div>
+
+                    <div class="section-header">Locked Dock Icons</div>
+                    <div class="pill-cluster">
+                        <div class="app-badge">The Practice</div>
+                        <div class="app-badge">VSSL Soundtrack</div>
+                        <div class="app-badge">Spotify</div>
+                        <div class="app-badge">Google Home</div>
+                    </div>
+
+                    <div class="section-header">MDM Lock Screen Footnote Payload</div>
+                    <div class="code-snippet">LOCATION: YOGA STUDIO • ROLE: SESSION & AUDIO CONTROL
+[ SERIAL NUMBER: {{SerialNumber}} ]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 03 Cafe iPad -->
+        <div class="device-card" id="device-card-2">
+            <div class="grid-layout">
+                <div class="mockup-box">
+                    <div class="mockup-controls">
+                        <button class="mockup-toggle-btn active" onclick="toggleMockupImg(this, 'img-d2', 'layout_references/03_Cafe_iPad_Layout_Mockup_Light.png')">Alabaster Layout</button>
+                        <button class="mockup-toggle-btn" onclick="toggleMockupImg(this, 'img-d2', 'wallpapers/03_Cafe_iPad_Wallpaper_Light.jpg')">Alabaster Wallpaper</button>
+                        <button class="mockup-toggle-btn" onclick="toggleMockupImg(this, 'img-d2', 'wallpapers/03_Cafe_iPad_Wallpaper.jpg')">Obsidian Mode</button>
+                    </div>
+                    <img id="img-d2" class="mockup-img" src="layout_references/03_Cafe_iPad_Layout_Mockup_Light.png" alt="Cafe iPad">
+                </div>
+                <div>
+                    <div class="info-card">
+                        <span class="asset-code">PRAC-CAFE-POS-01</span>
+                        <h2 class="device-title">The Cafe Register iPad</h2>
+                        <p class="device-desc">High-speed register touchpoint for barista drink orders, food orders, cup and pastry thermal printing via Nelko Bluetooth, and cafe background music.</p>
+                        <div class="spec-grid">
+                            <div class="spec-cell">
+                                <div class="spec-label">Mounting Type</div>
+                                <div class="spec-value">Countertop Swivel Mount</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Security Restriction</div>
+                                <div class="spec-value">Locked POS Kiosk Mode</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Primary Register</div>
+                                <div class="spec-value">Moments F&B POS</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Label Printing</div>
+                                <div class="spec-value">Nelko Bluetooth Cup Printer</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-header">Whitelisted Core Applications</div>
+                    <div class="pill-cluster">
+                        <div class="app-badge"><div class="badge-dot"></div>Moments (Register)</div>
+                        <div class="app-badge"><div class="badge-dot"></div>The Practice (Menu/Orders)</div>
+                        <div class="app-badge"><div class="badge-dot"></div>Nelko Print</div>
+                        <div class="app-badge"><div class="badge-dot"></div>Munbyn Print</div>
+                        <div class="app-badge"><div class="badge-dot"></div>Spotify</div>
+                        <div class="app-badge"><div class="badge-dot"></div>VSSL Soundtrack</div>
+                    </div>
+
+                    <div class="section-header">Locked Dock Icons</div>
+                    <div class="pill-cluster">
+                        <div class="app-badge">Moments</div>
+                        <div class="app-badge">The Practice</div>
+                        <div class="app-badge">Nelko Print</div>
+                        <div class="app-badge">Settings (Restricted)</div>
+                    </div>
+
+                    <div class="section-header">MDM Lock Screen Footnote Payload</div>
+                    <div class="code-snippet">LOCATION: THE CAFE • ROLE: SERVICE & F&B REGISTER
+[ SERIAL NUMBER: {{SerialNumber}} ]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 04 Event Space -->
+        <div class="device-card" id="device-card-3">
+            <div class="grid-layout">
+                <div class="mockup-box">
+                    <div class="mockup-controls">
+                        <button class="mockup-toggle-btn active" onclick="toggleMockupImg(this, 'img-d3', 'layout_references/04_Event_Space_iPad_Layout_Mockup_Light.png')">Alabaster Layout</button>
+                        <button class="mockup-toggle-btn" onclick="toggleMockupImg(this, 'img-d3', 'wallpapers/04_Event_Space_iPad_Wallpaper_Light.jpg')">Alabaster Wallpaper</button>
+                        <button class="mockup-toggle-btn" onclick="toggleMockupImg(this, 'img-d3', 'wallpapers/04_Event_Space_iPad_Wallpaper.jpg')">Obsidian Mode</button>
+                    </div>
+                    <img id="img-d3" class="mockup-img" src="layout_references/04_Event_Space_iPad_Layout_Mockup_Light.png" alt="Event Space iPad">
+                </div>
+                <div>
+                    <div class="info-card">
+                        <span class="asset-code">PRAC-EVENT-CTRL-01</span>
+                        <h2 class="device-title">Event Hall AV Controller</h2>
+                        <p class="device-desc">Centralized hospitality tablet mounted in the private event corridor for multi-zone amplifier distribution, lighting atmosphere, and door ticketing.</p>
+                        <div class="spec-grid">
+                            <div class="spec-cell">
+                                <div class="spec-label">Mounting Type</div>
+                                <div class="spec-value">Magnetic Flush Wall Mount</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Security Restriction</div>
+                                <div class="spec-value">AV Controller Mode</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Zone Switcher</div>
+                                <div class="spec-value">VSSL Multi-Zone Matrix</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Scene Control</div>
+                                <div class="spec-value">Google Home Smart Lighting</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-header">Whitelisted Core Applications</div>
+                    <div class="pill-cluster">
+                        <div class="app-badge"><div class="badge-dot"></div>The Practice (Event Check)</div>
+                        <div class="app-badge"><div class="badge-dot"></div>Moments (Door Tickets)</div>
+                        <div class="app-badge"><div class="badge-dot"></div>Spotify</div>
+                    </div>
+
+                    <div class="section-header">Locked Dock Icons</div>
+                    <div class="pill-cluster">
+                        <div class="app-badge">VSSL Soundtrack</div>
+                        <div class="app-badge">Google Home</div>
+                        <div class="app-badge">Spotify</div>
+                        <div class="app-badge">The Practice</div>
+                    </div>
+
+                    <div class="section-header">MDM Lock Screen Footnote Payload</div>
+                    <div class="code-snippet">LOCATION: EVENT HALL • ROLE: AV MATRIX & HOSPITALITY
+[ SERIAL NUMBER: {{SerialNumber}} ]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 05 Admin iPad -->
+        <div class="device-card" id="device-card-4">
+            <div class="grid-layout">
+                <div class="mockup-box">
+                    <div class="mockup-controls">
+                        <button class="mockup-toggle-btn active" onclick="toggleMockupImg(this, 'img-d4', 'layout_references/05_Admin_iPad_Layout_Mockup_Light.png')">Alabaster Layout</button>
+                        <button class="mockup-toggle-btn" onclick="toggleMockupImg(this, 'img-d4', 'wallpapers/05_Admin_iPad_Wallpaper_Light.jpg')">Alabaster Wallpaper</button>
+                        <button class="mockup-toggle-btn" onclick="toggleMockupImg(this, 'img-d4', 'wallpapers/05_Admin_iPad_Wallpaper.jpg')">Obsidian Mode</button>
+                    </div>
+                    <img id="img-d4" class="mockup-img" src="layout_references/05_Admin_iPad_Layout_Mockup_Light.png" alt="Admin iPad">
+                </div>
+                <div>
+                    <div class="info-card">
+                        <span class="asset-code">PRAC-ADMIN-PAD-01</span>
+                        <h2 class="device-title">Operations & Admin iPad</h2>
+                        <p class="device-desc">Supervisor workstation with Stage Manager multitasking enabled for scheduling, business dashboards, printer diagnostic tests, and full fleet oversight.</p>
+                        <div class="spec-grid">
+                            <div class="spec-cell">
+                                <div class="spec-label">Mounting Type</div>
+                                <div class="spec-value">Desk Dock & Mobile Stylus</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Security Restriction</div>
+                                <div class="spec-value">Supervised Workstation</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Multitasking</div>
+                                <div class="spec-value">Stage Manager & Split View</div>
+                            </div>
+                            <div class="spec-cell">
+                                <div class="spec-label">Admin Permissions</div>
+                                <div class="spec-value">Master Access</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-header">Whitelisted Core Applications</div>
+                    <div class="pill-cluster">
+                        <div class="app-badge"><div class="badge-dot"></div>The Practice</div>
+                        <div class="app-badge"><div class="badge-dot"></div>Moments (Reports)</div>
+                        <div class="app-badge"><div class="badge-dot"></div>Nelko Print</div>
+                        <div class="app-badge"><div class="badge-dot"></div>Munbyn Print</div>
+                        <div class="app-badge"><div class="badge-dot"></div>VSSL Soundtrack</div>
+                        <div class="app-badge"><div class="badge-dot"></div>Google Home</div>
+                    </div>
+
+                    <div class="section-header">Locked Dock Icons</div>
+                    <div class="pill-cluster">
+                        <div class="app-badge">The Practice</div>
+                        <div class="app-badge">Moments</div>
+                        <div class="app-badge">Safari</div>
+                        <div class="app-badge">Settings</div>
+                    </div>
+
+                    <div class="section-header">MDM Lock Screen Footnote Payload</div>
+                    <div class="code-snippet">LOCATION: HEAD OFFICE • ROLE: OPERATIONS & ADMINISTRATION
+[ SERIAL NUMBER: {{SerialNumber}} ]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW 2: INTERACTIVE 4-TILE KIOSK LAUNCHPAD -->
+    <div id="view-kiosk-sim" class="kiosk-sim-section">
+        <div style="text-align: center; margin-bottom: 24px;">
+            <h2 style="font-family: var(--font-heading); font-size: 32px; color: #FFFFFF; margin-bottom: 8px;">Non-Technical Staff Kiosk Launchpad</h2>
+            <p style="color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">Replaces the cluttered iOS icon grid with 4 massive, tactile tiles so any staff member or teacher can operate the iPad instantly with zero training.</p>
+        </div>
+
+        <div class="kiosk-frame">
+            <div class="sim-header">
+                <div style="font-weight: 700; font-size: 16px; letter-spacing: -0.2px;">9:41 AM</div>
+                <div style="background: rgba(0,0,0,0.06); padding: 4px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px;">RETAIL SHOWROOM • KIOSK 01</div>
+                <div style="font-size: 12px; font-weight: 600; color: #10B981;">● Online</div>
+            </div>
+
+            <div class="sim-grid">
+                <div class="sim-tile" style="border-left: 6px solid var(--color-button-indigo);" onclick="alert('Triggering Moments POS Register...')">
+                    <div class="sim-tile-top">
+                        <div class="sim-tile-icon">💳</div>
+                        <div class="sim-tile-badge">1-TAP POS</div>
+                    </div>
+                    <div>
+                        <div class="sim-tile-title">Checkout & POS</div>
+                        <div class="sim-tile-desc">Moments register, client bookings & gift cards</div>
+                    </div>
+                </div>
+
+                <div class="sim-tile" style="border-left: 6px solid var(--color-accent-amber);" onclick="alert('Opening The Practice web tools...')">
+                    <div class="sim-tile-top">
+                        <div class="sim-tile-icon">🌿</div>
+                        <div class="sim-tile-badge">INTERNAL APP</div>
+                    </div>
+                    <div>
+                        <div class="sim-tile-title">The Practice Tools</div>
+                        <div class="sim-tile-desc">Studio class check-ins, product catalog & retail lookup</div>
+                    </div>
+                </div>
+
+                <div class="sim-tile" style="border-left: 6px solid #10B981;" onclick="alert('Switching to Spotify / VSSL Soundtrack...')">
+                    <div class="sim-tile-top">
+                        <div class="sim-tile-icon">♫</div>
+                        <div class="sim-tile-badge">AUDIO MATRIX</div>
+                    </div>
+                    <div>
+                        <div class="sim-tile-title">Studio Sound</div>
+                        <div class="sim-tile-desc">Control Spotify playlists & VSSL amplifier volume</div>
+                    </div>
+                </div>
+
+                <div class="sim-tile" style="border-left: 6px solid #F59E0B;" onclick="alert('Connecting to Nelko & Munbyn label printers...')">
+                    <div class="sim-tile-top">
+                        <div class="sim-tile-icon">🏷️</div>
+                        <div class="sim-tile-badge">PRINTING</div>
+                    </div>
+                    <div>
+                        <div class="sim-tile-title">Label Printing</div>
+                        <div class="sim-tile-desc">Print price tags (Nelko) and thermal packaging (Munbyn)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sim-footer">
+                <div>💡 Studio Lighting: Evening Scene (2400K)</div>
+                <div>PRAC-RETAIL-KSK-01 • Standalone WebClip ASAM</div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 16px; font-size: 13px; color: var(--color-text-muted);">This exact interface is deployed via <code style="color: var(--color-bronze-gold);">kiosk_launcher/index.html</code> in Single App Mode.</p>
+    </div>
+
+    <!-- VIEW 3: YORKVILLE STUDIO INTERIOR AESTHETIC -->
+    <div id="view-interior" class="interior-section">
+        <div style="text-align: center; margin-bottom: 24px;">
+            <h2 style="font-family: var(--font-heading); font-size: 32px; color: #FFFFFF; margin-bottom: 8px;">Physical Architecture & Wall Mount Harmony</h2>
+            <p style="color: var(--color-text-secondary); max-width: 700px; margin: 0 auto;">Photographic reference from 360 Davenport Rd. Wall-mounted fleet iPads feature mineral sage (#EBEDEA) and dark obsidian textures to blend seamlessly into the plaster, oak, and architectural arches.</p>
+        </div>
+
+        <div class="photo-gallery">
+            <div class="photo-card">
+                <img src="interior_references/ThePractice_July2026_02-copy.jpg" alt="The Practice Yorkville Studio Interior">
+                <div class="photo-caption">
+                    <div class="photo-title">Restorative Movement Studio</div>
+                    <div class="photo-sub">Lime-wash walls & warm cove lighting. Wall-mounted iPads run low-luminance ambient mode.</div>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="interior_references/ThePractice_July2026_04-copy.jpg" alt="Yorkville Studio Detail">
+                <div class="photo-caption">
+                    <div class="photo-title">Architectural Entryway & Lounge</div>
+                    <div class="photo-sub">Magnetic flush mounts align with linen textiles and fluted architectural millwork.</div>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="interior_references/ThePractice_July2026_11.jpg" alt="Studio Light & Materials">
+                <div class="photo-caption">
+                    <div class="photo-title">Mineral Plaster & Warm Ambient Light</div>
+                    <div class="photo-sub">True Tone enabled in MDM ensures the iPad display temperature matches the 2700K ambient light.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function switchMainView(viewId) {
+        document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('view-devices').style.display = (viewId === 'devices') ? 'block' : 'none';
+        document.getElementById('view-kiosk-sim').style.display = (viewId === 'kiosk-sim') ? 'block' : 'none';
+        document.getElementById('view-interior').style.display = (viewId === 'interior') ? 'block' : 'none';
+        
+        event.currentTarget.classList.add('active');
+    }
+
+    function selectDevice(idx) {
+        document.querySelectorAll('.device-card').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.device-tab').forEach(t => t.classList.remove('active'));
+        document.getElementById('device-card-' + idx).classList.add('active');
+        document.querySelectorAll('.device-tab')[idx].classList.add('active');
+    }
+
+    function toggleMockupImg(btn, imgId, newSrc) {
+        const parent = btn.parentElement;
+        parent.querySelectorAll('.mockup-toggle-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(imgId).src = newSrc;
+    }
+</script>
+</body>
+</html>

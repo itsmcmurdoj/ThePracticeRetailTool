@@ -1,0 +1,39 @@
+{
+  "device_name": "PRAC-ADMIN-PAD-01",
+  "role": "Admin iPad",
+  "location": "Head Office",
+  "operational_mode": "Supervised Workstation",
+  "wallpaper": "05_Admin_iPad_Wallpaper.jpg",
+  "widgets": [
+    {
+      "identifier": "com.apple.mobilecal.widget",
+      "size": "medium",
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "identifier": "com.apple.batteries.widget",
+      "size": "medium",
+      "position": [
+        1,
+        0
+      ]
+    }
+  ],
+  "home_grid": [
+    "The Practice",
+    "Moments",
+    "Nelko Print",
+    "Munbyn Print",
+    "VSSL Soundtrack",
+    "Google Home"
+  ],
+  "dock": [
+    "The Practice",
+    "Moments",
+    "Safari",
+    "Settings"
+  ]
+}

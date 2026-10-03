@@ -1,0 +1,56 @@
+{
+  "organization": "The Practice - Wellness & Living",
+  "managed_apps": {
+    "The Practice (Web Clip)": {
+      "type": "WebClip",
+      "url": "https://app.thepractice.com",
+      "identifier": "com.thepractice.webapp.kiosk",
+      "fullscreen": true,
+      "removable": false
+    },
+    "Moments / Momence POS": {
+      "type": "AppStore_VPP",
+      "bundle_id": "com.momence.host",
+      "store_id": "1539268391",
+      "purpose": "Checkout register, appointment booking, and customer lookup"
+    },
+    "Spotify": {
+      "type": "AppStore_VPP",
+      "bundle_id": "com.spotify.client",
+      "store_id": "324684580",
+      "purpose": "Ambient playlist and room music"
+    },
+    "VSSL Soundtrack": {
+      "type": "AppStore_VPP",
+      "bundle_id": "com.soundtrackyourbrand.player",
+      "secondary_bundle_id": "com.vssl.native",
+      "purpose": "Hardware amplifier zone volume and matrix distribution"
+    },
+    "Google Home": {
+      "type": "AppStore_VPP",
+      "bundle_id": "com.google.Chromecast",
+      "store_id": "480883488",
+      "purpose": "Architectural lighting, scene triggers, and thermostat control"
+    },
+    "Nelko Print": {
+      "type": "AppStore_VPP",
+      "bundle_id": "com.nelko.print",
+      "purpose": "Shelf pricing and small format adhesive label printing"
+    },
+    "Munbyn Print": {
+      "type": "AppStore_VPP",
+      "bundle_id": "com.munbyn.printer",
+      "purpose": "Thermal barcode, shipping, and packaging label printing"
+    },
+    "Settings": {
+      "type": "SystemApp",
+      "bundle_id": "com.apple.Preferences",
+      "purpose": "Restricted Wi-Fi, Bluetooth printer pairing, and display controls"
+    },
+    "Safari": {
+      "type": "SystemApp",
+      "bundle_id": "com.apple.mobilesafari",
+      "purpose": "Admin web portal access"
+    }
+  }
+}

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Practice — DineSafe Pest Check — October 2026</title>
+<style>
+  @page {
+    size: letter portrait;
+    margin: 0.4in 0.45in 0.35in 0.45in;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #111;
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .header {
+    text-align: center;
+    border-bottom: 2px solid #222;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 19pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .header h2 {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+  }
+  .header .meta {
+    font-size: 8pt;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 2px;
+  }
+
+  .grid {
+    display: flex;
+    gap: 16px;
+  }
+
+  .col {
+    flex: 1;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5pt;
+  }
+  th {
+    background: #f0f0f0 !important;
+    border: 1px solid #444;
+    padding: 5px 4px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    text-align: center;
+  }
+  td {
+    border: 1px solid #777;
+    padding: 4px 6px;
+    height: 25.5pt;
+    vertical-align: middle;
+  }
+  tbody tr:nth-child(even) {
+    background: #fafafa !important;
+  }
+
+  .date-col {
+    width: 52pt;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .day-col {
+    width: 32pt;
+    text-align: center;
+    color: #555;
+    font-size: 8pt;
+  }
+  .check-col {
+    text-align: center;
+    width: 90pt;
+  }
+  .check-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 8pt;
+    color: #333;
+  }
+  .sq {
+    display: inline-block;
+    width: 11pt;
+    height: 11pt;
+    border: 1.2pt solid #222;
+    border-radius: 2px;
+    vertical-align: middle;
+  }
+  .init-col {
+    width: 48pt;
+    text-align: center;
+  }
+  .init-line {
+    display: inline-block;
+    width: 38pt;
+    border-bottom: 0.8pt dashed #888;
+    height: 14pt;
+  }
+
+  .signoff-box {
+    margin-top: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 8px 10px;
+    background: #fcfcfc;
+    font-size: 8pt;
+  }
+  .signoff-box strong {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    display: block;
+    margin-bottom: 6px;
+    color: #222;
+  }
+  .signoff-fields {
+    display: flex;
+    gap: 12px;
+  }
+  .signoff-field {
+    flex: 1;
+    border-bottom: 0.8pt solid #333;
+    padding-bottom: 2px;
+    font-size: 7.5pt;
+    color: #555;
+  }
+
+  .footer {
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 4px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7pt;
+    color: #777;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>The Practice</h1>
+  <h2>Daily Pest &amp; Bug Trap Inspection Log — October 2026</h2>
+  <div class="meta">
+    <span><strong>Location:</strong> The Practice Cafe</span>
+    <span><strong>Standard:</strong> DineSafe Compliance</span>
+    <span><strong>Frequency:</strong> Daily Inspection</span>
+  </div>
+</div>
+
+<div class="grid">
+  <!-- Column 1: Days 1-16 -->
+  <div class="col">
+    <table>
+      <thead>
+        <tr>
+          <th class="date-col" style="text-align:left; padding-left:8px;">Date</th>
+          <th class="day-col">Day</th>
+          <th class="check-col">Pest Traps Checked</th>
+          <th class="init-col">Initials</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="date-col">Oct 1</td><td class="day-col">Thu</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 2</td><td class="day-col">Fri</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 3</td><td class="day-col">Sat</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 4</td><td class="day-col">Sun</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 5</td><td class="day-col">Mon</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 6</td><td class="day-col">Tue</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 7</td><td class="day-col">Wed</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 8</td><td class="day-col">Thu</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 9</td><td class="day-col">Fri</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 10</td><td class="day-col">Sat</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 11</td><td class="day-col">Sun</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 12</td><td class="day-col">Mon</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 13</td><td class="day-col">Tue</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 14</td><td class="day-col">Wed</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 15</td><td class="day-col">Thu</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 16</td><td class="day-col">Fri</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Column 2: Days 17-31 + Sign-off -->
+  <div class="col">
+    <table>
+      <thead>
+        <tr>
+          <th class="date-col" style="text-align:left; padding-left:8px;">Date</th>
+          <th class="day-col">Day</th>
+          <th class="check-col">Pest Traps Checked</th>
+          <th class="init-col">Initials</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="date-col">Oct 17</td><td class="day-col">Sat</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 18</td><td class="day-col">Sun</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 19</td><td class="day-col">Mon</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 20</td><td class="day-col">Tue</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 21</td><td class="day-col">Wed</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 22</td><td class="day-col">Thu</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 23</td><td class="day-col">Fri</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 24</td><td class="day-col">Sat</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 25</td><td class="day-col">Sun</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 26</td><td class="day-col">Mon</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 27</td><td class="day-col">Tue</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 28</td><td class="day-col">Wed</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 29</td><td class="day-col">Thu</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 30</td><td class="day-col">Fri</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+        <tr><td class="date-col">Oct 31</td><td class="day-col">Sat</td><td class="check-col"><span class="check-box"><span class="sq"></span> Cleared</span></td><td class="init-col"><span class="init-line"></span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="signoff-box">
+      <strong>Month-End Manager Verification</strong>
+      <div class="signoff-fields">
+        <div class="signoff-field">Manager Signature: ________________</div>
+        <div class="signoff-field" style="flex:0.6;">Date: __________</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <span>The Practice — DineSafe Pest Control Log</span>
+  <span>Retain on-site for a minimum of 1 year for Public Health inspection</span>
+  <span>October 2026</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "last_updated": "2026-09-28T15:35:00-04:00",
+  "facility": "The Practice Toronto",
+  "location": "360 Davenport Rd, Yorkville, Toronto",
+  "fleet_devices": [
+    {
+      "id": "ipad-retail",
+      "current_name": "Retail iPad",
+      "proposed_name": "Retail iPad",
+      "location": "Retail",
+      "serial_number": "MMVQDCG72X",
+      "assigned_blueprint": "01_retail_ipad_layout.json",
+      "primary_role": "Retail Point of Sale & Barcode Scanning"
+    },
+    {
+      "id": "ipad-yoga",
+      "current_name": "iPad",
+      "proposed_name": "Yoga Studio iPad",
+      "location": "Yoga Studio",
+      "serial_number": "J4HQQKGQJP",
+      "assigned_blueprint": "02_yoga_studio_ipad_layout.json",
+      "primary_role": "Studio Audio/Lighting Presets & Instructor Class Check-In"
+    },
+    {
+      "id": "ipad-event",
+      "current_name": "iPad 1",
+      "proposed_name": "Event Space iPad",
+      "location": "Event Space",
+      "serial_number": "D374YLW542",
+      "assigned_blueprint": "04_event_space_ipad_layout.json",
+      "primary_role": "Workshop/Event Check-in & Spatial Sound Control"
+    },
+    {
+      "id": "ipad-cafe",
+      "current_name": "iPad 2",
+      "proposed_name": "Cafe iPad",
+      "location": "Cafe",
+      "serial_number": "GYX50DPXWN",
+      "assigned_blueprint": "03_cafe_ipad_layout.json",
+      "primary_role": "Cafe Quick-Sale POS & Daily Timetable Display"
+    }
+  ]
+}

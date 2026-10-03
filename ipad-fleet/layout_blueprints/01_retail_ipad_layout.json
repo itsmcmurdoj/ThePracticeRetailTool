@@ -1,0 +1,29 @@
+{
+  "device_name": "PRAC-RETAIL-KSK-01",
+  "role": "Retail iPad",
+  "location": "Retail Showroom",
+  "operational_mode": "Multi-App Kiosk",
+  "wallpaper": "01_Retail_iPad_Wallpaper.jpg",
+  "widgets": [
+    {
+      "identifier": "com.spotify.client.widget",
+      "size": "medium",
+      "position": [
+        0,
+        0
+      ]
+    }
+  ],
+  "home_grid": [
+    "The Practice",
+    "Moments",
+    "Nelko Print",
+    "Munbyn Print"
+  ],
+  "dock": [
+    "Moments",
+    "The Practice",
+    "VSSL Soundtrack",
+    "Settings"
+  ]
+}

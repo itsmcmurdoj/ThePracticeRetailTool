@@ -1,0 +1,22 @@
+{
+  "device_name": "PRAC-CAFE-POS-01",
+  "role": "Cafe iPad",
+  "location": "The Cafe",
+  "operational_mode": "High-Speed F&B POS",
+  "wallpaper": "03_Cafe_iPad_Wallpaper.jpg",
+  "widgets": [],
+  "home_grid": [
+    "Moments",
+    "The Practice",
+    "Nelko Print",
+    "Munbyn Print",
+    "Spotify",
+    "VSSL Soundtrack"
+  ],
+  "dock": [
+    "Moments",
+    "The Practice",
+    "Nelko Print",
+    "Settings"
+  ]
+}

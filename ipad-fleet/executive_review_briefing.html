@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Practice — Executive Systems Briefing & Fleet Architecture</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* The Practice Warm Minimalist / Alabaster Light Palette */
+            --color-bg-base: #F7F6F3;           /* Luminous warm alabaster & plaster foundation */
+            --color-surface-card: #FFFFFF;      /* Pure alabaster card */
+            --color-surface-elevated: #EFECE6;  /* Soft limestone stone tone */
+            --color-surface-hover: #F2EFE9;
+            --color-mineral-sage: #EBEDEA;      /* Signature architectural mineral plaster */
+            --color-charcoal-dark: #151515;     /* Sanctuary charcoal black for high contrast */
+            --color-text-primary: #151515;      /* Deep legible charcoal */
+            --color-text-secondary: #535A56;    /* Warm travertine grey */
+            --color-text-muted: #7E8783;        /* Subtle architectural metadata */
+            --color-bronze-gold: #B88A2E;       /* Warm metallic bronze */
+            --color-bronze-light: #8E6B1D;
+            --color-accent-amber: #D97706;      /* Golden terracotta accent */
+            --color-button-indigo: #03095F;     /* Signature website deep indigo */
+            --color-success: #059669;           /* Forest emerald */
+            
+            --border-subtle: rgba(21, 21, 21, 0.08);
+            --border-bronze: rgba(184, 138, 46, 0.35);
+            
+            --radius-card: 20px;
+            --radius-pill: 100px;
+            --radius-badge: 8px;
+            
+            --font-heading: 'Playfair Display', 'Optima', Georgia, serif;
+            --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            --shadow-elevated: 0 20px 48px rgba(0, 0, 0, 0.07);
+            --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Dark Obsidian Zen Mode Override (for low-light evening comparison) */
+        body.theme-zen {
+            --color-bg-base: #0E1110;
+            --color-surface-card: #151A18;
+            --color-surface-elevated: #1D2321;
+            --color-surface-hover: #242C2A;
+            --color-text-primary: #F8FAFC;
+            --color-text-secondary: #9DA8A4;
+            --color-text-muted: #67746F;
+            --color-bronze-gold: #D4AF37;
+            --color-bronze-light: #F2E3B3;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-bronze: rgba(212, 175, 55, 0.35);
+            --shadow-card: 0 14px 34px rgba(0, 0, 0, 0.38);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-bg-base);
+            color: var(--color-text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding: 40px 24px;
+            min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        /* Top Executive Header */
+        .executive-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 28px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        .header-left {
+            max-width: 760px;
+        }
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(184, 138, 46, 0.08);
+            border: 1px solid var(--border-bronze);
+            color: var(--color-bronze-gold);
+            padding: 6px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .brand-badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-bronze-gold);
+        }
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 38px;
+            font-weight: 500;
+            color: var(--color-text-primary);
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .header-subtitle {
+            color: var(--color-text-secondary);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+        }
+        .role-target-card {
+            background: var(--color-surface-card);
+            border: 1px solid var(--border-bronze);
+            padding: 14px 22px;
+            border-radius: 14px;
+            text-align: right;
+            box-shadow: var(--shadow-card);
+        }
+        .role-target-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-bronze-gold);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .role-target-title {
+            font-family: var(--font-heading);
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+        .progress-indicator {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--color-text-secondary);
+        }
+        .progress-bar-bg {
+            width: 150px;
+            height: 6px;
+            background: rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--color-bronze-gold);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Palette / Mode Switcher */
+        .theme-toggle-btn {
+            background: var(--color-surface-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--color-text-secondary);
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition-smooth);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .theme-toggle-btn:hover {
+            border-color: var(--color-bronze-gold);
+            color: var(--color-text-primary);
+        }
+
+        /* Master View Switcher Tabs */
+        .tab-navigation {
+            display: flex;
+            justify-content: flex-start;
+            gap: 12px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 16px;
+        }
+        .tab-btn {
+            background: var(--color-surface-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--color-text-secondary);
+            padding: 12px 22px;
+            border-radius: var(--radius-pill);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .tab-btn:hover {
+            color: var(--color-text-primary);
+            background: var(--color-surface-elevated);
+            border-color: rgba(21, 21, 21, 0.2);
+        }
+        .tab-btn.active {
+            background: var(--color-surface-card);
+            color: var(--color-text-primary);
+            border-color: var(--color-bronze-gold);
+            box-shadow: 0 4px 16px rgba(184, 138, 46, 0.15);
+        }
+
+        /* Two-Column Presentation Layout */
+        .presentation-grid {
+            display: grid;
+            grid-template-columns: 2.1fr 1fr;
+            gap: 36px;
+            align-items: start;
+        }
+        @media (max-width: 1040px) {
+            .presentation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Tab Views */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Opening Hook Banner: Warm Alabaster Plaster Texture */
+        .executive-pitch-box {
+            background: linear-gradient(135deg, #FFFFFF, var(--color-surface-elevated));
+            border: 1px solid var(--border-bronze);
+            border-left: 6px solid var(--color-bronze-gold);
+            padding: 24px 28px;
+            border-radius: 14px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-card);
+        }
+        .pitch-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-bronze-gold);
+            margin-bottom: 8px;
+        }
+        .pitch-text {
+            font-family: var(--font-heading);
+            font-size: 17px;
+            font-style: italic;
+            color: var(--color-text-primary);
+            line-height: 1.6;
+        }
+
+        /* High-Contrast ROI Summary Grid */
+        .roi-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .roi-card {
+            background: var(--color-surface-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 20px;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-card);
+        }
+        .roi-card:hover {
+            border-color: var(--color-bronze-gold);
+            transform: translateY(-2px);
+        }
+        .roi-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-text-muted);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        .roi-metric {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--color-bronze-gold);
+            margin-bottom: 4px;
+        }
+        .roi-caption {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            line-height: 1.4;
+        }
+
+        /* -------------------------------------------------------------
+           VIEW 1: SIMPLIFIED FLEET ARCHITECTURE TILES (WARM ALABASTER)
+           ------------------------------------------------------------- */
+        .fleet-tiles-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .device-visual-card {
+            background: var(--color-surface-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-card);
+            padding: 24px 28px;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-card);
+        }
+        .device-visual-card:hover {
+            border-color: var(--border-bronze);
+            background: #FFFFFF;
+            box-shadow: var(--shadow-elevated);
+        }
+        .device-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .device-header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .device-icon-badge {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: var(--color-surface-elevated);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        .device-title-box h3 {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 2px;
+        }
+        .device-location-tag {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+        .device-status-badge {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+            background: rgba(5, 150, 105, 0.08);
+            color: var(--color-success);
+            border: 1px solid rgba(5, 150, 105, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .device-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-success);
+        }
+        .device-plain-desc {
+            font-size: 14px;
+            color: var(--color-charcoal-dark);
+            margin-bottom: 16px;
+            line-height: 1.5;
+            background: var(--color-surface-elevated);
+            padding: 14px 18px;
+            border-radius: 12px;
+            border-left: 4px solid var(--color-accent-amber);
+        }
+        .device-meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        .app-chip {
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .app-chip strong {
+            color: var(--color-text-primary);
+        }
+
+        /* -------------------------------------------------------------
+           VIEW 2: STAFF KIOSK 4-TILE VISUAL SHOWCASE (WARM PLASTER WALL MOUNT)
+           ------------------------------------------------------------- */
+        .kiosk-mockup-wrapper {
+            background: var(--color-surface-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-card);
+            padding: 36px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 28px;
+        }
+        .wall-mount-environment {
+            background: linear-gradient(135deg, #EFECE6 0%, #E8E5DF 100%);
+            border-radius: 36px;
+            padding: 40px;
+            border: 1px solid rgba(21, 21, 21, 0.06);
+            display: flex;
+            justify-content: center;
+            box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.03);
+        }
+        .kiosk-tablet-frame {
+            width: 100%;
+            max-width: 800px;
+            border: 12px solid #232725;
+            border-radius: 32px;
+            background: #FAF9F6;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            color: var(--color-charcoal-dark);
+        }
+        .tablet-status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 26px;
+            border-bottom: 1px solid rgba(21, 21, 21, 0.06);
+            font-size: 13px;
+            font-weight: 600;
+            background: #FFFFFF;
+        }
+        .tablet-grid-4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            padding: 26px;
+            background: #FAF9F6;
+        }
+        .kiosk-action-btn {
+            background: #FFFFFF;
+            border: 1px solid rgba(21, 21, 21, 0.08);
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 160px;
+        }
+        .kiosk-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.06);
+            border-color: var(--color-accent-amber);
+        }
+        .kiosk-btn-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .kiosk-btn-icon {
+            font-size: 26px;
+            width: 48px;
+            height: 48px;
+            background: #F4F3EF;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .kiosk-btn-badge {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            color: #535A56;
+            background: #EFECE6;
+            padding: 4px 10px;
+            border-radius: 100px;
+        }
+        .kiosk-btn-title {
+            font-family: var(--font-heading);
+            font-size: 21px;
+            font-weight: 600;
+            color: #151515;
+            margin-top: 12px;
+        }
+        .kiosk-btn-sub {
+            font-size: 12px;
+            color: #535A56;
+            margin-top: 2px;
+        }
+        .tablet-bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 26px;
+            background: #F4F3EF;
+            border-top: 1px solid rgba(21, 21, 21, 0.06);
+            font-size: 12px;
+            color: #535A56;
+        }
+
+        /* -------------------------------------------------------------
+           VIEW 3: EXPANDABLE STRATEGIC PILLARS (LIGHT THEME)
+           ------------------------------------------------------------- */
+        .accordion-item {
+            background: var(--color-surface-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-card);
+            margin-bottom: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+        }
+        .accordion-item:hover {
+            border-color: rgba(21, 21, 21, 0.18);
+        }
+        .accordion-item.active {
+            border-color: var(--border-bronze);
+            background: #FFFFFF;
+        }
+        .accordion-header {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            transition: var(--transition-smooth);
+        }
+        .accordion-header:hover {
+            background: rgba(0, 0, 0, 0.015);
+        }
+        .topic-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .topic-num {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-bronze-gold);
+            background: rgba(184, 138, 46, 0.1);
+            padding: 4px 10px;
+            border-radius: var(--radius-badge);
+        }
+        .topic-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            letter-spacing: -0.2px;
+        }
+        .chevron {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            transition: transform 0.25s ease;
+        }
+        .accordion-item.active .chevron {
+            transform: rotate(180deg);
+            color: var(--color-bronze-gold);
+        }
+        .accordion-body {
+            display: none;
+            padding: 0 24px 24px 24px;
+            border-top: 1px solid var(--border-subtle);
+            background: #FAF9F6;
+        }
+        .accordion-item.active .accordion-body {
+            display: block;
+        }
+
+        .section-subhead {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            color: var(--color-accent-amber);
+            margin: 20px 0 10px 0;
+        }
+        .point-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .point-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+        }
+        .point-bullet {
+            color: var(--color-bronze-gold);
+            font-weight: bold;
+            line-height: 1.5;
+        }
+        .point-item strong {
+            color: var(--color-charcoal-dark);
+        }
+
+        /* SIDEBAR: Meeting Checklist & Auto-Saving Scratchpad */
+        .sidebar-sticky {
+            position: sticky;
+            top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .card-panel {
+            background: var(--color-surface-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-card);
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+        }
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .panel-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .reset-link {
+            font-size: 11px;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .reset-link:hover {
+            color: var(--color-bronze-gold);
+        }
+
+        .check-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .check-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            padding: 8px 10px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .check-label:hover {
+            background: var(--color-surface-elevated);
+            color: var(--color-text-primary);
+        }
+        .custom-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 1.5px solid var(--color-bronze-gold);
+            border-radius: 4px;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            outline: none;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .custom-checkbox:checked {
+            background: var(--color-bronze-gold);
+            border-color: var(--color-bronze-gold);
+        }
+        .custom-checkbox:checked::after {
+            content: "✓";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .check-label.completed {
+            color: var(--color-text-muted);
+            text-decoration: line-through;
+        }
+
+        .notes-textarea {
+            width: 100%;
+            height: 130px;
+            background: #FAF9F6;
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 12px;
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: var(--color-text-primary);
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .notes-textarea:focus {
+            border-color: var(--color-bronze-gold);
+        }
+
+        .closing-card {
+            background: linear-gradient(180deg, #FFFFFF, var(--color-surface-elevated));
+            border: 1px solid var(--border-bronze);
+            border-radius: 14px;
+            padding: 22px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+        }
+        .closing-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-bronze-gold);
+            margin-bottom: 8px;
+        }
+        .closing-ask {
+            font-size: 14px;
+            color: var(--color-text-primary);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Top Executive Header -->
+    <header class="executive-header">
+        <div class="header-left">
+            <div class="brand-badge">
+                <div class="brand-badge-dot"></div>
+                The Practice • 360 Davenport Rd, Yorkville
+            </div>
+            <h1>Executive Systems Briefing & Fleet Operations</h1>
+            <p class="header-subtitle">Warm minimalist executive card and presentation mockup: luminous alabaster wall-mount aesthetic, in-studio acoustic matrix, and frictionless staff kiosk touchpoints.</p>
+        </div>
+        <div class="header-right">
+            <div class="role-target-card">
+                <div class="role-target-label">Promotion Target</div>
+                <div class="role-target-title">Systems & Tech Ops Lead</div>
+            </div>
+            <div class="progress-indicator">
+                <span id="progress-text">0 / 6 Topics Covered</span>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-fill"></div>
+                </div>
+            </div>
+            <button class="theme-toggle-btn" onclick="toggleExecutiveTheme()">
+                <span id="theme-btn-icon">◐</span>
+                <span id="theme-btn-text">Zen Dark Preview</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Master View Switcher Tabs -->
+    <div class="tab-navigation">
+        <button class="tab-btn active" onclick="switchTab('fleet')">📱 1. Fleet Architecture (Visual Cards)</button>
+        <button class="tab-btn" onclick="switchTab('kiosk')">⚡ 2. Staff Kiosk (4 Action Tiles)</button>
+        <button class="tab-btn" onclick="switchTab('roadmap')">📋 3. Strategic Initiatives (Talking Points)</button>
+        <button class="tab-btn" onclick="switchTab('roi')">📈 4. Executive ROI & Value Metrics</button>
+    </div>
+
+    <!-- Master Two-Column Layout -->
+    <div class="presentation-grid">
+        <!-- Main Interactive Column -->
+        <main>
+            <!-- Opening Value Hook -->
+            <div class="executive-pitch-box">
+                <div class="pitch-label">Strategic Value Proposition • Executive Opening</div>
+                <div class="pitch-text">
+                    "Over the past cycle, technology at The Practice transitioned from disjointed consumer tablets into an integrated, architectural operations platform. By centralizing device management, stabilizing our in-studio sound, streamlining checkout, and deploying custom software, we eliminated operational downtime, protected client data, and ensured our digital touchpoints match our luxury physical space."
+                </div>
+            </div>
+
+            <!-- TAB 1: SIMPLIFIED VISUAL FLEET ARCHITECTURE TILES (ALABASTER LIGHT) -->
+            <div id="tab-fleet" class="tab-content active">
+                <div class="fleet-tiles-container">
+                    <!-- 1. Retail iPad -->
+                    <div class="device-visual-card">
+                        <div class="device-card-header">
+                            <div class="device-header-left">
+                                <div class="device-icon-badge">🛍️</div>
+                                <div class="device-title-box">
+                                    <h3>Retail Showroom iPad</h3>
+                                    <div class="device-location-tag">Boutique Counter • Magnetic Flush Wall Mount</div>
+                                </div>
+                            </div>
+                            <span class="device-status-badge"><span class="device-status-dot"></span>Online • Auto-Supervised</span>
+                        </div>
+                        <div class="device-plain-desc">
+                            <strong>What it does:</strong> Enables staff to ring up boutique sales, look up appointments, print price tags immediately, and manage showroom background music with zero technical complexity.
+                        </div>
+                        <div class="device-meta-row">
+                            <div class="app-chip">💳 <strong>Moments</strong> (Checkout POS)</div>
+                            <div class="app-chip">🌿 <strong>The Practice</strong> (Web App)</div>
+                            <div class="app-chip">🏷️ <strong>Nelko</strong> (Adhesive Price Tags)</div>
+                            <div class="app-chip">📦 <strong>Munbyn</strong> (Box Labels)</div>
+                            <div class="app-chip">♫ <strong>Spotify</strong> (Retail Audio)</div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Yoga Studio iPad -->
+                    <div class="device-visual-card">
+                        <div class="device-card-header">
+                            <div class="device-header-left">
+                                <div class="device-icon-badge">🧘</div>
+                                <div class="device-title-box">
+                                    <h3>Yoga Studio 1 iPad</h3>
+                                    <div class="device-location-tag">Studio Entrance • Plaster Wall Mount</div>
+                                </div>
+                            </div>
+                            <span class="device-status-badge"><span class="device-status-dot"></span>Online • Distraction-Free</span>
+                        </div>
+                        <div class="device-plain-desc">
+                            <strong>What it does:</strong> Dedicated check-in tablet for instructors with 1-tap ambient sound and lighting controls. Dims automatically when idle so it blends into the studio wall without distracting practitioners.
+                        </div>
+                        <div class="device-meta-row">
+                            <div class="app-chip">🌿 <strong>The Practice</strong> (Class Check-In)</div>
+                            <div class="app-chip">🔊 <strong>VSSL Soundtrack</strong> (Studio Zone Amp)</div>
+                            <div class="app-chip">♫ <strong>Spotify</strong> (Ambient 432Hz Flow)</div>
+                            <div class="app-chip">💡 <strong>Google Home</strong> (Cove Lighting)</div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Cafe iPad -->
+                    <div class="device-visual-card">
+                        <div class="device-card-header">
+                            <div class="device-header-left">
+                                <div class="device-icon-badge">☕</div>
+                                <div class="device-title-box">
+                                    <h3>The Cafe Bar iPad</h3>
+                                    <div class="device-location-tag">Service Counter • Swivel Stand</div>
+                                </div>
+                            </div>
+                            <span class="device-status-badge"><span class="device-status-dot"></span>Online • High-Speed POS</span>
+                        </div>
+                        <div class="device-plain-desc">
+                            <strong>What it does:</strong> High-speed register touchpoint for baristas to ring up coffee and baked goods, print thermal cup stickers wirelessly, and keep line wait times under 45 seconds.
+                        </div>
+                        <div class="device-meta-row">
+                            <div class="app-chip">💳 <strong>Moments</strong> (Cafe Register)</div>
+                            <div class="app-chip">🌿 <strong>The Practice</strong> (Menu & Items)</div>
+                            <div class="app-chip">🏷️ <strong>Nelko</strong> (Cup Labels)</div>
+                            <div class="app-chip">🔊 <strong>VSSL Soundtrack</strong> (Cafe Music)</div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Event Space iPad -->
+                    <div class="device-visual-card">
+                        <div class="device-card-header">
+                            <div class="device-header-left">
+                                <div class="device-icon-badge">✨</div>
+                                <div class="device-title-box">
+                                    <h3>Event Hall Controller</h3>
+                                    <div class="device-location-tag">Private Hallway • Magnetic Flush Mount</div>
+                                </div>
+                            </div>
+                            <span class="device-status-badge"><span class="device-status-dot"></span>Online • AV Matrix Kiosk</span>
+                        </div>
+                        <div class="device-plain-desc">
+                            <strong>What it does:</strong> Centralized controller for private events, workshops, and performances. Controls indoor and patio speaker levels, architectural lighting presets, and guest door check-ins.
+                        </div>
+                        <div class="device-meta-row">
+                            <div class="app-chip">🔊 <strong>VSSL Matrix</strong> (Hall & Patio Amps)</div>
+                            <div class="app-chip">💡 <strong>Google Home</strong> (Evening Scenes)</div>
+                            <div class="app-chip">🎟️ <strong>Moments</strong> (Door Tickets)</div>
+                            <div class="app-chip">🌿 <strong>The Practice</strong> (Event Roster)</div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Admin iPad -->
+                    <div class="device-visual-card">
+                        <div class="device-card-header">
+                            <div class="device-header-left">
+                                <div class="device-icon-badge">📊</div>
+                                <div class="device-title-box">
+                                    <h3>Head Office & Admin iPad</h3>
+                                    <div class="device-location-tag">Management Desk • Workstation Mode</div>
+                                </div>
+                            </div>
+                            <span class="device-status-badge"><span class="device-status-dot"></span>Online • Master Overseer</span>
+                        </div>
+                        <div class="device-plain-desc">
+                            <strong>What it does:</strong> The master workstation for business operations, staff scheduling, revenue reports, label printer inventory audits, and remote fleet supervision.
+                        </div>
+                        <div class="device-meta-row">
+                            <div class="app-chip">🌿 <strong>The Practice</strong> (Master Portal)</div>
+                            <div class="app-chip">💳 <strong>Moments</strong> (Sales Reports)</div>
+                            <div class="app-chip">🏷️ <strong>Munbyn & Nelko</strong> (Inventory Audits)</div>
+                            <div class="app-chip">⚙️ <strong>Apple Business Manager</strong> (Fleet MDM)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: STAFF KIOSK 4-TILE VISUAL SHOWCASE (WALL MOUNT SIMULATION) -->
+            <div id="tab-kiosk" class="tab-content">
+                <div class="kiosk-mockup-wrapper">
+                    <div style="text-align: center; margin-bottom: 24px;">
+                        <h3 style="font-family: var(--font-heading); font-size: 24px; color: var(--color-text-primary); margin-bottom: 6px;">The 4-Tile Staff Kiosk Experience</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 14px; max-width: 620px; margin: 0 auto;">Simulated on Yorkville's lime-wash plaster wall. Non-technical staff never see confusing iOS home screens—they touch one of four high-contrast tiles and get right to work.</p>
+                    </div>
+
+                    <div class="wall-mount-environment">
+                        <div class="kiosk-tablet-frame">
+                            <div class="tablet-status-bar">
+                                <div>9:41 AM</div>
+                                <div style="background: rgba(21, 21, 21, 0.05); padding: 4px 14px; border-radius: 100px; font-size: 11px;">RETAIL SHOWROOM • KIOSK 01</div>
+                                <div style="color: var(--color-success);">● Online</div>
+                            </div>
+
+                            <div class="tablet-grid-4">
+                                <div class="kiosk-action-btn" style="border-left: 5px solid var(--color-button-indigo);">
+                                    <div class="kiosk-btn-top">
+                                        <div class="kiosk-btn-icon">💳</div>
+                                        <div class="kiosk-btn-badge">1-TAP POS</div>
+                                    </div>
+                                    <div>
+                                        <div class="kiosk-btn-title">Checkout & POS</div>
+                                        <div class="kiosk-btn-sub">Moments register, client bookings & cards</div>
+                                    </div>
+                                </div>
+
+                                <div class="kiosk-action-btn" style="border-left: 5px solid var(--color-accent-amber);">
+                                    <div class="kiosk-btn-top">
+                                        <div class="kiosk-btn-icon">🌿</div>
+                                        <div class="kiosk-btn-badge">INTERNAL APP</div>
+                                    </div>
+                                    <div>
+                                        <div class="kiosk-btn-title">The Practice Tools</div>
+                                        <div class="kiosk-btn-sub">Class check-ins, product catalog & lookups</div>
+                                    </div>
+                                </div>
+
+                                <div class="kiosk-action-btn" style="border-left: 5px solid #059669;">
+                                    <div class="kiosk-btn-top">
+                                        <div class="kiosk-btn-icon">♫</div>
+                                        <div class="kiosk-btn-badge">AUDIO MATRIX</div>
+                                    </div>
+                                    <div>
+                                        <div class="kiosk-btn-title">Studio Sound</div>
+                                        <div class="kiosk-btn-sub">Control Spotify playlists & VSSL volume</div>
+                                    </div>
+                                </div>
+
+                                <div class="kiosk-action-btn" style="border-left: 5px solid #D97706;">
+                                    <div class="kiosk-btn-top">
+                                        <div class="kiosk-btn-icon">🏷️</div>
+                                        <div class="kiosk-btn-badge">PRINTING</div>
+                                    </div>
+                                    <div>
+                                        <div class="kiosk-btn-title">Label Printing</div>
+                                        <div class="kiosk-btn-sub">Print price tags (Nelko) & packaging (Munbyn)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tablet-bottom-bar">
+                                <div>💡 Studio Lighting: Day Scene (3000K)</div>
+                                <div>PRAC-RETAIL-KSK-01 • Standalone WebClip ASAM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: EXPANDABLE STRATEGIC PILLARS (TALKING POINTS) -->
+            <div id="tab-roadmap" class="tab-content">
+                <!-- SECTION 1: MDM & Automated Fleet Management -->
+                <div class="accordion-item active" id="sec-1">
+                    <div class="accordion-header" onclick="toggleSection('sec-1')">
+                        <div class="topic-meta">
+                            <span class="topic-num">01</span>
+                            <span class="topic-title">MDM & Automated iPad Fleet Management</span>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="section-subhead">Strategic Value & Talking Points</div>
+                        <ul class="point-list">
+                            <li class="point-item">
+                                <span class="point-bullet">•</span>
+                                <div><strong>Risk Mitigation (Eliminating Personal Apple IDs):</strong> Transitioned all iPads and MacBooks from an unmanaged consumer Apple Account to an official <strong>Apple Business Manager (ABM)</strong> tenant. Completely eliminates the risk of permanent device Activation Lock if an employee leaves.</div>
+                            </li>
+                            <li class="point-item">
+                                <span class="point-bullet">•</span>
+                                <div><strong>Zero-Touch Scalability:</strong> Pre-configured Supervised MDM profiles. Any new iPad unboxes and configures itself over Wi-Fi, automatically installing *The Practice*, Wi-Fi certs, and kiosk locks with zero manual technician setup.</div>
+                            </li>
+                            <li class="point-item">
+                                <span class="point-bullet">•</span>
+                                <div><strong>Simplified 4-Tile Kiosk UI:</strong> Replaced the confusing default iOS icon grid with 4 massive, high-contrast action tiles. Slashes new employee tech onboarding from 2 hours to <strong>under 5 minutes</strong>.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SECTION 2: Studio Audio with VSSL Soundtrack -->
+                <div class="accordion-item" id="sec-2">
+                    <div class="accordion-header" onclick="toggleSection('sec-2')">
+                        <div class="topic-meta">
+                            <span class="topic-num">02</span>
+                            <span class="topic-title">Multi-Zone Acoustic Matrix & VSSL Soundtrack</span>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="section-subhead">Strategic Value & Talking Points</div>
+                        <ul class="point-list">
+                            <li class="point-item">
+                                <span class="point-bullet">•</span>
+                                <div><strong>Sanctuary Sound Integrity:</strong> Unified multi-channel VSSL streaming amplifiers into discrete acoustic zones (Movement Studio, Boutique Retail, Cafe, and Private Hall). Prevents retail music from bleeding into quiet meditation classes.</div>
+                            </li>
+                            <li class="point-item">
+                                <span class="point-bullet">•</span>
+                                <div><strong>Teacher Fail-Safe Preset:</strong> Designed a dedicated 1-tap ambient restore button on the Yoga Studio iPad. If a live playlist hiccups, instructors can restore calming 432Hz soundscapes within <strong>3 seconds</strong> without touching amp racks.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: Frictionless POS & Thermal Labeling -->
+                <div class="accordion-item" id="sec-3">
+                    <div class="accordion-header" onclick="toggleSection('sec-3')">
+                        <div class="topic-meta">
+                            <span class="topic-num">03</span>
+                            <span class="topic-title">Digital Checkout & Automated Labeling (Moments / Nelko / Munbyn)</span>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="section-subhead">Strategic Value & Talking Points</div>
+                        <ul class="point-list">
+                            <li class="point-item">
+                                <span class="point-bullet">•</span>
+                                <div><strong>Eliminating Queue Bottlenecks:</strong> Configured Moments POS into dedicated, locked kiosk profiles with rapid 1-tap checkout. Prevents app accidental closures and streamlines class rush-hour check-ins.</div>
+                            </li>
+                            <li class="point-item">
+                                <span class="point-bullet">•</span>
+                                <div><strong>Role-Isolated Thermal Printing:</strong> Standardized <strong>Nelko Bluetooth</strong> for instant retail shelf tags and cafe cup labeling; standardized <strong>Munbyn High-Speed Thermal</strong> for inventory receiving and shipping across 730+ active SKUs.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SECTION 4: Internal Web App Maintenance & Evolution -->
+                <div class="accordion-item" id="sec-4">
+                    <div class="accordion-header" onclick="toggleSection('sec-4')">
+                        <div class="topic-meta">
+                            <span class="topic-num">04</span>
+                            <span class="topic-title">Proprietary Software: "The Practice" HTML Web App</span>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="section-subhead">Strategic Value & Talking Points</div>
+                        <ul class="point-list">
+                            <li class="point-item">
+                                <span class="point-bullet">•</span>
+                                <div><strong>PWA Standalone Deployment:</strong> Pushed <em>The Practice</em> as a full-screen, native-feeling Web Clip with custom precomposed icons, removing Safari URL bars and navigation distractions.</div>
+                            </li>
+                            <li class="point-item">
+                                <span class="point-bullet">•</span>
+                                <div><strong>Offline Resilience & Vector Search:</strong> Maintained local vector embeddings (`product_embeddings.js`) and Service Worker caching, allowing front-of-house staff to look up holistic benefits and ingredients even during temporary internet hiccups.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SECTION 5: Network Security & IoT Segmentation -->
+                <div class="accordion-item" id="sec-5">
+                    <div class="accordion-header" onclick="toggleSection('sec-5')">
+                        <div class="topic-meta">
+                            <span class="topic-num">05</span>
+                            <span class="topic-title">Enterprise Network Security & IoT Segmentation</span>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="section-subhead">Strategic Value & Talking Points</div>
+                        <ul class="point-list">
+                            <li class="point-item">
+                                <span class="point-bullet">•</span>
+                                <div><strong>VLAN Isolation for Payment Compliance:</strong> Separated store traffic into 3 discrete virtual networks: (1) Staff POS VLAN, (2) IoT Sanctuary (VSSL, Google Home, Printers), and (3) Client Guest Wi-Fi.</div>
+                            </li>
+                            <li class="point-item">
+                                <span class="point-bullet">•</span>
+                                <div><strong>Bandwidth QoS Prioritization:</strong> Guaranteed that high-traffic guest Wi-Fi usage never throttles Moments payment processing or VSSL high-res audio streaming.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SECTION 6: Centralized Control Room & Facility Integration -->
+                <div class="accordion-item" id="sec-6">
+                    <div class="accordion-header" onclick="toggleSection('sec-6')">
+                        <div class="topic-meta">
+                            <span class="topic-num">06</span>
+                            <span class="topic-title">Centralized Control Room & Architectural Mounts</span>
+                        </div>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="section-subhead">Strategic Value & Talking Points</div>
+                        <ul class="point-list">
+                            <li class="point-item">
+                                <span class="point-bullet">•</span>
+                                <div><strong>Single-Pane-of-Glass Oversight:</strong> Centralized dashboard to view fleet battery health, online connectivity, active kiosk modes, and remote wipe capabilities across all 5 rooms.</div>
+                            </li>
+                            <li class="point-item">
+                                <span class="point-bullet">•</span>
+                                <div><strong>Hardware Longevity & Cable-Free Mounts:</strong> Deployed smart battery cycling profiles on magnetic wall mounts, preventing battery bloat and extending iPad hardware lifecycle by 3–4 years.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: EXECUTIVE ROI & VALUE METRICS -->
+            <div id="tab-roi" class="tab-content">
+                <div class="roi-cards-grid">
+                    <div class="roi-card">
+                        <div class="roi-label">Staff Tech Onboarding</div>
+                        <div class="roi-metric">< 5 Min</div>
+                        <div class="roi-caption">Down from 2 hours; 4-tile tactile interface requires zero training for baristas and teachers.</div>
+                    </div>
+                    <div class="roi-card">
+                        <div class="roi-label">Activation Lock Risk</div>
+                        <div class="roi-metric">0%</div>
+                        <div class="roi-caption">Eliminated consumer Apple ID reliance; 100% cloud-supervised through Apple Business Manager.</div>
+                    </div>
+                    <div class="roi-card">
+                        <div class="roi-label">Class Audio Recovery</div>
+                        <div class="roi-metric">< 3 Sec</div>
+                        <div class="roi-caption">1-tap fail-safe preset restores ambient 432Hz flow without touching amplifier hardware.</div>
+                    </div>
+                    <div class="roi-card">
+                        <div class="roi-label">Hardware Lifespan</div>
+                        <div class="roi-metric">+3 Years</div>
+                        <div class="roi-caption">Automated battery cycle protection prevents swelling on continuous wall-mount power.</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sidebar Column: Meeting Checklist & Live Scratchpad -->
+        <aside class="sidebar-sticky">
+            <!-- Checklist Card -->
+            <div class="card-panel">
+                <div class="panel-header">
+                    <span class="panel-title">✓ Meeting Checklist</span>
+                    <span class="reset-link" onclick="resetChecklist()">Reset</span>
+                </div>
+                <div class="check-group">
+                    <label class="check-label" id="lbl-1">
+                        <input type="checkbox" class="custom-checkbox" onchange="updateProgress(this, 'lbl-1')">
+                        <span>ABM & MDM Zero-Touch Fleet</span>
+                    </label>
+                    <label class="check-label" id="lbl-2">
+                        <input type="checkbox" class="custom-checkbox" onchange="updateProgress(this, 'lbl-2')">
+                        <span>VSSL Multi-Zone Sound Matrix</span>
+                    </label>
+                    <label class="check-label" id="lbl-3">
+                        <input type="checkbox" class="custom-checkbox" onchange="updateProgress(this, 'lbl-3')">
+                        <span>Moments POS & Nelko/Munbyn</span>
+                    </label>
+                    <label class="check-label" id="lbl-4">
+                        <input type="checkbox" class="custom-checkbox" onchange="updateProgress(this, 'lbl-4')">
+                        <span>The Practice App Roadmap</span>
+                    </label>
+                    <label class="check-label" id="lbl-5">
+                        <input type="checkbox" class="custom-checkbox" onchange="updateProgress(this, 'lbl-5')">
+                        <span>VLAN Network & IoT Isolation</span>
+                    </label>
+                    <label class="check-label" id="lbl-6">
+                        <input type="checkbox" class="custom-checkbox" onchange="updateProgress(this, 'lbl-6')">
+                        <span>Central Control & Wall Mounts</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Auto-Saving Scratchpad -->
+            <div class="card-panel">
+                <div class="panel-header">
+                    <span class="panel-title">📝 Meeting Scratchpad</span>
+                    <span class="reset-link" onclick="clearNotes()">Clear</span>
+                </div>
+                <textarea class="notes-textarea" id="meeting-notes" placeholder="Jot down notes, feedback, or action items in real-time... (Auto-saves locally)"></textarea>
+            </div>
+
+            <!-- Closing Card -->
+            <div class="closing-card">
+                <div class="closing-title">The Strategic Ask</div>
+                <p class="closing-ask">"Formalize the role as <strong>Systems & Technology Operations Lead</strong> to take ownership of physical facility tech, internal software, and turnkey scalability for future Practice locations."</p>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+    // Tab Switching Logic
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        
+        document.getElementById('tab-' + tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+
+    // Accordion Toggle
+    function toggleSection(id) {
+        const item = document.getElementById(id);
+        item.classList.toggle('active');
+    }
+
+    // Theme Toggle (Warm Alabaster Light <-> Obsidian Zen Dark)
+    function toggleExecutiveTheme() {
+        document.body.classList.toggle('theme-zen');
+        const isZen = document.body.classList.contains('theme-zen');
+        document.getElementById('theme-btn-text').innerText = isZen ? 'Alabaster Light Mode' : 'Zen Dark Preview';
+        document.getElementById('theme-btn-icon').innerText = isZen ? '☀️' : '◐';
+    }
+
+    // Interactive Checklist & Progress Tracker
+    const checkboxes = document.querySelectorAll('.custom-checkbox');
+    const progressFill = document.getElementById('progress-fill');
+    const progressText = document.getElementById('progress-text');
+
+    function updateProgress(box, labelId) {
+        const label = document.getElementById(labelId);
+        if (box.checked) {
+            label.classList.add('completed');
+        } else {
+            label.classList.remove('completed');
+        }
+
+        const total = checkboxes.length;
+        const checkedCount = document.querySelectorAll('.custom-checkbox:checked').length;
+        const pct = (checkedCount / total) * 100;
+        
+        progressFill.style.width = pct + '%';
+        progressText.innerText = `${checkedCount} / ${total} Topics Covered`;
+
+        // Save state to localStorage
+        const states = Array.from(checkboxes).map(c => c.checked);
+        localStorage.setItem('practice_review_checklist', JSON.stringify(states));
+    }
+
+    function resetChecklist() {
+        checkboxes.forEach((cb, idx) => {
+            cb.checked = false;
+            document.getElementById('lbl-' + (idx + 1)).classList.remove('completed');
+        });
+        updateProgress({ checked: false }, 'lbl-1');
+        localStorage.removeItem('practice_review_checklist');
+    }
+
+    // Auto-Saving Scratchpad
+    const notesBox = document.getElementById('meeting-notes');
+    notesBox.value = localStorage.getItem('practice_review_notes') || '';
+    notesBox.addEventListener('input', () => {
+        localStorage.setItem('practice_review_notes', notesBox.value);
+    });
+
+    function clearNotes() {
+        if (confirm('Clear scratchpad notes?')) {
+            notesBox.value = '';
+            localStorage.removeItem('practice_review_notes');
+        }
+    }
+
+    // Restore Checklist State on Load
+    window.addEventListener('DOMContentLoaded', () => {
+        const saved = JSON.parse(localStorage.getItem('practice_review_checklist'));
+        if (saved && Array.isArray(saved)) {
+            saved.forEach((val, idx) => {
+                if (checkboxes[idx]) {
+                    checkboxes[idx].checked = val;
+                    if (val) document.getElementById('lbl-' + (idx + 1)).classList.add('completed');
+                }
+            });
+            const checkedCount = saved.filter(Boolean).length;
+            const pct = (checkedCount / checkboxes.length) * 100;
+            progressFill.style.width = pct + '%';
+            progressText.innerText = `${checkedCount} / ${checkboxes.length} Topics Covered`;
+        }
+    });
+</script>
+
+</body>
+</html>

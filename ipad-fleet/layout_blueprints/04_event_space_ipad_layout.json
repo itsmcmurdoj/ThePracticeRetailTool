@@ -1,0 +1,36 @@
+{
+  "device_name": "PRAC-EVENT-CTRL-01",
+  "role": "Event Space iPad",
+  "location": "Event Hall",
+  "operational_mode": "AV & Matrix Kiosk",
+  "wallpaper": "04_Event_Space_iPad_Wallpaper.jpg",
+  "widgets": [
+    {
+      "identifier": "com.google.Chromecast.widget",
+      "size": "medium",
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "identifier": "com.soundtrackyourbrand.widget",
+      "size": "medium",
+      "position": [
+        1,
+        0
+      ]
+    }
+  ],
+  "home_grid": [
+    "The Practice",
+    "Moments",
+    "Spotify"
+  ],
+  "dock": [
+    "VSSL Soundtrack",
+    "Google Home",
+    "Spotify",
+    "The Practice"
+  ]
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadType</key>
+    <string>com.apple.mdm.lockscreen</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+    <key>PayloadIdentifier</key>
+    <string>com.thepractice.lockscreen.footnote</string>
+    <key>PayloadUUID</key>
+    <string>7B918B42-4D3A-4F91-BA63-E182902DF012</string>
+    <key>PayloadDisplayName</key>
+    <string>The Practice Lock Screen Metadata</string>
+    <key>LockScreenFootnote</key>
+    <string>LOCATION: %LOCATION% • ROLE: %DEVICE_ROLE% | [ SERIAL: %SERIALNUMBER% ]</string>
+    <key>AssetTagInformation</key>
+    <string>%DEVICENAME%</string>
+</dict>
+</plist>

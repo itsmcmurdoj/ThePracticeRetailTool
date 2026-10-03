@@ -1,0 +1,27 @@
+{
+  "device_name": "PRAC-YOGA-STU-01",
+  "role": "Yoga Studio iPad",
+  "location": "Yoga Studio",
+  "operational_mode": "Audio & Class Kiosk",
+  "wallpaper": "02_Yoga_Studio_iPad_Wallpaper.jpg",
+  "widgets": [
+    {
+      "identifier": "com.soundtrackyourbrand.widget",
+      "size": "large",
+      "position": [
+        0,
+        0
+      ]
+    }
+  ],
+  "home_grid": [
+    "The Practice",
+    "Google Home"
+  ],
+  "dock": [
+    "The Practice",
+    "VSSL Soundtrack",
+    "Spotify",
+    "Google Home"
+  ]
+}
