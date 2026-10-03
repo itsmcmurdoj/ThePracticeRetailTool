@@ -1,5 +1,16 @@
-# The Practice • GitLab Pages CI/CD Pipeline
-# Automatically hosts The Practice Retail Tool, Daily Schedule, Cafe Ordering, and Operations Suite for Studio iPads
+# The Practice • GitLab Pages & DevSecOps CI/CD Pipeline
+# Powered by GitLab Ultimate: Automated SAST, Secret Detection, and Floor PWA Deployment
+
+stages:
+  - test
+  - deploy
+
+include:
+  - template: Jobs/Secret-Detection.gitlab-ci.yml
+  - template: Jobs/SAST.gitlab-ci.yml
+
+secret_detection:
+  stage: test
 
 pages:
   stage: deploy
