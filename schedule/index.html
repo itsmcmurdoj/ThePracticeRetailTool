@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Practice • October 2026 Strategic Master Schedule</title>
+    <style>
+        @page {
+            size: letter portrait;
+            margin: 6mm 8mm 6mm 8mm;
+        }
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #09090b;
+            margin: 0;
+            padding: 0;
+            font-size: 10px;
+            line-height: 1.28;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .header {
+            border-bottom: 2px solid #09090b;
+            padding-bottom: 6px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .header-title-block h1 {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 0 0 2px 0;
+            text-transform: uppercase;
+            color: #09090b;
+        }
+        .header-title-block p {
+            margin: 0;
+            color: #52525b;
+            font-size: 10px;
+            font-weight: 500;
+        }
+        .badge-studio {
+            display: inline-block;
+            background: #09090b;
+            color: #ffffff;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 2px 5px;
+            border-radius: 3px;
+            margin-bottom: 3px;
+        }
+        .header-meta {
+            text-align: right;
+            font-size: 9px;
+            color: #71717a;
+            line-height: 1.3;
+        }
+
+        /* Summary Banner */
+        .summary-banner {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 3px solid #09090b;
+            border-radius: 4px;
+            padding: 6px 10px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .summary-banner .item strong {
+            display: block;
+            font-size: 10px;
+            color: #09090b;
+        }
+        .summary-banner .item span {
+            font-size: 8.5px;
+            color: #64748b;
+        }
+
+        /* Schedule Table */
+        table.schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9.2px;
+            margin-bottom: 6px;
+        }
+        table.schedule-table th {
+            background-color: #09090b;
+            color: #ffffff;
+            text-align: left;
+            font-size: 8.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            padding: 5px 6px;
+        }
+        table.schedule-table td {
+            padding: 4px 6px;
+            border-bottom: 1px solid #e4e4e7;
+            vertical-align: middle;
+        }
+        table.schedule-table tr:nth-child(even) td {
+            background-color: #fafafa;
+        }
+
+        .section-row td {
+            background-color: #f1f5f9 !important;
+            font-weight: 800;
+            font-size: 8.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #334155;
+            padding: 4px 6px;
+            border-top: 1px solid #cbd5e1;
+            border-bottom: 1px solid #cbd5e1;
+        }
+
+        .soak-row td {
+            background-color: #fefce8 !important;
+            border-top: 1px dashed #ca8a04;
+            border-bottom: 1px dashed #ca8a04;
+            color: #854d0e;
+            padding: 4px 6px;
+        }
+
+        .pillar-tag {
+            display: inline-block;
+            font-size: 7.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            padding: 1.5px 4px;
+            border-radius: 2px;
+            margin-bottom: 1px;
+        }
+        .p-ops { background-color: #fee2e2; color: #991b1b; }
+        .p-retail { background-color: #dbeafe; color: #1e40af; }
+        .p-video { background-color: #f3e8ff; color: #6b21a8; }
+        .p-web { background-color: #dcfce7; color: #166534; }
+        .p-ai { background-color: #fef3c7; color: #92400e; }
+
+        .priority-p0 {
+            color: #dc2626;
+            font-weight: 800;
+            font-size: 8.5px;
+        }
+        .priority-p1 {
+            color: #d97706;
+            font-weight: 700;
+            font-size: 8.5px;
+        }
+        .priority-p2 {
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 8.5px;
+        }
+
+        /* Dependency Callout Box */
+        .dependency-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            padding: 5px 8px;
+            margin-top: 2px;
+            font-size: 8.5px;
+            line-height: 1.3;
+            color: #475569;
+        }
+        .dependency-box strong {
+            color: #0f172a;
+        }
+
+        .footer {
+            border-top: 1px solid #e4e4e7;
+            padding-top: 4px;
+            font-size: 8.5px;
+            color: #a1a1aa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <!-- Header -->
+            <div class="header">
+                <div class="header-title-block">
+                    <span class="badge-studio">The Practice &middot; Systems Architecture & Operations</span>
+                    <h1>October 2026 Strategic Master Schedule</h1>
+                    <p>Shift-Based Engineering Roadmap &middot; <strong>Sara Jackson</strong> (CEO), <strong>Kim Noble</strong> (COO) & <strong>Lisa Kovacs</strong></p>
+                </div>
+                <div class="header-meta">
+                    <strong>360 Davenport Rd</strong>, Yorkville<br>
+                    Updated: Saturday, Oct 3, 2026<br>
+                    Lead: Jackson McMurdo
+                </div>
+            </div>
+
+            <!-- Summary Banner -->
+            <div class="summary-banner">
+                <div class="item">
+                    <strong>Pre-Vacation Assigned Shifts</strong>
+                    <span>Oct 6 (9a–5p) & Oct 7 (11a–5p) &middot; 14.0 hrs</span>
+                </div>
+                <div class="item">
+                    <strong>Vacation Blackout (Soak)</strong>
+                    <span>Oct 10 – Oct 18 &middot; Zero Work Assigned</span>
+                </div>
+                <div class="item">
+                    <strong>Post-Vacation Availability</strong>
+                    <span>Starting Oct 19 &middot; 100% Open Availability</span>
+                </div>
+                <div class="item">
+                    <strong>Total Engineering Budget</strong>
+                    <span>10 Initiatives &middot; 116 – 154 Hours</span>
+                </div>
+            </div>
+
+            <!-- Master Table -->
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th style="width: 145px;">Initiative & Workstream</th>
+                        <th style="width: 80px;">Stakeholders</th>
+                        <th>Core Deliverables & Scope</th>
+                        <th style="width: 110px;">Assigned Shift Window</th>
+                        <th style="width: 50px; text-align: right;">Est. Hrs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- SPRINT 1 HEADER -->
+                    <tr class="section-row">
+                        <td colspan="5">Sprint 1: Assigned Pre-Vacation Shifts (Oct 6 &middot; 9am–5pm | Oct 7 &middot; 11am–5pm &middot; 14.0 Total Hours)</td>
+                    </tr>
+
+                    <!-- 1Password -->
+                    <tr>
+                        <td>
+                            <span class="pillar-tag p-ops">Operations</span><br>
+                            <strong>1.1 1Password Centralization</strong>
+                        </td>
+                        <td>Sara &middot; All Staff</td>
+                        <td>
+                            <span class="priority-p0">● URGENT</span> &middot; Setup 3 vault tiers (Sara Master, Shared Floor, Marketing), centralized 2FA/TOTP tokens directly in 1Password (eliminates Canva lockouts), 100% credential searchability.
+                        </td>
+                        <td>
+                            <strong>Tue Oct 6 & Wed Oct 7</strong><br>
+                            <span style="font-size: 8px; color: #71717a;">Split: 3.5h Tue + 2.0h Wed</span>
+                        </td>
+                        <td style="text-align: right; font-weight: 700;">5.5h</td>
+                    </tr>
+
+                    <!-- Retail Dashboard -->
+                    <tr>
+                        <td>
+                            <span class="pillar-tag p-retail">Retail</span><br>
+                            <strong>2.1 iPad Floor Dashboard</strong>
+                        </td>
+                        <td>Sara &middot; Retail</td>
+                        <td>
+                            <span class="priority-p0">● PRIORITY</span> &middot; Patch 188 missing images in Momence Host 200431, sync 731 SKUs, extract MobileNet v2 neural embeddings, deploy PWA v1.1.0 on 4 studio iPads with in-person staff scan tests.
+                        </td>
+                        <td>
+                            <strong>Tue Oct 6 & Wed Oct 7</strong><br>
+                            <span style="font-size: 8px; color: #71717a;">Split: 4.5h Tue + 4.0h Wed</span>
+                        </td>
+                        <td style="text-align: right; font-weight: 700;">8.5h</td>
+                    </tr>
+
+                    <!-- VACATION SOAK ROW -->
+                    <tr class="soak-row">
+                        <td colspan="5">
+                            <strong>🌴 Production Soak & Vacation Blackout (October 10 – October 18 &middot; Zero Engineering Hours Assigned)</strong><br>
+                            <span style="font-size: 8.5px;">Live floor soak: retail team uses updated PWA v1.1.0 and 1Password vaults daily on the floor, logging any natural edge cases before post-vacation sprint.</span>
+                        </td>
+                    </tr>
+
+                    <!-- SPRINT 2 HEADER -->
+                    <tr class="section-row">
+                        <td colspan="5">Sprint 2: Post-Vacation Phase (October 19 Onward &middot; Full Shift Availability &middot; 102 – 140 Hours)</td>
+                    </tr>
+
+                    <!-- Unified Daily Schedule -->
+                    <tr>
+                        <td>
+                            <span class="pillar-tag p-ops">Operations</span><br>
+                            <strong>1.2 Unified Schedule Sync</strong>
+                        </td>
+                        <td>Kim &middot; Reception</td>
+                        <td>
+                            <span class="priority-p1">● SCHEDULED</span> &middot; Momence classes + Jane App clinical appointments in one front-desk dashboard; PHIPA privacy compliance (sanitized patient initials).
+                        </td>
+                        <td>
+                            <strong>Oct 19 Onward</strong><br>
+                            <span style="font-size: 8px; color: #71717a;">2–3 Shift Blocks</span>
+                        </td>
+                        <td style="text-align: right; font-weight: 700;">16–22h</td>
+                    </tr>
+
+                    <!-- EOD Checklist -->
+                    <tr>
+                        <td>
+                            <span class="pillar-tag p-ops">Operations</span><br>
+                            <strong>1.3 EOD Shift Checklist</strong>
+                        </td>
+                        <td>Kim &middot; Floor Staff</td>
+                        <td>
+                            <span class="priority-p1">● SCHEDULED</span> &middot; Standardized digital shift handoff on iPads (terminal reset, float balance, AV/lights shutdown, daily email digest to Kim & Sara).
+                        </td>
+                        <td>
+                            <strong>Oct 19 Onward</strong><br>
+                            <span style="font-size: 8px; color: #71717a;">1–2 Shift Blocks</span>
+                        </td>
+                        <td style="text-align: right; font-weight: 700;">8–12h</td>
+                    </tr>
+
+                    <!-- Website Embeds -->
+                    <tr>
+                        <td>
+                            <span class="pillar-tag p-web">Website</span><br>
+                            <strong>4.1 Momence/Jane Embeds</strong>
+                        </td>
+                        <td>Lisa &middot; Sara</td>
+                        <td>
+                            <span class="priority-p1">● SCHEDULED</span> &middot; Technical audit of hosting/DNS, live mobile-responsive Momence class schedule widget integration, and Jane App clinical booking assessment.
+                        </td>
+                        <td>
+                            <strong>Oct 19 Onward</strong><br>
+                            <span style="font-size: 8px; color: #71717a;">1–2 Shift Blocks</span>
+                        </td>
+                        <td style="text-align: right; font-weight: 700;">10–14h</td>
+                    </tr>
+
+                    <!-- Member Sign-In Portal -->
+                    <tr>
+                        <td>
+                            <span class="pillar-tag p-web">Website</span><br>
+                            <strong>4.2 Gated Member Portal</strong>
+                        </td>
+                        <td>Sara &middot; Members</td>
+                        <td>
+                            <span class="priority-p0">● FLAGSHIP</span> &middot; Dedicated member portal on `thepracticetoronto.com/members` with Google Sign-In gating audio meditations, workshops, and exclusive perks.
+                        </td>
+                        <td>
+                            <strong>Oct 19 Onward</strong><br>
+                            <span style="font-size: 8px; color: #71717a;">3–4 Shift Blocks</span>
+                        </td>
+                        <td style="text-align: right; font-weight: 700;">24–32h</td>
+                    </tr>
+
+                    <!-- 4-Part Video Series -->
+                    <tr>
+                        <td>
+                            <span class="pillar-tag p-video">Media</span><br>
+                            <strong>3.1 4-Part Video Post-Prod</strong>
+                        </td>
+                        <td>Lisa &middot; Marketing</td>
+                        <td>
+                            <span class="priority-p1">● SCHEDULED</span> &middot; Editorial assembly, voiceover sync, and color grade across 4 flagship films (*Signature Practice*, *Why Now*, *Sangha*, *Integration*).
+                        </td>
+                        <td>
+                            <strong>Oct 19 Onward</strong><br>
+                            <span style="font-size: 8px; color: #71717a;">3 Shift Blocks</span>
+                        </td>
+                        <td style="text-align: right; font-weight: 700;">18–24h</td>
+                    </tr>
+
+                    <!-- Video Repurposing Plan -->
+                    <tr>
+                        <td>
+                            <span class="pillar-tag p-video">Media</span><br>
+                            <strong>3.2 Video Repurposing Plan</strong>
+                        </td>
+                        <td>Lisa &middot; Marketing</td>
+                        <td>
+                            <span class="priority-p2">● SCHEDULED</span> &middot; 8-week content repurposing roadmap for Lisa (slicing shoot B-roll, unused VO, and alternate cuts into 16 micro-clips for social & newsletters).
+                        </td>
+                        <td>
+                            <strong>Oct 19 Onward</strong><br>
+                            <span style="font-size: 8px; color: #71717a;">1 Shift Block</span>
+                        </td>
+                        <td style="text-align: right; font-weight: 700;">6–8h</td>
+                    </tr>
+
+                    <!-- AI SEO -->
+                    <tr>
+                        <td>
+                            <span class="pillar-tag p-ai">AI Systems</span><br>
+                            <strong>5.1 High-Impact AI SEO</strong>
+                        </td>
+                        <td>Sara &middot; Lisa</td>
+                        <td>
+                            <span class="priority-p2">● SCHEDULED</span> &middot; Generative Engine Optimization (GEO), JSON-LD schema injection, 5 semantic content hubs, and Google Business Profile / Apple Business Connect sync.
+                        </td>
+                        <td>
+                            <strong>Oct 19 Onward</strong><br>
+                            <span style="font-size: 8px; color: #71717a;">2 Shift Blocks</span>
+                        </td>
+                        <td style="text-align: right; font-weight: 700;">12–16h</td>
+                    </tr>
+
+                    <!-- Email AI Agent -->
+                    <tr>
+                        <td>
+                            <span class="pillar-tag p-ai">AI Systems</span><br>
+                            <strong>5.2 Studio Email AI Agent</strong>
+                        </td>
+                        <td>Kim &middot; Operations</td>
+                        <td>
+                            <span class="priority-p2">● SCHEDULED</span> &middot; Expanding the autonomous triage engine to `hello@` and `ops@` to automatically classify guest inquiries and draft replies.
+                        </td>
+                        <td>
+                            <strong>Oct 19 Onward</strong><br>
+                            <span style="font-size: 8px; color: #71717a;">1–2 Shift Blocks</span>
+                        </td>
+                        <td style="text-align: right; font-weight: 700;">8–12h</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Shift Dependency Callout -->
+            <div class="dependency-box">
+                <strong>Shift Allocation & Milestone Delivery Framework:</strong> Milestone delivery dates depend directly on scheduled hourly shift allocations rather than fixed calendar estimates. Pacing scenarios starting October 19: <em>High Velocity (~25–30 hrs/wk scheduled)</em> delivers full scope by October 31; <em>Standard Velocity (~15–20 hrs/wk scheduled)</em> delivers core portal & scheduling by Oct 31, with media & email AI concluding in early November. Jackson has 100% open availability starting Oct 19 onward.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span>The Practice &middot; Systems Architecture & Retail Operations</span>
+            <span>Shift-Based Handoff &middot; Confidential &middot; For Sara Jackson, Kim Noble & Lisa Kovacs</span>
+            <span>Page 1 of 1</span>
+        </div>
+    </div>
+</body>
+</html>

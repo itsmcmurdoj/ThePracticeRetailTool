@@ -1,0 +1,174 @@
+{
+  "organization": {
+    "name": "The Practice",
+    "location": "360 Davenport Rd, Yorkville, Toronto, ON M5R 1K6",
+    "generalEmail": "hello@thepracticetoronto.com",
+    "opsEmail": "ops@thepracticetoronto.com",
+    "website": "https://thepracticetoronto.com",
+    "meetTheTeamUrl": "https://thepracticetoronto.com/meet-the-team/",
+    "updatedAt": "2026-10-03T14:15:00-04:00",
+    "manifesto": "The Practice is a collective of therapists, instructors, hypnotherapists, coaches, specialists, and creatives, all passionate about holistic wellness and meaningful growth. Together, they offer a dynamic, integrative approach that meets you where you are and supports real, lasting change. Rooted in care and connection, the team is here to help you reconnect with yourself and move toward the life you’ve been envisioning—with more clarity, alignment, and ease."
+  },
+  "members": [
+    {
+      "id": "team-001",
+      "name": "Sara Jackson",
+      "publicTitle": "Founder & CEO",
+      "internalRole": "Chief Executive Officer (CEO)",
+      "department": "Executive Leadership",
+      "level": "Executive",
+      "email": "sara@thepracticetoronto.com",
+      "secondaryEmail": "",
+      "phone": "",
+      "photoUrl": "https://thepracticetoronto.com/wp-content/uploads/2026/09/TNP_9139copy.jpg",
+      "location": "360 Davenport Rd • Executive Suite (2nd Floor)",
+      "workingHours": "Mon - Fri (Executive schedule)",
+      "publicBio": "I believe there is more to this life—more peace, more depth, and more possibility when we’re willing to go inward and meet ourselves honestly. I began my career as a therapist, working closely with individuals through some of their most vulnerable experiences. Over time, my work evolved beyond traditional settings, driven by a desire to create spaces and practices that support meaningful, lasting change. That path led me into business, where I could expand this work and reach people in a more dynamic, integrated way. The Practice is the center of that vision—a space for grounded growth, self-exploration, and coming back to who you are beneath the noise. It brings together therapeutic, somatic, and energetic approaches in a way that feels human, open, and deeply personal. It’s not about fixing or perfecting—it’s about returning, reconnecting, and choosing how you want to show up in your life. Whether I’m building businesses or working with people, I lead with compassion, intention, and a belief that a more authentic, free, and connected way of living is available to all of us.",
+      "responsibilities": [
+        "Strategic Vision & Long-Term Studio Growth",
+        "Executive Governance & Board Alignment",
+        "Brand Strategy & High-Level Partnerships",
+        "Community & Studio Culture Leadership"
+      ],
+      "emergencyContact": {
+        "name": "",
+        "relationship": "",
+        "phone": ""
+      },
+      "systemAccess": {
+        "momenceRole": "Account Owner / Master Admin",
+        "googleWorkspace": "Super Administrator",
+        "fobAccessLevel": "All-Access 24/7"
+      },
+      "status": "Active"
+    },
+    {
+      "id": "team-002",
+      "name": "Kimberley (Kim) Noble",
+      "publicTitle": "Head of Administration & Operational Support",
+      "internalRole": "Chief Operating Officer (COO)",
+      "department": "Operations & Administration",
+      "level": "Executive",
+      "email": "kim@thepracticetoronto.com",
+      "secondaryEmail": "ops@thepracticetoronto.com",
+      "phone": "",
+      "photoUrl": "https://thepracticetoronto.com/wp-content/uploads/2026/09/lv_0_20260904105927.jpg",
+      "location": "360 Davenport Rd • Operations Office",
+      "workingHours": "Mon - Fri • 8:30 AM - 5:30 PM",
+      "publicBio": "Kimberley is the Head of Administration & Operations Support at The Practice, as well as a 200-hour certified yoga teacher with experience in Vinyasa, Hatha, mindful movement, meditation, retreats and sound healing. She is also co-creator of Yoga Sound Medicine, an offering she developed with her partner that brings together mindful movement, breathwork and the healing qualities of sound.",
+      "responsibilities": [
+        "Day-to-day Studio Operations & Facility Oversight",
+        "Financial Management, Invoicing & Vendor Contracts",
+        "Staffing, Human Resources & Policy Enforcement",
+        "Cross-Departmental Workflow Optimization"
+      ],
+      "emergencyContact": {
+        "name": "",
+        "relationship": "",
+        "phone": ""
+      },
+      "systemAccess": {
+        "momenceRole": "Primary Host Administrator",
+        "googleWorkspace": "Domain Administrator",
+        "fobAccessLevel": "All-Access 24/7"
+      },
+      "status": "Active"
+    },
+    {
+      "id": "team-003",
+      "name": "Lisa Kovacs",
+      "publicTitle": "Director of Marketing, Events & Partnerships",
+      "internalRole": "Director of Marketing & Events",
+      "department": "Marketing, Community & Events",
+      "level": "Director",
+      "email": "lisa@thepracticetoronto.com",
+      "secondaryEmail": "",
+      "phone": "",
+      "photoUrl": "https://thepracticetoronto.com/wp-content/uploads/2026/09/IMG_6851.png",
+      "location": "360 Davenport Rd • Marketing Suite & Studio Floor",
+      "workingHours": "Mon - Fri • 9:00 AM - 5:00 PM (Event evenings as scheduled)",
+      "publicBio": "Lisa is the Director of Marketing, Events & Partnerships at The Practice, where she helps bring the brand to life through thoughtful storytelling, curated events, meaningful partnerships, and community experiences. With a background in marketing, events, and brand building, Lisa is passionate about creating experiences that feel intentional, welcoming, and memorable. She believes the smallest details can often have the biggest impact, whether shaping an event, telling a story, or finding new ways to bring people together. At The Practice, her work is rooted in creating opportunities for people to connect—with the space, with one another, and with themselves.",
+      "responsibilities": [
+        "Event Programming, Workshop Production & Coordination",
+        "Brand Marketing Campaigns & Community Outreach",
+        "Social Media Strategy, Content Creation & Photography",
+        "Guest Experience & Promotional Collaborations"
+      ],
+      "emergencyContact": {
+        "name": "",
+        "relationship": "",
+        "phone": ""
+      },
+      "systemAccess": {
+        "momenceRole": "Events & Marketing Coordinator",
+        "googleWorkspace": "Standard Workspace User",
+        "fobAccessLevel": "Staff Standard + Event Extended"
+      },
+      "status": "Active"
+    },
+    {
+      "id": "team-004",
+      "name": "Noah",
+      "publicTitle": "Cafe Manager",
+      "internalRole": "Cafe & Hospitality Lead",
+      "department": "Cafe & Hospitality",
+      "level": "Lead",
+      "email": "noah@thepracticetoronto.com",
+      "secondaryEmail": "cafe@thepracticetoronto.com",
+      "phone": "",
+      "photoUrl": "",
+      "location": "360 Davenport Rd • The Practice Cafe",
+      "workingHours": "Tue - Sat • 6:30 AM - 3:00 PM",
+      "publicBio": "Leads daily cafe and kitchen bar operations, barista team management, beverage calibration, and organic supplier coordination.",
+      "responsibilities": [
+        "Daily Cafe Service Standards & Barista Leadership",
+        "Espresso Calibration & Specialty Adaptogen Elixirs",
+        "Dairy, Milk Alternatives & Fresh Pastry Inventory",
+        "Food Safety & Municipal DineSafe Compliance"
+      ],
+      "emergencyContact": {
+        "name": "",
+        "relationship": "",
+        "phone": ""
+      },
+      "systemAccess": {
+        "momenceRole": "POS Staff / Cafe Host Manager",
+        "googleWorkspace": "Standard Workspace User",
+        "fobAccessLevel": "Early Morning Cafe Access"
+      },
+      "status": "Active"
+    },
+    {
+      "id": "team-005",
+      "name": "Jackson McMurdo",
+      "publicTitle": "Technology & Retail Operations Lead",
+      "internalRole": "Systems Architecture & TechOps Lead",
+      "department": "Tech Operations & Systems",
+      "level": "Lead",
+      "email": "jackson@thepracticetoronto.com",
+      "secondaryEmail": "ops@thepracticetoronto.com",
+      "phone": "",
+      "photoUrl": "",
+      "location": "360 Davenport Rd • Retail Floor & Tech Desk",
+      "workingHours": "Assigned Shift Blocks & Systems Engineering Windows",
+      "publicBio": "Directs studio IT infrastructure, Momence POS systems, iPad fleet deployments, automated scheduling daemons, and generative AI search architecture.",
+      "responsibilities": [
+        "Point of Sale (Momence POS) Architecture & 731-SKU Catalog",
+        "Hardware Fleet Management (4 Floor iPads, Audio Zones, Networks)",
+        "Google Workspace Administration & Automation Daemons",
+        "Staff POS Guidance, Tech Support & Operations Troubleshooting"
+      ],
+      "emergencyContact": {
+        "name": "",
+        "relationship": "",
+        "phone": ""
+      },
+      "systemAccess": {
+        "momenceRole": "Super Host Administrator / Developer",
+        "googleWorkspace": "Technical Lead / Systems Administrator",
+        "fobAccessLevel": "All-Access 24/7"
+      },
+      "status": "Active"
+    }
+  ]
+}

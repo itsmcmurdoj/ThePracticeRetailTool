@@ -375,7 +375,7 @@
         </div>
 
         <!-- Tile 2: The Practice Web Tools -->
-        <div class="action-tile tile-practice" onclick="triggerApp('practice', 'https://app.thepractice.com')">
+        <div class="action-tile tile-practice" onclick="triggerApp('practice', 'https://the-practice-retail-tool-2e79e9.gitlab.io/')">
             <div class="tile-top">
                 <div class="tile-icon-box">🌿</div>
                 <div class="tile-badge">APP 02</div>
@@ -452,9 +452,11 @@
     // App Launch Simulator with Custom Schemes
     function triggerApp(name, scheme) {
         console.log("Triggering: " + name + " -> " + scheme);
-        // On actual iPad in WebClip / ASAM mode:
-        // window.location.href = scheme;
-        alert("Launching: " + name.toUpperCase() + "\\nTarget Protocol: " + scheme + "\\n(On fleet iPad, this instantly switches to the native tool).");
+        try {
+            window.location.href = scheme;
+        } catch(e) {
+            console.warn("Navigation failed:", e);
+        }
     }
 
     // Idle Detection for Ambient Wall Display

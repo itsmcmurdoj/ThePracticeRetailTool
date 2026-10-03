@@ -30,7 +30,7 @@ iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAACAS0lEQVR4nO2993PbSNfvyUyCOSeRSs7j
             <key>Precomposed</key>
             <true/>
             <key>URL</key>
-            <string>https://app.thepractice.com</string>
+            <string>https://the-practice-retail-tool-2e79e9.gitlab.io/</string>
             <key>IgnoreManifestScope</key>
             <true/>
         </dict>
