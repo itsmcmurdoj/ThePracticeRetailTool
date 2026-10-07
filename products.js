@@ -15444,9 +15444,9 @@ const PRODUCTS = [
       "KC-MAT-APP-BLK-0003",
       "492561"
     ],
-    "pitch": "Apothecary glass safety match bottle fitted with a natural cork stopper and integrated strike pad. Elegant companion for mindful candle rituals.",
+    "pitch": "Heavy vintage clear glass decanter bottle with faceted spherical glass stopper and antique gold wax seal skeleton key medallion. Features 120 long matches with natural birch sticks and black tips.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492561/edit",
-    "img": "https://images.momence.com/h/200431/product-image/c8d05e5b-e853-4a1a-aef6-619d1bd5f114.jpg",
+    "img": "https://images.momence.com/h/200431/product-image/262ab05c-0d7b-4ef4-a1d3-ab49f20ffcd9.jpg",
     "location": {
       "zoneKey": "BAY_4_TOP",
       "zoneName": "Zone 9 / Bay 4: High Luxury Fragrance & Lighters (Top Tier)",
@@ -15473,9 +15473,9 @@ const PRODUCTS = [
       "KC-MAT-MIN-BLK-0001",
       "492559"
     ],
-    "pitch": "Apothecary glass safety match bottle fitted with a natural cork stopper and integrated strike pad. Elegant companion for mindful candle rituals.",
+    "pitch": "Compact cylindrical glass vial with natural cork stopper and circular strike pad. Features 40 matches with natural birch sticks and black tips.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492559/edit",
-    "img": "https://images.momence.com/h/200431/product-image/ab5a195b-ff3f-403a-acd0-d93fb7f3a4bc.jpg",
+    "img": "https://images.momence.com/h/200431/product-image/56fbd2e2-75b7-4a07-8b49-b97c1210c7ec.jpg",
     "location": {
       "zoneKey": "BAY_4_TOP",
       "zoneName": "Zone 9 / Bay 4: High Luxury Fragrance & Lighters (Top Tier)",
@@ -15531,9 +15531,9 @@ const PRODUCTS = [
       "KC-MAT-APP-MID-0005",
       "492563"
     ],
-    "pitch": "Apothecary glass safety match bottle fitted with a natural cork stopper and integrated strike pad. Elegant companion for mindful candle rituals.",
+    "pitch": "Heavy vintage clear glass decanter bottle with faceted spherical glass stopper and antique gold wax seal skeleton key medallion. Features 120 long monochromatic matches with dyed all-black sticks and black tips.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492563/edit",
-    "img": "https://images.momence.com/h/200431/product-image/0fac74d9-7e0c-412d-98f2-f6a9e4dec901.jpg",
+    "img": "https://images.momence.com/h/200431/product-image/9f7c1738-63d3-4192-a4d1-6698039a11ea.jpg",
     "location": {
       "zoneKey": "BAY_4_TOP",
       "zoneName": "Zone 9 / Bay 4: High Luxury Fragrance & Lighters (Top Tier)",
@@ -15560,9 +15560,9 @@ const PRODUCTS = [
       "KC-MAT-MIN-MID-0002",
       "492560"
     ],
-    "pitch": "Apothecary glass safety match bottle fitted with a natural cork stopper and integrated strike pad. Elegant companion for mindful candle rituals.",
+    "pitch": "Compact cylindrical glass vial with natural cork stopper and circular strike pad. Features 40 monochromatic matches with dyed all-black sticks and black tips.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492560/edit",
-    "img": "https://images.momence.com/h/200431/product-image/8e718d0f-ffe0-4995-9286-2080d55e787d.jpg",
+    "img": "https://images.momence.com/h/200431/product-image/8f7ca170-0dd2-4186-a6ab-63bce7c20cab.jpg",
     "location": {
       "zoneKey": "BAY_4_TOP",
       "zoneName": "Zone 9 / Bay 4: High Luxury Fragrance & Lighters (Top Tier)",
@@ -15589,9 +15589,9 @@ const PRODUCTS = [
       "KC-MAT-APP-WHT-0004",
       "492562"
     ],
-    "pitch": "Apothecary glass safety match bottle fitted with a natural cork stopper and integrated strike pad. Elegant companion for mindful candle rituals.",
+    "pitch": "Heavy vintage clear glass decanter bottle with faceted spherical glass stopper and antique gold wax seal skeleton key medallion. Features 120 long matches with natural birch sticks and crisp white tips.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492562/edit",
-    "img": "https://images.momence.com/h/200431/product-image/c4c2b92b-9bff-4975-bf44-2e48173b6d72.jpg",
+    "img": "https://images.momence.com/h/200431/product-image/53ff1960-7d48-4e89-89ae-0781aae32be6.jpg",
     "location": {
       "zoneKey": "BAY_4_TOP",
       "zoneName": "Zone 9 / Bay 4: High Luxury Fragrance & Lighters (Top Tier)",
@@ -15618,9 +15618,9 @@ const PRODUCTS = [
       "KC-MAT-MIN-WHT-0006",
       "492564"
     ],
-    "pitch": "Apothecary glass safety match bottle fitted with a natural cork stopper and integrated strike pad. Elegant companion for mindful candle rituals.",
+    "pitch": "Compact cylindrical glass vial with natural cork stopper and circular strike pad. Features 40 matches with natural birch sticks and crisp white tips.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/492564/edit",
-    "img": "https://images.momence.com/h/200431/product-image/8d604da7-755c-43d8-be4a-b81ecdefd085.jpg",
+    "img": "https://images.momence.com/h/200431/product-image/e2175fcb-27ac-46ab-8494-468b061ac39c.jpg",
     "location": {
       "zoneKey": "BAY_4_TOP",
       "zoneName": "Zone 9 / Bay 4: High Luxury Fragrance & Lighters (Top Tier)",
