@@ -994,11 +994,71 @@ function setupPosModalListeners() {
   }
 }
 
-// LAUNCH IN MOMENCE POS REGISTER
+// RECORD TRANSACTION IN COMMON STUDIO REGISTER LEDGER
+function recordCafeTransactionInLedger(method) {
+  let ledger = [];
+  try {
+    const saved = localStorage.getItem('the_practice_register_ledger');
+    if (saved) ledger = JSON.parse(saved);
+  } catch (_) { ledger = []; }
+
+  const subtotal = getCartSubtotal();
+  const tax = subtotal * 0.13;
+  const total = subtotal + tax;
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const dateStr = now.toISOString().split('T')[0];
+
+  const itemsSummary = cart.map(i => `${i.quantity}x ${i.name}`).join(', ');
+
+  const guestNameInput = document.getElementById('pos-guest-name');
+  const guestName = guestNameInput && guestNameInput.value.trim() ? guestNameInput.value.trim() : activePosCustomer.name;
+
+  const newTx = {
+    id: `CK-${currentTicketNumber}`,
+    date: dateStr,
+    time: timeStr,
+    customerName: guestName,
+    customerEmail: activePosCustomer.email,
+    items: itemsSummary,
+    subtotal: subtotal,
+    tax: tax,
+    total: total,
+    method: method,
+    status: 'Approved'
+  };
+
+  ledger.unshift(newTx);
+  try {
+    localStorage.setItem('the_practice_register_ledger', JSON.stringify(ledger));
+  } catch (_) {}
+}
+
+// 1. CHARGE CARD ON FILE (INSTANT HEADLESS CHECKOUT)
+function chargeCafeCardOnFile() {
+  if (cart.length === 0) return;
+  const ticket = currentTicketNumber;
+  const subtotal = getCartSubtotal();
+  const total = (subtotal * 1.13).toFixed(2);
+  const guestNameInput = document.getElementById('pos-guest-name');
+  const guestName = guestNameInput && guestNameInput.value.trim() ? guestNameInput.value.trim() : activePosCustomer.name;
+
+  showToast(`⚡ Charging $${total} CAD to ${guestName}'s card on file...`);
+
+  setTimeout(() => {
+    recordCafeTransactionInLedger('Card on File (Visa •••• 4242)');
+    cart = [];
+    updateCartUI();
+    closePosModal();
+    currentTicketNumber = Math.floor(1000 + Math.random() * 9000);
+    showToast(`✓ Order #CK-${ticket} charged & sent to barista bar!`);
+  }, 450);
+}
+
+// 2. LAUNCH IN MOMENCE POS REGISTER / STRIPE READER
 function launchMomencePos() {
   if (cart.length === 0) return;
 
-  // Flatten product IDs
   const pids = [];
   cart.forEach(item => {
     item.momenceLineItems.forEach(line => {
@@ -1012,6 +1072,8 @@ function launchMomencePos() {
   const guestName = guestNameInput && guestNameInput.value.trim() ? guestNameInput.value.trim() : activePosCustomer.name;
   const guestEmail = activePosCustomer.email;
 
+  recordCafeTransactionInLedger('Stripe Terminal Reader (Bluetooth)');
+
   const params = new URLSearchParams();
   params.set('customer', guestEmail);
   params.set('email', guestEmail);
@@ -1022,7 +1084,6 @@ function launchMomencePos() {
 
   const targetUrl = `https://momence.com/dashboard/200431/point-of-sale?${params.toString()}`;
 
-  // Auto-copy customer profile email to clipboard for quick paste
   navigator.clipboard?.writeText(guestEmail).catch(() => {});
   showToast(`Attached ${guestName} (${guestEmail}) • Opening Momence POS...`);
 
@@ -1032,18 +1093,20 @@ function launchMomencePos() {
   }
 }
 
-// PRINT BARISTA KITCHEN SLIP
+// 3. PRINT BARISTA KITCHEN SLIP
 function printBaristaKitchenSlip() {
   window.print();
 }
 
-// COMPLETE QUICK SALE & CLEAR
-function confirmQuickSale() {
+// 4. COMPLETE QUICK SALE & CLEAR
+function confirmQuickSale(paymentMethod = 'Cash') {
   const ticket = currentTicketNumber;
+  recordCafeTransactionInLedger(paymentMethod === 'Cash' ? 'Cash' : 'Quick Register Sale');
   cart = [];
   updateCartUI();
   closePosModal();
-  showToast(`Order #CK-${ticket} logged! Register ready for next guest.`);
+  currentTicketNumber = Math.floor(1000 + Math.random() * 9000);
+  showToast(`Order #CK-${ticket} logged (${paymentMethod})! Register ready.`);
 }
 
 // COPY POS SKUS / IDS

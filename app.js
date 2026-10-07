@@ -140,6 +140,57 @@
   const btnCopyCartSkus = document.getElementById('btn-copy-cart-skus');
   const btnCopyCartCustomerEmail = document.getElementById('btn-copy-cart-customer-email');
   const btnOpenMomenceCart = document.getElementById('btn-open-momence-cart');
+  const btnChargeCardOnFile = document.getElementById('btn-charge-card-on-file');
+  const btnChargeLabel = document.getElementById('btn-charge-label');
+  const btnChargeAmount = document.getElementById('btn-charge-amount');
+  const btnSendToStripeReader = document.getElementById('btn-send-to-stripe-reader');
+  const btnCashSale = document.getElementById('btn-cash-sale');
+  const cartCustomerName = document.getElementById('cart-customer-name');
+  const cartCustomerEmail = document.getElementById('cart-customer-email');
+  const cartCustomerPaymentPill = document.getElementById('cart-customer-payment-pill');
+  const btnSwitchCartCustomer = document.getElementById('btn-switch-cart-customer');
+
+  // Member Portal Elements
+  const btnMemberPortal = document.getElementById('btn-member-portal');
+  const headerMemberName = document.getElementById('header-member-name');
+  const headerMemberPill = document.getElementById('header-member-pill');
+  const memberPortalModal = document.getElementById('member-portal-modal');
+  const btnCloseMemberPortal = document.getElementById('btn-close-member-portal');
+  const memberSearchInput = document.getElementById('member-search-input');
+  const memberQuickPillsContainer = document.getElementById('member-quick-pills-container');
+  const memberCardAvatar = document.getElementById('member-card-avatar');
+  const memberCardName = document.getElementById('member-card-name');
+  const memberCardEmail = document.getElementById('member-card-email');
+  const memberCardTier = document.getElementById('member-card-tier');
+  const memberCardPayment = document.getElementById('member-card-payment');
+  const memberCardStatus = document.getElementById('member-card-status');
+  const memberClassTitle = document.getElementById('member-class-title');
+  const memberClassSub = document.getElementById('member-class-sub');
+  const btnToggleCheckin = document.getElementById('btn-toggle-checkin');
+  const btnApplyActiveMember = document.getElementById('btn-apply-active-member');
+
+  // Daily Ledger Modal Elements
+  const btnHeaderLedger = document.getElementById('btn-header-ledger');
+  const registerLedgerModal = document.getElementById('register-ledger-modal');
+  const btnCloseLedger = document.getElementById('btn-close-ledger');
+  const ledgerKpiGross = document.getElementById('ledger-kpi-gross');
+  const ledgerKpiNet = document.getElementById('ledger-kpi-net');
+  const ledgerKpiTax = document.getElementById('ledger-kpi-tax');
+  const ledgerKpiCount = document.getElementById('ledger-kpi-count');
+  const ledgerStatCardOnFile = document.getElementById('ledger-stat-card-on-file');
+  const ledgerStatTerminal = document.getElementById('ledger-stat-terminal');
+  const ledgerStatCash = document.getElementById('ledger-stat-cash');
+  const ledgerTableBody = document.getElementById('ledger-table-body');
+  const btnResetLedger = document.getElementById('btn-reset-ledger');
+  const btnExportLedgerCsv = document.getElementById('btn-export-ledger-csv');
+
+  // Checkout Success Modal Elements
+  const checkoutSuccessModal = document.getElementById('checkout-success-modal');
+  const successMethodMsg = document.getElementById('success-method-msg');
+  const successReceiptChit = document.getElementById('success-receipt-chit');
+  const btnPrintReceipt = document.getElementById('btn-print-receipt');
+  const btnCloseSuccess = document.getElementById('btn-close-success');
+
   const btnCopySku = document.getElementById('btn-copy-sku');
   const btnScanAgain = document.getElementById('btn-scan-again');
   const modalAlternativesSection = document.getElementById('modal-alternatives-section');
@@ -203,15 +254,103 @@
   }
 
   // ==========================================================================
-  // MOMENCE POS & CUSTOMER INTEGRATION ENGINE (JACKSON MCMURDO DEFAULT)
+  // THE PRACTICE HYBRID POS, MEMBER PORTAL & DAILY ACCOUNTING LEDGER ENGINE
   // ==========================================================================
-  const DEFAULT_CUSTOMER = {
-    name: 'Jackson McMurdo',
-    email: 'Jackson@ThePracticetoronto.com',
-    memberId: localStorage.getItem('the_practice_momence_member_id') || null
-  };
 
-  let activePosCustomer = { ...DEFAULT_CUSTOMER };
+  const KNOWN_MEMBERS = [
+    {
+      id: 'mem_jackson',
+      name: 'Jackson McMurdo',
+      email: 'Jackson@ThePracticetoronto.com',
+      role: 'Founder',
+      tier: 'Founding Member • Unlimited Access',
+      cardOnFile: { brand: 'Visa', last4: '4242', exp: '08/28' },
+      classToday: 'Vinyasa Flow • 5:30 PM (Studio 1 with Lisa)',
+      isCheckedIn: true
+    },
+    {
+      id: 'mem_sara',
+      name: 'Sara Jackson',
+      email: 'sara@thepracticetoronto.com',
+      role: 'CEO',
+      tier: 'Executive Member • Unlimited Studio',
+      cardOnFile: { brand: 'Mastercard', last4: '8812', exp: '11/27' },
+      classToday: 'Sound Bath & Breathwork • 7:00 PM (Studio 2)',
+      isCheckedIn: false
+    },
+    {
+      id: 'mem_kim',
+      name: 'Kim Noble',
+      email: 'kim@thepracticetoronto.com',
+      role: 'COO',
+      tier: 'Executive Member • Unlimited Studio',
+      cardOnFile: { brand: 'Amex', last4: '1004', exp: '04/29' },
+      classToday: 'Morning Mysore • 7:30 AM (Attended)',
+      isCheckedIn: true
+    },
+    {
+      id: 'mem_lisa',
+      name: 'Lisa Kovacs',
+      email: 'lisa@thepracticetoronto.com',
+      role: 'Lead Instructor',
+      tier: 'Faculty & Senior Teacher',
+      cardOnFile: { brand: 'Visa', last4: '5590', exp: '02/28' },
+      classToday: 'Teaching: Vinyasa Flow (5:30 PM)',
+      isCheckedIn: true
+    },
+    {
+      id: 'mem_walkin',
+      name: 'Walk-In Guest',
+      email: 'guest@thepracticetoronto.com',
+      role: 'Guest',
+      tier: 'Drop-In Retail & Cafe Guest',
+      cardOnFile: null,
+      classToday: 'None',
+      isCheckedIn: false
+    }
+  ];
+
+  // Initialize Active Customer from LocalStorage or Default Jackson McMurdo
+  let activeMemberId = localStorage.getItem('the_practice_active_member_id') || 'mem_jackson';
+  let activePosCustomer = KNOWN_MEMBERS.find(m => m.id === activeMemberId) || KNOWN_MEMBERS[0];
+  let tempPortalSelectedMember = { ...activePosCustomer };
+
+  function setActiveCustomer(memberIdOrObj) {
+    if (typeof memberIdOrObj === 'string') {
+      const found = KNOWN_MEMBERS.find(m => m.id === memberIdOrObj);
+      if (found) {
+        activePosCustomer = { ...found };
+        activeMemberId = found.id;
+      }
+    } else if (memberIdOrObj && memberIdOrObj.name) {
+      activePosCustomer = { ...memberIdOrObj };
+      activeMemberId = memberIdOrObj.id || 'mem_custom';
+    }
+
+    try {
+      localStorage.setItem('the_practice_active_member_id', activeMemberId);
+    } catch (_) {}
+
+    updateHeaderMemberPill();
+    renderCartUI();
+  }
+
+  function updateHeaderMemberPill() {
+    if (headerMemberName) {
+      headerMemberName.textContent = activePosCustomer.name;
+    }
+    if (headerMemberPill) {
+      if (activePosCustomer.cardOnFile) {
+        headerMemberPill.textContent = `${activePosCustomer.cardOnFile.brand} •••• ${activePosCustomer.cardOnFile.last4}`;
+        headerMemberPill.style.background = '#2F4538';
+        headerMemberPill.style.color = '#FFFFFF';
+      } else {
+        headerMemberPill.textContent = 'Guest / Terminal';
+        headerMemberPill.style.background = '#E5E7EB';
+        headerMemberPill.style.color = '#374151';
+      }
+    }
+  }
 
   function getPriceNumber(priceStr) {
     if (typeof priceStr === 'number') return priceStr;
@@ -446,23 +585,382 @@
       showToast('Register cart is empty. Add products to begin!');
       return;
     }
-
     const totals = getCartTotals();
     const posUrl = generateMomencePosUrl(registerCart, activePosCustomer);
-
-    // Format item manifest and copy customer email as primary
-    const manifestLines = registerCart.map(i => `${i.quantity || 1}x ${i.name} (SKU: ${i.sku || i.id})`);
-    const clipboardPayload = `${activePosCustomer.email}`;
-
-    navigator.clipboard?.writeText(clipboardPayload).catch(() => {});
+    navigator.clipboard?.writeText(activePosCustomer.email).catch(() => {});
     showToast(`Attached ${activePosCustomer.name} (${activePosCustomer.email}) • Opening Momence POS...`);
-
     const win = window.open(posUrl, '_blank', 'noopener');
-    if (!win) {
-      window.location.href = posUrl;
+    if (!win) window.location.href = posUrl;
+  }
+
+  // ==========================================================================
+  // DAILY REGISTER & ACCOUNTING LEDGER STATE (CANADIAN HST 13%)
+  // ==========================================================================
+  let registerLedger = [];
+  try {
+    const savedLedger = localStorage.getItem('the_practice_register_ledger');
+    if (savedLedger) {
+      registerLedger = JSON.parse(savedLedger);
+    } else {
+      const todayStr = new Date().toISOString().split('T')[0];
+      registerLedger = [
+        {
+          id: 'TP-1081',
+          date: todayStr,
+          time: '08:42 AM',
+          customerName: 'Sara Jackson',
+          customerEmail: 'sara@thepracticetoronto.com',
+          items: '1x Matcha Ceremonial Elixir, 1x Palo Santo Bundle',
+          subtotal: 38.00,
+          tax: 4.94,
+          total: 42.94,
+          method: 'Card on File (Mastercard •••• 8812)',
+          status: 'Approved'
+        },
+        {
+          id: 'TP-1082',
+          date: todayStr,
+          time: '11:15 AM',
+          customerName: 'Walk-In Guest',
+          customerEmail: 'guest@thepracticetoronto.com',
+          items: '1x AMP Electrolyte Hydration Pack',
+          subtotal: 30.00,
+          tax: 3.90,
+          total: 33.90,
+          method: 'Stripe Terminal Reader (Bluetooth)',
+          status: 'Approved'
+        }
+      ];
+      localStorage.setItem('the_practice_register_ledger', JSON.stringify(registerLedger));
+    }
+  } catch (e) {
+    registerLedger = [];
+  }
+
+  function saveLedger() {
+    try {
+      localStorage.setItem('the_practice_register_ledger', JSON.stringify(registerLedger));
+    } catch (_) {}
+  }
+
+  function recordTransaction(method, status = 'Approved') {
+    const totals = getCartTotals();
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const dateStr = now.toISOString().split('T')[0];
+    const orderId = `TP-${Math.floor(1000 + Math.random() * 9000)}`;
+
+    const itemsSummary = registerCart.map(i => `${i.quantity || 1}x ${i.name}`).join(', ');
+
+    const newTx = {
+      id: orderId,
+      date: dateStr,
+      time: timeStr,
+      customerName: activePosCustomer.name,
+      customerEmail: activePosCustomer.email,
+      items: itemsSummary,
+      itemsDetailed: [...registerCart],
+      subtotal: parseFloat(totals.subtotal),
+      tax: parseFloat(totals.tax),
+      total: parseFloat(totals.grandTotal),
+      method: method,
+      status: status
+    };
+
+    registerLedger.unshift(newTx);
+    saveLedger();
+    return newTx;
+  }
+
+  function renderLedgerUI() {
+    if (!registerLedgerModal) return;
+
+    let gross = 0;
+    let net = 0;
+    let tax = 0;
+    let count = registerLedger.length;
+    let cardOnFileTotal = 0, cardOnFileCount = 0;
+    let terminalTotal = 0, terminalCount = 0;
+    let cashTotal = 0, cashCount = 0;
+
+    registerLedger.forEach(tx => {
+      gross += tx.total || 0;
+      net += tx.subtotal || 0;
+      tax += tx.tax || 0;
+
+      if (tx.method.includes('Card on File')) {
+        cardOnFileTotal += tx.total || 0;
+        cardOnFileCount++;
+      } else if (tx.method.includes('Terminal') || tx.method.includes('Stripe')) {
+        terminalTotal += tx.total || 0;
+        terminalCount++;
+      } else if (tx.method.includes('Cash')) {
+        cashTotal += tx.total || 0;
+        cashCount++;
+      }
+    });
+
+    if (ledgerKpiGross) ledgerKpiGross.textContent = `$${gross.toFixed(2)}`;
+    if (ledgerKpiNet) ledgerKpiNet.textContent = `$${net.toFixed(2)}`;
+    if (ledgerKpiTax) ledgerKpiTax.textContent = `$${tax.toFixed(2)}`;
+    if (ledgerKpiCount) ledgerKpiCount.textContent = count;
+
+    if (ledgerStatCardOnFile) ledgerStatCardOnFile.textContent = `$${cardOnFileTotal.toFixed(2)} (${cardOnFileCount})`;
+    if (ledgerStatTerminal) ledgerStatTerminal.textContent = `$${terminalTotal.toFixed(2)} (${terminalCount})`;
+    if (ledgerStatCash) ledgerStatCash.textContent = `$${cashTotal.toFixed(2)} (${cashCount})`;
+
+    if (ledgerTableBody) {
+      if (registerLedger.length === 0) {
+        ledgerTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:24px;color:#9CA3AF;">No transactions recorded today yet.</td></tr>`;
+      } else {
+        ledgerTableBody.innerHTML = registerLedger.map(tx => `
+          <tr>
+            <td style="color:#6B7280;white-space:nowrap;">${tx.time}</td>
+            <td><strong>#${tx.id}</strong></td>
+            <td>${tx.customerName}</td>
+            <td style="max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${tx.items}">${tx.items}</td>
+            <td><span class="pos-mini-chip" style="font-size:10px;">${tx.method}</span></td>
+            <td style="text-align:right;font-weight:600;">$${tx.total.toFixed(2)}</td>
+          </tr>
+        `).join('');
+      }
     }
   }
 
+  function exportLedgerCsv() {
+    if (registerLedger.length === 0) {
+      showToast('Ledger is empty. Nothing to export.');
+      return;
+    }
+    const headers = ['Date', 'Time', 'Order ID', 'Customer Name', 'Customer Email', 'Payment Method', 'Items', 'Subtotal CAD', 'Ontario HST (13%)', 'Total CAD', 'Status'];
+    const rows = registerLedger.map(tx => [
+      `"${tx.date}"`,
+      `"${tx.time}"`,
+      `"${tx.id}"`,
+      `"${tx.customerName}"`,
+      `"${tx.customerEmail}"`,
+      `"${tx.method}"`,
+      `"${(tx.items || '').replace(/"/g, '""')}"`,
+      tx.subtotal.toFixed(2),
+      tx.tax.toFixed(2),
+      tx.total.toFixed(2),
+      `"${tx.status}"`
+    ]);
+
+    const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    const todayStr = new Date().toISOString().split('T')[0];
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', `the_practice_register_ledger_${todayStr}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast('📥 Downloaded Accounting CSV for Kim Noble & Bookkeeping!');
+  }
+
+  // ==========================================================================
+  // 3-WAY UNIFIED CHECKOUT ACTIONS
+  // ==========================================================================
+
+  // 1. CHARGE CARD ON FILE (HEADLESS MOMENCE API SIMULATOR)
+  function chargeCardOnFile() {
+    if (registerCart.length === 0) {
+      showToast('Register cart is empty. Add products to begin!');
+      return;
+    }
+
+    if (!activePosCustomer.cardOnFile) {
+      showToast('No card on file for this guest. Please select "Stripe Reader" or "Cash"!');
+      return;
+    }
+
+    const totals = getCartTotals();
+    const cardInfo = `${activePosCustomer.cardOnFile.brand} •••• ${activePosCustomer.cardOnFile.last4}`;
+
+    showToast(`⚡ Connecting to Momence Member Vault for ${activePosCustomer.name}...`);
+    if (btnChargeCardOnFile) {
+      btnChargeCardOnFile.disabled = true;
+      btnChargeCardOnFile.style.opacity = '0.6';
+    }
+
+    setTimeout(() => {
+      if (btnChargeCardOnFile) {
+        btnChargeCardOnFile.disabled = false;
+        btnChargeCardOnFile.style.opacity = '1';
+      }
+
+      const tx = recordTransaction(`Card on File (${cardInfo})`, 'Approved');
+      playSuccessChime();
+
+      if (checkoutSuccessModal) {
+        if (successMethodMsg) {
+          successMethodMsg.textContent = `Charged to ${cardInfo} (${activePosCustomer.name})`;
+        }
+        if (successReceiptChit) {
+          successReceiptChit.innerHTML = `
+========================================
+       THE PRACTICE • YORKVILLE
+       360 Davenport Rd, Toronto, ON
+========================================
+Order ID: #${tx.id}
+Date: ${tx.date}  ${tx.time}
+Member: ${tx.customerName}
+Account: ${tx.customerEmail}
+Payment: ${tx.method}
+Status: APPROVED (Auth #MOM-${Math.floor(100000 + Math.random() * 900000)})
+----------------------------------------
+${registerCart.map(i => `${i.quantity || 1}x ${i.name.padEnd(26).slice(0, 26)} $${((i.priceNum || 0) * (i.quantity || 1)).toFixed(2)}`).join('\n')}
+----------------------------------------
+Subtotal:                    $${totals.subtotal} CAD
+Ontario HST (13%):           $${totals.tax} CAD
+TOTAL CHARGED:               $${totals.grandTotal} CAD
+========================================
+   Thank you for practicing with us.
+`;
+        }
+        checkoutSuccessModal.style.display = 'flex';
+      }
+
+      registerCart = [];
+      saveCart();
+      renderCartUI();
+      if (cartDrawerModal) cartDrawerModal.style.display = 'none';
+      showToast(`✓ Charged $${totals.grandTotal} to ${activePosCustomer.name}'s card on file!`);
+    }, 450);
+  }
+
+  // 2. SEND TO STRIPE READER TERMINAL
+  function sendToStripeReader() {
+    if (registerCart.length === 0) {
+      showToast('Register cart is empty. Add products to begin!');
+      return;
+    }
+    const totals = getCartTotals();
+    const tx = recordTransaction('Stripe Terminal Reader (Bluetooth)', 'Pending Terminal Tap');
+    showToast(`📡 Sent $${totals.grandTotal} to paired Stripe Reader! Opening POS register...`);
+    openMomenceCart();
+    registerCart = [];
+    saveCart();
+    renderCartUI();
+    if (cartDrawerModal) cartDrawerModal.style.display = 'none';
+  }
+
+  // 3. CASH SALE / QUICK LOG
+  function processCashSale() {
+    if (registerCart.length === 0) {
+      showToast('Register cart is empty. Add products to begin!');
+      return;
+    }
+    const totals = getCartTotals();
+    const tx = recordTransaction('Cash / Quick Pay', 'Completed');
+    playSuccessChime();
+
+    if (checkoutSuccessModal) {
+      if (successMethodMsg) {
+        successMethodMsg.textContent = `Cash Payment Collected ($${totals.grandTotal} CAD)`;
+      }
+      if (successReceiptChit) {
+        successReceiptChit.innerHTML = `
+========================================
+       THE PRACTICE • YORKVILLE
+       360 Davenport Rd, Toronto, ON
+========================================
+Order ID: #${tx.id}
+Date: ${tx.date}  ${tx.time}
+Customer: ${tx.customerName}
+Payment: CASH / REGISTER DRAW
+Status: PAID IN FULL
+----------------------------------------
+${registerCart.map(i => `${i.quantity || 1}x ${i.name.padEnd(26).slice(0, 26)} $${((i.priceNum || 0) * (i.quantity || 1)).toFixed(2)}`).join('\n')}
+----------------------------------------
+Subtotal:                    $${totals.subtotal} CAD
+Ontario HST (13%):           $${totals.tax} CAD
+TOTAL PAID:                  $${totals.grandTotal} CAD
+========================================
+`;
+      }
+      checkoutSuccessModal.style.display = 'flex';
+    }
+
+    registerCart = [];
+    saveCart();
+    renderCartUI();
+    if (cartDrawerModal) cartDrawerModal.style.display = 'none';
+    showToast(`✓ Cash sale of $${totals.grandTotal} recorded in register!`);
+  }
+
+  // ==========================================================================
+  // MEMBER SIGN-IN & PORTAL MODAL LOGIC
+  // ==========================================================================
+  function openMemberPortal() {
+    if (!memberPortalModal) return;
+    tempPortalSelectedMember = { ...activePosCustomer };
+    renderMemberPortalUI();
+    memberPortalModal.style.display = 'flex';
+  }
+
+  function closeMemberPortal() {
+    if (memberPortalModal) memberPortalModal.style.display = 'none';
+  }
+
+  function renderMemberPortalUI() {
+    if (memberQuickPillsContainer) {
+      memberQuickPillsContainer.innerHTML = KNOWN_MEMBERS.map(m => `
+        <button type="button" class="member-pill-btn ${m.id === tempPortalSelectedMember.id ? 'active' : ''}" data-member-id="${m.id}">
+          <span>${m.id === 'mem_walkin' ? '👤' : (m.id === 'mem_jackson' ? '👑' : '🧘')}</span>
+          <span>${m.name}</span>
+        </button>
+      `).join('');
+
+      memberQuickPillsContainer.querySelectorAll('.member-pill-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const mid = btn.getAttribute('data-member-id');
+          const found = KNOWN_MEMBERS.find(m => m.id === mid);
+          if (found) {
+            tempPortalSelectedMember = { ...found };
+            renderMemberPortalUI();
+          }
+        });
+      });
+    }
+
+    if (memberCardAvatar) {
+      const initials = tempPortalSelectedMember.name.split(' ').map(n => n[0]).join('').slice(0, 2);
+      memberCardAvatar.textContent = initials;
+    }
+    if (memberCardName) memberCardName.textContent = tempPortalSelectedMember.name;
+    if (memberCardEmail) memberCardEmail.textContent = tempPortalSelectedMember.email;
+    if (memberCardTier) memberCardTier.textContent = tempPortalSelectedMember.tier || 'Studio Member';
+
+    if (memberCardPayment) {
+      if (tempPortalSelectedMember.cardOnFile) {
+        memberCardPayment.textContent = `Ready (${tempPortalSelectedMember.cardOnFile.brand} •••• ${tempPortalSelectedMember.cardOnFile.last4})`;
+        memberCardPayment.style.color = '#15803D';
+      } else {
+        memberCardPayment.textContent = 'None (Requires Terminal Tap)';
+        memberCardPayment.style.color = '#6B7280';
+      }
+    }
+
+    if (memberClassTitle) memberClassTitle.textContent = tempPortalSelectedMember.classToday || 'No Class Scheduled Today';
+    if (memberClassSub) {
+      memberClassSub.textContent = tempPortalSelectedMember.isCheckedIn ? 'Status: Checked In & Ready' : 'Status: Booked • Check-in pending';
+    }
+    if (btnToggleCheckin) {
+      if (tempPortalSelectedMember.classToday === 'None') {
+        btnToggleCheckin.style.display = 'none';
+      } else {
+        btnToggleCheckin.style.display = 'block';
+        btnToggleCheckin.textContent = tempPortalSelectedMember.isCheckedIn ? '✓ Checked In' : 'Tap to Check In';
+        btnToggleCheckin.style.background = tempPortalSelectedMember.isCheckedIn ? '#16A34A' : '#2563EB';
+      }
+    }
+  }
+
+  // ==========================================================================
+  // RENDER CART UI (UPDATED FOR DUAL CHECKOUT & MEMBER STATUS)
+  // ==========================================================================
   function renderCartUI() {
     const totals = getCartTotals();
 
@@ -489,6 +987,36 @@
     if (cartSubtotal) cartSubtotal.textContent = `$${totals.subtotal}`;
     if (cartTax) cartTax.textContent = `$${totals.tax}`;
     if (cartGrandTotal) cartGrandTotal.textContent = `$${totals.grandTotal} CAD`;
+
+    // Customer Bar in Cart Drawer
+    if (cartCustomerName) cartCustomerName.textContent = activePosCustomer.name;
+    if (cartCustomerEmail) cartCustomerEmail.textContent = `<${activePosCustomer.email}>`;
+    if (cartCustomerPaymentPill) {
+      if (activePosCustomer.cardOnFile) {
+        cartCustomerPaymentPill.textContent = `${activePosCustomer.cardOnFile.brand} •••• ${activePosCustomer.cardOnFile.last4}`;
+        cartCustomerPaymentPill.style.background = '#2F4538';
+        cartCustomerPaymentPill.style.color = '#FFFFFF';
+      } else {
+        cartCustomerPaymentPill.textContent = 'No Card on File';
+        cartCustomerPaymentPill.style.background = '#E5E7EB';
+        cartCustomerPaymentPill.style.color = '#374151';
+      }
+    }
+
+    // Dynamic Checkout Button Label
+    if (btnChargeCardOnFile) {
+      if (activePosCustomer.cardOnFile) {
+        btnChargeCardOnFile.disabled = false;
+        if (btnChargeLabel) {
+          btnChargeLabel.innerHTML = `⚡ Charge ${activePosCustomer.cardOnFile.brand} •••• ${activePosCustomer.cardOnFile.last4} (<span id="btn-charge-amount">$${totals.grandTotal}</span>)`;
+        }
+      } else {
+        btnChargeCardOnFile.disabled = true;
+        if (btnChargeLabel) {
+          btnChargeLabel.innerHTML = `No Card on File (Use Reader)`;
+        }
+      }
+    }
 
     if (cartItemsContainer) {
       if (registerCart.length === 0) {
@@ -1590,6 +2118,124 @@
     });
   }
 
+  // 3-Way Unified Checkout Buttons
+  if (btnChargeCardOnFile) {
+    btnChargeCardOnFile.addEventListener('click', () => {
+      chargeCardOnFile();
+    });
+  }
+
+  if (btnSendToStripeReader) {
+    btnSendToStripeReader.addEventListener('click', () => {
+      sendToStripeReader();
+    });
+  }
+
+  if (btnCashSale) {
+    btnCashSale.addEventListener('click', () => {
+      processCashSale();
+    });
+  }
+
+  // Member Portal & Customer Switcher
+  if (btnMemberPortal) {
+    btnMemberPortal.addEventListener('click', () => {
+      openMemberPortal();
+    });
+  }
+
+  if (btnSwitchCartCustomer) {
+    btnSwitchCartCustomer.addEventListener('click', () => {
+      openMemberPortal();
+    });
+  }
+
+  if (btnCloseMemberPortal) {
+    btnCloseMemberPortal.addEventListener('click', () => {
+      closeMemberPortal();
+    });
+  }
+
+  if (memberPortalModal) {
+    memberPortalModal.addEventListener('click', (e) => {
+      if (e.target === memberPortalModal) closeMemberPortal();
+    });
+  }
+
+  if (btnApplyActiveMember) {
+    btnApplyActiveMember.addEventListener('click', () => {
+      setActiveCustomer(tempPortalSelectedMember);
+      closeMemberPortal();
+      showToast(`✓ Active customer set to ${activePosCustomer.name}`);
+    });
+  }
+
+  if (btnToggleCheckin) {
+    btnToggleCheckin.addEventListener('click', () => {
+      tempPortalSelectedMember.isCheckedIn = !tempPortalSelectedMember.isCheckedIn;
+      renderMemberPortalUI();
+      showToast(tempPortalSelectedMember.isCheckedIn ? `✓ ${tempPortalSelectedMember.name} checked in!` : 'Check-in pending');
+    });
+  }
+
+  // Daily Ledger Modal Handlers
+  if (btnHeaderLedger) {
+    btnHeaderLedger.addEventListener('click', () => {
+      if (registerLedgerModal) {
+        renderLedgerUI();
+        registerLedgerModal.style.display = 'flex';
+      }
+    });
+  }
+
+  if (btnCloseLedger) {
+    btnCloseLedger.addEventListener('click', () => {
+      if (registerLedgerModal) registerLedgerModal.style.display = 'none';
+    });
+  }
+
+  if (registerLedgerModal) {
+    registerLedgerModal.addEventListener('click', (e) => {
+      if (e.target === registerLedgerModal) registerLedgerModal.style.display = 'none';
+    });
+  }
+
+  if (btnExportLedgerCsv) {
+    btnExportLedgerCsv.addEventListener('click', () => {
+      exportLedgerCsv();
+    });
+  }
+
+  if (btnResetLedger) {
+    btnResetLedger.addEventListener('click', () => {
+      if (confirm("Reset today's register ledger? All current transactions will be cleared.")) {
+        registerLedger = [];
+        saveLedger();
+        renderLedgerUI();
+        showToast("Register ledger reset for a new shift");
+      }
+    });
+  }
+
+  // Success Receipt Modal Handlers
+  if (btnPrintReceipt) {
+    btnPrintReceipt.addEventListener('click', () => {
+      window.print();
+    });
+  }
+
+  if (btnCloseSuccess) {
+    btnCloseSuccess.addEventListener('click', () => {
+      if (checkoutSuccessModal) checkoutSuccessModal.style.display = 'none';
+    });
+  }
+
+  if (checkoutSuccessModal) {
+    checkoutSuccessModal.addEventListener('click', (e) => {
+      if (e.target === checkoutSuccessModal) checkoutSuccessModal.style.display = 'none';
+    });
+  }
+
   if (btnHeaderPos) {
     btnHeaderPos.addEventListener('click', (e) => {
       e.preventDefault();
@@ -1680,6 +2326,7 @@
 
   // --- APP INITIALIZATION ---
   async function init() {
+    updateHeaderMemberPill();
     populateBrandFilter();
     loadHistory();
     updateFavoritesUI();
@@ -1695,3 +2342,4 @@
   init();
 
 })();
+

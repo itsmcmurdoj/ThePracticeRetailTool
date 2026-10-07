@@ -46,6 +46,15 @@
           <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Sync</span>
         </button>
 
+        <button id="btn-member-portal" class="header-cart-btn header-member-btn" title="Member Sign-In & Customer Account" aria-label="Member Sign-In" type="button" style="padding: 6px 12px; gap: 7px; background: rgba(47, 69, 56, 0.08); border: 1px solid rgba(47, 69, 56, 0.25);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px; color: var(--color-primary);">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span id="header-member-name" style="font-weight: 600; font-size: 12px;">Jackson McMurdo</span>
+          <span id="header-member-pill" class="pos-mini-chip" style="background: #2F4538; color: #FFFFFF; font-size: 10px; padding: 2px 7px; border-radius: 999px;">Card on File</span>
+        </button>
+
         <button id="btn-header-cart" class="header-cart-btn" title="View Register Cart" aria-label="Register Cart" type="button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="9" cy="21" r="1"></circle>
@@ -102,6 +111,15 @@
           </svg>
           <span>Ops</span>
         </a>
+
+        <button id="btn-header-ledger" class="header-pos-btn" title="Daily Register & Accounting Ledger" type="button" style="background:#374151;color:#FFFFFF;border:none;cursor:pointer;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span>Ledger</span>
+        </button>
 
         <div id="connection-status" class="status-pill status-online">
           <span class="status-dot"></span>
@@ -762,12 +780,17 @@
           <button id="btn-close-cart" class="btn-close-modal" aria-label="Close Cart" type="button">✕</button>
         </div>
         
-        <div class="cart-holding-bar">
-          <span class="holding-tag">Customer Profile:</span>
-          <strong>Jackson McMurdo</strong>
-          <span class="holding-email">&lt;Jackson@ThePracticetoronto.com&gt;</span>
-          <button type="button" id="btn-copy-cart-customer-email" class="pos-mini-chip" title="Copy customer profile email">📋 Copy Email</button>
-          <span class="holding-hint">• Auto-selected for instant POS checkout</span>
+        <div class="cart-holding-bar" id="cart-holding-bar">
+          <div class="holding-bar-left">
+            <span class="holding-tag">Active Customer:</span>
+            <strong id="cart-customer-name">Jackson McMurdo</strong>
+            <span class="holding-email" id="cart-customer-email">&lt;Jackson@ThePracticetoronto.com&gt;</span>
+            <span id="cart-customer-payment-pill" class="pos-mini-chip" style="background: #2F4538; color: #fff; font-size: 10px; margin-left: 6px;">Visa •••• 4242</span>
+          </div>
+          <div class="holding-bar-right">
+            <button type="button" id="btn-switch-cart-customer" class="pos-mini-chip" title="Switch Member or Guest">👤 Switch</button>
+            <button type="button" id="btn-copy-cart-customer-email" class="pos-mini-chip" title="Copy customer profile email">📋 Copy</button>
+          </div>
         </div>
 
         <div id="cart-items-container" class="cart-items-list">
@@ -776,15 +799,211 @@
 
         <div class="cart-drawer-footer">
           <div class="cart-totals-breakdown">
-            <div class="cart-total-row"><span>Subtotal:</span><strong id="cart-subtotal">zsh.00</strong></div>
-            <div class="cart-total-row"><span>Estimated HST (13%):</span><span id="cart-tax">zsh.00</span></div>
-            <div class="cart-total-row cart-grand-total"><span>Total CAD:</span><strong id="cart-grand-total">zsh.00</strong></div>
+            <div class="cart-total-row"><span>Subtotal:</span><strong id="cart-subtotal">$0.00</strong></div>
+            <div class="cart-total-row"><span>Estimated HST (13%):</span><span id="cart-tax">$0.00</span></div>
+            <div class="cart-total-row cart-grand-total"><span>Total CAD:</span><strong id="cart-grand-total">$0.00</strong></div>
           </div>
-          <div class="cart-actions-row">
-            <button id="btn-clear-cart" class="btn-secondary btn-clear-cart" type="button">Clear Cart</button>
-            <button id="btn-copy-cart-skus" class="btn-secondary btn-copy-skus" type="button">📋 Copy SKUs</button>
-            <button id="btn-open-momence-cart" class="btn-primary btn-open-momence-cart" type="button">
-              ⚡ Open in Momence POS
+          <div class="cart-actions-row cart-checkout-options">
+            <button id="btn-clear-cart" class="btn-secondary btn-clear-cart" type="button">Clear</button>
+            <button id="btn-cash-sale" class="btn-cash-sale" type="button" title="Record Cash Transaction">💵 Cash</button>
+            <button id="btn-send-to-stripe-reader" class="btn-send-reader" type="button" title="Dispatch to Momence Stripe Terminal">
+              📡 Stripe Reader
+            </button>
+            <button id="btn-charge-card-on-file" class="btn-charge-card" type="button" title="1-Tap Instant Checkout to Momence Account">
+              <span id="btn-charge-label">⚡ Charge Card on File (<span id="btn-charge-amount">$0.00</span>)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEMBER SIGN-IN & LOOKUP PORTAL MODAL -->
+    <div id="member-portal-modal" class="modal-overlay" style="display: none;">
+      <div class="modal-card member-portal-card">
+        <div class="member-portal-header">
+          <div>
+            <h3>Member Sign-In & Customer Account</h3>
+            <p class="member-portal-subtitle">The Practice Yorkville • Member Directory & POS Sync</p>
+          </div>
+          <button id="btn-close-member-portal" class="btn-close-modal" aria-label="Close" type="button" style="color:#FFFFFF;">✕</button>
+        </div>
+        
+        <div class="member-portal-body">
+          <!-- Member Search Bar -->
+          <div class="member-search-box">
+            <svg class="member-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="member-search-input" class="member-search-input" placeholder="Search by member name, phone or email...">
+          </div>
+
+          <!-- Quick Select Member Pills -->
+          <div>
+            <div class="member-quick-pills-label">Quick Select (Studio Floor)</div>
+            <div class="member-quick-pills" id="member-quick-pills-container">
+              <!-- Dynamically populated or static fast buttons -->
+            </div>
+          </div>
+
+          <!-- Active Selected Member Card -->
+          <div class="member-profile-card" id="member-selected-card">
+            <div class="member-profile-top">
+              <div class="member-avatar" id="member-card-avatar">JM</div>
+              <div class="member-meta">
+                <h4 id="member-card-name">Jackson McMurdo</h4>
+                <p id="member-card-email">Jackson@ThePracticetoronto.com</p>
+                <span class="member-badge-pill" id="member-card-tier">Founding Member • Unlimited Access</span>
+              </div>
+            </div>
+
+            <div class="member-attributes-grid">
+              <div class="member-attr-item">
+                <span class="member-attr-label">Card on File</span>
+                <span class="member-attr-val" id="member-card-payment">Ready (Visa •••• 4242)</span>
+              </div>
+              <div class="member-attr-item">
+                <span class="member-attr-label">Account Status</span>
+                <span class="member-attr-val" style="color: #16A34A;" id="member-card-status">Active & Verified</span>
+              </div>
+            </div>
+
+            <!-- Studio Class Check-In Box -->
+            <div class="member-checkin-banner" id="member-checkin-banner">
+              <div class="member-checkin-text">
+                <strong id="member-class-title">Vinyasa Flow • 5:30 PM</strong>
+                <div style="font-size: 11px; opacity: 0.85;" id="member-class-sub">Studio 1 with Lisa Kovacs</div>
+              </div>
+              <button type="button" class="btn-checkin-now" id="btn-toggle-checkin">✓ Checked In</button>
+            </div>
+
+            <button type="button" class="btn-set-active-member" id="btn-apply-active-member">
+              ✓ Set as Active Register Customer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAILY REGISTER & ACCOUNTING LEDGER MODAL -->
+    <div id="register-ledger-modal" class="modal-overlay" style="display: none;">
+      <div class="modal-card ledger-modal-card">
+        <div class="ledger-modal-header">
+          <div class="ledger-header-left">
+            <h3>Daily Register & Accounting Ledger</h3>
+            <p id="ledger-date-subtitle">The Practice Sanctuary • Real-Time Daily Sales & Tax Breakdown</p>
+          </div>
+          <button id="btn-close-ledger" class="btn-close-modal" aria-label="Close" type="button" style="color:#FFFFFF;">✕</button>
+        </div>
+
+        <div class="ledger-modal-body">
+          <!-- KPI Summary Cards -->
+          <div class="ledger-kpis-grid">
+            <div class="ledger-kpi-card">
+              <span class="ledger-kpi-label">Today's Gross Sales</span>
+              <span class="ledger-kpi-value" id="ledger-kpi-gross">$0.00</span>
+              <span class="ledger-kpi-sub">Total CAD collected</span>
+            </div>
+            <div class="ledger-kpi-card">
+              <span class="ledger-kpi-label">Net Sales (Excl. Tax)</span>
+              <span class="ledger-kpi-value" id="ledger-kpi-net">$0.00</span>
+              <span class="ledger-kpi-sub">Gross revenue pre-tax</span>
+            </div>
+            <div class="ledger-kpi-card">
+              <span class="ledger-kpi-label">Ontario HST (13%)</span>
+              <span class="ledger-kpi-value" id="ledger-kpi-tax" style="color: #2F4538;">$0.00</span>
+              <span class="ledger-kpi-sub">CRA tax liability</span>
+            </div>
+            <div class="ledger-kpi-card">
+              <span class="ledger-kpi-label">Transactions</span>
+              <span class="ledger-kpi-value" id="ledger-kpi-count">0</span>
+              <span class="ledger-kpi-sub">Completed orders today</span>
+            </div>
+          </div>
+
+          <!-- Payment Methods Breakdown -->
+          <div class="ledger-methods-row">
+            <div class="ledger-method-stat">
+              <div class="ledger-method-icon" style="background:#E0E7FF;color:#4F46E5;">⚡</div>
+              <div>
+                <div style="font-size:11px;color:#6B7280;">Card on File</div>
+                <strong id="ledger-stat-card-on-file">$0.00 (0)</strong>
+              </div>
+            </div>
+            <div class="ledger-method-stat">
+              <div class="ledger-method-icon" style="background:#DBEAFE;color:#2563EB;">📡</div>
+              <div>
+                <div style="font-size:11px;color:#6B7280;">Stripe Reader</div>
+                <strong id="ledger-stat-terminal">$0.00 (0)</strong>
+              </div>
+            </div>
+            <div class="ledger-method-stat">
+              <div class="ledger-method-icon" style="background:#DCFCE7;color:#16A34A;">💵</div>
+              <div>
+                <div style="font-size:11px;color:#6B7280;">Cash / Quick Pay</div>
+                <strong id="ledger-stat-cash">$0.00 (0)</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transaction Ledger Table -->
+          <div>
+            <div style="font-size:12px;font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em;color:#6B7280;">
+              Today's Completed Register Transactions
+            </div>
+            <div class="ledger-table-wrap">
+              <table class="ledger-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Order #</th>
+                    <th>Customer</th>
+                    <th>Items</th>
+                    <th>Payment Method</th>
+                    <th style="text-align:right;">Total CAD</th>
+                  </tr>
+                </thead>
+                <tbody id="ledger-table-body">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Footer Actions -->
+          <div class="ledger-footer-actions">
+            <button type="button" class="btn-clear-ledger" id="btn-reset-ledger">
+              Reset Day's Register
+            </button>
+            <button type="button" class="btn-export-csv" id="btn-export-ledger-csv">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              <span>Export Accounting CSV (QuickBooks / Xero)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHECKOUT SUCCESS & RECEIPT MODAL -->
+    <div id="checkout-success-modal" class="modal-overlay" style="display: none;">
+      <div class="modal-card success-modal-card">
+        <div class="success-modal-header">
+          <div class="success-check-bubble">✓</div>
+          <h3 style="margin:0;font-size:20px;color:#15803D;">Payment Approved</h3>
+          <p style="margin:0;font-size:13px;color:#4B5563;" id="success-method-msg">Charged to Member Card on File</p>
+        </div>
+
+        <div class="success-modal-body">
+          <div class="success-receipt-chit" id="success-receipt-chit">
+            <!-- Dynamically populated receipt text -->
+          </div>
+
+          <div class="success-actions-row">
+            <button type="button" class="btn-print-chit" id="btn-print-receipt">
+              🖨️ Print Receipt / Slip
+            </button>
+            <button type="button" class="btn-done-sale" id="btn-close-success">
+              ✓ Ready for Next Guest
             </button>
           </div>
         </div>
