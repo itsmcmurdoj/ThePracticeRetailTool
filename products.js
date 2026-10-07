@@ -1,4 +1,4 @@
-// The Practice • Retail Products Dataset (723 Verified Live Items)
+// The Practice • Retail Products Dataset (724 Verified Live Items)
 // Synchronized with Momence Host 200431 & 3D Spatial Digital Twin
 const PRODUCTS = [
   {
@@ -2477,7 +2477,36 @@ const PRODUCTS = [
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/567145/edit",
-    "img": "https://images.momence.com/h/200431/product-image/da484b82-c0db-4cc9-8e8a-76523f50110b.jpg",
+    "img": "https://images.momence.com/h/200431/product-image/f9f602a7-8dde-4489-9749-7da96138dfde.jpg",
+    "location": {
+      "zoneKey": "CAFE_BAR",
+      "zoneName": "Cafe Bar & Nourishment Station",
+      "surface": "Past the retail showroom through the center archway at the cafe ordering bar.",
+      "coords": [
+        0.0,
+        10.5,
+        1.05
+      ],
+      "walkInstructions": "Walk straight past the retail showroom through the center archway into the Cafe and nourishment area."
+    }
+  },
+  {
+    "id": 575284,
+    "department": "Cafe & Nourishment",
+    "subgroup": "Wellness Elixirs & Add-Ons",
+    "brand": "AMP",
+    "name": "AMP Electrolyte Bag (C)",
+    "fullTitle": "AMP - AMP Electrolyte Bag (C)",
+    "price": "$30.00",
+    "priceNum": 30.0,
+    "sku": "AMP-ELE-BAG-0001",
+    "barcodes": [
+      "AMP-ELE-BAG-0001",
+      "575284"
+    ],
+    "pitch": "Multi-serving resealable bag of organic lemon electrolyte mix. Zero artificial sweeteners, rich in potassium, sodium, and magnesium.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/575284/edit",
+    "img": "https://images.momence.com/h/200431/product-image/a7746a9f-5d65-4e3a-94af-3cfad77132c4.jpg",
     "location": {
       "zoneKey": "CAFE_BAR",
       "zoneName": "Cafe Bar & Nourishment Station",
