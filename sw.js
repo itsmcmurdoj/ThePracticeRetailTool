@@ -4,7 +4,7 @@
  * Implements Network-First for catalog data (products.js) to guarantee instant fleet sync
  */
 
-const CACHE_NAME = 'the-practice-retail-v15-hybrid-checkout';
+const CACHE_NAME = 'the-practice-retail-v16-login-cashless';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

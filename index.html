@@ -23,6 +23,175 @@
   <link rel="stylesheet" href="./styles.css?v=8.0">
 </head>
 <body>
+  <!-- ==========================================================================
+       ARCHITECTURAL FULL-SCREEN LOGIN & SANCTUARY LOCK SCREEN
+       ========================================================================== -->
+  <div id="app-login-screen" class="app-login-screen" style="display: flex;">
+    <div class="login-ambient-glow-1"></div>
+    <div class="login-ambient-glow-2"></div>
+    
+    <!-- Top Ambient Status Bar -->
+    <header class="login-top-bar">
+      <div class="login-top-left">
+        <span class="login-studio-location">THE PRACTICE • YORKVILLE SANCTUARY</span>
+        <span class="login-address">360 Davenport Rd, Toronto, ON</span>
+      </div>
+      <div class="login-top-center">
+        <div class="login-clock" id="login-screen-clock">4:47 PM</div>
+        <div class="login-date" id="login-screen-date">Wednesday, October 7, 2026</div>
+      </div>
+      <div class="login-top-right">
+        <span class="login-status-chip">● Register Online</span>
+        <span class="login-cashless-chip">🌿 100% Cashless Sanctuary</span>
+      </div>
+    </header>
+
+    <!-- Main Architectural Card -->
+    <div class="login-main-card">
+      <div class="login-brand-header">
+        <img src="./assets/the_practice_logo.png" alt="The Practice" class="login-logo-img">
+        <h1 class="login-brand-title">THE PRACTICE</h1>
+        <p class="login-brand-subtitle">Yorkville • Floor Register & Member Sanctuary</p>
+      </div>
+
+      <!-- Mode Switcher Tabs -->
+      <div class="login-tabs-bar">
+        <button type="button" class="login-tab-btn active" id="tab-login-staff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>Staff Register Access</span>
+        </button>
+        <button type="button" class="login-tab-btn" id="tab-login-member">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Member Sign-In & Ritual</span>
+        </button>
+      </div>
+
+      <!-- TAB 1: STAFF PIN ACCESS -->
+      <div class="login-tab-pane active" id="pane-login-staff">
+        <div class="staff-roster-label">Select Active Shift Profile</div>
+        <div class="staff-roster-grid" id="staff-roster-grid">
+          <!-- Populated dynamically: Noah, Sara Jackson, Jackson McMurdo, Kim Noble, Lisa Kovacs -->
+        </div>
+
+        <!-- Active Selected Staff Banner -->
+        <div class="active-staff-banner" id="active-staff-banner">
+          <div class="active-staff-avatar" id="login-staff-avatar">N</div>
+          <div class="active-staff-info">
+            <strong id="login-staff-name">Noah</strong>
+            <span id="login-staff-role">Barista & Cafe Lead • Shift #1</span>
+          </div>
+          <span class="active-staff-ready">Ready for PIN</span>
+        </div>
+
+        <!-- 4-Digit Passcode Display -->
+        <div class="pin-display-wrap">
+          <div class="pin-dots-row" id="pin-dots-container">
+            <span class="pin-dot" id="pin-dot-1"></span>
+            <span class="pin-dot" id="pin-dot-2"></span>
+            <span class="pin-dot" id="pin-dot-3"></span>
+            <span class="pin-dot" id="pin-dot-4"></span>
+          </div>
+          <div class="pin-feedback-msg" id="pin-feedback-msg">Enter 4-digit staff PIN</div>
+        </div>
+
+        <!-- Numeric Keypad Grid -->
+        <div class="pin-keypad-grid">
+          <button type="button" class="pin-key-btn" data-digit="1">1</button>
+          <button type="button" class="pin-key-btn" data-digit="2">2</button>
+          <button type="button" class="pin-key-btn" data-digit="3">3</button>
+          <button type="button" class="pin-key-btn" data-digit="4">4</button>
+          <button type="button" class="pin-key-btn" data-digit="5">5</button>
+          <button type="button" class="pin-key-btn" data-digit="6">6</button>
+          <button type="button" class="pin-key-btn" data-digit="7">7</button>
+          <button type="button" class="pin-key-btn" data-digit="8">8</button>
+          <button type="button" class="pin-key-btn" data-digit="9">9</button>
+          <button type="button" class="pin-key-btn pin-key-action" id="btn-pin-backspace" title="Backspace">⌫</button>
+          <button type="button" class="pin-key-btn" data-digit="0">0</button>
+          <button type="button" class="pin-key-btn pin-key-action pin-key-submit" id="btn-pin-submit" title="Unlock Register">✓</button>
+        </div>
+
+        <div class="login-quick-actions">
+          <button type="button" class="btn-fast-unlock" id="btn-fast-shift-unlock">
+            ⚡ Quick Shift Unlock (<span id="btn-fast-staff-label">Noah</span>)
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 2: MEMBER SIGN-IN & RITUAL -->
+      <div class="login-tab-pane" id="pane-login-member" style="display: none;">
+        <div class="member-login-intro">
+          <h3>Welcome to Your Ritual</h3>
+          <p>Sign in to access your founding perks, verify class check-in, and enable 1-tap card-on-file checkout.</p>
+        </div>
+
+        <div class="member-search-box login-member-search">
+          <svg class="member-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="login-member-search-input" class="member-search-input" placeholder="Search by name, email, or phone number...">
+        </div>
+
+        <div class="member-quick-pills-label" style="margin-top:14px;">Quick Select Studio Member</div>
+        <div class="member-quick-pills" id="login-member-quick-pills">
+          <!-- Populated from KNOWN_MEMBERS -->
+        </div>
+
+        <div class="member-profile-card" id="login-member-card" style="margin-top:16px;">
+          <div class="member-profile-top">
+            <div class="member-avatar" id="login-card-avatar">JM</div>
+            <div class="member-meta">
+              <h4 id="login-card-name">Jackson McMurdo</h4>
+              <p id="login-card-email">Jackson@ThePracticetoronto.com</p>
+              <span class="member-badge-pill" id="login-card-tier">Founding Member • Unlimited Access</span>
+            </div>
+          </div>
+
+          <div class="member-attributes-grid">
+            <div class="member-attr-item">
+              <span class="member-attr-label">Payment on File</span>
+              <span class="member-attr-val" id="login-card-payment" style="color:#2F4538; font-weight:600;">Visa •••• 4242 (Cashless)</span>
+            </div>
+            <div class="member-attr-item">
+              <span class="member-attr-label">Account Status</span>
+              <span class="member-attr-val" style="color: #16A34A;" id="login-card-status">Active & Verified</span>
+            </div>
+          </div>
+
+          <div class="member-checkin-banner" id="login-checkin-banner">
+            <div class="member-checkin-text">
+              <strong id="login-class-title">Vinyasa Flow • 5:30 PM</strong>
+              <div style="font-size: 11px; opacity: 0.85;" id="login-class-sub">Studio 1 with Lisa Kovacs</div>
+            </div>
+            <button type="button" class="btn-checkin-now" id="btn-login-toggle-checkin">✓ Checked In</button>
+          </div>
+
+          <button type="button" class="btn-set-active-member" id="btn-unlock-as-member" style="margin-top:14px;">
+            ✓ Unlock Register as Jackson McMurdo
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom Direct Walk-In Bypass -->
+      <div class="login-footer-action">
+        <button type="button" class="btn-direct-walkin" id="btn-login-walkin">
+          ⚡ Walk-In Guest (Fast Cashless Checkout • Tap / Apple Pay)
+        </button>
+      </div>
+
+      <div class="login-cashless-policy-notice">
+        <span>🌿 THE PRACTICE IS A STRICTLY CASHLESS SANCTUARY</span>
+        <span class="policy-sub">All major credit cards, Apple Pay, Google Pay & Momence card-on-file accepted</span>
+      </div>
+    </div>
+  </div>
+
   <div class="app-container">
     
     <!-- TOP NAVIGATION HEADER -->
@@ -39,6 +208,14 @@
       </div>
       
       <div class="header-right">
+        <button id="btn-lock-register" class="header-cart-btn header-lock-btn" title="Lock Register / Switch Staff" aria-label="Lock Register" type="button" style="padding: 6px 12px; gap: 7px; background: rgba(21, 21, 21, 0.05); border: 1px solid rgba(21, 21, 21, 0.15);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; color: #151515;">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span id="header-staff-name" style="font-weight: 600; font-size: 11px; color: #151515;">Noah</span>
+        </button>
+
         <button id="btn-sync-catalog" class="header-cart-btn" title="Force Sync Catalog & Purge Cache" aria-label="Sync Catalog" type="button" style="padding: 8px 12px; gap: 6px;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;">
             <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19"/>
@@ -803,9 +980,11 @@
             <div class="cart-total-row"><span>Estimated HST (13%):</span><span id="cart-tax">$0.00</span></div>
             <div class="cart-total-row cart-grand-total"><span>Total CAD:</span><strong id="cart-grand-total">$0.00</strong></div>
           </div>
+          <div class="cart-cashless-banner" style="margin-bottom: 10px; padding: 6px 12px; background: rgba(47, 69, 56, 0.08); border: 1px solid rgba(47, 69, 56, 0.2); border-radius: 8px; font-size: 11px; color: #2F4538; font-weight: 500; text-align: center;">
+            🌿 The Practice is a Cashless Sanctuary • Card & Contactless Only
+          </div>
           <div class="cart-actions-row cart-checkout-options">
             <button id="btn-clear-cart" class="btn-secondary btn-clear-cart" type="button">Clear</button>
-            <button id="btn-cash-sale" class="btn-cash-sale" type="button" title="Record Cash Transaction">💵 Cash</button>
             <button id="btn-send-to-stripe-reader" class="btn-send-reader" type="button" title="Dispatch to Momence Stripe Terminal">
               📡 Stripe Reader
             </button>
@@ -938,10 +1117,10 @@
               </div>
             </div>
             <div class="ledger-method-stat">
-              <div class="ledger-method-icon" style="background:#DCFCE7;color:#16A34A;">💵</div>
+              <div class="ledger-method-icon" style="background:#ECFDF5;color:#059669;">🌿</div>
               <div>
-                <div style="font-size:11px;color:#6B7280;">Cash / Quick Pay</div>
-                <strong id="ledger-stat-cash">$0.00 (0)</strong>
+                <div style="font-size:11px;color:#6B7280;">Studio Policy</div>
+                <strong style="color:#059669;">100% Cashless</strong>
               </div>
             </div>
           </div>

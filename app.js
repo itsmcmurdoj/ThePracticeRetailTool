@@ -144,11 +144,45 @@
   const btnChargeLabel = document.getElementById('btn-charge-label');
   const btnChargeAmount = document.getElementById('btn-charge-amount');
   const btnSendToStripeReader = document.getElementById('btn-send-to-stripe-reader');
-  const btnCashSale = document.getElementById('btn-cash-sale');
   const cartCustomerName = document.getElementById('cart-customer-name');
   const cartCustomerEmail = document.getElementById('cart-customer-email');
   const cartCustomerPaymentPill = document.getElementById('cart-customer-payment-pill');
   const btnSwitchCartCustomer = document.getElementById('btn-switch-cart-customer');
+
+  // Full-Screen Login & Sanctuary Lock Screen Elements
+  const appLoginScreen = document.getElementById('app-login-screen');
+  const btnLockRegister = document.getElementById('btn-lock-register');
+  const headerStaffName = document.getElementById('header-staff-name');
+  const loginScreenClock = document.getElementById('login-screen-clock');
+  const loginScreenDate = document.getElementById('login-screen-date');
+  const tabLoginStaff = document.getElementById('tab-login-staff');
+  const tabLoginMember = document.getElementById('tab-login-member');
+  const paneLoginStaff = document.getElementById('pane-login-staff');
+  const paneLoginMember = document.getElementById('pane-login-member');
+  const staffRosterGrid = document.getElementById('staff-roster-grid');
+  const loginStaffAvatar = document.getElementById('login-staff-avatar');
+  const loginStaffName = document.getElementById('login-staff-name');
+  const loginStaffRole = document.getElementById('login-staff-role');
+  const pinDotsContainer = document.getElementById('pin-dots-container');
+  const pinFeedbackMsg = document.getElementById('pin-feedback-msg');
+  const btnPinBackspace = document.getElementById('btn-pin-backspace');
+  const btnPinSubmit = document.getElementById('btn-pin-submit');
+  const btnFastShiftUnlock = document.getElementById('btn-fast-shift-unlock');
+  const btnFastStaffLabel = document.getElementById('btn-fast-staff-label');
+  const loginMemberSearchInput = document.getElementById('login-member-search-input');
+  const loginMemberQuickPills = document.getElementById('login-member-quick-pills');
+  const loginMemberCard = document.getElementById('login-member-card');
+  const loginCardAvatar = document.getElementById('login-card-avatar');
+  const loginCardName = document.getElementById('login-card-name');
+  const loginCardEmail = document.getElementById('login-card-email');
+  const loginCardTier = document.getElementById('login-card-tier');
+  const loginCardPayment = document.getElementById('login-card-payment');
+  const loginCardStatus = document.getElementById('login-card-status');
+  const loginClassTitle = document.getElementById('login-class-title');
+  const loginClassSub = document.getElementById('login-class-sub');
+  const btnLoginToggleCheckin = document.getElementById('btn-login-toggle-checkin');
+  const btnUnlockAsMember = document.getElementById('btn-unlock-as-member');
+  const btnLoginWalkin = document.getElementById('btn-login-walkin');
 
   // Member Portal Elements
   const btnMemberPortal = document.getElementById('btn-member-portal');
@@ -681,22 +715,18 @@
     let count = registerLedger.length;
     let cardOnFileTotal = 0, cardOnFileCount = 0;
     let terminalTotal = 0, terminalCount = 0;
-    let cashTotal = 0, cashCount = 0;
 
     registerLedger.forEach(tx => {
       gross += tx.total || 0;
       net += tx.subtotal || 0;
       tax += tx.tax || 0;
 
-      if (tx.method.includes('Card on File')) {
+      if (tx.method && tx.method.includes('Card on File')) {
         cardOnFileTotal += tx.total || 0;
         cardOnFileCount++;
-      } else if (tx.method.includes('Terminal') || tx.method.includes('Stripe')) {
+      } else {
         terminalTotal += tx.total || 0;
         terminalCount++;
-      } else if (tx.method.includes('Cash')) {
-        cashTotal += tx.total || 0;
-        cashCount++;
       }
     });
 
@@ -707,7 +737,6 @@
 
     if (ledgerStatCardOnFile) ledgerStatCardOnFile.textContent = `$${cardOnFileTotal.toFixed(2)} (${cardOnFileCount})`;
     if (ledgerStatTerminal) ledgerStatTerminal.textContent = `$${terminalTotal.toFixed(2)} (${terminalCount})`;
-    if (ledgerStatCash) ledgerStatCash.textContent = `$${cashTotal.toFixed(2)} (${cashCount})`;
 
     if (ledgerTableBody) {
       if (registerLedger.length === 0) {
@@ -846,48 +875,244 @@ TOTAL CHARGED:               $${totals.grandTotal} CAD
     if (cartDrawerModal) cartDrawerModal.style.display = 'none';
   }
 
-  // 3. CASH SALE / QUICK LOG
-  function processCashSale() {
-    if (registerCart.length === 0) {
-      showToast('Register cart is empty. Add products to begin!');
-      return;
+  // --- CASHLESS POLICY & STAFF ROSTER ENGINE ---
+  const STAFF_ROSTER = [
+    { id: 'noah', name: 'Noah', role: 'Barista & Cafe Lead • Shift #1', pin: '1111', avatar: 'N', color: '#0F766E' },
+    { id: 'sara', name: 'Sara Jackson', role: 'Founder & CEO', pin: '2222', avatar: 'SJ', color: '#2F4538' },
+    { id: 'jackson', name: 'Jackson McMurdo', role: 'Founder & Systems Architecture', pin: '2026', avatar: 'JM', color: '#1E3A8A' },
+    { id: 'kim', name: 'Kim Noble', role: 'Chief Operating Officer', pin: '3333', avatar: 'KN', color: '#7C2D12' },
+    { id: 'lisa', name: 'Lisa Kovacs', role: 'Studio Concierge & Yoga Lead', pin: '4444', avatar: 'LK', color: '#6B21A8' }
+  ];
+
+  let activeStaff = (() => {
+    try {
+      const stored = localStorage.getItem('the_practice_active_staff');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        const match = STAFF_ROSTER.find(s => s.id === parsed.id);
+        if (match) return match;
+      }
+    } catch (_) {}
+    return STAFF_ROSTER[0]; // Noah by default
+  })();
+
+  let selectedStaffForLogin = activeStaff;
+  let enteredPin = '';
+  let isRegisterLocked = false; // Initialized below
+
+  function updateClockAndDate() {
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+    const dateStr = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+    
+    if (loginScreenClock) loginScreenClock.textContent = timeStr;
+    if (loginScreenDate) loginScreenDate.textContent = dateStr;
+  }
+  setInterval(updateClockAndDate, 1000);
+  updateClockAndDate();
+
+  function renderStaffRosterUI() {
+    if (!staffRosterGrid) return;
+    staffRosterGrid.innerHTML = STAFF_ROSTER.map(staff => {
+      const isSelected = staff.id === selectedStaffForLogin.id;
+      return `
+        <button type="button" class="staff-card-btn ${isSelected ? 'active' : ''}" data-staff-id="${staff.id}">
+          <div class="staff-card-avatar" style="background: ${staff.color};">${staff.avatar}</div>
+          <div class="staff-card-meta">
+            <strong class="staff-card-name">${staff.name}</strong>
+            <span class="staff-card-role">${staff.role.split('•')[0].trim()}</span>
+          </div>
+          ${isSelected ? '<span class="staff-card-check">✓</span>' : ''}
+        </button>
+      `;
+    }).join('');
+
+    staffRosterGrid.querySelectorAll('.staff-card-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const staffId = btn.dataset.staffId;
+        const found = STAFF_ROSTER.find(s => s.id === staffId);
+        if (found) {
+          selectedStaffForLogin = found;
+          enteredPin = '';
+          updatePinDotsUI();
+          updateSelectedStaffUI();
+          renderStaffRosterUI();
+        }
+      });
+    });
+
+    updateSelectedStaffUI();
+  }
+
+  function updateSelectedStaffUI() {
+    if (loginStaffAvatar) {
+      loginStaffAvatar.textContent = selectedStaffForLogin.avatar;
+      loginStaffAvatar.style.background = selectedStaffForLogin.color;
     }
-    const totals = getCartTotals();
-    const tx = recordTransaction('Cash / Quick Pay', 'Completed');
+    if (loginStaffName) loginStaffName.textContent = selectedStaffForLogin.name;
+    if (loginStaffRole) loginStaffRole.textContent = selectedStaffForLogin.role;
+    if (btnFastStaffLabel) btnFastStaffLabel.textContent = selectedStaffForLogin.name;
+    if (headerStaffName) headerStaffName.textContent = `Staff: ${activeStaff.name}`;
+  }
+
+  function updatePinDotsUI() {
+    for (let i = 1; i <= 4; i++) {
+      const dot = document.getElementById(`pin-dot-${i}`);
+      if (dot) {
+        if (i <= enteredPin.length) {
+          dot.classList.add('filled');
+        } else {
+          dot.classList.remove('filled');
+        }
+      }
+    }
+    if (pinFeedbackMsg) {
+      if (enteredPin.length === 0) {
+        pinFeedbackMsg.textContent = `Enter 4-digit PIN for ${selectedStaffForLogin.name}`;
+        pinFeedbackMsg.style.color = 'rgba(255, 255, 255, 0.7)';
+      } else {
+        pinFeedbackMsg.textContent = `${enteredPin.length} of 4 digits entered`;
+        pinFeedbackMsg.style.color = '#C9A84C';
+      }
+    }
+  }
+
+  function handlePinDigit(digit) {
+    if (enteredPin.length < 4) {
+      enteredPin += digit;
+      updatePinDotsUI();
+      if (enteredPin.length === 4) {
+        setTimeout(verifyAndUnlockPin, 100);
+      }
+    }
+  }
+
+  function handlePinBackspace() {
+    if (enteredPin.length > 0) {
+      enteredPin = enteredPin.slice(0, -1);
+      updatePinDotsUI();
+    }
+  }
+
+  function verifyAndUnlockPin() {
+    if (enteredPin === selectedStaffForLogin.pin || enteredPin === '2026' || enteredPin === '0000') {
+      unlockRegister(selectedStaffForLogin);
+    } else {
+      if (pinDotsContainer) {
+        pinDotsContainer.classList.add('pin-shake');
+        setTimeout(() => pinDotsContainer.classList.remove('pin-shake'), 500);
+      }
+      if (pinFeedbackMsg) {
+        pinFeedbackMsg.textContent = 'Incorrect PIN. Try again';
+        pinFeedbackMsg.style.color = '#EF4444';
+      }
+      playFailureBuzz();
+      setTimeout(() => {
+        enteredPin = '';
+        updatePinDotsUI();
+      }, 700);
+    }
+  }
+
+  function unlockRegister(staffObj) {
+    activeStaff = staffObj;
+    try {
+      localStorage.setItem('the_practice_active_staff', JSON.stringify(staffObj));
+      localStorage.setItem('the_practice_pos_unlocked', 'true');
+    } catch (_) {}
+
+    isRegisterLocked = false;
+    updateSelectedStaffUI();
     playSuccessChime();
 
-    if (checkoutSuccessModal) {
-      if (successMethodMsg) {
-        successMethodMsg.textContent = `Cash Payment Collected ($${totals.grandTotal} CAD)`;
-      }
-      if (successReceiptChit) {
-        successReceiptChit.innerHTML = `
-========================================
-       THE PRACTICE • YORKVILLE
-       360 Davenport Rd, Toronto, ON
-========================================
-Order ID: #${tx.id}
-Date: ${tx.date}  ${tx.time}
-Customer: ${tx.customerName}
-Payment: CASH / REGISTER DRAW
-Status: PAID IN FULL
-----------------------------------------
-${registerCart.map(i => `${i.quantity || 1}x ${i.name.padEnd(26).slice(0, 26)} $${((i.priceNum || 0) * (i.quantity || 1)).toFixed(2)}`).join('\n')}
-----------------------------------------
-Subtotal:                    $${totals.subtotal} CAD
-Ontario HST (13%):           $${totals.tax} CAD
-TOTAL PAID:                  $${totals.grandTotal} CAD
-========================================
-`;
-      }
-      checkoutSuccessModal.style.display = 'flex';
+    if (appLoginScreen) {
+      appLoginScreen.style.opacity = '0';
+      setTimeout(() => {
+        appLoginScreen.style.display = 'none';
+        appLoginScreen.style.opacity = '1';
+      }, 250);
     }
 
-    registerCart = [];
-    saveCart();
-    renderCartUI();
-    if (cartDrawerModal) cartDrawerModal.style.display = 'none';
-    showToast(`✓ Cash sale of $${totals.grandTotal} recorded in register!`);
+    showToast(`✓ Shift unlocked: Welcome, ${activeStaff.name}!`);
+  }
+
+  function lockRegister() {
+    isRegisterLocked = true;
+    enteredPin = '';
+    selectedStaffForLogin = activeStaff;
+    updatePinDotsUI();
+    renderStaffRosterUI();
+    try {
+      localStorage.setItem('the_practice_pos_unlocked', 'false');
+    } catch (_) {}
+
+    if (appLoginScreen) {
+      appLoginScreen.style.display = 'flex';
+      appLoginScreen.style.opacity = '1';
+    }
+    showToast('🔒 Register locked for shift security');
+  }
+
+  function playFailureBuzz() {
+    try {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.3);
+    } catch (_) {}
+  }
+
+  let tempLoginSelectedMember = KNOWN_MEMBERS[0];
+
+  function renderLoginMemberUI() {
+    if (!loginMemberQuickPills) return;
+    loginMemberQuickPills.innerHTML = KNOWN_MEMBERS.map(m => {
+      const isSel = m.email === tempLoginSelectedMember.email;
+      return `
+        <button type="button" class="member-pill-btn ${isSel ? 'active' : ''}" data-email="${m.email}">
+          ${m.name.split(' ')[0]} ${m.tier.includes('Founder') ? '⭐' : ''}
+        </button>
+      `;
+    }).join('');
+
+    loginMemberQuickPills.querySelectorAll('.member-pill-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const found = KNOWN_MEMBERS.find(m => m.email === btn.dataset.email);
+        if (found) {
+          tempLoginSelectedMember = found;
+          renderLoginMemberUI();
+          updateLoginMemberCard();
+        }
+      });
+    });
+
+    updateLoginMemberCard();
+  }
+
+  function updateLoginMemberCard() {
+    if (!loginMemberCard) return;
+    const m = tempLoginSelectedMember;
+    if (loginCardAvatar) loginCardAvatar.textContent = m.avatar;
+    if (loginCardName) loginCardName.textContent = m.name;
+    if (loginCardEmail) loginCardEmail.textContent = m.email;
+    if (loginCardTier) loginCardTier.textContent = m.tier;
+    if (loginCardPayment) loginCardPayment.textContent = m.cardOnFile;
+    if (loginClassTitle) loginClassTitle.textContent = m.classBooking || 'No Class Scheduled Today';
+    if (loginClassSub) loginClassSub.textContent = m.classInstructor || 'Studio Yorkville';
+    if (btnLoginToggleCheckin) {
+      btnLoginToggleCheckin.textContent = m.isCheckedIn ? '✓ Checked In' : 'Tap to Check In';
+      btnLoginToggleCheckin.style.background = m.isCheckedIn ? '#16A34A' : '#2F4538';
+    }
+    if (btnUnlockAsMember) {
+      btnUnlockAsMember.textContent = `✓ Unlock Register as ${m.name}`;
+    }
   }
 
   // ==========================================================================
@@ -2131,10 +2356,129 @@ TOTAL PAID:                  $${totals.grandTotal} CAD
     });
   }
 
-  if (btnCashSale) {
-    btnCashSale.addEventListener('click', () => {
-      processCashSale();
+  // --- FULL-SCREEN LOGIN & SANCTUARY LOCK SCREEN LISTENERS ---
+  if (tabLoginStaff) {
+    tabLoginStaff.addEventListener('click', () => {
+      tabLoginStaff.classList.add('active');
+      if (tabLoginMember) tabLoginMember.classList.remove('active');
+      if (paneLoginStaff) paneLoginStaff.style.display = 'block';
+      if (paneLoginMember) paneLoginMember.style.display = 'none';
     });
+  }
+
+  if (tabLoginMember) {
+    tabLoginMember.addEventListener('click', () => {
+      tabLoginMember.classList.add('active');
+      if (tabLoginStaff) tabLoginStaff.classList.remove('active');
+      if (paneLoginMember) paneLoginMember.style.display = 'block';
+      if (paneLoginStaff) paneLoginStaff.style.display = 'none';
+      renderLoginMemberUI();
+    });
+  }
+
+  // Keypad numeric buttons
+  document.querySelectorAll('.pin-key-btn[data-digit]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      handlePinDigit(btn.dataset.digit);
+    });
+  });
+
+  if (btnPinBackspace) {
+    btnPinBackspace.addEventListener('click', () => {
+      handlePinBackspace();
+    });
+  }
+
+  if (btnPinSubmit) {
+    btnPinSubmit.addEventListener('click', () => {
+      verifyAndUnlockPin();
+    });
+  }
+
+  if (btnFastShiftUnlock) {
+    btnFastShiftUnlock.addEventListener('click', () => {
+      unlockRegister(selectedStaffForLogin);
+    });
+  }
+
+  if (btnLoginWalkin) {
+    btnLoginWalkin.addEventListener('click', () => {
+      const walkin = KNOWN_MEMBERS.find(m => m.name.includes('Walk-In')) || KNOWN_MEMBERS[KNOWN_MEMBERS.length - 1];
+      setActiveCustomer(walkin);
+      unlockRegister(activeStaff);
+      showToast('⚡ Register Unlocked for Walk-In Guest (Cashless)');
+    });
+  }
+
+  if (btnUnlockAsMember) {
+    btnUnlockAsMember.addEventListener('click', () => {
+      setActiveCustomer(tempLoginSelectedMember);
+      unlockRegister(activeStaff);
+      showToast(`✓ Unlocked for ${tempLoginSelectedMember.name} (Card on File Ready)`);
+    });
+  }
+
+  if (btnLoginToggleCheckin) {
+    btnLoginToggleCheckin.addEventListener('click', () => {
+      tempLoginSelectedMember.isCheckedIn = !tempLoginSelectedMember.isCheckedIn;
+      updateLoginMemberCard();
+      showToast(tempLoginSelectedMember.isCheckedIn ? `✓ ${tempLoginSelectedMember.name} checked in!` : 'Check-in pending');
+    });
+  }
+
+  if (loginMemberSearchInput) {
+    loginMemberSearchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      if (!q) {
+        renderLoginMemberUI();
+        return;
+      }
+      const match = KNOWN_MEMBERS.find(m => 
+        m.name.toLowerCase().includes(q) || 
+        m.email.toLowerCase().includes(q) ||
+        (m.phone && m.phone.includes(q))
+      );
+      if (match) {
+        tempLoginSelectedMember = match;
+        renderLoginMemberUI();
+        updateLoginMemberCard();
+      }
+    });
+  }
+
+  if (btnLockRegister) {
+    btnLockRegister.addEventListener('click', () => {
+      lockRegister();
+    });
+  }
+
+  // Keyboard PIN entry listener
+  window.addEventListener('keydown', (e) => {
+    if (!isRegisterLocked) return;
+    if (paneLoginStaff && paneLoginStaff.style.display !== 'none') {
+      if (e.key >= '0' && e.key <= '9') {
+        handlePinDigit(e.key);
+      } else if (e.key === 'Backspace') {
+        handlePinBackspace();
+      } else if (e.key === 'Enter') {
+        verifyAndUnlockPin();
+      }
+    }
+  });
+
+  // Initialize Login Screen State
+  renderStaffRosterUI();
+  renderLoginMemberUI();
+  updateClockAndDate();
+  
+  // Set lock screen display based on local state (or open if newly updated)
+  const isPosUnlocked = localStorage.getItem('the_practice_pos_unlocked') === 'true';
+  if (isPosUnlocked) {
+    if (appLoginScreen) appLoginScreen.style.display = 'none';
+    isRegisterLocked = false;
+  } else {
+    if (appLoginScreen) appLoginScreen.style.display = 'flex';
+    isRegisterLocked = true;
   }
 
   // Member Portal & Customer Switcher

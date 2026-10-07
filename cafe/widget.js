@@ -1098,15 +1098,15 @@ function printBaristaKitchenSlip() {
   window.print();
 }
 
-// 4. COMPLETE QUICK SALE & CLEAR
-function confirmQuickSale(paymentMethod = 'Cash') {
+// 4. COMPLETE QUICK SALE & CLEAR (CASHLESS CONTACTLESS)
+function confirmQuickSale(paymentMethod = 'Contactless Tap') {
   const ticket = currentTicketNumber;
-  recordCafeTransactionInLedger(paymentMethod === 'Cash' ? 'Cash' : 'Quick Register Sale');
+  recordCafeTransactionInLedger(paymentMethod);
   cart = [];
   updateCartUI();
   closePosModal();
   currentTicketNumber = Math.floor(1000 + Math.random() * 9000);
-  showToast(`Order #CK-${ticket} logged (${paymentMethod})! Register ready.`);
+  showToast(`✓ Order #CK-${ticket} logged (${paymentMethod})! Register ready.`);
 }
 
 // COPY POS SKUS / IDS
