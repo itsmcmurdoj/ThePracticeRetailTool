@@ -1,9 +1,10 @@
 /**
  * THE PRACTICE • SERVICE WORKER (sw.js)
- * Provides 100% offline capability for the 723-product catalog & 3D showroom digital twin
+ * High-reliability fleet caching for iPad POS & 3D Showroom Digital Twin
+ * Implements Network-First for catalog data (products.js) to guarantee instant fleet sync
  */
 
-const CACHE_NAME = 'the-practice-retail-v13-keepsake-sync';
+const CACHE_NAME = 'the-practice-retail-v14-instant-sync';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -25,7 +26,7 @@ const ASSETS_TO_CACHE = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[ServiceWorker] Caching app shell & product catalog...');
+      console.log('[ServiceWorker] Caching app shell...');
       return cache.addAll(ASSETS_TO_CACHE);
     }).then(() => self.skipWaiting())
   );
@@ -37,7 +38,7 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME) {
-            console.log('[ServiceWorker] Removing old cache:', key);
+            console.log('[ServiceWorker] Removing stale cache:', key);
             return caches.delete(key);
           }
         })
@@ -46,12 +47,30 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+// Network-First for products.js and HTML documents to guarantee instant catalog sync
 self.addEventListener('fetch', (event) => {
-  // Navigation or asset request
+  const url = event.request.url;
+
+  // Catalog data or main document: Network first, fallback to cache
+  if (url.includes('products.js') || event.request.mode === 'navigate' || url.endsWith('/') || url.includes('index.html')) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const copy = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // All other assets: Cache first, background revalidate
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
-        // Return cache hit, and fetch in background to revalidate
         fetch(event.request).then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
             caches.open(CACHE_NAME).then((cache) => {
@@ -64,4 +83,13 @@ self.addEventListener('fetch', (event) => {
       return fetch(event.request);
     })
   );
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+  if (event.data === 'PURGE_CACHES') {
+    caches.keys().then((keys) => Promise.all(keys.map((k) => caches.delete(k))));
+  }
 });

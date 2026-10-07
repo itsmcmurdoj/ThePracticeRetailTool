@@ -1612,14 +1612,69 @@
     }
   });
 
-  // Service Worker Registration for PWA
+  // Force Catalog Sync & Purge Caches Button
+  const btnSyncCatalog = document.getElementById('btn-sync-catalog');
+  if (btnSyncCatalog) {
+    btnSyncCatalog.addEventListener('click', async () => {
+      showToast('🔄 Purging cache & fetching latest catalog...');
+      btnSyncCatalog.style.opacity = '0.5';
+      btnSyncCatalog.style.pointerEvents = 'none';
+
+      try {
+        if ('caches' in window) {
+          const keys = await caches.keys();
+          await Promise.all(keys.map((k) => caches.delete(k)));
+        }
+        if ('serviceWorker' in navigator) {
+          const reg = await navigator.serviceWorker.getRegistration();
+          if (reg) {
+            await reg.unregister();
+          }
+        }
+        showToast('✅ Fresh catalog loaded!');
+        setTimeout(() => {
+          window.location.reload(true);
+        }, 300);
+      } catch (err) {
+        console.error('Catalog sync error:', err);
+        window.location.reload(true);
+      }
+    });
+  }
+
+  // Service Worker Registration for PWA with auto-update
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./sw.js').then((reg) => {
         console.log('PWA ServiceWorker registered:', reg.scope);
+        reg.update();
+
+        reg.onupdatefound = () => {
+          const installingWorker = reg.installing;
+          if (installingWorker) {
+            installingWorker.onstatechange = () => {
+              if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                console.log('New catalog version available, reloading...');
+                window.location.reload();
+              }
+            };
+          }
+        };
       }).catch((err) => {
         console.warn('PWA ServiceWorker failed:', err);
       });
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        navigator.serviceWorker.getRegistration().then((reg) => {
+          if (reg) reg.update();
+        });
+      }
+    });
+
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      window.location.reload();
     });
   }
 
