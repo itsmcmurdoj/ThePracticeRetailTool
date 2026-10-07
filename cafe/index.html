@@ -2,43 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Practice • Cafe Ordering & Beverage Customizer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>The Practice • Cafe Ordering & Staff Point of Sale</title>
+  
+  <!-- Apple Web App & PWA Settings -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Practice Cafe">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="../icon.png">
+
+  <!-- Official The Practice Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="widget.css">
 </head>
 <body>
 
+  <!-- TOP STUDIO FLEET NAVIGATION HEADER -->
+  <header class="studio-fleet-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-back-btn" title="Back to Retail Showroom Identifier">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <span>Retail Store & Scanner</span>
+      </a>
+      <div class="nav-divider"></div>
+      <span class="nav-studio-title">THE PRACTICE • CAFE & NOURISHMENT</span>
+    </div>
+
+    <div class="nav-right">
+      <a href="../daily_schedule.html" class="nav-pill-link" title="Studio Timetable">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span>Schedule</span>
+      </a>
+      <a href="https://momence.com/dashboard/200431/point-of-sale?customer=Jackson%40ThePracticetoronto.com&email=Jackson%40ThePracticetoronto.com&name=Jackson+McMurdo" target="_blank" rel="noopener" class="nav-pill-link pos-link" title="Open Momence POS Web Register">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+          <line x1="2" y1="10" x2="22" y2="10"></line>
+        </svg>
+        <span>Momence POS</span>
+      </a>
+      <div class="status-pill status-online">
+        <span class="status-dot"></span>
+        <span>Host 200431 Active</span>
+      </div>
+    </div>
+  </header>
+
   <!-- MAIN APP CONTAINER -->
   <div class="app-container">
     
-    <!-- HEADER -->
-    <header class="sanctuary-header">
-      <span class="brand-badge">The Practice Sanctuary Cafe</span>
+    <!-- BRAND HERO -->
+    <div class="sanctuary-header">
+      <span class="brand-badge">The Practice Sanctuary Cafe • 190 Richmond St E</span>
       <h1 class="brand-title">Artisan Coffee, Elixirs & Nourishment</h1>
       <p class="brand-tagline">Consciously crafted espresso, ceremonial adaptogens & superfood smoothies designed to restore vitality.</p>
-    </header>
+    </div>
 
     <!-- IN-STORE PICKUP POLICY BANNER -->
     <div class="pickup-policy-banner">
       <div class="policy-info">
         <span class="policy-icon">📍</span>
         <div class="policy-text">
-          <h4>In-Studio Pickup Only • No Shipping Available</h4>
-          <p>Orders are freshly prepared for pickup at <strong>190 Richmond St E, Toronto</strong> during regular opening hours.</p>
+          <h4>In-Studio Pickup & Counter POS • In-Person Ordering</h4>
+          <p>Orders are freshly prepared at the cafe bar at <strong>190 Richmond St E, Toronto</strong>.</p>
         </div>
       </div>
-      <div class="policy-badge">Momence Member Sign-In at Checkout</div>
+      <div class="policy-badge">Momence Member Sign-In at POS</div>
     </div>
 
-    <!-- CATEGORY TABS -->
+    <!-- CATEGORY TABS (5 CATEGORIES) -->
     <nav class="category-tabs" aria-label="Menu categories">
       <button class="cat-tab-btn active" data-cat="all">All Offerings</button>
       <button class="cat-tab-btn" data-cat="coffee">Artisan Coffee & Espresso</button>
       <button class="cat-tab-btn" data-cat="wellness">Ceremonial Elixirs & Teas</button>
-      <button class="cat-tab-btn" data-cat="smoothies">Functional Smoothies (Regular 16oz)</button>
+      <button class="cat-tab-btn" data-cat="smoothies">Functional Smoothies</button>
+      <button class="cat-tab-btn" data-cat="bakery">Artisan Bakery & Cookies</button>
     </nav>
 
     <!-- PRODUCT GRID -->
@@ -57,8 +104,8 @@
           <span id="cart-badge" class="cart-badge-count">0</span>
         </div>
         <div class="sticky-details">
-          <h5>Your Pickup Order</h5>
-          <p><span id="sticky-subtotal">$0.00</span> • Tap to view items & checkout</p>
+          <h5>Active Cafe Order</h5>
+          <p><span id="sticky-subtotal">$0.00</span> • Tap to review & ring up</p>
         </div>
       </div>
       <button class="btn-checkout-bundle" onclick="openCartDrawer()">
@@ -111,7 +158,7 @@
         <div id="modal-syrup-section" class="option-section">
           <div class="option-section-title">
             <span>House Crafted Syrups</span>
-            <span style="font-size: 11px; color: var(--text-muted);">Optional</span>
+            <span style="font-size: 11px; color: var(--text-secondary);">Optional</span>
           </div>
           <div id="modal-syrup-options" class="options-pill-grid"></div>
         </div>
@@ -120,7 +167,7 @@
         <div class="option-section">
           <div class="option-section-title">
             <span>Adaptogenic Boosters & Modifiers</span>
-            <span style="font-size: 11px; color: var(--brand-gold);">1-Click Bundled</span>
+            <span style="font-size: 11px; color: var(--brand-gold);">1-Click Momence Linked</span>
           </div>
           <div id="modal-booster-options" class="modifiers-list"></div>
         </div>
@@ -150,7 +197,7 @@
   <div id="cart-drawer-overlay" class="cart-drawer-overlay">
     <div class="cart-drawer">
       <div class="drawer-header">
-        <h3>Your In-Store Pickup Order</h3>
+        <h3>Cafe Order Breakdown</h3>
         <button class="modal-close-btn" onclick="closeCartDrawer()">✕</button>
       </div>
 
@@ -168,50 +215,110 @@
           <span id="drawer-tax">$0.00</span>
         </div>
         <div class="totals-row grand-total">
-          <span>Estimated Total</span>
+          <span>Estimated Total CAD</span>
           <span id="drawer-grand-total">$0.00</span>
         </div>
 
         <button class="btn-momence-checkout" onclick="executeMomenceCheckout()">
-          <span>Proceed to Momence Checkout (1-Click)</span>
+          <span>Proceed to Point of Sale (1-Click)</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
 
-        <p style="font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 10px;">
-          📍 Pickup at 190 Richmond St E. You will sign in with your Momence account.
+        <p style="font-size: 11px; color: var(--text-secondary); text-align: center; margin-top: 10px;">
+          ⚡ Connects directly into Momence Host 200431 POS register
         </p>
       </div>
     </div>
   </div>
 
-  <!-- 1-CLICK MOMENCE INTEGRATION MODAL -->
-  <div id="code-embed-modal" class="modal-overlay">
-    <div class="modal-dialog code-modal-dialog">
+  <!-- POINT OF SALE STAFF CHECKOUT & BARISTA KITCHEN SLIP MODAL -->
+  <div id="pos-checkout-modal" class="modal-overlay">
+    <div class="modal-dialog pos-modal-dialog">
       <div class="modal-header">
         <div class="modal-title-group">
-          <h3>Momence 1-Click Bundle Payload</h3>
-          <p>Automated Cart Bundler for thepracticetoronto.com</p>
+          <div class="pos-badge-line">
+            <span class="pos-header-badge">POINT OF SALE READY</span>
+            <span id="pos-ticket-num" class="ticket-badge">#CK-1001</span>
+          </div>
+          <h3>Cafe Register Checkout</h3>
+          <p id="pos-ticket-time">Today • Just now</p>
         </div>
-        <button class="modal-close-btn" onclick="closeCodeModal()">✕</button>
+        <button class="modal-close-btn" onclick="closePosModal()">✕</button>
       </div>
-      <div class="modal-body">
-        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">
-          This custom widget solves the modifier challenge: instead of forcing customers to hunt down 3 separate items, it bundles the base beverage and all chosen add-ons (milk, syrup, collagen, MCT oil) into Momence checkout in a single tap:
-        </p>
-        <pre id="bundle-payload-code" class="code-snippet"></pre>
-        <div style="background: var(--bg-subtle); padding: 14px; border-radius: var(--radius-md); font-size: 12px; color: var(--text-secondary); margin-top: 12px;">
-          <strong>How this embeds into Squarespace / Webflow:</strong><br>
-          Paste this widget container and embed script into any custom code block on <code>thepracticetoronto.com/cafe</code>. On click, it transmits the pre-configured bundle directly to Momence POS/Store cart.
+
+      <div class="modal-body pos-modal-body">
+        
+        <!-- Customer Holding Bar -->
+        <div class="pos-customer-box">
+          <div class="pos-customer-info">
+            <span class="customer-tag">Staff / Member Profile:</span>
+            <input type="text" id="pos-guest-name" value="Jackson McMurdo" class="pos-guest-input" placeholder="Guest Name or Table #">
+            <span class="pos-customer-email">&lt;Jackson@ThePracticetoronto.com&gt;</span>
+          </div>
+          <span class="pos-auto-tag">⚡ Auto-Attached to POS</span>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn-customize" onclick="closeCodeModal()">Back to Ordering</button>
-        <a id="direct-checkout-link" href="https://momence.com/The-Practice-Inc/products/200431" target="_blank" class="btn-add-to-cart" style="text-decoration: none; display: inline-block;">
-          Open Live Momence Store →
-        </a>
+
+        <!-- Kitchen Ticket / Itemized Chit -->
+        <div class="kitchen-chit-card" id="kitchen-chit-print-area">
+          <div class="chit-header">
+            <h4>THE PRACTICE SANCTUARY CAFE</h4>
+            <p>190 Richmond St E • Toronto, ON</p>
+            <div class="chit-divider"></div>
+          </div>
+
+          <div id="pos-breakdown-items" class="chit-items-list">
+            <!-- Dynamically populated -->
+          </div>
+
+          <div class="chit-divider"></div>
+
+          <!-- Price Tally -->
+          <div class="chit-totals">
+            <div class="chit-total-row"><span>Subtotal:</span><strong id="pos-modal-subtotal">$0.00</strong></div>
+            <div class="chit-total-row"><span>Ontario HST (13%):</span><span id="pos-modal-tax">$0.00</span></div>
+            <div class="chit-total-row chit-grand-total"><span>Total CAD:</span><strong id="pos-modal-total">$0.00</strong></div>
+          </div>
+        </div>
+
+        <!-- Primary Staff POS Actions -->
+        <div class="pos-actions-grid">
+          <button type="button" class="btn-pos-primary" onclick="launchMomencePos()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <div class="btn-pos-text-group">
+              <span class="btn-pos-title">Open in Momence POS</span>
+              <span class="btn-pos-sub">Auto-loads items & customer into web register</span>
+            </div>
+          </button>
+
+          <button type="button" class="btn-pos-secondary" onclick="printBaristaKitchenSlip()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Print Kitchen Slip</span>
+          </button>
+        </div>
+
+        <div class="pos-secondary-row">
+          <button type="button" class="btn-pos-subtle" onclick="copyPosPayload()">
+            📋 Copy Item IDs
+          </button>
+          <button type="button" class="btn-pos-subtle quick-sale-btn" onclick="confirmQuickSale()">
+            ✓ Complete Quick Sale & Clear
+          </button>
+        </div>
+
       </div>
     </div>
   </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast">Notification message</div>
 
   <script src="widget.js"></script>
 </body>

@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- App Styles -->
-  <link rel="stylesheet" href="./styles.css?v=7.0">
+  <link rel="stylesheet" href="./styles.css?v=8.0">
 </head>
 <body>
   <div class="app-container">
@@ -118,7 +118,7 @@
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <span>Catalog (731)</span>
+        <span>Catalog (723)</span>
       </button>
 
       <button class="nav-tab" data-tab="favorites">
@@ -178,7 +178,7 @@
             <!-- Analyzing Animation Overlay -->
             <div id="scan-analyzing" class="scan-analyzing" style="display:none;">
               <div class="ai-pulse-circle"></div>
-              <p class="analyzing-text">Comparing visual vectors across 731 products...</p>
+              <p class="analyzing-text">Comparing visual vectors across 723 products...</p>
             </div>
 
             <div id="camera-message" class="camera-message">
@@ -238,13 +238,13 @@
               <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
-              <input type="search" id="catalog-search-input" placeholder="Search 731 products by name, brand, SKU..." autocomplete="off">
+              <input type="search" id="catalog-search-input" placeholder="Search 723 products by name, brand, SKU..." autocomplete="off">
               <button id="btn-clear-search" class="clear-btn" style="display:none;">✕</button>
             </div>
 
             <!-- Department Filter Pills -->
             <div class="dept-pills" id="dept-pills">
-              <button class="dept-pill active" data-dept="all">All Departments (731)</button>
+              <button class="dept-pill active" data-dept="all">All Departments (723)</button>
               <button class="dept-pill" data-dept="Fine Jewelry & Modern Adornments">Fine Jewelry</button>
               <button class="dept-pill" data-dept="Sacred Minerals, Crystals & Fossils">Sacred Minerals</button>
               <button class="dept-pill" data-dept="Aromatherapy, Incense & Sacred Smudging">Aromatherapy</button>
@@ -279,7 +279,7 @@
 
           <!-- Product Results Count -->
           <div class="product-results-info">
-            <span id="results-count">Showing 731 products</span>
+            <span id="results-count">Showing 723 products</span>
           </div>
 
           <!-- Product Grid -->
@@ -611,6 +611,30 @@
                     <button id="btn-copy-sku" class="btn-copy-icon" title="Copy SKU">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                     </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3D SHOWROOM LOCATION & SHELF NAVIGATOR -->
+              <div id="modal-location-card" class="modal-location-card" style="display:none;">
+                <div class="location-card-header">
+                  <div class="location-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span id="modal-loc-zone">Showroom Location</span>
+                  </div>
+                  <span id="modal-loc-coords" class="location-coords-chip">[X: 0.0m, Y: 0.0m]</span>
+                </div>
+                <div class="location-details">
+                  <div class="location-shelf-row">
+                    <span class="location-label">Shelf / Fixture Surface:</span>
+                    <strong id="modal-loc-surface" class="location-surface-val">—</strong>
+                  </div>
+                  <div class="location-directions-row">
+                    <span class="location-label">Walking Directions:</span>
+                    <p id="modal-loc-directions" class="location-directions-val">—</p>
                   </div>
                 </div>
               </div>

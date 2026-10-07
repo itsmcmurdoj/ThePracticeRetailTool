@@ -1,9 +1,9 @@
 /**
  * THE PRACTICE • SERVICE WORKER (sw.js)
- * Provides 100% offline capability for the 731-product catalog
+ * Provides 100% offline capability for the 723-product catalog & 3D showroom digital twin
  */
 
-const CACHE_NAME = 'the-practice-retail-v11';
+const CACHE_NAME = 'the-practice-retail-v12-spatial';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

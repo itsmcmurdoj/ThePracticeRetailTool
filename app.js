@@ -931,7 +931,7 @@
             Tap the small star on any retail item or product popup to save fast-access items for your shift.
           </p>
           <button id="btn-fav-browse" class="btn-primary" style="background: var(--color-button-indigo); color: #fff; border-radius: 50px; padding: 10px 24px; border: none; font-size: 12px; cursor: pointer;">
-            Browse 731 Products
+            Browse ${PRODUCTS.length} Products
           </button>
         </div>
       `;
@@ -1045,6 +1045,26 @@
     renderPitchBullets(product.pitch);
     // Update modal favorite button state
     updateModalFavButton(product.id);
+
+    // 3D Showroom Floor Location & Spatial Digital Twin
+    const modalLocCard = document.getElementById('modal-location-card');
+    const modalLocZone = document.getElementById('modal-loc-zone');
+    const modalLocCoords = document.getElementById('modal-loc-coords');
+    const modalLocSurface = document.getElementById('modal-loc-surface');
+    const modalLocDirections = document.getElementById('modal-loc-directions');
+
+    if (product.location) {
+      if (modalLocZone) modalLocZone.textContent = product.location.zoneName || 'Showroom Location';
+      if (modalLocCoords && product.location.coords) {
+        const [x, y, z] = product.location.coords;
+        modalLocCoords.textContent = `[X: ${Number(x).toFixed(1)}m, Y: ${Number(y).toFixed(1)}m, Z: ${Number(z).toFixed(1)}m]`;
+      }
+      if (modalLocSurface) modalLocSurface.textContent = product.location.surface || 'Display Surface';
+      if (modalLocDirections) modalLocDirections.textContent = product.location.walkInstructions || '';
+      if (modalLocCard) modalLocCard.style.display = 'block';
+    } else if (modalLocCard) {
+      modalLocCard.style.display = 'none';
+    }
 
     // Configure Add to Register Cart button in modal
     if (btnModalAddCart) {

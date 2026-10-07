@@ -1407,6 +1407,87 @@ body {
   background: var(--color-bg-sage);
 }
 
+/* 3D Showroom Location & Floor Navigator */
+.modal-location-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 243, 238, 0.95));
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.location-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(21, 21, 21, 0.06);
+}
+
+.location-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #B45309;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.2px;
+}
+
+.location-badge svg {
+  width: 18px;
+  height: 18px;
+  stroke: #B45309;
+  flex-shrink: 0;
+}
+
+.location-coords-chip {
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(21, 21, 21, 0.06);
+  color: var(--color-primary);
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+}
+
+.location-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.location-shelf-row, .location-directions-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.location-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.location-surface-val {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1.4;
+}
+
+.location-directions-val {
+  font-size: 12px;
+  color: #4B5563;
+  line-height: 1.45;
+  margin: 0;
+}
+
 /* Modal Top Bar: Favorite button & Close button */
 .modal-top-bar {
   display: flex;

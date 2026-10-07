@@ -8,7 +8,7 @@
 
 | # | Current Device Name | Proposed Standard Name | Location / Label | Serial Number | Status |
 |:---:|:---|:---|:---|:---:|:---:|
-| **1** | **Retail iPad** | Retail iPad | **Retail** | `MMVQDCG72X` | Active |
+| **1** | **Retail iPad** | Retail iPad | **Retail** | `MMVQDCG72X` | **Supervised & Provisioned** (Oct 6) |
 | **2** | **iPad** | Yoga Studio iPad | **Yoga Studio** | `J4HQQKGQJP` | Active |
 | **3** | **iPad 1** | Event Space iPad | **Event Space** | `D374YLW542` | Active |
 | **4** | **iPad 2** | Cafe iPad | **Cafe** | `GYX50DPXWN` | Active |

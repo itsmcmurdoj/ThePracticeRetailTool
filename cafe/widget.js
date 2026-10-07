@@ -1,143 +1,268 @@
 /**
- * The Practice Cafe • Custom 1-Click Beverage Ordering Widget Logic
+ * The Practice Cafe • Custom 1-Click Beverage Ordering & Staff POS Logic
  * Location: 190 Richmond St E, Toronto, ON M5A 1P1
  * Momence Host ID: 200431
+ * 100% Synchronized with Live Momence Inventory & Modifiers
  */
 
 const CAFE_MENU = [
   // 1. ARTISAN COFFEE & ESPRESSO BAR
   {
-    id: 513541,
-    name: 'Artisan Americano',
+    id: 545854,
+    name: 'Artisan Espresso (Double Shot)',
     category: 'coffee',
-    price: 4.00,
-    pitch: 'Rich double espresso over hot filtered spring water.',
-    img: './assets/images/americano.jpg',
-    badge: 'Organic Espresso',
-    availableSizes: ['Regular (12oz)', 'Large (16oz)'],
-    sizePrices: { 'Regular (12oz)': 0, 'Large (16oz)': 0.50 },
-    supportsMilk: true,
-    supportsTemp: true
+    price: 3.50,
+    pitch: 'Rich concentrated double extraction of house organic espresso with velvety crema.',
+    img: 'https://images.momence.com/h/200431/product-image/ef5cbab7-742b-4911-8744-4a1fa1ce0583.jpg',
+    badge: 'Organic Double Shot',
+    availableSizes: ['Double Shot (2oz)'],
+    sizePrices: { 'Double Shot (2oz)': 0 },
+    sizeMomenceIds: { 'Double Shot (2oz)': 545854 },
+    supportsMilk: false,
+    supportsTemp: false
   },
   {
-    id: 513549,
-    name: 'Caffe Latte',
+    id: 548476,
+    name: 'Espresso Macchiato',
+    category: 'coffee',
+    price: 4.50,
+    pitch: 'Double espresso marked with a dollop of velvety steamed microfoam.',
+    img: 'https://images.momence.com/h/200431/product-image/736ac256-e0e8-4b64-a7c3-210861f9a7b1.jpg',
+    badge: 'Classic Pour',
+    availableSizes: ['Standard (3oz)'],
+    sizePrices: { 'Standard (3oz)': 0 },
+    sizeMomenceIds: { 'Standard (3oz)': 548476 },
+    supportsMilk: true,
+    supportsTemp: false
+  },
+  {
+    id: 513541,
+    name: 'Ristretto',
+    category: 'coffee',
+    price: 4.75,
+    pitch: 'Short, sweet extraction capturing the brightest, sweetest aromatic espresso oils.',
+    img: 'https://images.momence.com/h/200431/product-image/ccd4632a-9150-4f7a-b4b0-16276bc31597.jpg',
+    badge: 'Intense Extraction',
+    availableSizes: ['Standard (1.5oz)'],
+    sizePrices: { 'Standard (1.5oz)': 0 },
+    sizeMomenceIds: { 'Standard (1.5oz)': 513541 },
+    supportsMilk: false,
+    supportsTemp: false
+  },
+  {
+    id: 548479,
+    name: 'Cortado (1:1 Ratio)',
     category: 'coffee',
     price: 5.50,
-    pitch: 'Silky microfoam poured over rich double espresso.',
-    img: './assets/images/latte.jpg',
-    badge: 'House Favorite',
+    pitch: 'Equal parts silky steamed milk and rich double espresso in a balanced 1:1 ratio.',
+    img: 'https://images.momence.com/h/200431/product-image/1eb08ce5-1f84-4e0a-a8ec-6aef9e72c159.png',
+    badge: '1:1 Artisan Ratio',
+    availableSizes: ['Standard (4.5oz)'],
+    sizePrices: { 'Standard (4.5oz)': 0 },
+    sizeMomenceIds: { 'Standard (4.5oz)': 548479 },
+    supportsMilk: true,
+    supportsTemp: false
+  },
+  {
+    id: 545872,
+    name: 'Artisan Americano',
+    category: 'coffee',
+    price: 5.50,
+    pitch: 'Rich double espresso pulled over hot filtered spring water for a smooth, full-bodied cup.',
+    img: 'https://images.momence.com/h/200431/product-image/5952020f-d8b2-44fc-bcb8-a8edf1e17cc2.jpg',
+    badge: 'Organic Espresso',
     availableSizes: ['Regular (12oz)', 'Large (16oz)'],
-    sizePrices: { 'Regular (12oz)': 0, 'Large (16oz)': 0.75 },
+    sizePrices: { 'Regular (12oz)': 0, 'Large (16oz)': 1.00 },
+    sizeMomenceIds: { 'Regular (12oz)': 545872, 'Large (16oz)': 513549 },
     supportsMilk: true,
     supportsTemp: true
   },
   {
     id: 513546,
-    name: 'Cortado (1:1 Ratio)',
-    category: 'coffee',
-    price: 4.75,
-    pitch: 'Equal parts velvety steamed milk and rich espresso.',
-    img: './assets/images/cortado.jpg',
-    badge: 'Artisan Pour',
-    availableSizes: ['Standard (4.5oz)'],
-    sizePrices: { 'Standard (4.5oz)': 0 },
-    supportsMilk: true,
-    supportsTemp: false
-  },
-  {
-    id: 513549,
     name: 'Flat White',
     category: 'coffee',
-    price: 5.00,
-    pitch: 'Ristretto espresso shots crowned with micro-textured milk.',
-    img: './assets/images/flatwhite.jpg',
+    price: 6.75,
+    pitch: 'Double ristretto espresso crowned with thin, glossy micro-textured velvety milk.',
+    img: 'https://images.momence.com/h/200431/product-image/00b54489-6a31-43d6-b067-0d5dcdd82f31.jpg',
     badge: 'Micro-Textured',
-    availableSizes: ['Standard (6oz)'],
-    sizePrices: { 'Standard (6oz)': 0 },
+    availableSizes: ['Regular (8oz)', 'Large (12oz)'],
+    sizePrices: { 'Regular (8oz)': 0, 'Large (12oz)': 1.00 },
+    sizeMomenceIds: { 'Regular (8oz)': 513546, 'Large (12oz)': 567963 },
     supportsMilk: true,
     supportsTemp: true
   },
   {
-    id: 513549,
+    id: 555494,
     name: 'Classic Cappuccino',
     category: 'coffee',
-    price: 5.00,
-    pitch: 'Deep espresso harmonized with lush, aerated foam.',
-    img: './assets/images/cappuccino.jpg',
-    badge: 'Traditional',
-    availableSizes: ['Standard (6oz)'],
-    sizePrices: { 'Standard (6oz)': 0 },
+    price: 6.75,
+    pitch: 'Deep double espresso harmonized with lush, aerated foam and dusted with organic raw cacao.',
+    img: 'https://images.momence.com/h/200431/product-image/ef9a5582-c23c-42b3-97cf-14ba976dcf56.jpg',
+    badge: 'Traditional Pour',
+    availableSizes: ['Regular (8oz)', 'Large (12oz)'],
+    sizePrices: { 'Regular (8oz)': 0, 'Large (12oz)': 1.00 },
+    sizeMomenceIds: { 'Regular (8oz)': 555494, 'Large (12oz)': 548481 },
     supportsMilk: true,
     supportsTemp: false
   },
   {
-    id: 548481,
-    name: 'Slow-Steeped Cold Brew',
+    id: 545871,
+    name: 'Cafe Latte',
     category: 'coffee',
     price: 5.50,
-    pitch: '20-hour steeped single-origin roast, naturally sweet and low-acid.',
-    img: './assets/images/americano.jpg',
-    badge: '20hr Steep',
-    availableSizes: ['Regular (16oz)'],
-    sizePrices: { 'Regular (16oz)': 0 },
+    pitch: 'Silky microfoam poured over rich double espresso with balanced sweetness.',
+    img: 'https://images.momence.com/h/200431/product-image/346d4f53-a491-444e-8b56-54c2092a46d7.jpg',
+    badge: 'House Favorite',
+    availableSizes: ['Regular (12oz)', 'Large (16oz)'],
+    sizePrices: { 'Regular (12oz)': 0, 'Large (16oz)': 1.00 },
+    sizeMomenceIds: { 'Regular (12oz)': 545871, 'Large (16oz)': 555495 },
     supportsMilk: true,
-    supportsTemp: false,
-    defaultTemp: 'Iced'
+    supportsTemp: true
+  },
+  {
+    id: 556832,
+    name: 'Specialty Botanical Latte',
+    category: 'coffee',
+    price: 7.75,
+    pitch: 'Artisan espresso latte infused with house-crafted botanical syrups, spices, and adaptogens.',
+    img: 'https://images.momence.com/h/200431/product-image/53945160-e009-495e-9356-d1d840851b3f.jpg',
+    badge: 'Botanical Infusion',
+    availableSizes: ['Regular (12oz)', 'Large (16oz)'],
+    sizePrices: { 'Regular (12oz)': 0, 'Large (16oz)': 0.75 },
+    sizeMomenceIds: { 'Regular (12oz)': 556832, 'Large (16oz)': 567968 },
+    supportsMilk: true,
+    supportsTemp: true
   },
 
   // 2. WELLNESS LATTES & CEREMONIAL ELIXIRS
   {
-    id: 548479,
-    name: 'Ceremonial Grade Matcha Latte',
-    category: 'wellness',
-    price: 7.50,
-    pitch: 'Stone-ground Uji ceremonial matcha whisked with warm botanical milk.',
-    img: './assets/images/matcha.jpg',
-    badge: 'Antioxidant Rich',
-    availableSizes: ['Regular (12oz)', 'Large (16oz)'],
-    sizePrices: { 'Regular (12oz)': 0, 'Large (16oz)': 0.75 },
-    supportsMilk: true,
-    supportsTemp: true
-  },
-  {
-    id: 548476,
+    id: 513574,
     name: 'Ceremonial Heirloom Cacao',
     category: 'wellness',
-    price: 7.50,
-    pitch: 'Single-origin pure ceremonial cacao infused with gentle spices and dates.',
-    img: './assets/images/cacao.jpg',
+    price: 8.25,
+    pitch: 'Single-origin pure ceremonial cacao infused with gentle warming spices, dates, and botanical milk.',
+    img: 'https://images.momence.com/h/200431/product-image/ca4ac590-0fdd-472c-9194-4d4439c5f21f.jpg',
     badge: 'Heart-Opening',
-    availableSizes: ['Regular (12oz)'],
-    sizePrices: { 'Regular (12oz)': 0 },
+    availableSizes: ['Standard (10oz)'],
+    sizePrices: { 'Standard (10oz)': 0 },
+    sizeMomenceIds: { 'Standard (10oz)': 513574 },
     supportsMilk: true,
     supportsTemp: true
   },
   {
-    id: 548479,
+    id: 513568,
+    name: 'Ceremonial Grade Matcha Latte',
+    category: 'wellness',
+    price: 6.50,
+    pitch: 'Stone-ground Uji ceremonial matcha whisked with warm botanical milk for sustained calm clarity.',
+    img: 'https://images.momence.com/h/200431/product-image/8ec07d2c-3eae-4e1d-9bb9-a360317529e5.jpg',
+    badge: 'Antioxidant Rich',
+    availableSizes: ['Regular (12oz)', 'Large (16oz)'],
+    sizePrices: { 'Regular (12oz)': 0, 'Large (16oz)': 1.00 },
+    sizeMomenceIds: { 'Regular (12oz)': 513568, 'Large (16oz)': 557000 },
+    supportsMilk: true,
+    supportsTemp: true
+  },
+  {
+    id: 513572,
     name: 'Artisan Masala Chai Latte',
     category: 'wellness',
     price: 6.50,
-    pitch: 'Slow-simmered whole spices, organic black tea, and velvety steamed milk.',
-    img: './assets/images/chailatte.jpg',
+    pitch: 'Slow-simmered whole organic spices, organic black tea, and velvety steamed milk.',
+    img: 'https://images.momence.com/h/200431/product-image/4129d61f-0f08-4880-b5e1-71d4bb5c313b.jpg',
     badge: 'Slow Brewed',
     availableSizes: ['Regular (12oz)', 'Large (16oz)'],
-    sizePrices: { 'Regular (12oz)': 0, 'Large (16oz)': 0.75 },
+    sizePrices: { 'Regular (12oz)': 0, 'Large (16oz)': 1.00 },
+    sizeMomenceIds: { 'Regular (12oz)': 513572, 'Large (16oz)': 557039 },
     supportsMilk: true,
     supportsTemp: true
   },
+  {
+    id: 545874,
+    name: 'Organic Whole Leaf Tea (Green / Black)',
+    category: 'wellness',
+    price: 3.75,
+    pitch: 'Direct-trade organic loose-leaf tea steeped to optimal temperature in natural spring water.',
+    img: 'https://images.momence.com/h/200431/product-image/ea8e0587-3154-42c6-93af-1f6457bf5b42.jpg',
+    badge: 'Single Estate',
+    availableSizes: ['Green Tea (12oz)', 'Black Tea (12oz)'],
+    sizePrices: { 'Green Tea (12oz)': 0, 'Black Tea (12oz)': 0 },
+    sizeMomenceIds: { 'Green Tea (12oz)': 545874, 'Black Tea (12oz)': 556966 },
+    supportsMilk: false,
+    supportsTemp: true
+  },
+  {
+    id: 545876,
+    name: 'Soothing Herbal Infusion',
+    category: 'wellness',
+    price: 4.50,
+    pitch: 'Caffeine-free soothing whole botanicals (Rooibos / Chamomile) to restore nervous system balance.',
+    img: 'https://images.momence.com/h/200431/product-image/10b1ccc2-7af1-48d6-b1c9-59b1746615e1.jpg',
+    badge: 'Caffeine-Free',
+    availableSizes: ['Regular (12oz)', 'Large (16oz)'],
+    sizePrices: { 'Regular (12oz)': 0, 'Large (16oz)': 2.00 },
+    sizeMomenceIds: { 'Regular (12oz)': 545876, 'Large (16oz)': 556999 },
+    supportsMilk: false,
+    supportsTemp: true
+  },
+  {
+    id: 567179,
+    name: 'Cathy’s Artisanal Kombucha (Very Berry)',
+    category: 'wellness',
+    price: 7.50,
+    pitch: 'Locally fermented raw probiotic kombucha infused with wild field strawberries, raspberries, and blackberries.',
+    img: 'https://images.momence.com/h/200431/product-image/60e7174d-c709-4870-ac16-4d1137c3adfb.jpg',
+    badge: 'Raw Probiotic',
+    availableSizes: ['Chilled Bottle (355ml)'],
+    sizePrices: { 'Chilled Bottle (355ml)': 0 },
+    sizeMomenceIds: { 'Chilled Bottle (355ml)': 567179 },
+    supportsMilk: false,
+    supportsTemp: false,
+    defaultTemp: 'Iced'
+  },
+  {
+    id: 567178,
+    name: 'Cathy’s Artisanal Kombucha (Strawberry Rhubarb)',
+    category: 'wellness',
+    price: 7.50,
+    pitch: 'Crisp organic raw fermented tea harmonized with tart Canadian rhubarb and sweet Ontario strawberries.',
+    img: 'https://images.momence.com/h/200431/product-image/538953f2-30c2-44a4-b85b-40386bf93c76.jpg',
+    badge: 'Raw Probiotic',
+    availableSizes: ['Chilled Bottle (355ml)'],
+    sizePrices: { 'Chilled Bottle (355ml)': 0 },
+    sizeMomenceIds: { 'Chilled Bottle (355ml)': 567178 },
+    supportsMilk: false,
+    supportsTemp: false,
+    defaultTemp: 'Iced'
+  },
+  {
+    id: 567180,
+    name: 'Cathy’s Artisanal Kombucha (Mango Pineapple)',
+    category: 'wellness',
+    price: 7.50,
+    pitch: 'Tropical prebiotic and probiotic elixir infused with ripe mango and sweet Hawaiian pineapple.',
+    img: 'https://images.momence.com/h/200431/product-image/ef86d8af-738d-4de2-943d-b3be273c0dd3.jpg',
+    badge: 'Raw Probiotic',
+    availableSizes: ['Chilled Bottle (355ml)'],
+    sizePrices: { 'Chilled Bottle (355ml)': 0 },
+    sizeMomenceIds: { 'Chilled Bottle (355ml)': 567180 },
+    supportsMilk: false,
+    supportsTemp: false,
+    defaultTemp: 'Iced'
+  },
 
-  // 3. FUNCTIONAL SUPERFOOD SMOOTHIES (REGULAR SIZE ONLY)
+  // 3. FUNCTIONAL SUPERFOOD SMOOTHIES
   {
     id: 545880,
     name: 'Berry Balance Smoothie',
     category: 'smoothies',
     price: 15.00,
-    pitch: 'Almond milk, wild blueberries, strawberries, banana, and adaptogens.',
-    img: './assets/images/smoothie_berry.jpg',
-    badge: 'Regular (16oz)',
-    availableSizes: ['Regular (16oz)'],
-    sizePrices: { 'Regular (16oz)': 0 },
+    pitch: 'Almond milk, wild blueberries, strawberries, banana, and adaptogenic antioxidants.',
+    img: 'https://images.momence.com/h/200431/product-image/31ea22b1-68eb-4438-b5bc-c078b106db88.jpg',
+    badge: 'Antioxidant Recovery',
+    availableSizes: ['Regular (16oz)', 'Large (20oz)'],
+    sizePrices: { 'Regular (16oz)': 0, 'Large (20oz)': 2.00 },
+    sizeMomenceIds: { 'Regular (16oz)': 545880, 'Large (20oz)': 557042 },
     supportsMilk: false,
     supportsTemp: false,
     isSmoothie: true
@@ -148,10 +273,11 @@ const CAFE_MENU = [
     category: 'smoothies',
     price: 15.00,
     pitch: 'Almond milk, crisp spinach, organic kale, green apple, chia seeds, and banana.',
-    img: './assets/images/smoothie_greens.jpg',
-    badge: 'Regular (16oz)',
-    availableSizes: ['Regular (16oz)'],
-    sizePrices: { 'Regular (16oz)': 0 },
+    img: 'https://images.momence.com/h/200431/product-image/7f482537-ba90-4b8b-9a0a-aa44186d36d4.jpg',
+    badge: 'Detox & Vitality',
+    availableSizes: ['Regular (16oz)', 'Large (20oz)'],
+    sizePrices: { 'Regular (16oz)': 0, 'Large (20oz)': 2.00 },
+    sizeMomenceIds: { 'Regular (16oz)': 545878, 'Large (20oz)': 557040 },
     supportsMilk: false,
     supportsTemp: false,
     isSmoothie: true
@@ -161,11 +287,12 @@ const CAFE_MENU = [
     name: 'Nutty Namaste Smoothie',
     category: 'smoothies',
     price: 15.00,
-    pitch: 'Oat milk, banana, natural peanut & almond butter, maca root, and cacao nibs.',
-    img: './assets/images/smoothie_nutty.jpg',
-    badge: 'Regular (16oz)',
-    availableSizes: ['Regular (16oz)'],
-    sizePrices: { 'Regular (16oz)': 0 },
+    pitch: 'Oat milk, banana, natural peanut & almond butter, maca root, and raw cacao nibs.',
+    img: 'https://images.momence.com/h/200431/product-image/8a79e66b-0256-4985-b4aa-c61256c62622.jpg',
+    badge: 'Protein Fuel',
+    availableSizes: ['Regular (16oz)', 'Large (20oz)'],
+    sizePrices: { 'Regular (16oz)': 0, 'Large (20oz)': 2.00 },
+    sizeMomenceIds: { 'Regular (16oz)': 545879, 'Large (20oz)': 557041 },
     supportsMilk: false,
     supportsTemp: false,
     isSmoothie: true
@@ -175,51 +302,184 @@ const CAFE_MENU = [
     name: 'Tropical Tantra Smoothie',
     category: 'smoothies',
     price: 15.00,
-    pitch: 'Coconut water, ripe mango, sweet pineapple, passionfruit, lucuma, and fresh ginger.',
-    img: './assets/images/smoothie_tropical.jpg',
-    badge: 'Regular (16oz)',
-    availableSizes: ['Regular (16oz)'],
-    sizePrices: { 'Regular (16oz)': 0 },
+    pitch: 'Coconut water, ripe mango, sweet pineapple, passionfruit, lucuma, and fresh pressed ginger.',
+    img: 'https://images.momence.com/h/200431/product-image/3b8ed02a-f290-4855-8d22-fa26692a02fb.jpg',
+    badge: 'Deep Hydration',
+    availableSizes: ['Regular (16oz)', 'Large (20oz)'],
+    sizePrices: { 'Regular (16oz)': 0, 'Large (20oz)': 2.00 },
+    sizeMomenceIds: { 'Regular (16oz)': 545881, 'Large (20oz)': 557044 },
     supportsMilk: false,
     supportsTemp: false,
     isSmoothie: true
+  },
+
+  // 4. ARTISAN BAKERY & PASTRIES
+  {
+    id: 562446,
+    name: 'Sweet & Salty Artisan Cookie',
+    category: 'bakery',
+    price: 5.50,
+    pitch: 'Handcrafted brown butter artisan cookie finished with flaky Maldon sea salt.',
+    img: 'https://images.momence.com/h/200431/product-image/5005e979-634e-4e17-8fb5-1f13370c7a0a.png',
+    badge: 'Staff Favorite',
+    availableSizes: ['1 Cookie'],
+    sizePrices: { '1 Cookie': 0 },
+    sizeMomenceIds: { '1 Cookie': 562446 },
+    supportsMilk: false,
+    supportsTemp: false,
+    isBakery: true
+  },
+  {
+    id: 562443,
+    name: 'Classic Chocolate Chunk Cookie',
+    category: 'bakery',
+    price: 5.50,
+    pitch: 'Belgian dark chocolate chunks folded into rich golden butter dough.',
+    img: 'https://images.momence.com/h/200431/product-image/adbebecb-4f15-4ab9-8fb0-04de1977fd46.png',
+    badge: 'Artisan Baked',
+    availableSizes: ['1 Cookie'],
+    sizePrices: { '1 Cookie': 0 },
+    sizeMomenceIds: { '1 Cookie': 562443 },
+    supportsMilk: false,
+    supportsTemp: false,
+    isBakery: true
+  },
+  {
+    id: 562441,
+    name: 'Gluten-Free Chocolate Cookie',
+    category: 'bakery',
+    price: 5.50,
+    pitch: 'Decadent dark chocolate cookie crafted with certified gluten-free almond flour.',
+    img: 'https://images.momence.com/h/200431/product-image/c6159564-d837-4452-8ddc-82cdd2645c7a.png',
+    badge: 'Gluten-Free',
+    availableSizes: ['1 Cookie'],
+    sizePrices: { '1 Cookie': 0 },
+    sizeMomenceIds: { '1 Cookie': 562441 },
+    supportsMilk: false,
+    supportsTemp: false,
+    isBakery: true
+  },
+  {
+    id: 562444,
+    name: 'Fudgy Chocolate Brownie',
+    category: 'bakery',
+    price: 4.00,
+    pitch: 'Dense, fudgy artisan brownie made with 70% dark cocoa and sweet cream butter.',
+    img: 'https://images.momence.com/h/200431/product-image/0f475c46-af8c-45ca-9175-e0987b948b58.png',
+    badge: 'Decadent Dark Cocoa',
+    availableSizes: ['1 Square'],
+    sizePrices: { '1 Square': 0 },
+    sizeMomenceIds: { '1 Square': 562444 },
+    supportsMilk: false,
+    supportsTemp: false,
+    isBakery: true
+  },
+  {
+    id: 562449,
+    name: 'Lemon Poppyseed Biscotti',
+    category: 'bakery',
+    price: 3.50,
+    pitch: 'Twice-baked crisp Italian biscotti infused with fresh Meyer lemon zest and poppy seeds.',
+    img: 'https://images.momence.com/h/200431/product-image/317f81c5-0f16-4571-ba3c-e305968d59ca.png',
+    badge: 'Twice-Baked',
+    availableSizes: ['1 Biscotti'],
+    sizePrices: { '1 Biscotti': 0 },
+    sizeMomenceIds: { '1 Biscotti': 562449 },
+    supportsMilk: false,
+    supportsTemp: false,
+    isBakery: true
+  },
+  {
+    id: 562448,
+    name: 'Pistachio & Cranberry Biscotti',
+    category: 'bakery',
+    price: 3.50,
+    pitch: 'Crisp twice-baked biscotti studded with roasted Mediterranean pistachios and tart cranberries.',
+    img: 'https://images.momence.com/h/200431/product-image/b18e44d7-1470-428e-9331-ebed33f8a860.png',
+    badge: 'Twice-Baked',
+    availableSizes: ['1 Biscotti'],
+    sizePrices: { '1 Biscotti': 0 },
+    sizeMomenceIds: { '1 Biscotti': 562448 },
+    supportsMilk: false,
+    supportsTemp: false,
+    isBakery: true
+  },
+  {
+    id: 567988,
+    name: 'Oat Breakfast Superfood Cookie',
+    category: 'bakery',
+    price: 5.50,
+    pitch: 'Wholesome rolled oats, pumpkin seeds, shredded coconut, cinnamon, and raw honey.',
+    img: 'https://images.momence.com/h/200431/product-image/f7ab7908-c103-4edc-8c02-96fd9e47009a.jpg',
+    badge: 'Morning Fuel',
+    availableSizes: ['1 Cookie'],
+    sizePrices: { '1 Cookie': 0 },
+    sizeMomenceIds: { '1 Cookie': 567988 },
+    supportsMilk: false,
+    supportsTemp: false,
+    isBakery: true
+  },
+  {
+    id: 563895,
+    name: 'Quinoa Breakfast Power Cookie',
+    category: 'bakery',
+    price: 6.50,
+    pitch: 'Ancient grains, toasted puffed quinoa, dark chocolate chunks, and golden flaxseed.',
+    img: 'https://images.momence.com/h/200431/product-image/4c7e5555-4b62-4dc1-850d-8cce527a94ba.jpg',
+    badge: 'Protein Rich',
+    availableSizes: ['1 Cookie'],
+    sizePrices: { '1 Cookie': 0 },
+    sizeMomenceIds: { '1 Cookie': 563895 },
+    supportsMilk: false,
+    supportsTemp: false,
+    isBakery: true
   }
 ];
 
-// MODIFIERS & ADD-ONS (Linked to Momence Inventory IDs)
+// MODIFIERS & ADD-ONS (100% Linked to Verified Momence Inventory IDs)
 const MODIFIERS_CONFIG = {
   milks: [
     { id: 'whole', name: 'Whole Dairy Milk', price: 0.00, momenceId: null },
-    { id: 'oat', name: 'Organic Oat Milk (Oatly)', price: 1.00, momenceId: 567963 },
-    { id: 'almond', name: 'House Nut Almond Milk', price: 1.00, momenceId: 567964 },
-    { id: 'coconut', name: 'Organic Coconut Milk', price: 1.00, momenceId: null }
+    { id: 'oat', name: 'Organic Oat Milk (Oatly)', price: 0.85, momenceId: 513577 },
+    { id: 'almond', name: 'House Almond Milk', price: 0.85, momenceId: 513576 },
+    { id: 'coconut', name: 'Organic Coconut Milk', price: 1.50, momenceId: 513575 }
   ],
   syrups: [
-    { id: 'none', name: 'No Sweetener (Unsweetened)', price: 0.00 },
-    { id: 'vanilla', name: 'Madagascar Vanilla Syrup', price: 0.75 },
-    { id: 'caramel', name: 'House Salted Caramel Syrup', price: 0.75 },
-    { id: 'lavender', name: 'Wild Lavender Botanical Syrup', price: 0.75 },
-    { id: 'maple', name: 'Pure Grade A Canadian Maple', price: 0.75 }
+    { id: 'none', name: 'No Sweetener (Unsweetened)', price: 0.00, momenceId: null },
+    { id: 'vanilla', name: 'Madagascar Vanilla Syrup', price: 0.75, momenceId: 513585 },
+    { id: 'caramel', name: 'House Salted Caramel Syrup', price: 0.75, momenceId: 513583 },
+    { id: 'lavender', name: 'Wild Lavender Botanical Syrup', price: 0.75, momenceId: 513587 },
+    { id: 'hazelnut', name: 'Roasted Hazelnut Syrup', price: 0.75, momenceId: 513584 },
+    { id: 'cane', name: 'Organic Cane Sugar Syrup', price: 0.75, momenceId: 513586 }
   ],
   boosters: [
-    { id: 'collagen', name: 'Grass-Fed Collagen Peptides', price: 2.50, momenceId: 545887, pitch: 'Supports joints, skin elasticity & tissue repair' },
-    { id: 'mct', name: 'Pure C8 MCT Oil', price: 2.50, momenceId: 545886, pitch: 'Sustained ketogenic mental clarity & metabolic energy' },
-    { id: 'protein', name: 'Organic Vegan Plant Protein', price: 2.50, momenceId: 545884, pitch: '15g clean pea & brown rice protein isolate' },
     { id: 'shot', name: 'Extra Espresso Shot', price: 1.50, momenceId: 513574, pitch: 'Extra double shot of artisan espresso' },
-    { id: 'seamoss', name: 'Wildcrafted Irish Sea Moss Gel', price: 2.00, momenceId: null, pitch: 'Rich in 92 essential minerals & iodine' },
-    { id: 'chia', name: 'Organic Chia Seeds', price: 1.00, momenceId: null, pitch: 'Omega-3s, soluble fiber & sustained hydration' }
+    { id: 'collagen', name: 'Grass-Fed Collagen Peptides', price: 2.50, momenceId: 545887, hotMomenceId: 513581, pitch: 'Supports joints, skin elasticity & tissue recovery' },
+    { id: 'mct', name: 'Pure C8 MCT Oil', price: 2.50, momenceId: 545886, hotMomenceId: 513578, pitch: 'Sustained ketogenic mental clarity & metabolic energy' },
+    { id: 'protein', name: 'Organic Vegan Plant Protein', price: 2.50, momenceId: 545884, hotMomenceId: 513580, pitch: '15g clean pea & brown rice protein isolate' },
+    { id: 'seamoss', name: 'Wildcrafted Irish Sea Moss Gel', price: 2.50, momenceId: 513582, pitch: 'Rich in 92 essential minerals & natural iodine' },
+    { id: 'chia', name: 'Organic Chia Seeds', price: 2.00, momenceId: 513579, pitch: 'Omega-3s, soluble fiber & sustained hydration' },
+    { id: 'electrolyte', name: 'AMP Electrolyte Booster', price: 2.00, momenceId: 567145, pitch: 'Clean cellular hydration & electrolyte balance' }
   ]
+};
+
+// ACTIVE POS HOLDING CUSTOMER
+const activePosCustomer = {
+  name: 'Jackson McMurdo',
+  email: 'Jackson@ThePracticetoronto.com'
 };
 
 // CART STATE
 let cart = [];
 let activeItemForCustomization = null;
+let currentTicketNumber = Math.floor(1000 + Math.random() * 9000);
 
 // DOM READY
 document.addEventListener('DOMContentLoaded', () => {
   renderMenu('all');
   setupCategoryTabs();
   setupCartDrawer();
+  setupPosModalListeners();
 });
 
 // CATEGORY TABS
@@ -237,6 +497,7 @@ function setupCategoryTabs() {
 // RENDER MENU
 function renderMenu(category) {
   const grid = document.getElementById('menu-grid');
+  if (!grid) return;
   grid.innerHTML = '';
 
   const items = category === 'all' 
@@ -249,7 +510,7 @@ function renderMenu(category) {
     card.innerHTML = `
       <div class="card-top">
         <div class="card-image-wrap">
-          <img src="${item.img}" alt="${item.name}" onerror="this.src='./assets/images/americano.jpg'">
+          <img src="${item.img}" alt="${item.name}" onerror="this.src='https://images.momence.com/h/200431/product-image/5952020f-d8b2-44fc-bcb8-a8edf1e17cc2.jpg'">
         </div>
         <div class="card-info">
           <div class="card-badges">
@@ -262,16 +523,42 @@ function renderMenu(category) {
       <div class="card-bottom">
         <div>
           <span class="card-price">$${item.price.toFixed(2)}</span>
-          <span class="card-size-note">${item.isSmoothie ? '• 16oz Regular' : ''}</span>
+          <span class="card-size-note">${item.availableSizes && item.availableSizes.length === 1 ? '• ' + item.availableSizes[0] : ''}</span>
         </div>
-        <button class="btn-customize" onclick="openCustomizer(${item.id})">
-          <span>Customize & Add</span>
+        <button class="btn-customize" onclick="handleItemSelect(${item.id})">
+          <span>${item.isBakery ? 'Quick Add' : 'Customize & Add'}</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
     `;
     grid.appendChild(card);
   });
+}
+
+// HANDLE ITEM SELECT (Quick-Add for bakery, Customizer for drinks)
+function handleItemSelect(itemId) {
+  const item = CAFE_MENU.find(i => i.id === itemId);
+  if (!item) return;
+
+  if (item.isBakery) {
+    // Quick Add bakery item directly into cart
+    const momenceId = item.sizeMomenceIds ? Object.values(item.sizeMomenceIds)[0] : item.id;
+    cart.push({
+      id: Date.now(),
+      name: item.name,
+      unitPrice: item.price,
+      quantity: 1,
+      customizationSummary: 'Freshly Baked In-Store',
+      momenceLineItems: [
+        { productId: momenceId, quantity: 1, name: item.name }
+      ],
+      notes: ''
+    });
+    updateCartUI();
+    showToast(`Added ${item.name} to cart`);
+  } else {
+    openCustomizer(itemId);
+  }
 }
 
 // OPEN CUSTOMIZER MODAL
@@ -295,7 +582,7 @@ function openCustomizer(itemId) {
 
   // SIZE SECTION
   const sizeSection = document.getElementById('modal-size-section');
-  if (item.availableSizes.length > 1) {
+  if (item.availableSizes && item.availableSizes.length > 1) {
     sizeSection.style.display = 'block';
     const sizeContainer = document.getElementById('modal-size-options');
     sizeContainer.innerHTML = item.availableSizes.map((s, idx) => `
@@ -350,7 +637,7 @@ function openCustomizer(itemId) {
 
   // SYRUP SECTION
   const syrupSection = document.getElementById('modal-syrup-section');
-  if (!item.isSmoothie) {
+  if (!item.isSmoothie && !item.isBakery) {
     syrupSection.style.display = 'block';
     const syrupContainer = document.getElementById('modal-syrup-options');
     syrupContainer.innerHTML = MODIFIERS_CONFIG.syrups.map((s, idx) => `
@@ -368,16 +655,18 @@ function openCustomizer(itemId) {
 
   // BOOSTERS SECTION
   const boosterContainer = document.getElementById('modal-booster-options');
-  boosterContainer.innerHTML = MODIFIERS_CONFIG.boosters.map(b => `
-    <label class="modifier-row">
-      <input type="checkbox" value="${b.id}" onchange="onBoosterToggled('${b.id}', this.checked)">
-      <div class="modifier-info">
-        <div class="modifier-name">${b.name}</div>
-        <div class="modifier-pitch">${b.pitch}</div>
-      </div>
-      <div class="modifier-price">+$${b.price.toFixed(2)}</div>
-    </label>
-  `).join('');
+  if (boosterContainer) {
+    boosterContainer.innerHTML = MODIFIERS_CONFIG.boosters.map(b => `
+      <label class="modifier-row">
+        <input type="checkbox" value="${b.id}" onchange="onBoosterToggled('${b.id}', this.checked)">
+        <div class="modifier-info">
+          <div class="modifier-name">${b.name}</div>
+          <div class="modifier-pitch">${b.pitch}</div>
+        </div>
+        <div class="modifier-price">+$${b.price.toFixed(2)}</div>
+      </label>
+    `).join('');
+  }
 
   document.getElementById('modal-special-notes').value = '';
   updateModalTotal();
@@ -385,7 +674,8 @@ function openCustomizer(itemId) {
 }
 
 function closeModal() {
-  document.getElementById('customizer-modal').classList.remove('active');
+  const modal = document.getElementById('customizer-modal');
+  if (modal) modal.classList.remove('active');
 }
 
 // OPTION CHANGE HANDLERS
@@ -433,7 +723,7 @@ function calculateItemTotal() {
   }
 
   // Syrup
-  if (!base.isSmoothie) {
+  if (!base.isSmoothie && !base.isBakery) {
     const syrup = MODIFIERS_CONFIG.syrups.find(s => s.id === activeItemForCustomization.selectedSyrup);
     if (syrup) total += syrup.price;
   }
@@ -449,7 +739,8 @@ function calculateItemTotal() {
 
 function updateModalTotal() {
   const total = calculateItemTotal();
-  document.getElementById('modal-price-display').innerText = `$${total.toFixed(2)}`;
+  const display = document.getElementById('modal-price-display');
+  if (display) display.innerText = `$${total.toFixed(2)}`;
 }
 
 // ADD CONFIG TO CART
@@ -460,17 +751,18 @@ function addConfiguredItemToCart() {
   const unitPrice = calculateItemTotal();
   const summaryParts = [];
 
-  if (activeItemForCustomization.baseItem.availableSizes.length > 1) {
+  const base = activeItemForCustomization.baseItem;
+  if (base.availableSizes && base.availableSizes.length > 1) {
     summaryParts.push(activeItemForCustomization.selectedSize);
   }
-  if (activeItemForCustomization.baseItem.supportsTemp) {
+  if (base.supportsTemp) {
     summaryParts.push(activeItemForCustomization.selectedTemp);
   }
-  if (activeItemForCustomization.baseItem.supportsMilk) {
+  if (base.supportsMilk) {
     const m = MODIFIERS_CONFIG.milks.find(milk => milk.id === activeItemForCustomization.selectedMilk);
     if (m && m.id !== 'whole') summaryParts.push(m.name);
   }
-  if (!activeItemForCustomization.baseItem.isSmoothie && activeItemForCustomization.selectedSyrup !== 'none') {
+  if (!base.isSmoothie && !base.isBakery && activeItemForCustomization.selectedSyrup !== 'none') {
     const s = MODIFIERS_CONFIG.syrups.find(syr => syr.id === activeItemForCustomization.selectedSyrup);
     if (s) summaryParts.push(s.name);
   }
@@ -482,26 +774,49 @@ function addConfiguredItemToCart() {
     summaryParts.push(`Note: "${activeItemForCustomization.specialNotes}"`);
   }
 
+  // Determine Momence base product ID for the chosen size
+  let baseMomenceId = base.id;
+  if (base.sizeMomenceIds && base.sizeMomenceIds[activeItemForCustomization.selectedSize]) {
+    baseMomenceId = base.sizeMomenceIds[activeItemForCustomization.selectedSize];
+  }
+
   // Bundle mapping for Momence checkout
   const momenceLineItems = [
-    { productId: activeItemForCustomization.baseItem.id, quantity: 1, name: activeItemForCustomization.baseItem.name }
+    { productId: baseMomenceId, quantity: 1, name: base.name }
   ];
-  if (activeItemForCustomization.baseItem.supportsMilk) {
+
+  // Milk modifier ID
+  if (base.supportsMilk) {
     const m = MODIFIERS_CONFIG.milks.find(milk => milk.id === activeItemForCustomization.selectedMilk);
     if (m && m.momenceId) {
       momenceLineItems.push({ productId: m.momenceId, quantity: 1, name: m.name });
     }
   }
+
+  // Syrup modifier ID
+  if (!base.isSmoothie && !base.isBakery && activeItemForCustomization.selectedSyrup !== 'none') {
+    const s = MODIFIERS_CONFIG.syrups.find(syr => syr.id === activeItemForCustomization.selectedSyrup);
+    if (s && s.momenceId) {
+      momenceLineItems.push({ productId: s.momenceId, quantity: 1, name: s.name });
+    }
+  }
+
+  // Booster modifier IDs
   activeItemForCustomization.selectedBoosters.forEach(bId => {
     const b = MODIFIERS_CONFIG.boosters.find(boost => boost.id === bId);
-    if (b && b.momenceId) {
-      momenceLineItems.push({ productId: b.momenceId, quantity: 1, name: b.name });
+    if (b) {
+      const bMomenceId = (base.category === 'coffee' || base.category === 'wellness') && b.hotMomenceId 
+        ? b.hotMomenceId 
+        : b.momenceId;
+      if (bMomenceId) {
+        momenceLineItems.push({ productId: bMomenceId, quantity: 1, name: b.name });
+      }
     }
   });
 
   cart.push({
     id: Date.now(),
-    name: activeItemForCustomization.baseItem.name,
+    name: base.name,
     unitPrice: unitPrice,
     quantity: 1,
     customizationSummary: summaryParts.join(' • '),
@@ -516,17 +831,22 @@ function addConfiguredItemToCart() {
 
 // CART DRAWER LOGIC
 function setupCartDrawer() {
-  document.getElementById('cart-drawer-overlay').addEventListener('click', (e) => {
-    if (e.target.id === 'cart-drawer-overlay') closeCartDrawer();
-  });
+  const overlay = document.getElementById('cart-drawer-overlay');
+  if (overlay) {
+    overlay.addEventListener('click', (e) => {
+      if (e.target.id === 'cart-drawer-overlay') closeCartDrawer();
+    });
+  }
 }
 
 function openCartDrawer() {
-  document.getElementById('cart-drawer-overlay').classList.add('active');
+  const overlay = document.getElementById('cart-drawer-overlay');
+  if (overlay) overlay.classList.add('active');
 }
 
 function closeCartDrawer() {
-  document.getElementById('cart-drawer-overlay').classList.remove('active');
+  const overlay = document.getElementById('cart-drawer-overlay');
+  if (overlay) overlay.classList.remove('active');
 }
 
 function updateCartUI() {
@@ -535,12 +855,10 @@ function updateCartUI() {
   const drawerItems = document.getElementById('drawer-items-list');
 
   const totalCount = cart.reduce((acc, i) => acc + i.quantity, 0);
-  badge.innerText = totalCount;
+  if (badge) badge.innerText = totalCount;
 
-  if (totalCount > 0) {
-    stickyBar.style.display = 'block';
-  } else {
-    stickyBar.style.display = 'none';
+  if (stickyBar) {
+    stickyBar.style.display = totalCount > 0 ? 'block' : 'none';
   }
 
   // Subtotal calculation
@@ -548,38 +866,45 @@ function updateCartUI() {
   const tax = subtotal * 0.13;
   const grandTotal = subtotal + tax;
 
-  document.getElementById('sticky-subtotal').innerText = `$${subtotal.toFixed(2)}`;
-  document.getElementById('drawer-subtotal').innerText = `$${subtotal.toFixed(2)}`;
-  document.getElementById('drawer-tax').innerText = `$${tax.toFixed(2)}`;
-  document.getElementById('drawer-grand-total').innerText = `$${grandTotal.toFixed(2)}`;
+  const sSub = document.getElementById('sticky-subtotal');
+  const dSub = document.getElementById('drawer-subtotal');
+  const dTax = document.getElementById('drawer-tax');
+  const dTot = document.getElementById('drawer-grand-total');
 
-  if (cart.length === 0) {
-    drawerItems.innerHTML = `
-      <div style="text-align: center; color: var(--text-muted); padding: 40px 0;">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 8px;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <p>Your order is currently empty.</p>
-      </div>
-    `;
-    return;
-  }
+  if (sSub) sSub.innerText = `$${subtotal.toFixed(2)}`;
+  if (dSub) dSub.innerText = `$${subtotal.toFixed(2)}`;
+  if (dTax) dTax.innerText = `$${tax.toFixed(2)}`;
+  if (dTot) dTot.innerText = `$${grandTotal.toFixed(2)}`;
 
-  drawerItems.innerHTML = cart.map(item => `
-    <div class="cart-item-card">
-      <div class="cart-item-title-row">
-        <span class="cart-item-name">${item.name}</span>
-        <span class="cart-item-price">$${(item.unitPrice * item.quantity).toFixed(2)}</span>
-      </div>
-      <div class="cart-item-mods">${item.customizationSummary || 'Standard'}</div>
-      <div class="cart-item-actions">
-        <div class="qty-control">
-          <button class="qty-btn" onclick="adjustQty(${item.id}, -1)">−</button>
-          <span style="font-size: 13px; font-weight: 600;">${item.quantity}</span>
-          <button class="qty-btn" onclick="adjustQty(${item.id}, 1)">+</button>
+  if (drawerItems) {
+    if (cart.length === 0) {
+      drawerItems.innerHTML = `
+        <div style="text-align: center; color: var(--text-muted); padding: 40px 0;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 8px;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <p>Your order is currently empty.</p>
         </div>
-        <button class="btn-remove-item" onclick="removeCartItem(${item.id})">Remove</button>
+      `;
+      return;
+    }
+
+    drawerItems.innerHTML = cart.map(item => `
+      <div class="cart-item-card">
+        <div class="cart-item-title-row">
+          <span class="cart-item-name">${item.name}</span>
+          <span class="cart-item-price">$${(item.unitPrice * item.quantity).toFixed(2)}</span>
+        </div>
+        <div class="cart-item-mods">${item.customizationSummary || 'Standard'}</div>
+        <div class="cart-item-actions">
+          <div class="qty-control">
+            <button class="qty-btn" onclick="adjustQty(${item.id}, -1)">−</button>
+            <span style="font-size: 13px; font-weight: 600;">${item.quantity}</span>
+            <button class="qty-btn" onclick="adjustQty(${item.id}, 1)">+</button>
+          </div>
+          <button class="btn-remove-item" onclick="removeCartItem(${item.id})">Remove</button>
+        </div>
       </div>
-    </div>
-  `).join('');
+    `).join('');
+  }
 }
 
 function adjustQty(cartItemId, delta) {
@@ -597,40 +922,158 @@ function removeCartItem(cartItemId) {
   updateCartUI();
 }
 
-// 1-CLICK MOMENCE CHECKOUT BUNDLE GENERATION
+// POINT OF SALE LIVE CHECKOUT & BARISTA KITCHEN SLIP
 function executeMomenceCheckout() {
-  if (cart.length === 0) return;
+  if (cart.length === 0) {
+    showToast('Your order is currently empty');
+    return;
+  }
 
-  // Flatten all items into Momence cart payload
-  const bundledMomenceItems = [];
-  const orderNotesSummary = [];
+  // Close drawer
+  closeCartDrawer();
 
-  cart.forEach(item => {
-    item.momenceLineItems.forEach(line => {
-      bundledMomenceItems.push({
-        productId: line.productId,
-        quantity: line.quantity * item.quantity,
-        note: `Custom drink: ${item.name} (${item.customizationSummary})`
-      });
-    });
-    orderNotesSummary.push(`${item.quantity}x ${item.name} [${item.customizationSummary}]`);
-  });
+  // Populate POS Modal
+  const modal = document.getElementById('pos-checkout-modal');
+  currentTicketNumber = Math.floor(1000 + Math.random() * 9000);
+  const ticketEl = document.getElementById('pos-ticket-num');
+  if (ticketEl) ticketEl.innerText = `#CK-${currentTicketNumber}`;
 
-  // Display the 1-Click Bundle Modal showing live integration payload
-  const codeModal = document.getElementById('code-embed-modal');
-  document.getElementById('bundle-payload-code').innerText = JSON.stringify({
-    studio: 'The Practice Toronto',
-    hostId: 200431,
-    fulfillment: 'IN_STORE_PICKUP_ONLY',
-    location: '190 Richmond St E, Toronto, ON M5A 1P1',
-    orderSummary: orderNotesSummary,
-    momenceCartBundle: bundledMomenceItems,
-    checkoutActionUrl: `https://momence.com/The-Practice-Inc/products/200431?bundle=${encodeURIComponent(JSON.stringify(bundledMomenceItems))}`
-  }, null, 2);
+  const timeEl = document.getElementById('pos-ticket-time');
+  if (timeEl) {
+    const now = new Date();
+    timeEl.innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' • ' + now.toLocaleDateString([], { month: 'short', day: 'numeric' });
+  }
 
-  codeModal.classList.add('active');
+  // Populate itemized list in POS modal
+  const posItemsEl = document.getElementById('pos-breakdown-items');
+  if (posItemsEl) {
+    posItemsEl.innerHTML = cart.map(item => `
+      <div class="pos-item-row">
+        <div class="pos-item-details">
+          <div class="pos-item-title-line">
+            <span class="pos-item-qty">${item.quantity}x</span>
+            <strong class="pos-item-name">${item.name}</strong>
+          </div>
+          <div class="pos-item-subtext">${item.customizationSummary || 'Standard'}</div>
+          ${item.notes ? `<div class="pos-item-note">Special Request: "${item.notes}"</div>` : ''}
+        </div>
+        <div class="pos-item-price-col">
+          $${(item.unitPrice * item.quantity).toFixed(2)}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Populate totals
+  const subtotal = cart.reduce((acc, i) => acc + (i.unitPrice * i.quantity), 0);
+  const tax = subtotal * 0.13;
+  const grandTotal = subtotal + tax;
+
+  const posSub = document.getElementById('pos-modal-subtotal');
+  const posTax = document.getElementById('pos-modal-tax');
+  const posTot = document.getElementById('pos-modal-total');
+
+  if (posSub) posSub.innerText = `$${subtotal.toFixed(2)}`;
+  if (posTax) posTax.innerText = `$${tax.toFixed(2)}`;
+  if (posTot) posTot.innerText = `$${grandTotal.toFixed(2)}`;
+
+  if (modal) modal.classList.add('active');
 }
 
-function closeCodeModal() {
-  document.getElementById('code-embed-modal').classList.remove('active');
+function closePosModal() {
+  const modal = document.getElementById('pos-checkout-modal');
+  if (modal) modal.classList.remove('active');
+}
+
+function setupPosModalListeners() {
+  const modal = document.getElementById('pos-checkout-modal');
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target.id === 'pos-checkout-modal') closePosModal();
+    });
+  }
+}
+
+// LAUNCH IN MOMENCE POS REGISTER
+function launchMomencePos() {
+  if (cart.length === 0) return;
+
+  // Flatten product IDs
+  const pids = [];
+  cart.forEach(item => {
+    item.momenceLineItems.forEach(line => {
+      for (let q = 0; q < line.quantity * item.quantity; q++) {
+        pids.push(line.productId);
+      }
+    });
+  });
+
+  const guestNameInput = document.getElementById('pos-guest-name');
+  const guestName = guestNameInput && guestNameInput.value.trim() ? guestNameInput.value.trim() : activePosCustomer.name;
+  const guestEmail = activePosCustomer.email;
+
+  const params = new URLSearchParams();
+  params.set('customer', guestEmail);
+  params.set('email', guestEmail);
+  params.set('name', guestName);
+  params.set('autoAdd', 'true');
+  params.set('products', pids.join(','));
+  params.set('cart', pids.join(','));
+
+  const targetUrl = `https://momence.com/dashboard/200431/point-of-sale?${params.toString()}`;
+
+  // Auto-copy customer profile email to clipboard for quick paste
+  navigator.clipboard?.writeText(guestEmail).catch(() => {});
+  showToast(`Attached ${guestName} (${guestEmail}) • Opening Momence POS...`);
+
+  const win = window.open(targetUrl, '_blank', 'noopener');
+  if (!win) {
+    window.location.href = targetUrl;
+  }
+}
+
+// PRINT BARISTA KITCHEN SLIP
+function printBaristaKitchenSlip() {
+  window.print();
+}
+
+// COMPLETE QUICK SALE & CLEAR
+function confirmQuickSale() {
+  const ticket = currentTicketNumber;
+  cart = [];
+  updateCartUI();
+  closePosModal();
+  showToast(`Order #CK-${ticket} logged! Register ready for next guest.`);
+}
+
+// COPY POS SKUS / IDS
+function copyPosPayload() {
+  const pids = [];
+  cart.forEach(item => {
+    item.momenceLineItems.forEach(line => {
+      pids.push(`${line.productId} (${line.name} x${line.quantity * item.quantity})`);
+    });
+  });
+
+  navigator.clipboard?.writeText(pids.join(', ')).then(() => {
+    showToast('Copied Momence Item IDs to clipboard!');
+  }).catch(() => {
+    showToast('Unable to copy');
+  });
+}
+
+// TOAST NOTIFICATIONS
+function showToast(msg) {
+  let toast = document.getElementById('toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.innerText = msg;
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2400);
 }

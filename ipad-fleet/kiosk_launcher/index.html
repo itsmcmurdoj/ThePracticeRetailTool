@@ -363,26 +363,26 @@
     <!-- THE 4 MASSIVE ACTION TILES -->
     <div class="tiles-grid">
         <!-- Tile 1: Checkout & Register -->
-        <div class="action-tile tile-pos" onclick="triggerApp('moments', 'momence://')">
+        <div class="action-tile tile-pos" onclick="triggerApp('momence', 'momence://', 'https://momence.com/dashboard/200431/point-of-sale?customer=Jackson%40ThePracticetoronto.com&email=Jackson%40ThePracticetoronto.com&name=Jackson+McMurdo')">
             <div class="tile-top">
                 <div class="tile-icon-box">💳</div>
                 <div class="tile-badge">APP 01</div>
             </div>
             <div class="tile-content">
                 <h2 class="tile-title">Checkout & POS</h2>
-                <p class="tile-desc">Launch Moments register, client booking lookup, and gift cards</p>
+                <p class="tile-desc">Launch Momence register, client booking lookup, and gift cards</p>
             </div>
         </div>
 
         <!-- Tile 2: The Practice Web Tools -->
-        <div class="action-tile tile-practice" onclick="triggerApp('practice', 'https://the-practice-retail-tool-2e79e9.gitlab.io/')">
+        <div class="action-tile tile-practice" onclick="triggerApp('practice', '../../index.html', 'https://itsmcmurdoj.github.io/ThePracticeRetailTool/')">
             <div class="tile-top">
                 <div class="tile-icon-box">🌿</div>
                 <div class="tile-badge">APP 02</div>
             </div>
             <div class="tile-content">
                 <h2 class="tile-title">The Practice Tools</h2>
-                <p class="tile-desc">Studio class check-ins, product catalog & retail lookup</p>
+                <p class="tile-desc">Studio class check-ins, product catalog, 3D locator & retail lookup</p>
             </div>
         </div>
 
@@ -414,6 +414,7 @@
     <!-- Bottom Quick Utility Bar -->
     <footer class="bottom-utility-bar">
         <div class="util-left">
+            <button class="util-btn" onclick="triggerApp('cafe', '../../cafe/index.html')">☕ Cafe Register</button>
             <button class="util-btn" onclick="triggerApp('lights', 'googlehome://')">💡 Studio Lighting</button>
             <button class="util-btn" onclick="enterScreensaver()">⏸ Ambient Sleep</button>
         </div>
@@ -449,13 +450,23 @@
         document.getElementById('theme-icon').innerText = isZen ? '☀️' : '◐';
     }
 
-    // App Launch Simulator with Custom Schemes
-    function triggerApp(name, scheme) {
+    // App Launch Simulator with Custom Schemes & Fallbacks
+    function triggerApp(name, scheme, fallbackUrl) {
         console.log("Triggering: " + name + " -> " + scheme);
         try {
+            if (scheme.startsWith('http://') || scheme.startsWith('https://') || scheme.endsWith('.html')) {
+                window.location.href = scheme;
+                return;
+            }
             window.location.href = scheme;
+            if (fallbackUrl) {
+                setTimeout(() => {
+                    window.location.href = fallbackUrl;
+                }, 1200);
+            }
         } catch(e) {
-            console.warn("Navigation failed:", e);
+            console.warn("Navigation failed, using fallback:", e);
+            if (fallbackUrl) window.location.href = fallbackUrl;
         }
     }
 
