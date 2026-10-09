@@ -453,7 +453,7 @@ const MODIFIERS_CONFIG = {
     { id: 'cane', name: 'Organic Cane Sugar Syrup', price: 0.75, momenceId: 513586 }
   ],
   boosters: [
-    { id: 'shot', name: 'Extra Espresso Shot', price: 1.50, momenceId: 513574, pitch: 'Extra double shot of artisan espresso' },
+    { id: 'shot', name: 'Extra Espresso Shot', price: 1.50, momenceId: 577187, hotMomenceId: 577187, pitch: 'Extra double shot of artisan espresso' },
     { id: 'collagen', name: 'Grass-Fed Collagen Peptides', price: 2.50, momenceId: 545887, hotMomenceId: 513581, pitch: 'Supports joints, skin elasticity & tissue recovery' },
     { id: 'mct', name: 'Pure C8 MCT Oil', price: 2.50, momenceId: 545886, hotMomenceId: 513578, pitch: 'Sustained ketogenic mental clarity & metabolic energy' },
     { id: 'protein', name: 'Organic Vegan Plant Protein', price: 2.50, momenceId: 545884, hotMomenceId: 513580, pitch: '15g clean pea & brown rice protein isolate' },
@@ -550,7 +550,7 @@ function handleItemSelect(itemId) {
       quantity: 1,
       customizationSummary: 'Freshly Baked In-Store',
       momenceLineItems: [
-        { productId: momenceId, quantity: 1, name: item.name }
+        { productId: momenceId, quantity: 1, name: item.name, price: item.price }
       ],
       notes: ''
     });
@@ -780,16 +780,19 @@ function addConfiguredItemToCart() {
     baseMomenceId = base.sizeMomenceIds[activeItemForCustomization.selectedSize];
   }
 
-  // Bundle mapping for Momence checkout
+  // Calculate base price for chosen size
+  const baseSizePrice = base.price + (base.sizePrices && base.sizePrices[activeItemForCustomization.selectedSize] || 0);
+
+  // Bundle mapping for Momence checkout with explicit individual line prices
   const momenceLineItems = [
-    { productId: baseMomenceId, quantity: 1, name: base.name }
+    { productId: baseMomenceId, quantity: 1, name: base.name, price: baseSizePrice }
   ];
 
   // Milk modifier ID
   if (base.supportsMilk) {
     const m = MODIFIERS_CONFIG.milks.find(milk => milk.id === activeItemForCustomization.selectedMilk);
     if (m && m.momenceId) {
-      momenceLineItems.push({ productId: m.momenceId, quantity: 1, name: m.name });
+      momenceLineItems.push({ productId: m.momenceId, quantity: 1, name: m.name, price: m.price });
     }
   }
 
@@ -797,7 +800,7 @@ function addConfiguredItemToCart() {
   if (!base.isSmoothie && !base.isBakery && activeItemForCustomization.selectedSyrup !== 'none') {
     const s = MODIFIERS_CONFIG.syrups.find(syr => syr.id === activeItemForCustomization.selectedSyrup);
     if (s && s.momenceId) {
-      momenceLineItems.push({ productId: s.momenceId, quantity: 1, name: s.name });
+      momenceLineItems.push({ productId: s.momenceId, quantity: 1, name: s.name, price: s.price });
     }
   }
 
@@ -809,7 +812,7 @@ function addConfiguredItemToCart() {
         ? b.hotMomenceId 
         : b.momenceId;
       if (bMomenceId) {
-        momenceLineItems.push({ productId: bMomenceId, quantity: 1, name: b.name });
+        momenceLineItems.push({ productId: bMomenceId, quantity: 1, name: b.name, price: b.price });
       }
     }
   });

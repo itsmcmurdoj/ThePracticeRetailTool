@@ -3052,6 +3052,35 @@ const PRODUCTS = [
     }
   },
   {
+    "id": 577187,
+    "department": "Cafe & Nourishment",
+    "subgroup": "Artisan Coffee & Espresso Bar",
+    "brand": "The Practice Cafe",
+    "name": "Extra Espresso Shot - (C)",
+    "fullTitle": "The Practice Cafe - Extra Espresso Shot - (C)",
+    "price": "$1.50",
+    "priceNum": 1.5,
+    "sku": "CAFE-ADD-SHOT-01",
+    "barcodes": [
+      "577187",
+      "CAFE-ADD-SHOT-01"
+    ],
+    "pitch": "Extra double shot of artisan espresso added to coffee, latte, or wellness elixir.",
+    "momenceUrl": "https://momence.com/dashboard/200431/products/577187/edit",
+    "img": "https://images.momence.com/h/200431/product-image/e56b5487-b8e0-466c-a9a1-6c5bf1a7d4f4.png",
+    "location": {
+      "zoneKey": "CAFE_BAR",
+      "zoneName": "Cafe Bar & Nourishment Station",
+      "surface": "Past the retail showroom through the center archway at the cafe ordering bar.",
+      "coords": [
+        0.0,
+        10.5,
+        1.05
+      ],
+      "walkInstructions": "Walk straight past the retail showroom through the center archway into the Cafe and nourishment area."
+    }
+  },
+  {
     "id": 548476,
     "department": "Cafe & Nourishment",
     "subgroup": "Plant Milks & Beverage Boosters (Add-ons)",
