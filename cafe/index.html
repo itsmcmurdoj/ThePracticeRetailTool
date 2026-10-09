@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="widget.css?v=2.5">
+  <link rel="stylesheet" href="widget.css?v=2.6">
 </head>
 <body>
 
@@ -292,7 +292,7 @@
             </div>
           </button>
 
-          <button type="button" class="btn-pos-primary" onclick="launchMomencePos()" style="background: #3B82F6; box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);">
+          <a id="btn-cafe-open-momence-pos" href="https://momence.com/dashboard/200431/point-of-sale" target="_blank" rel="noopener" class="btn-pos-primary" onclick="handleMomencePosClick(event)" style="background: #3B82F6; box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25); text-decoration: none;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
               <line x1="8" y1="21" x2="16" y2="21"></line>
@@ -302,7 +302,7 @@
               <span class="btn-pos-title">🛒 Open Momence POS</span>
               <span class="btn-pos-sub">Preloads itemized cart & drink modifiers</span>
             </div>
-          </button>
+          </a>
         </div>
 
         <div class="pos-secondary-row" style="margin-top: 10px;">
@@ -329,6 +329,6 @@
   <!-- TOAST NOTIFICATION -->
   <div id="toast" class="toast">Notification message</div>
 
-  <script src="widget.js?v=2.5"></script>
+  <script src="widget.js?v=2.6"></script>
 </body>
 </html>

@@ -977,6 +977,9 @@ function executeMomenceCheckout() {
   if (posTax) posTax.innerText = `$${tax.toFixed(2)}`;
   if (posTot) posTot.innerText = `$${grandTotal.toFixed(2)}`;
 
+  // Dynamically attach preloaded cart URL to Momence POS link
+  updateMomencePosButtonUrl();
+
   if (modal) modal.classList.add('active');
 }
 
@@ -991,6 +994,10 @@ function setupPosModalListeners() {
     modal.addEventListener('click', (e) => {
       if (e.target.id === 'pos-checkout-modal') closePosModal();
     });
+  }
+  const guestInput = document.getElementById('pos-guest-name');
+  if (guestInput) {
+    guestInput.addEventListener('input', () => updateMomencePosButtonUrl());
   }
 }
 
@@ -1074,9 +1081,11 @@ function encodeMomencePosData(obj) {
   }
 }
 
-// 2. LAUNCH IN MOMENCE POS REGISTER / STRIPE READER
-function launchMomencePos() {
-  if (cart.length === 0) return;
+// BUILD DYNAMIC MOMENCE POS PRELOADED CART URL
+function buildMomencePosUrl() {
+  const guestNameInput = document.getElementById('pos-guest-name');
+  const guestName = guestNameInput && guestNameInput.value.trim() ? guestNameInput.value.trim() : activePosCustomer.name;
+  const guestEmail = activePosCustomer.email;
 
   const cartItemsPayload = [];
   const pids = [];
@@ -1084,7 +1093,6 @@ function launchMomencePos() {
     const itemUnit = item.unitPrice || 0;
     const itemQty = item.quantity || 1;
     
-    // Construct line items
     if (item.momenceLineItems && item.momenceLineItems.length > 0) {
       item.momenceLineItems.forEach(line => {
         const linePid = Number(line.productId);
@@ -1103,21 +1111,14 @@ function launchMomencePos() {
         }
       });
     } else {
-      // Fallback
       cartItemsPayload.push({
         type: 'product',
-        productId: item.momenceId || 492510,
+        productId: item.momenceId || 545854,
         price: itemUnit,
         name: item.name
       });
     }
   });
-
-  const guestNameInput = document.getElementById('pos-guest-name');
-  const guestName = guestNameInput && guestNameInput.value.trim() ? guestNameInput.value.trim() : activePosCustomer.name;
-  const guestEmail = activePosCustomer.email;
-
-  recordCafeTransactionInLedger('Stripe Terminal Reader (Bluetooth)');
 
   const posDataPayload = {
     customerInfo: {
@@ -1140,21 +1141,56 @@ function launchMomencePos() {
     params.set('cart', pids.join(','));
   }
 
-  const targetUrl = `https://momence.com/dashboard/200431/point-of-sale?${params.toString()}`;
+  return `https://momence.com/dashboard/200431/point-of-sale?${params.toString()}`;
+}
 
-  // Copy order summary & customer email to clipboard for instant staff reference
-  const orderSummary = `Cafe Order #${currentTicketNumber} for ${guestName}:\n` + cart.map(i => `${i.quantity}x ${i.name} ($${(i.unitPrice * i.quantity).toFixed(2)}) - ${i.customizationSummary || 'Standard'}${i.notes ? ` [${i.notes}]` : ''}`).join('\n') + `\nTotal: $${(getCartSubtotal() * 1.13).toFixed(2)} CAD`;
+// UPDATE NATIVE LINK HREF
+function updateMomencePosButtonUrl() {
+  const link = document.getElementById('btn-cafe-open-momence-pos');
+  if (link) {
+    link.href = buildMomencePosUrl();
+  }
+}
+
+// HANDLE NATIVE MOMENCE POS LINK CLICK
+function handleMomencePosClick(event) {
+  if (cart.length === 0) {
+    if (event) event.preventDefault();
+    showToast('Your order is currently empty');
+    return;
+  }
+
+  const guestNameInput = document.getElementById('pos-guest-name');
+  const guestName = guestNameInput && guestNameInput.value.trim() ? guestNameInput.value.trim() : activePosCustomer.name;
+
+  // 1. Copy itemized order breakdown to clipboard so staff has it ready to paste/verify
+  const orderSummary = `The Practice Cafe • Order #${currentTicketNumber} for ${guestName}:\n` + 
+    cart.map(i => `• ${i.quantity}x ${i.name} ($${(i.unitPrice * i.quantity).toFixed(2)}) - ${i.customizationSummary || 'Standard'}${i.notes ? ` [${i.notes}]` : ''}`).join('\n') + 
+    `\nTotal: $${(getCartSubtotal() * 1.13).toFixed(2)} CAD (HST included)`;
   navigator.clipboard?.writeText(orderSummary).catch(() => {});
-  showToast(`✓ Preloaded cart with ${cart.length} item(s) • Launching Momence POS...`);
 
-  // Use breakout anchor to launch Safari where staff session lives
-  const link = document.createElement('a');
-  link.href = targetUrl;
-  link.target = '_blank';
-  link.rel = 'noopener noreferrer external';
-  document.body.appendChild(link);
-  link.click();
-  setTimeout(() => link.remove(), 100);
+  // 2. Record transaction in local register ledger
+  recordCafeTransactionInLedger('Momence POS Countertop Checkout');
+
+  // 3. Toast notification
+  showToast(`✓ Order #${currentTicketNumber} copied & opening Momence POS...`);
+
+  // 4. Update the href just in case
+  updateMomencePosButtonUrl();
+
+  // 5. Dismiss modal and clear cart after brief delay
+  setTimeout(() => {
+    cart = [];
+    updateCartUI();
+    closePosModal();
+  }, 400);
+}
+
+// 2. PROGRAMMATIC LAUNCH IN MOMENCE POS REGISTER
+function launchMomencePos() {
+  const targetUrl = buildMomencePosUrl();
+  handleMomencePosClick();
+  window.open(targetUrl, '_blank', 'noopener');
 }
 
 // 3. PRINT BARISTA KITCHEN SLIP
@@ -1217,4 +1253,6 @@ window.openCartDrawer = openCartDrawer;
 window.openModifierModal = openModifierModal;
 window.closeModifierModal = closeModifierModal;
 window.filterCategory = filterCategory;
+window.handleMomencePosClick = handleMomencePosClick;
+window.updateMomencePosButtonUrl = updateMomencePosButtonUrl;
 
