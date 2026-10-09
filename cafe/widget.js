@@ -1261,4 +1261,9 @@ window.updateMomencePosButtonUrl = typeof updateMomencePosButtonUrl !== 'undefin
 window.buildMomencePosUrl = typeof buildMomencePosUrl !== 'undefined' ? buildMomencePosUrl : undefined;
 window.CAFE_MENU = typeof CAFE_MENU !== 'undefined' ? CAFE_MENU : undefined;
 window.MODIFIERS_CONFIG = typeof MODIFIERS_CONFIG !== 'undefined' ? MODIFIERS_CONFIG : undefined;
+window.onSizeChanged = typeof onSizeChanged !== 'undefined' ? onSizeChanged : undefined;
+window.onTempChanged = typeof onTempChanged !== 'undefined' ? onTempChanged : undefined;
+window.onMilkChanged = typeof onMilkChanged !== 'undefined' ? onMilkChanged : undefined;
+window.onSyrupChanged = typeof onSyrupChanged !== 'undefined' ? onSyrupChanged : undefined;
+window.onBoosterToggled = typeof onBoosterToggled !== 'undefined' ? onBoosterToggled : undefined;
 
