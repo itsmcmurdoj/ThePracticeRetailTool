@@ -14,6 +14,7 @@ secret_detection:
 
 pages:
   stage: deploy
+  needs: []
   image: alpine:latest
   script:
     - mkdir -p public
