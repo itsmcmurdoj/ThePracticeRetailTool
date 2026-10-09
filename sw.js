@@ -4,7 +4,7 @@
  * Implements Network-First for catalog data (products.js) to guarantee instant fleet sync
  */
 
-const CACHE_NAME = 'the-practice-retail-v23-cafe-modifiers-rocksolid';
+const CACHE_NAME = 'the-practice-retail-v24-clipboard-rocksolid';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

@@ -1155,6 +1155,34 @@ function updateMomencePosButtonUrl() {
   }
 }
 
+function copyTextToClipboard(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).catch(() => {
+      fallbackCopyText(text);
+    });
+  } else {
+    fallbackCopyText(text);
+  }
+}
+
+function fallbackCopyText(text) {
+  try {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-999999px";
+    textArea.style.top = "-999999px";
+    textArea.setAttribute("readonly", "");
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+  } catch (err) {
+    console.warn('Fallback copy failed:', err);
+  }
+}
+
 // HANDLE NATIVE MOMENCE POS LINK CLICK
 function handleMomencePosClick(event) {
   if (cart.length === 0) {
@@ -1170,7 +1198,7 @@ function handleMomencePosClick(event) {
   const orderSummary = `The Practice Cafe • Order #${currentTicketNumber} for ${guestName}:\n` + 
     cart.map(i => `• ${i.quantity}x ${i.name} ($${(i.unitPrice * i.quantity).toFixed(2)}) - ${i.customizationSummary || 'Standard'}${i.notes ? ` [${i.notes}]` : ''}`).join('\n') + 
     `\nTotal: $${(getCartSubtotal() * 1.13).toFixed(2)} CAD (HST included)`;
-  navigator.clipboard?.writeText(orderSummary).catch(() => {});
+  copyTextToClipboard(orderSummary);
 
   // 2. Record transaction in local register ledger
   recordCafeTransactionInLedger('Momence POS Countertop Checkout');
