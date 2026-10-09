@@ -26,7 +26,7 @@
   <!-- ==========================================================================
        ARCHITECTURAL FULL-SCREEN LOGIN & SANCTUARY LOCK SCREEN
        ========================================================================== -->
-  <div id="app-login-screen" class="app-login-screen" style="display: flex;">
+  <div id="app-login-screen" class="app-login-screen" style="display: none;">
     <div class="login-ambient-glow-1"></div>
     <div class="login-ambient-glow-2"></div>
     
@@ -305,22 +305,22 @@
       </div>
     </header>
 
-    <!-- TAB NAVIGATION BAR (4 TABS) -->
+    <!-- TAB NAVIGATION BAR -->
     <nav class="nav-tabs">
-      <button class="nav-tab active" data-tab="scanner">
-        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-          <circle cx="12" cy="13" r="4"></circle>
-        </svg>
-        <span>Photo Search</span>
-      </button>
-
-      <button class="nav-tab" data-tab="catalog">
+      <button class="nav-tab active" data-tab="catalog">
         <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <span>Catalog (723)</span>
+        <span>Store Search (723)</span>
+      </button>
+
+      <button class="nav-tab" data-tab="scanner">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+          <circle cx="12" cy="13" r="4"></circle>
+        </svg>
+        <span>Photo Scanner (AI)</span>
       </button>
 
       <button class="nav-tab" data-tab="favorites">
@@ -349,8 +349,67 @@
     <!-- MAIN CONTENT VIEWS -->
     <main class="views-wrapper">
       
-      <!-- VIEW 1: REVERSE VISUAL PRODUCT SCANNER -->
-      <section id="view-scanner" class="view-panel active">
+      <!-- VIEW 1: SEARCHABLE CATALOG BROWSER (PRIMARY STORE LANDING) -->
+      <section id="view-catalog" class="view-panel active">
+        <div class="catalog-container">
+          <div class="search-header">
+            <div class="search-box">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="search" id="catalog-search-input" placeholder="Search 723 products by name, brand, SKU..." autocomplete="off">
+              <button id="btn-clear-search" class="clear-btn" style="display:none;">✕</button>
+            </div>
+
+            <!-- Department Filter Pills -->
+            <div class="dept-pills" id="dept-pills">
+              <button class="dept-pill active" data-dept="all">All Departments (723)</button>
+              <button class="dept-pill" data-dept="Fine Jewelry & Modern Adornments">Fine Jewelry</button>
+              <button class="dept-pill" data-dept="Sacred Minerals, Crystals & Fossils">Sacred Minerals</button>
+              <button class="dept-pill" data-dept="Aromatherapy, Incense & Sacred Smudging">Aromatherapy</button>
+              <button class="dept-pill" data-dept="Luxury Candles & Home Fragrance">Luxury Candles</button>
+              <button class="dept-pill" data-dept="Mindful Living, Journals & Games">Mindful Living</button>
+              <button class="dept-pill" data-dept="Clean Apothecary, Bath & Grooming">Clean Apothecary</button>
+              <button class="dept-pill" data-dept="Home Decor, Barware & Artisan Textiles">Home Decor</button>
+              <button class="dept-pill" data-dept="Cafe & Nourishment">Cafe</button>
+            </div>
+
+            <!-- Brand Filter & Sort Row -->
+            <div class="catalog-filters-bar">
+              <div class="filter-group">
+                <label for="filter-brand">Brand:</label>
+                <select id="filter-brand" class="filter-select">
+                  <option value="all">All Brands (43)</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="filter-sort">Sort:</label>
+                <select id="filter-sort" class="filter-select">
+                  <option value="default">Default Catalog Order</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="name-asc">Product Name: A to Z</option>
+                  <option value="brand-asc">Brand Name: A to Z</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Results Count -->
+          <div class="product-results-info">
+            <span id="results-count">Showing 723 products</span>
+          </div>
+
+          <!-- Product Grid -->
+          <div class="catalog-grid" id="catalog-grid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: REVERSE VISUAL PRODUCT SCANNER (SECONDARY TOOL) -->
+      <section id="view-scanner" class="view-panel">
         <div class="scanner-container">
           <div class="camera-viewport" id="camera-viewport">
             <video id="camera-video" playsinline autoplay muted></video>
@@ -428,65 +487,6 @@
               <input type="text" id="quick-sku-input" placeholder="Or search by SKU, brand, or name..." autocomplete="off">
               <button type="submit" class="quick-sku-btn">Lookup</button>
             </form>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 2: SEARCHABLE CATALOG BROWSER -->
-      <section id="view-catalog" class="view-panel">
-        <div class="catalog-container">
-          <div class="search-header">
-            <div class="search-box">
-              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-              <input type="search" id="catalog-search-input" placeholder="Search 723 products by name, brand, SKU..." autocomplete="off">
-              <button id="btn-clear-search" class="clear-btn" style="display:none;">✕</button>
-            </div>
-
-            <!-- Department Filter Pills -->
-            <div class="dept-pills" id="dept-pills">
-              <button class="dept-pill active" data-dept="all">All Departments (723)</button>
-              <button class="dept-pill" data-dept="Fine Jewelry & Modern Adornments">Fine Jewelry</button>
-              <button class="dept-pill" data-dept="Sacred Minerals, Crystals & Fossils">Sacred Minerals</button>
-              <button class="dept-pill" data-dept="Aromatherapy, Incense & Sacred Smudging">Aromatherapy</button>
-              <button class="dept-pill" data-dept="Luxury Candles & Home Fragrance">Luxury Candles</button>
-              <button class="dept-pill" data-dept="Mindful Living, Journals & Games">Mindful Living</button>
-              <button class="dept-pill" data-dept="Clean Apothecary, Bath & Grooming">Clean Apothecary</button>
-              <button class="dept-pill" data-dept="Home Decor, Barware & Artisan Textiles">Home Decor</button>
-              <button class="dept-pill" data-dept="Cafe & Nourishment">Cafe</button>
-            </div>
-
-            <!-- Brand Filter & Sort Row -->
-            <div class="catalog-filters-bar">
-              <div class="filter-group">
-                <label for="filter-brand">Brand:</label>
-                <select id="filter-brand" class="filter-select">
-                  <option value="all">All Brands (43)</option>
-                </select>
-              </div>
-
-              <div class="filter-group">
-                <label for="filter-sort">Sort:</label>
-                <select id="filter-sort" class="filter-select">
-                  <option value="default">Default Catalog Order</option>
-                  <option value="price-asc">Price: Low to High</option>
-                  <option value="price-desc">Price: High to Low</option>
-                  <option value="name-asc">Product Name: A to Z</option>
-                  <option value="brand-asc">Brand Name: A to Z</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product Results Count -->
-          <div class="product-results-info">
-            <span id="results-count">Showing 723 products</span>
-          </div>
-
-          <!-- Product Grid -->
-          <div class="catalog-grid" id="catalog-grid">
-            <!-- Dynamically populated -->
           </div>
         </div>
       </section>

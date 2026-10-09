@@ -8,7 +8,7 @@
   'use strict';
 
   // --- STATE ---
-  let activeTab = 'scanner';
+  let activeTab = 'catalog';
   let activeDepartment = 'all';
   let activeBrand = 'all';
   let activeSort = 'default';
@@ -2471,15 +2471,10 @@ TOTAL CHARGED:               $${totals.grandTotal} CAD
   renderLoginMemberUI();
   updateClockAndDate();
   
-  // Set lock screen display based on local state (or open if newly updated)
-  const isPosUnlocked = localStorage.getItem('the_practice_pos_unlocked') === 'true';
-  if (isPosUnlocked) {
-    if (appLoginScreen) appLoginScreen.style.display = 'none';
-    isRegisterLocked = false;
-  } else {
-    if (appLoginScreen) appLoginScreen.style.display = 'flex';
-    isRegisterLocked = true;
-  }
+  // Start app directly in unlocked retail store mode (no PIN or login barrier on launch)
+  if (appLoginScreen) appLoginScreen.style.display = 'none';
+  isRegisterLocked = false;
+  localStorage.setItem('the_practice_pos_unlocked', 'true');
 
   // Member Portal & Customer Switcher
   if (btnMemberPortal) {

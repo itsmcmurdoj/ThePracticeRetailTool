@@ -1055,17 +1055,62 @@ function chargeCafeCardOnFile() {
   }, 450);
 }
 
+// Base64 JSON encoder matching Momence React SPA router decodePosUrlData
+function encodeMomencePosData(obj) {
+  try {
+    const jsonStr = JSON.stringify(obj);
+    if (typeof TextEncoder !== 'undefined') {
+      const u8 = new TextEncoder().encode(jsonStr);
+      let binary = '';
+      for (let i = 0; i < u8.length; i++) {
+        binary += String.fromCharCode(u8[i]);
+      }
+      return btoa(binary);
+    }
+    return btoa(jsonStr);
+  } catch (e) {
+    console.warn('Momence POS data encoding error:', e);
+    return btoa(JSON.stringify(obj));
+  }
+}
+
 // 2. LAUNCH IN MOMENCE POS REGISTER / STRIPE READER
 function launchMomencePos() {
   if (cart.length === 0) return;
 
+  const cartItemsPayload = [];
   const pids = [];
   cart.forEach(item => {
-    item.momenceLineItems.forEach(line => {
-      for (let q = 0; q < line.quantity * item.quantity; q++) {
-        pids.push(line.productId);
-      }
-    });
+    const itemUnit = item.unitPrice || 0;
+    const itemQty = item.quantity || 1;
+    
+    // Construct line items
+    if (item.momenceLineItems && item.momenceLineItems.length > 0) {
+      item.momenceLineItems.forEach(line => {
+        const linePid = Number(line.productId);
+        const lineQty = (line.quantity || 1) * itemQty;
+        const linePrice = line.price !== undefined ? Number(line.price) : itemUnit;
+        for (let q = 0; q < lineQty; q++) {
+          if (linePid) {
+            pids.push(linePid);
+            cartItemsPayload.push({
+              type: 'product',
+              productId: linePid,
+              price: linePrice,
+              name: line.name || item.name
+            });
+          }
+        }
+      });
+    } else {
+      // Fallback
+      cartItemsPayload.push({
+        type: 'product',
+        productId: item.momenceId || 492510,
+        price: itemUnit,
+        name: item.name
+      });
+    }
   });
 
   const guestNameInput = document.getElementById('pos-guest-name');
@@ -1074,23 +1119,42 @@ function launchMomencePos() {
 
   recordCafeTransactionInLedger('Stripe Terminal Reader (Bluetooth)');
 
+  const posDataPayload = {
+    customerInfo: {
+      customerEmail: guestEmail,
+      customerName: guestName,
+      payingMemberId: activePosCustomer.memberId ? Number(activePosCustomer.memberId) : undefined
+    },
+    cartItems: cartItemsPayload,
+    cart: cartItemsPayload
+  };
+
   const params = new URLSearchParams();
+  params.set('data', encodeMomencePosData(posDataPayload));
   params.set('customer', guestEmail);
   params.set('email', guestEmail);
   params.set('name', guestName);
   params.set('autoAdd', 'true');
-  params.set('products', pids.join(','));
-  params.set('cart', pids.join(','));
+  if (pids.length > 0) {
+    params.set('products', pids.join(','));
+    params.set('cart', pids.join(','));
+  }
 
   const targetUrl = `https://momence.com/dashboard/200431/point-of-sale?${params.toString()}`;
 
-  navigator.clipboard?.writeText(guestEmail).catch(() => {});
-  showToast(`Attached ${guestName} (${guestEmail}) • Opening Momence POS...`);
+  // Copy order summary & customer email to clipboard for instant staff reference
+  const orderSummary = `Cafe Order #${currentTicketNumber} for ${guestName}:\n` + cart.map(i => `${i.quantity}x ${i.name} ($${(i.unitPrice * i.quantity).toFixed(2)}) - ${i.customizationSummary || 'Standard'}${i.notes ? ` [${i.notes}]` : ''}`).join('\n') + `\nTotal: $${(getCartSubtotal() * 1.13).toFixed(2)} CAD`;
+  navigator.clipboard?.writeText(orderSummary).catch(() => {});
+  showToast(`✓ Preloaded cart with ${cart.length} item(s) • Launching Momence POS...`);
 
-  const win = window.open(targetUrl, '_blank', 'noopener');
-  if (!win) {
-    window.location.href = targetUrl;
-  }
+  // Use breakout anchor to launch Safari where staff session lives
+  const link = document.createElement('a');
+  link.href = targetUrl;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer external';
+  document.body.appendChild(link);
+  link.click();
+  setTimeout(() => link.remove(), 100);
 }
 
 // 3. PRINT BARISTA KITCHEN SLIP
@@ -1109,17 +1173,16 @@ function confirmQuickSale(paymentMethod = 'Contactless Tap') {
   showToast(`✓ Order #CK-${ticket} logged (${paymentMethod})! Register ready.`);
 }
 
-// COPY POS SKUS / IDS
+// COPY POS ORDER SUMMARY & SKUS
 function copyPosPayload() {
-  const pids = [];
-  cart.forEach(item => {
-    item.momenceLineItems.forEach(line => {
-      pids.push(`${line.productId} (${line.name} x${line.quantity * item.quantity})`);
-    });
-  });
+  const guestNameInput = document.getElementById('pos-guest-name');
+  const guestName = guestNameInput && guestNameInput.value.trim() ? guestNameInput.value.trim() : activePosCustomer.name;
+  const orderSummary = `The Practice Cafe • Order #${currentTicketNumber} for ${guestName}:\n` + 
+    cart.map(i => `• ${i.quantity}x ${i.name} ($${(i.unitPrice * i.quantity).toFixed(2)}) - ${i.customizationSummary || 'Standard'}${i.notes ? ` [${i.notes}]` : ''}`).join('\n') + 
+    `\nTotal: $${(getCartSubtotal() * 1.13).toFixed(2)} CAD (HST included)`;
 
-  navigator.clipboard?.writeText(pids.join(', ')).then(() => {
-    showToast('Copied Momence Item IDs to clipboard!');
+  navigator.clipboard?.writeText(orderSummary).then(() => {
+    showToast('✓ Full order summary copied to clipboard!');
   }).catch(() => {
     showToast('Unable to copy');
   });

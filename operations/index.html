@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>The Practice • Studio Operations Suite</title>
+
+  <!-- PWA & Apple Web App Meta Tags -->
+  <meta name="theme-color" content="#EBEDEA">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="The Practice Ops">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="../assets/apple-touch-icon.png">
+
+  <!-- Official The Practice Fonts: Abhaya Libre + Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       THE PRACTICE • OFFICIAL BRAND DESIGN TOKENS
+       ========================================================================== */
+    @font-face {
+      font-family: 'Optima';
+      src: url('../assets/optima-regular.woff2') format('woff2'),
+           url('../assets/optima-regular.woff') format('woff'),
+           url('../assets/optima-regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --color-bg-sage: #EBEDEA;           /* Architectural mineral lime stone */
+      --color-primary: #151515;           /* Deep sanctuary charcoal */
+      --color-text: #333333;              /* High-legibility charcoal slate */
+      --color-text-muted: #54595F;        /* Muted editorial grey */
+      --color-card-bg: #FFFFFF;           /* Alabaster white card surface */
+      --color-surface: #F8F7F6;           /* Alabaster cream */
+      --color-accent-amber: #F5A258;      /* Warm golden terracotta / amber */
+      --color-accent-peach: #FFBC7D;      /* Soft transition peach */
+      --color-button-indigo: #03095F;     /* Signature indigo / navy button */
+      --color-ops-green: #2F4538;         /* Deep sanctuary pine / ops green */
+      --color-border: rgba(21, 21, 21, 0.09);
+      --color-border-subtle: rgba(21, 21, 21, 0.05);
+
+      --font-heading: 'Abhaya Libre', 'Optima', Georgia, serif;
+      --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg-sage);
+      color: var(--color-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Top App Header */
+    .app-header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+
+    .brand-divider {
+      width: 1px;
+      height: 28px;
+      background: var(--color-border);
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-location {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      color: #FFFFFF;
+      background: var(--color-primary);
+    }
+
+    .header-nav-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(21, 21, 21, 0.15);
+    }
+
+    /* Main Container */
+    .main-content {
+      flex: 1;
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 36px 24px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Hero Card */
+    .hero-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 20px 48px rgba(21, 21, 21, 0.06);
+      border: 1px solid var(--color-border);
+      padding: 44px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-ambient-glow {
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(245, 162, 88, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+      pointer-events: none;
+    }
+
+    .status-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0F766E;
+      background: rgba(15, 118, 110, 0.09);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 38px;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--color-text-muted);
+      max-width: 680px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+
+    /* Capabilities Grid */
+    .capabilities-section-title {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      color: var(--color-primary);
+      margin-bottom: 18px;
+    }
+
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .capability-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      border: 1px solid var(--color-border);
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(21, 21, 21, 0.03);
+    }
+
+    .capability-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(21, 21, 21, 0.08);
+      border-color: rgba(21, 21, 21, 0.18);
+    }
+
+    .capability-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-subtle);
+    }
+
+    .capability-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .capability-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .capability-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: #9A3412;
+      background: rgba(194, 65, 12, 0.08);
+      padding: 4px 8px;
+      border-radius: 6px;
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+
+    /* Live Tools Section */
+    .tools-section {
+      background: #FFFFFF;
+      border-radius: 18px;
+      border: 1px solid var(--color-border);
+      padding: 28px 30px;
+      box-shadow: 0 4px 16px rgba(21, 21, 21, 0.03);
+    }
+
+    .tools-title-group {
+      margin-bottom: 20px;
+    }
+
+    .tools-title {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      color: var(--color-primary);
+      margin-bottom: 4px;
+    }
+
+    .tools-sub {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .tools-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .tool-link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      border-radius: 12px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-subtle);
+      text-decoration: none;
+      color: var(--color-primary);
+      transition: all 0.2s ease;
+    }
+
+    .tool-link-card:hover {
+      background: #FFFFFF;
+      border-color: var(--color-border);
+      box-shadow: 0 4px 12px rgba(21, 21, 21, 0.06);
+      transform: translateX(2px);
+    }
+
+    .tool-info strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .tool-info span {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    .tool-arrow {
+      color: var(--color-text-muted);
+      font-size: 18px;
+      margin-left: 8px;
+    }
+
+    /* Footer */
+    .app-footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--color-text-muted);
+      border-top: 1px solid var(--color-border);
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 640px) {
+      .brand-meta { display: none; }
+      .hero-card { padding: 32px 20px; }
+      .hero-title { font-size: 28px; }
+      .capabilities-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top App Navigation Header -->
+  <header class="app-header">
+    <div class="header-left">
+      <a href="../index.html" class="brand-logo-link" title="The Practice">
+        <img src="../assets/the_practice_logo.png" alt="The Practice" class="brand-logo-img">
+      </a>
+      <div class="brand-divider"></div>
+      <div class="brand-meta">
+        <span class="brand-location">YORKVILLE • 360 DAVENPORT RD</span>
+        <span class="brand-subtitle">Studio Operations Suite</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <a href="../index.html" class="header-nav-btn" style="background:#151515;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span>Retail</span>
+      </a>
+      <a href="../daily_schedule.html" class="header-nav-btn" style="background:#1E3A8A;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <span>Schedule</span>
+      </a>
+      <a href="../cafe/index.html" class="header-nav-btn" style="background:#0F766E;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+        <span>Cafe</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Body Content -->
+  <main class="main-content">
+
+    <!-- Hero Card -->
+    <section class="hero-card">
+      <div class="hero-ambient-glow"></div>
+      <span class="status-badge">🌿 IN ACTIVE DEVELOPMENT • COMING SOON</span>
+      <h1 class="hero-title">The Practice • Studio Operations</h1>
+      <p class="hero-subtitle">
+        A dedicated digital operations command center engineered for The Practice studio leads and front-of-house team. This application replaces manual paper binders with automated health compliance, facility checklists, and sanctuary standards.
+      </p>
+    </section>
+
+    <!-- Capabilities / How It Will Help -->
+    <section>
+      <h2 class="capabilities-section-title">What This App Can Do & How It Helps The Team</h2>
+      
+      <div class="capabilities-grid">
+        
+        <!-- DineSafe -->
+        <article class="capability-card">
+          <div class="capability-icon-wrap" style="color:#0F766E;">🥗</div>
+          <h3 class="capability-title">City of Toronto DineSafe</h3>
+          <p class="capability-desc">
+            Automates daily cafe refrigeration temperatures, cold-holding verification, mechanical dishwasher sanitizer PPM test strips, and health inspector audit logs.
+          </p>
+          <span class="capability-tag">Zero Violation Guarantee</span>
+        </article>
+
+        <!-- Opening/Closing -->
+        <article class="capability-card">
+          <div class="capability-icon-wrap" style="color:#D96B27;">🗝️</div>
+          <h3 class="capability-title">Opening & Closing Tech Sweeps</h3>
+          <p class="capability-desc">
+            Step-by-step digital checklists for daily shifts: Lutron lighting presets, VSSL audio amplifier zone discovery, towel warmer prep, and end-of-day register closure.
+          </p>
+          <span class="capability-tag">Standardized Floor Quality</span>
+        </article>
+
+        <!-- Pest Management -->
+        <article class="capability-card">
+          <div class="capability-icon-wrap" style="color:#2F4538;">🛡️</div>
+          <h3 class="capability-title">Pest Management Audits</h3>
+          <p class="capability-desc">
+            Log monthly commercial pest control inspections, monitor sealed exterior entry points, and maintain clean audit records accessible directly on the iPad fleet.
+          </p>
+          <span class="capability-tag">Compliance Tracking</span>
+        </article>
+
+        <!-- Clinical Privacy -->
+        <article class="capability-card">
+          <div class="capability-icon-wrap" style="color:#1E3A8A;">🧘</div>
+          <h3 class="capability-title">Clinical Sanitation & PHIPA</h3>
+          <p class="capability-desc">
+            Standard operating procedure tracking for Cold Plunge water sanitization, Infrared Sauna wipe-downs, and clinical appointment privacy (Jane App initials-only feeds).
+          </p>
+          <span class="capability-tag">Sanctuary Privacy Protocol</span>
+        </article>
+
+        <!-- AV & iPad Fleet Health -->
+        <article class="capability-card">
+          <div class="capability-icon-wrap" style="color:#03095F;">📡</div>
+          <h3 class="capability-title">AV Zones & Fleet Health</h3>
+          <p class="capability-desc">
+            Quick diagnostics for studio floor iPads, VSSL CNCT™ amplifier channels, Soundtrack Your Brand music feeds, and countertop Stripe readers.
+          </p>
+          <span class="capability-tag">Zero Downtime Infrastructure</span>
+        </article>
+
+        <!-- Shift Handover -->
+        <article class="capability-card">
+          <div class="capability-icon-wrap" style="color:#B45309;">📝</div>
+          <h3 class="capability-title">Digital Shift Handover Log</h3>
+          <p class="capability-desc">
+            Instant communication bridge between morning opening leads and afternoon closing teams: note low inventory, guest VIPs, and maintenance tickets seamlessly.
+          </p>
+          <span class="capability-tag">Frictionless Team Handoff</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Active Operational Documents & Tools Preview -->
+    <section class="tools-section">
+      <div class="tools-title-group">
+        <h2 class="tools-title">Available Studio Documents & Checklists</h2>
+        <p class="tools-sub">Access existing operational protocols and reference sheets currently live on this unit:</p>
+      </div>
+
+      <div class="tools-list">
+        <a href="./DineSafe_October_2026_Checklist.html" class="tool-link-card">
+          <div class="tool-info">
+            <strong>DineSafe October Checklist</strong>
+            <span>Daily temperature logs & sanitization checks</span>
+          </div>
+          <span class="tool-arrow">→</span>
+        </a>
+
+        <a href="./TechOps_Weekly_Operations_Dashboard.html" class="tool-link-card">
+          <div class="tool-info">
+            <strong>Weekly Operations Dashboard</strong>
+            <span>Interactive studio task board & metrics</span>
+          </div>
+          <span class="tool-arrow">→</span>
+        </a>
+
+        <a href="./Pest_Inspection_October_2026.html" class="tool-link-card">
+          <div class="tool-info">
+            <strong>Monthly Pest Inspection Audit</strong>
+            <span>Verified commercial sanitation records</span>
+          </div>
+          <span class="tool-arrow">→</span>
+        </a>
+
+        <a href="../The_Practice_Retail_Identifier_iPad_Operations_Handbook.html" class="tool-link-card">
+          <div class="tool-info">
+            <strong>iPad Operations Handbook</strong>
+            <span>Complete floor guide for staff members</span>
+          </div>
+          <span class="tool-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>The Practice • 360 Davenport Rd, Yorkville, Toronto • Confidential & Proprietary Floor Operations Tool</p>
+  </footer>
+
+</body>
+</html>

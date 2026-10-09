@@ -884,9 +884,219 @@
       .schedule-item-card { grid-template-columns: 1fr; }
       .card-time { border-right: none; border-bottom: 1px solid var(--color-border); padding-bottom: 8px; }
     }
+
+    /* ==========================================================================
+       COMING SOON ARCHITECTURAL HOLDING SCREEN & STAFF PREVIEW MODE
+       ========================================================================== */
+    .schedule-placeholder-screen {
+      position: fixed;
+      inset: 0;
+      background: var(--color-bg-sage);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-y: auto;
+    }
+    .placeholder-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 20px 48px rgba(21, 21, 21, 0.08);
+      border: 1px solid var(--color-border);
+      max-width: 680px;
+      width: 100%;
+      padding: 44px 40px;
+      text-align: center;
+      position: relative;
+    }
+    .placeholder-logo {
+      height: 48px;
+      width: auto;
+      margin-bottom: 20px;
+    }
+    .placeholder-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9A3412;
+      background: rgba(194, 65, 12, 0.09);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .placeholder-title {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      color: var(--color-primary);
+      margin: 0 0 10px 0;
+      letter-spacing: -0.01em;
+    }
+    .placeholder-subtitle {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      margin: 0 0 24px 0;
+      line-height: 1.5;
+    }
+    .placeholder-features {
+      text-align: left;
+      background: var(--color-surface);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 28px;
+      border: 1px solid var(--color-border-subtle);
+    }
+    .placeholder-features h4 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-primary);
+      margin: 0 0 12px 0;
+    }
+    .feature-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--color-text);
+    }
+    .feature-item:last-child {
+      margin-bottom: 0;
+    }
+    .feature-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      margin-top: 1px;
+    }
+    .btn-preview-schedule {
+      background: var(--color-button-indigo);
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(3, 9, 95, 0.25);
+      transition: all 0.2s ease;
+    }
+    .btn-preview-schedule:hover {
+      background: var(--color-accent-amber);
+      color: var(--color-primary);
+      transform: translateY(-1px);
+    }
+    .placeholder-nav-row {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      font-size: 12px;
+    }
+    .placeholder-nav-row a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .placeholder-nav-row a:hover {
+      color: var(--color-primary);
+    }
+    .preview-banner {
+      background: #FEF3C7;
+      border-bottom: 1px solid #F59E0B;
+      color: #92400E;
+      padding: 10px 16px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .btn-exit-preview {
+      background: rgba(146, 64, 14, 0.15);
+      border: 1px solid #92400E;
+      color: #92400E;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+
+  <!-- ==========================================================================
+       COMING SOON PLACEHOLDER & STAFF PREVIEW MODE
+       ========================================================================== -->
+  <div id="schedule-placeholder-screen" class="schedule-placeholder-screen">
+    <div class="placeholder-card">
+      <img src="./assets/the_practice_logo.png" alt="The Practice" class="placeholder-logo">
+      <div><span class="placeholder-badge">🌿 In Active Development</span></div>
+      <h1 class="placeholder-title">Daily Studio Schedule</h1>
+      <p class="placeholder-subtitle">
+        We are building a unified studio operational schedule for The Practice iPad fleet. This tool is currently undergoing live backend synchronization to bring our three core systems into one real-time floor view.
+      </p>
+
+      <div class="placeholder-features">
+        <h4>How This Will Help The Studio Team:</h4>
+        <div class="feature-item">
+          <span class="feature-icon" style="background:var(--color-momence-bg);color:var(--color-momence);">🧘</span>
+          <div><strong>Momence Class Check-Ins:</strong> Live guest rosters for Yoga Studio 1, Sound Baths, and Movement sessions, with instant check-in tags and spot management.</div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon" style="background:var(--color-jane-bg);color:var(--color-jane);">🌿</span>
+          <div><strong>Jane App Clinical Treatment Feeds:</strong> Real-time appointment timeline for Cold Plunge, Infrared Sauna, and Bodywork with privacy-sanitized guest initials (PHIPA compliant).</div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon" style="background:var(--color-homebase-bg);color:var(--color-homebase);">⏱️</span>
+          <div><strong>Homebase Shift Roster:</strong> Floor coverage, barista bar leads, active shift hours, and scheduled transition windows.</div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon" style="background:rgba(21,21,21,0.06);color:var(--color-primary);">⚡</span>
+          <div><strong>Zero Cross-App Friction:</strong> Floor staff can glance at one screen during busy class changeovers without juggling three separate vendor logins.</div>
+        </div>
+      </div>
+
+      <button type="button" class="btn-preview-schedule" onclick="toggleSchedulePreview(true)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+        <span>Preview Schedule Interface</span>
+      </button>
+
+      <div class="placeholder-nav-row">
+        <a href="./index.html">← Retail Store Search</a>
+        <span>•</span>
+        <a href="./cafe/index.html">The Cafe Web Ordering →</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="preview-mode-banner" class="preview-banner" style="display:none;">
+    <span>⚡ <strong>Interactive Staff Preview Mode:</strong> This interface is a preview of the upcoming unified daily schedule. Automated live sync will activate in v2.0.</span>
+    <button type="button" class="btn-exit-preview" onclick="toggleSchedulePreview(false)">← Back to Notice</button>
+  </div>
 
   <div class="app-container">
 
@@ -1744,6 +1954,18 @@
 
     function saveHandoffNotes(val) {
       localStorage.setItem('the_practice_schedule_notes', val);
+    }
+
+    function toggleSchedulePreview(showPreview) {
+      const placeholder = document.getElementById('schedule-placeholder-screen');
+      const banner = document.getElementById('preview-mode-banner');
+      if (showPreview) {
+        if (placeholder) placeholder.style.display = 'none';
+        if (banner) banner.style.display = 'flex';
+      } else {
+        if (placeholder) placeholder.style.display = 'flex';
+        if (banner) banner.style.display = 'none';
+      }
     }
 
     window.addEventListener('DOMContentLoaded', () => {
