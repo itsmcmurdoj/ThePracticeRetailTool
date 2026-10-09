@@ -3235,7 +3235,7 @@ const PRODUCTS = [
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/567182/edit",
-    "img": "https://images.momence.com/h/200431/product-image/6997350a-5f55-4f90-937d-b373e869ad43.jpg",
+    "img": "https://images.momence.com/h/200431/product-image/fb5f9cc2-3fec-4ebc-8da8-146f37710529.jpg",
     "location": {
       "zoneKey": "CAFE_BAR",
       "zoneName": "Cafe Bar & Nourishment Station",
@@ -3487,7 +3487,7 @@ const PRODUCTS = [
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/567180/edit",
-    "img": "https://images.momence.com/h/200431/product-image/ef86d8af-738d-4de2-943d-b3be273c0dd3.jpg",
+    "img": "https://images.momence.com/h/200431/product-image/67502879-e7fb-4499-8855-137178ed09fc.jpg",
     "location": {
       "zoneKey": "CAFE_BAR",
       "zoneName": "Cafe Bar & Nourishment Station",
@@ -4160,7 +4160,7 @@ const PRODUCTS = [
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/567178/edit",
-    "img": "https://images.momence.com/h/200431/product-image/538953f2-30c2-44a4-b85b-40386bf93c76.jpg",
+    "img": "https://images.momence.com/h/200431/product-image/cae3cc2b-aa7b-4e30-b50e-a0f6ff180b37.jpg",
     "location": {
       "zoneKey": "CAFE_BAR",
       "zoneName": "Cafe Bar & Nourishment Station",
@@ -4272,7 +4272,7 @@ const PRODUCTS = [
     ],
     "pitch": "Curated lifestyle and wellness essential selected exclusively for The Practice community.",
     "momenceUrl": "https://momence.com/dashboard/200431/products/567179/edit",
-    "img": "https://images.momence.com/h/200431/product-image/60e7174d-c709-4870-ac16-4d1137c3adfb.jpg",
+    "img": "https://images.momence.com/h/200431/product-image/0a494e6d-397e-463f-bec7-5414d40f3380.jpg",
     "location": {
       "zoneKey": "CAFE_BAR",
       "zoneName": "Cafe Bar & Nourishment Station",
