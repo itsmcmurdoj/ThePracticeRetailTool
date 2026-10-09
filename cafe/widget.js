@@ -1258,4 +1258,7 @@ window.closeModal = typeof closeModal !== 'undefined' ? closeModal : undefined;
 window.filterCategory = typeof filterCategory !== 'undefined' ? filterCategory : undefined;
 window.handleMomencePosClick = typeof handleMomencePosClick !== 'undefined' ? handleMomencePosClick : undefined;
 window.updateMomencePosButtonUrl = typeof updateMomencePosButtonUrl !== 'undefined' ? updateMomencePosButtonUrl : undefined;
+window.buildMomencePosUrl = typeof buildMomencePosUrl !== 'undefined' ? buildMomencePosUrl : undefined;
+window.CAFE_MENU = typeof CAFE_MENU !== 'undefined' ? CAFE_MENU : undefined;
+window.MODIFIERS_CONFIG = typeof MODIFIERS_CONFIG !== 'undefined' ? MODIFIERS_CONFIG : undefined;
 
