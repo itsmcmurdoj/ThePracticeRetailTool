@@ -1241,18 +1241,18 @@ function showToast(msg) {
 }
 
 // EXPLICIT GLOBAL WINDOW EXPORTS FOR INLINE EVENT HANDLERS
-window.launchMomencePos = launchMomencePos;
-window.executeMomenceCheckout = executeMomenceCheckout;
-window.chargeCafeCardOnFile = chargeCafeCardOnFile;
-window.printBaristaKitchenSlip = printBaristaKitchenSlip;
-window.copyPosPayload = copyPosPayload;
-window.closePosModal = closePosModal;
-window.addConfiguredItemToCart = addConfiguredItemToCart;
-window.closeCartDrawer = closeCartDrawer;
-window.openCartDrawer = openCartDrawer;
-window.openModifierModal = openModifierModal;
-window.closeModifierModal = closeModifierModal;
-window.filterCategory = filterCategory;
-window.handleMomencePosClick = handleMomencePosClick;
-window.updateMomencePosButtonUrl = updateMomencePosButtonUrl;
+window.launchMomencePos = typeof launchMomencePos !== 'undefined' ? launchMomencePos : undefined;
+window.executeMomenceCheckout = typeof executeMomenceCheckout !== 'undefined' ? executeMomenceCheckout : undefined;
+window.chargeCafeCardOnFile = typeof chargeCafeCardOnFile !== 'undefined' ? chargeCafeCardOnFile : undefined;
+window.printBaristaKitchenSlip = typeof printBaristaKitchenSlip !== 'undefined' ? printBaristaKitchenSlip : undefined;
+window.copyPosPayload = typeof copyPosPayload !== 'undefined' ? copyPosPayload : undefined;
+window.closePosModal = typeof closePosModal !== 'undefined' ? closePosModal : undefined;
+window.addConfiguredItemToCart = typeof addConfiguredItemToCart !== 'undefined' ? addConfiguredItemToCart : undefined;
+window.closeCartDrawer = typeof closeCartDrawer !== 'undefined' ? closeCartDrawer : undefined;
+window.openCartDrawer = typeof openCartDrawer !== 'undefined' ? openCartDrawer : undefined;
+window.openCustomizer = typeof openCustomizer !== 'undefined' ? openCustomizer : undefined;
+window.closeModal = typeof closeModal !== 'undefined' ? closeModal : undefined;
+window.filterCategory = typeof filterCategory !== 'undefined' ? filterCategory : undefined;
+window.handleMomencePosClick = typeof handleMomencePosClick !== 'undefined' ? handleMomencePosClick : undefined;
+window.updateMomencePosButtonUrl = typeof updateMomencePosButtonUrl !== 'undefined' ? updateMomencePosButtonUrl : undefined;
 

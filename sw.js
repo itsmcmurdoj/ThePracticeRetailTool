@@ -4,7 +4,7 @@
  * Implements Network-First for catalog data (products.js) to guarantee instant fleet sync
  */
 
-const CACHE_NAME = 'the-practice-retail-v19-native-pos-link';
+const CACHE_NAME = 'the-practice-retail-v20-open-customizer-fix';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
