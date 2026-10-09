@@ -1203,3 +1203,18 @@ function showToast(msg) {
     toast.classList.remove('show');
   }, 2400);
 }
+
+// EXPLICIT GLOBAL WINDOW EXPORTS FOR INLINE EVENT HANDLERS
+window.launchMomencePos = launchMomencePos;
+window.executeMomenceCheckout = executeMomenceCheckout;
+window.chargeCafeCardOnFile = chargeCafeCardOnFile;
+window.printBaristaKitchenSlip = printBaristaKitchenSlip;
+window.copyPosPayload = copyPosPayload;
+window.closePosModal = closePosModal;
+window.addConfiguredItemToCart = addConfiguredItemToCart;
+window.closeCartDrawer = closeCartDrawer;
+window.openCartDrawer = openCartDrawer;
+window.openModifierModal = openModifierModal;
+window.closeModifierModal = closeModifierModal;
+window.filterCategory = filterCategory;
+

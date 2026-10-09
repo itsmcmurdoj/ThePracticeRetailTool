@@ -4,7 +4,7 @@
  * Implements Network-First for catalog data (products.js) to guarantee instant fleet sync
  */
 
-const CACHE_NAME = 'the-practice-retail-v17-oct9-staff-suite';
+const CACHE_NAME = 'the-practice-retail-v18-fresh-bridge';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -51,8 +51,8 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const url = event.request.url;
 
-  // Catalog data or main document: Network first, fallback to cache
-  if (url.includes('products.js') || event.request.mode === 'navigate' || url.endsWith('/') || url.includes('index.html')) {
+  // Catalog data, scripts, or main document: Network first, fallback to cache
+  if (url.includes('products.js') || url.includes('widget.js') || url.includes('app.js') || event.request.mode === 'navigate' || url.endsWith('/') || url.includes('index.html')) {
     event.respondWith(
       fetch(event.request)
         .then((networkResponse) => {
